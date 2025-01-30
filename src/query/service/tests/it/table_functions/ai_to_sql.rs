@@ -12,10 +12,10 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_query::table_functions::GPT2SQLTable;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_query::table_functions::GPT2SQLTable;
 
 #[test]
 fn test_ai_to_sql_args() -> Result<()> {

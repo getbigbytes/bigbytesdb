@@ -16,10 +16,10 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use arrow_schema::Schema as ArrowSchema;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::converts::arrow::EXTENSION_KEY;
-use bigbytes_common_expression::FieldIndex;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::converts::arrow::EXTENSION_KEY;
+use bigbytesdb_common_expression::FieldIndex;
 use opendal::Operator;
 use parquet::arrow::parquet_to_arrow_schema;
 // FIXME(xuanwo): refactor code here.
@@ -269,10 +269,10 @@ pub fn traverse_parquet_schema_tree(
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_expression::types::NumberDataType;
-    use bigbytes_common_expression::TableDataType;
-    use bigbytes_common_expression::TableField;
-    use bigbytes_common_expression::TableSchema;
+    use bigbytesdb_common_expression::types::NumberDataType;
+    use bigbytesdb_common_expression::TableDataType;
+    use bigbytesdb_common_expression::TableField;
+    use bigbytesdb_common_expression::TableSchema;
     use parquet::arrow::arrow_to_parquet_schema;
 
     use crate::parquet_rs::build_parquet_schema_tree;

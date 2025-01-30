@@ -30,14 +30,14 @@ use clap::Args;
 use clap::CommandFactory;
 use clap::Parser;
 use clap::Subcommand;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::Config as LogConfig;
-use bigbytes_common_tracing::FileConfig;
-use bigbytes_meta::version::METASRV_COMMIT_VERSION;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::Config as LogConfig;
+use bigbytesdb_common_tracing::FileConfig;
+use bigbytesdb_meta::version::METASRV_COMMIT_VERSION;
 use serde::Deserialize;
 
 #[derive(Debug, Clone, Deserialize, Args)]
@@ -213,7 +213,7 @@ pub struct BenchArgs {
 }
 
 #[derive(Debug, Deserialize, Parser)]
-#[clap(name = "bigbytes-metactl", about, version = &**METASRV_COMMIT_VERSION, author)]
+#[clap(name = "bigbytesdb-metactl", about, version = &**METASRV_COMMIT_VERSION, author)]
 struct App {
     #[clap(subcommand)]
     command: Option<CtlCommand>,
@@ -368,10 +368,10 @@ async fn main() -> anyhow::Result<()> {
         file: FileConfig {
             on: true,
             level: app.globals.log_level.clone(),
-            dir: ".bigbytes/logs".to_string(),
+            dir: ".bigbytesdb/logs".to_string(),
             format: "text".to_string(),
             limit: 48,
-            prefix_filter: "bigbytes_".to_string(),
+            prefix_filter: "bigbytesdb_".to_string(),
         },
         ..Default::default()
     };

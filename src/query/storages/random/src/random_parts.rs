@@ -15,10 +15,10 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Eq)]
 pub struct RandomPartInfo {

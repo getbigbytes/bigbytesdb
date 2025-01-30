@@ -14,17 +14,17 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::ast::UDFDefinition;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_config::UDFConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_meta_app::principal::UserDefinedFunction;
-use bigbytes_common_sql::resolve_type_name_udf;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::ast::UDFDefinition;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_config::UDFConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_meta_app::principal::UserDefinedFunction;
+use bigbytesdb_common_sql::resolve_type_name_udf;
 use log::error;
 
 pub struct BuiltinUDFs {
@@ -118,7 +118,7 @@ mod tests {
     RETURNS STRING
     LANGUAGE python
 HANDLER = 'test_udf1'
-ADDRESS = 'https://bigbytes.com'"
+ADDRESS = 'https://bigbytesdb.com'"
                     .to_string(),
             },
             UDFConfig {
@@ -127,7 +127,7 @@ ADDRESS = 'https://bigbytes.com'"
     RETURNS FLOAT
     LANGUAGE python
 HANDLER = 'test_udf2'
-ADDRESS = 'https://bigbytes.com'"
+ADDRESS = 'https://bigbytesdb.com'"
                     .to_string(),
             },
             UDFConfig {

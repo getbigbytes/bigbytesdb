@@ -16,9 +16,9 @@ use std::borrow::Cow;
 use std::collections::BTreeMap;
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::runtime::Thread;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::runtime::Thread;
 use fastrace::prelude::*;
 use log::LevelFilter;
 use log::Metadata;
@@ -182,9 +182,9 @@ pub fn init_logging(
         let dispatch = Dispatch::new()
             .filter(EnvFilter::new(
                 EnvFilterBuilder::new()
-                    .filter(Some("bigbytes::log::query"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::profile"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::structlog"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::query"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::profile"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::structlog"), LevelFilter::Off)
                     .parse(&cfg.file.level),
             ))
             .filter(make_log_filter(&cfg.file.prefix_filter))
@@ -197,9 +197,9 @@ pub fn init_logging(
         let dispatch = Dispatch::new()
             .filter(EnvFilter::new(
                 EnvFilterBuilder::new()
-                    .filter(Some("bigbytes::log::query"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::profile"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::structlog"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::query"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::profile"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::structlog"), LevelFilter::Off)
                     .parse(&cfg.stderr.level),
             ))
             .append(
@@ -229,9 +229,9 @@ pub fn init_logging(
         let dispatch = Dispatch::new()
             .filter(EnvFilter::new(
                 EnvFilterBuilder::new()
-                    .filter(Some("bigbytes::log::query"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::profile"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::structlog"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::query"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::profile"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::structlog"), LevelFilter::Off)
                     .parse(&cfg.otlp.level),
             ))
             .append(otel);
@@ -249,9 +249,9 @@ pub fn init_logging(
         let dispatch = Dispatch::new()
             .filter(EnvFilter::new(
                 EnvFilterBuilder::new()
-                    .filter(Some("bigbytes::log::query"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::profile"), LevelFilter::Off)
-                    .filter(Some("bigbytes::log::structlog"), LevelFilter::Off),
+                    .filter(Some("bigbytesdb::log::query"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::profile"), LevelFilter::Off)
+                    .filter(Some("bigbytesdb::log::structlog"), LevelFilter::Off),
             ))
             .filter(level)
             .append(logforth::append::FastraceEvent::default());
@@ -268,7 +268,7 @@ pub fn init_logging(
             let dispatch = Dispatch::new()
                 .filter(EnvFilter::new(
                     EnvFilterBuilder::new()
-                        .filter(Some("bigbytes::log::query"), LevelFilter::Trace),
+                        .filter(Some("bigbytesdb::log::query"), LevelFilter::Trace),
                 ))
                 .append(query_log_file.with_layout(get_layout("identical")));
             logger = logger.dispatch(dispatch);
@@ -293,7 +293,7 @@ pub fn init_logging(
             let dispatch = Dispatch::new()
                 .filter(EnvFilter::new(
                     EnvFilterBuilder::new()
-                        .filter(Some("bigbytes::log::query"), LevelFilter::Trace),
+                        .filter(Some("bigbytesdb::log::query"), LevelFilter::Trace),
                 ))
                 .append(otel);
             logger = logger.dispatch(dispatch);
@@ -310,7 +310,7 @@ pub fn init_logging(
             let dispatch = Dispatch::new()
                 .filter(EnvFilter::new(
                     EnvFilterBuilder::new()
-                        .filter(Some("bigbytes::log::profile"), LevelFilter::Trace),
+                        .filter(Some("bigbytesdb::log::profile"), LevelFilter::Trace),
                 ))
                 .append(profile_log_file.with_layout(get_layout("identical")));
             logger = logger.dispatch(dispatch);
@@ -335,7 +335,7 @@ pub fn init_logging(
             let dispatch = Dispatch::new()
                 .filter(EnvFilter::new(
                     EnvFilterBuilder::new()
-                        .filter(Some("bigbytes::log::profile"), LevelFilter::Trace),
+                        .filter(Some("bigbytesdb::log::profile"), LevelFilter::Trace),
                 ))
                 .append(otel);
             logger = logger.dispatch(dispatch);
@@ -351,7 +351,7 @@ pub fn init_logging(
         let dispatch = Dispatch::new()
             .filter(EnvFilter::new(
                 EnvFilterBuilder::new()
-                    .filter(Some("bigbytes::log::structlog"), LevelFilter::Trace),
+                    .filter(Some("bigbytesdb::log::structlog"), LevelFilter::Trace),
             ))
             .append(structlog_log_file);
         logger = logger.dispatch(dispatch);

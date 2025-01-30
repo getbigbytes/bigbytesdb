@@ -15,19 +15,19 @@
 //! Defines application key spaces that are defined by raft-store.
 //! All of the key spaces stores key-value pairs in the underlying sled db.
 
-use bigbytes_common_meta_sled_store::sled;
-use bigbytes_common_meta_sled_store::SledKeySpace;
-use bigbytes_common_meta_sled_store::SledOrderedSerde;
-use bigbytes_common_meta_sled_store::SledSerde;
-use bigbytes_common_meta_stoerr::MetaStorageError;
-use bigbytes_common_meta_types::raft_types::Entry;
-use bigbytes_common_meta_types::raft_types::LogId;
-use bigbytes_common_meta_types::raft_types::LogIndex;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::raft_types::Vote;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Node;
-use bigbytes_common_meta_types::SeqNum;
+use bigbytesdb_common_meta_sled_store::sled;
+use bigbytesdb_common_meta_sled_store::SledKeySpace;
+use bigbytesdb_common_meta_sled_store::SledOrderedSerde;
+use bigbytesdb_common_meta_sled_store::SledSerde;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_types::raft_types::Entry;
+use bigbytesdb_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::LogIndex;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::raft_types::Vote;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_common_meta_types::SeqNum;
 use serde::Deserialize;
 use serde::Serialize;
 

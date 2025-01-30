@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::CreateOption;
-use bigbytes_common_ast::ast::CreateTableStmt;
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::ExprReplacer;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_ast::ast::TableType;
-use bigbytes_common_ast::ast::With;
-use bigbytes_common_ast::ast::CTE;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::catalog::CATALOG_DEFAULT;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::CreateOption;
+use bigbytesdb_common_ast::ast::CreateTableStmt;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::ExprReplacer;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::TableType;
+use bigbytesdb_common_ast::ast::With;
+use bigbytesdb_common_ast::ast::CTE;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::catalog::CATALOG_DEFAULT;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::CteInfo;
 use crate::normalize_identifier;
@@ -232,7 +232,7 @@ impl Binder {
 
         let create_table_sql = create_table_stmt.to_string();
         if let Some(subquery_executor) = &self.subquery_executor {
-            let _ = bigbytes_common_base::runtime::block_on(async move {
+            let _ = bigbytesdb_common_base::runtime::block_on(async move {
                 subquery_executor
                     .execute_query_with_sql_string(&create_table_sql)
                     .await

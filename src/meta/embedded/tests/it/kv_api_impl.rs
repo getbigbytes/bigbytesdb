@@ -15,11 +15,11 @@
 use std::collections::BTreeMap;
 use std::sync::Once;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_raft_store::mem_meta::MemMeta;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::Config;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_raft_store::mem_meta::MemMeta;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::Config;
 
 #[derive(Clone)]
 struct Builder;

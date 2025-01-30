@@ -1,4 +1,4 @@
-name: "Test protocol compatibility between bigbytes-meta servers"
+name: "Test protocol compatibility between bigbytesdb-meta servers"
 description: "Download old binaries and current binaries, write some data and then read data"
 runs:
   using: "composite"

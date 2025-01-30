@@ -19,17 +19,17 @@ use std::sync::Arc;
 
 use arrow_schema::Schema;
 use async_trait::async_trait;
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_config::BIGBYTES_SEMVER;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::Event;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_storages_common_table_meta::table::TableCompression;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_config::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::Event;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_storages_common_table_meta::table::TableCompression;
 use opendal::Operator;
 use parquet::arrow::ArrowWriter;
 use parquet::basic::Encoding;
@@ -71,7 +71,7 @@ pub struct ParquetFileWriter {
 const MAX_BUFFER_SIZE: usize = 64 * 1024 * 1024;
 // this is number of rows, not size
 const MAX_ROW_GROUP_SIZE: usize = 1024 * 1024;
-const CREATE_BY_LEN: usize = 24; // "Bigbytes 1.2.333-nightly".len();
+const CREATE_BY_LEN: usize = 24; // "Bigbytesdb 1.2.333-nightly".len();
 
 fn create_writer(
     arrow_schema: Arc<Schema>,
@@ -80,11 +80,11 @@ fn create_writer(
     // example:  1.2.333-nightly
     // tags may contain other items like `1.2.680-p2`, we will fill it with `1.2.680-p2.....`
     let mut create_by = format!(
-        "Bigbytes {}.{}.{}-{:.<7}",
-        BIGBYTES_SEMVER.major,
-        BIGBYTES_SEMVER.minor,
-        BIGBYTES_SEMVER.patch,
-        BIGBYTES_SEMVER.pre.as_str()
+        "Bigbytesdb {}.{}.{}-{:.<7}",
+        BIGBYTESDB_SEMVER.major,
+        BIGBYTESDB_SEMVER.minor,
+        BIGBYTESDB_SEMVER.patch,
+        BIGBYTESDB_SEMVER.pre.as_str()
     );
 
     if create_by.len() != CREATE_BY_LEN {

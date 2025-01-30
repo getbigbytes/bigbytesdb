@@ -15,7 +15,7 @@
 use std::cmp::Ordering;
 use std::ops::Range;
 
-pub use bigbytes_common_column::bitmap::*;
+pub use bigbytesdb_common_column::bitmap::*;
 
 use crate::property::Domain;
 use crate::types::ArgType;
@@ -37,7 +37,7 @@ impl ValueType for BooleanType {
     type ScalarRef<'a> = bool;
     type Column = Bitmap;
     type Domain = BooleanDomain;
-    type ColumnIterator<'a> = bigbytes_common_column::bitmap::utils::BitmapIter<'a>;
+    type ColumnIterator<'a> = bigbytesdb_common_column::bitmap::utils::BitmapIter<'a>;
     type ColumnBuilder = MutableBitmap;
 
     #[inline]

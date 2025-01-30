@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Value;
 
 use crate::pipelines::processors::transforms::hash_join::HashJoinProbeState;
 use crate::pipelines::processors::transforms::hash_join::ProbeState;

@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::PartInfoType;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::ReclusterInfoSideCar;
-use bigbytes_common_catalog::plan::ReclusterParts;
-use bigbytes_common_catalog::plan::ReclusterTask;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_enterprise_hilbert_clustering::get_hilbert_clustering_handler;
+use bigbytesdb_common_catalog::plan::PartInfoType;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::ReclusterInfoSideCar;
+use bigbytesdb_common_catalog::plan::ReclusterParts;
+use bigbytesdb_common_catalog::plan::ReclusterTask;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_enterprise_hilbert_clustering::get_hilbert_clustering_handler;
 
 use crate::executor::physical_plans::CommitSink;
 use crate::executor::physical_plans::CompactSource;

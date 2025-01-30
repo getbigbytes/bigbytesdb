@@ -7,17 +7,17 @@ BENCHMARK_ID=${BENCHMARK_ID:-$(date +%s)}
 BENCHMARK_DATASET=${BENCHMARK_DATASET:-merge_into}
 
 echo "###############################################"
-echo "Running benchmark for bigbytes local storage..."
+echo "Running benchmark for bigbytesdb local storage..."
 
 echo "Checking script dependencies..."
 python3 --version
 yq --version
 bendsql --version
 
-killall bigbytes-query || true
-killall bigbytes-meta || true
+killall bigbytesdb-query || true
+killall bigbytesdb-meta || true
 sleep 1
-for bin in bigbytes-query bigbytes-meta; do
+for bin in bigbytesdb-query bigbytesdb-meta; do
     if test -n "$(pgrep $bin)"; then
         echo "The $bin is not killed. force killing."
         killall -9 $bin || true
@@ -27,11 +27,11 @@ done
 # Wait for killed process to cleanup resources
 sleep 1
 
-echo 'Start bigbytes-meta...'
-nohup ./bigbytes-meta --single &
-echo "Waiting on bigbytes-meta 10 seconds..."
+echo 'Start bigbytesdb-meta...'
+nohup ./bigbytesdb-meta --single &
+echo "Waiting on bigbytesdb-meta 10 seconds..."
 ./wait_tcp.py --port 9191 --timeout 10
-echo 'Start bigbytes-query...'
+echo 'Start bigbytesdb-query...'
 
 cat <<EOF >config.toml
 [query]
@@ -48,14 +48,14 @@ type = "fs"
 data_path = "benchmark/data/${BENCHMARK_ID}/${BENCHMARK_DATASET}/"
 EOF
 
-nohup ./bigbytes-query --config-file config.toml --storage-allow-insecure &
+nohup ./bigbytesdb-query --config-file config.toml --storage-allow-insecure &
 
-echo "Waiting on bigbytes-query 10 seconds..."
+echo "Waiting on bigbytesdb-query 10 seconds..."
 ./wait_tcp.py --port 8000 --timeout 10
 
-# Connect to bigbytes-query
+# Connect to bigbytesdb-query
 
-export BENDSQL_DSN="bigbytes://root:@localhost:8000/${BENCHMARK_DATASET}?sslmode=disable"
+export BENDSQL_DSN="bigbytesdb://root:@localhost:8000/${BENCHMARK_DATASET}?sslmode=disable"
 echo "CREATE DATABASE ${BENCHMARK_DATASET};" | bendsql
 
 # Load the data

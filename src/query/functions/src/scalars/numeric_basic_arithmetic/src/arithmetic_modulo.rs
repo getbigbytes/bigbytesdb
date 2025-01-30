@@ -14,11 +14,11 @@
 
 use std::ops::Rem;
 
-use bigbytes_common_expression::types::number::*;
-use bigbytes_common_expression::types::ArgType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::EvalContext;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_expression::types::number::*;
+use bigbytesdb_common_expression::types::ArgType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::EvalContext;
+use bigbytesdb_common_expression::Value;
 use num_traits::AsPrimitive;
 use strength_reduce::StrengthReducedU16;
 use strength_reduce::StrengthReducedU32;

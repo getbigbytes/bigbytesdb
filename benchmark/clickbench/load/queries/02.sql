@@ -107,4 +107,4 @@ CREATE TABLE hits_tsv (
     CLID INTEGER NOT NULL
 ) CLUSTER BY (CounterID, EventDate, UserID, EventTime, WatchID);
 COPY INTO hits_tsv
-FROM 's3://bigbytes-datasets/hits_compatible/hits.tsv.gz' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'TSV', COMPRESSION = AUTO);
+FROM 's3://bigbytesdb-datasets/hits_compatible/hits.tsv.gz' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'TSV', COMPRESSION = AUTO);

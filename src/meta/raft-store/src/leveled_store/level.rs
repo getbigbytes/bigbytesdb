@@ -17,8 +17,8 @@ use std::collections::BTreeMap;
 use std::io;
 use std::ops::RangeBounds;
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use futures_util::StreamExt;
 use log::warn;
 

@@ -14,7 +14,7 @@
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 /// bincode serialize_into wrap with optimized config
 #[inline]

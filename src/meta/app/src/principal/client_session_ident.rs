@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_kvapi::kvapi::KeyBuilder;
-use bigbytes_common_meta_kvapi::kvapi::KeyCodec;
-use bigbytes_common_meta_kvapi::kvapi::KeyError;
-use bigbytes_common_meta_kvapi::kvapi::KeyParser;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyBuilder;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyCodec;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyError;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyParser;
 
 use crate::tenant_key::ident::TIdent;
 
@@ -47,7 +47,7 @@ pub use kvapi_impl::Resource;
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::principal::client_session::ClientSession;
     use crate::principal::client_session_ident::ClientSessionIdent;
@@ -71,7 +71,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::principal::client_session_ident::ClientSessionIdent;
     use crate::principal::client_session_ident::UserSessionId;

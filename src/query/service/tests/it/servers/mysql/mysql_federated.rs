@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::block_debug::assert_blocks_eq;
-use bigbytes_query::servers::MySQLFederated;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::block_debug::assert_blocks_eq;
+use bigbytesdb_query::servers::MySQLFederated;
 
 #[test]
 fn test_mysql_federated() -> Result<()> {

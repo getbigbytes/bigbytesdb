@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub use bigbytes_common_column::error::Error;
-pub use bigbytes_common_column::error::Result;
+pub use bigbytesdb_common_column::error::Error;
+pub use bigbytesdb_common_column::error::Result;
 
 #[macro_export]
 macro_rules! general_err {

@@ -12,17 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::filter::FilterExecutor;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::DecimalSize;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_expression::filter::FilterExecutor;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::DecimalSize;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use itertools::Itertools;
 use rand::Rng;
 
@@ -30,7 +30,7 @@ use super::random_filter_expr;
 
 // Test the result of `FilterExecutor` is the same as `Evaluator`.
 #[test]
-pub fn test_filter_executor() -> bigbytes_common_exception::Result<()> {
+pub fn test_filter_executor() -> bigbytesdb_common_exception::Result<()> {
     let mut rng = rand::thread_rng();
     // For EmptyMap, Map, Bitmap comparison, it is not supported by Evaluator.
     let data_types = get_filter_data_types();

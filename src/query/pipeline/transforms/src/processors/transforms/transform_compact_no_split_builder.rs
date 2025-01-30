@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::Pipeline;
 
 use crate::processors::AccumulatingTransform;
 use crate::processors::BlockCompactMeta;

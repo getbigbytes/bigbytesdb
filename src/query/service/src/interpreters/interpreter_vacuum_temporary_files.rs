@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_license::license::Feature::Vacuum;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_sql::plans::VacuumTemporaryFilesPlan;
-use bigbytes_enterprise_vacuum_handler::get_vacuum_handler;
-use bigbytes_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_license::license::Feature::Vacuum;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_sql::plans::VacuumTemporaryFilesPlan;
+use bigbytesdb_enterprise_vacuum_handler::get_vacuum_handler;
+use bigbytesdb_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

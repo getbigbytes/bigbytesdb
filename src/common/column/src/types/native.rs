@@ -24,7 +24,7 @@ use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
 use bytemuck::Pod;
 use bytemuck::Zeroable;
-use bigbytes_common_base::base::OrderedFloat;
+use bigbytesdb_common_base::base::OrderedFloat;
 use log::error;
 use serde_derive::Deserialize;
 use serde_derive::Serialize;

@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_cloud_control::client_config::make_request;
-use bigbytes_common_cloud_control::cloud_api::CloudControlApiProvider;
-use bigbytes_common_cloud_control::pb::DropNotificationRequest;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::DropNotificationPlan;
+use bigbytesdb_common_cloud_control::client_config::make_request;
+use bigbytesdb_common_cloud_control::cloud_api::CloudControlApiProvider;
+use bigbytesdb_common_cloud_control::pb::DropNotificationRequest;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::DropNotificationPlan;
 
 use crate::interpreters::common::get_notification_client_config;
 use crate::interpreters::Interpreter;

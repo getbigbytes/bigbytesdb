@@ -3,6 +3,6 @@ serial-integration = { max-threads = 1 }
 
 
 [[profile.default.overrides]]
-filter = 'package(bigbytes-meta)'
+filter = 'package(bigbytesdb-meta)'
 test-group = 'serial-integration'
 

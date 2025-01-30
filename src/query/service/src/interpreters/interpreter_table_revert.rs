@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::NavigationDescriptor;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::RevertTablePlan;
+use bigbytesdb_common_catalog::table::NavigationDescriptor;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::RevertTablePlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

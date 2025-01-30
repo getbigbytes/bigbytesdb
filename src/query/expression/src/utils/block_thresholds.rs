@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_io::constants::DEFAULT_BLOCK_BUFFER_SIZE;
-use bigbytes_common_io::constants::DEFAULT_BLOCK_MAX_ROWS;
-use bigbytes_common_io::constants::DEFAULT_BLOCK_MIN_ROWS;
+use bigbytesdb_common_io::constants::DEFAULT_BLOCK_BUFFER_SIZE;
+use bigbytesdb_common_io::constants::DEFAULT_BLOCK_MAX_ROWS;
+use bigbytesdb_common_io::constants::DEFAULT_BLOCK_MIN_ROWS;
 
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct BlockThresholds {

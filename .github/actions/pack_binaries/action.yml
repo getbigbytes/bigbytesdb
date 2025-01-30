@@ -42,15 +42,15 @@ runs:
         version=${{ inputs.version }}
         case ${{ inputs.category }} in
           default)
-            pkg_name="bigbytes-${version}-${target}"
+            pkg_name="bigbytesdb-${version}-${target}"
             ;;
           *)
-          pkg_name="bigbytes-${{ inputs.category }}-${version}-${target}"
+          pkg_name="bigbytesdb-${{ inputs.category }}-${version}-${target}"
             ;;
         esac
         mkdir -p distro/{bin,configs,systemd,scripts}
-        cp ./scripts/distribution/systemd/bigbytes-* distro/systemd/
-        cp ./scripts/distribution/configs/bigbytes-* distro/configs/
+        cp ./scripts/distribution/systemd/bigbytesdb-* distro/systemd/
+        cp ./scripts/distribution/configs/bigbytesdb-* distro/configs/
         cp ./scripts/distribution/release-readme.txt distro/readme.txt
         cp -r ./scripts/distribution/local-scripts/* distro/scripts/
         cp -r ./scripts/distribution/package-scripts/* distro/scripts/
@@ -77,15 +77,15 @@ runs:
         version=${{ inputs.version }}
         case ${{ inputs.category }} in
           default)
-            pkg_name="bigbytes-${version}-${target}-dbg"
+            pkg_name="bigbytesdb-${version}-${target}-dbg"
             ;;
           *)
-          pkg_name="bigbytes-${{ inputs.category }}-${version}-${target}-dbg"
+          pkg_name="bigbytesdb-${{ inputs.category }}-${version}-${target}-dbg"
             ;;
         esac
         mkdir -p distro/{bin,configs,systemd,scripts}
-        cp ./scripts/distribution/systemd/bigbytes-* distro/systemd/
-        cp ./scripts/distribution/configs/bigbytes-* distro/configs/
+        cp ./scripts/distribution/systemd/bigbytesdb-* distro/systemd/
+        cp ./scripts/distribution/configs/bigbytesdb-* distro/configs/
         cp ./scripts/distribution/release-readme.txt distro/readme.txt
         cp -r ./scripts/distribution/local-scripts/* distro/scripts/
         cp -r ./scripts/distribution/package-scripts/* distro/scripts/

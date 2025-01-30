@@ -15,9 +15,9 @@
 use std::fmt::Debug;
 use std::fmt::Formatter;
 
-use bigbytes_common_cache::Cache;
-use bigbytes_common_cache::LruCache;
-use bigbytes_common_cache::MemSized;
+use bigbytesdb_common_cache::Cache;
+use bigbytesdb_common_cache::LruCache;
+use bigbytesdb_common_cache::MemSized;
 
 #[derive(Eq, PartialEq, Hash)]
 struct TestKey(pub i32);

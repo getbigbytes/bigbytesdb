@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-cache"
+name = "bigbytesdb-common-cache"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }

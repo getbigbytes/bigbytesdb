@@ -15,10 +15,10 @@
 use std::fs::File;
 use std::io::Read;
 
-use bigbytes_common_base::base::Stoppable;
-use bigbytes_meta::api::HttpService;
-use bigbytes_meta::configs::Config;
-use bigbytes_meta::meta_service::MetaNode;
+use bigbytesdb_common_base::base::Stoppable;
+use bigbytesdb_meta::api::HttpService;
+use bigbytesdb_meta::configs::Config;
+use bigbytesdb_meta::meta_service::MetaNode;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

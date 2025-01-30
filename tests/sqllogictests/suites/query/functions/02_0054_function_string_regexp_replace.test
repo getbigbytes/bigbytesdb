@@ -64,9 +64,9 @@ SELECT REGEXP_REPLACE('a b c', 'b', 'X', NULL)
 NULL
 
 query T
-select REGEXP_REPLACE('http://bigbytes.com/reg', '^https?://(?:www\.)?([^/]+)/.*$', '$1');
+select REGEXP_REPLACE('http://bigbytesdb.com/reg', '^https?://(?:www\.)?([^/]+)/.*$', '$1');
 ----
-bigbytes.com
+bigbytesdb.com
 
 query T
 select REGEXP_REPLACE('abc-123-abc',  '^([a-z]+)\-([1-9]+)\-[a-z]+', '$2+$1');

@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_storages_common_index::RangeIndex;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_storages_common_index::RangeIndex;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 
 pub struct PartitionPruner {
     pub filter: Expr<String>,

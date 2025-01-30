@@ -14,22 +14,22 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_ast::ast::CreateDynamicTableStmt;
-use bigbytes_common_ast::ast::CreateTableSource;
-use bigbytes_common_ast::ast::TypeName;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::infer_schema_type;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_AS_QUERY;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TABLE_COMPRESSION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TARGET_LAG;
+use bigbytesdb_common_ast::ast::CreateDynamicTableStmt;
+use bigbytesdb_common_ast::ast::CreateTableSource;
+use bigbytesdb_common_ast::ast::TypeName;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::infer_schema_type;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_AS_QUERY;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TABLE_COMPRESSION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TARGET_LAG;
 
 use crate::plans::CreateDynamicTablePlan;
 use crate::plans::Plan;

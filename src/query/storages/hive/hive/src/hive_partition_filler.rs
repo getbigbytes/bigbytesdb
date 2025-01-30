@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableField;
 
 use crate::hive_partition::parse_hive_partitions;
 use crate::utils::str_field_to_scalar;

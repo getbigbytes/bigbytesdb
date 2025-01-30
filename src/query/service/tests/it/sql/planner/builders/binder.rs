@@ -1,9 +1,9 @@
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_query::sessions::SessionType;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_query::sessions::SessionType;
+use bigbytesdb_query::test_kits::TestFixture;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_query_kind() -> Result<()> {

@@ -14,9 +14,9 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::converts::meta::LegacyScalar;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_expression::converts::meta::LegacyScalar;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
 
 // the following types are supposed to be frozen
 

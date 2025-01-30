@@ -14,15 +14,15 @@
 
 // Define some methods that are used by both the build and probe spilling of the hash join.
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::HashMethodKind;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::plans::JoinType;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::HashMethodKind;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::plans::JoinType;
 
 use crate::pipelines::processors::transforms::hash_join::common::wrap_true_validity;
 use crate::pipelines::processors::transforms::hash_join::util::hash_by_method;

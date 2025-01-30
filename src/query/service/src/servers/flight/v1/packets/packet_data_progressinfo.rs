@@ -20,10 +20,10 @@ use std::sync::Arc;
 use byteorder::BigEndian;
 use byteorder::ReadBytesExt;
 use byteorder::WriteBytesExt;
-use bigbytes_common_base::base::ProgressValues;
-use bigbytes_common_base::base::SpillProgress;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::ProgressValues;
+use bigbytesdb_common_base::base::SpillProgress;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::sessions::QueryContext;
 use crate::sessions::TableContext;

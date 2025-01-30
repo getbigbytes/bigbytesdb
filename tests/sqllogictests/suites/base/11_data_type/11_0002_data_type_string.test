@@ -31,7 +31,7 @@ SELECT 'line1-line2'::string, 'tab\there'::string;
 line1-line2 tab	here
 
 query T
-SELECT UPPER('hello'), LOWER('WORLD'), LENGTH('bigbytes') FROM numbers(1);
+SELECT UPPER('hello'), LOWER('WORLD'), LENGTH('bigbytesdb') FROM numbers(1);
 ----
 HELLO world 8
 

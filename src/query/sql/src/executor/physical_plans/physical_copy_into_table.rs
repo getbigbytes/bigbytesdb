@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 use enum_as_inner::EnumAsInner;
 
 use crate::executor::physical_plan::PhysicalPlan;

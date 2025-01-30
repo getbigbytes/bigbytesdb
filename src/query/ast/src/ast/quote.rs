@@ -22,7 +22,7 @@ use crate::parser::Dialect;
 // In ANSI SQL, it does not need to quote an identifier if the identifier matches
 // the following regular expression: [A-Za-z_][A-Za-z0-9_$]*.
 //
-// There are also two known special cases in Bigbytes which do not require quoting:
+// There are also two known special cases in Bigbytesdb which do not require quoting:
 // - "~" is a valid stage name
 // - '$' is a valid character in some system functions
 pub fn ident_needs_quote(ident: &str) -> bool {

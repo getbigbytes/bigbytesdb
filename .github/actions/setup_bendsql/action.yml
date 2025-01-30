@@ -13,15 +13,15 @@ runs:
         fi
         case $RUNNER_PROVIDER in
           aws)
-            aws s3 cp s3://bigbytes-ci/packages/bendsql_$(dpkg --print-architecture).deb /tmp/bendsql.deb --no-progress
+            aws s3 cp s3://bigbytesdb-ci/packages/bendsql_$(dpkg --print-architecture).deb /tmp/bendsql.deb --no-progress
             sudo dpkg -i /tmp/bendsql.deb
             ;;
           gcp)
-            gsutil cp gs://bigbytes-ci/packages/bendsql_$(dpkg --print-architecture).deb /tmp/bendsql.deb --no-progress
+            gsutil cp gs://bigbytesdb-ci/packages/bendsql_$(dpkg --print-architecture).deb /tmp/bendsql.deb --no-progress
             sudo dpkg -i /tmp/bendsql.deb
             ;;
           *)
-            curl -fsSL https://repo.bigbytes.com/install/bendsql.sh | bash -s -- -y --prefix /usr/local
+            curl -fsSL https://repo.bigbytesdb.com/install/bendsql.sh | bash -s -- -y --prefix /usr/local
             ;;
         esac
         bendsql --version

@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package bigbytes_proto;
+package bigbytesdb_proto;
 
 import "config.proto";
 import "user.proto";
@@ -131,7 +131,7 @@ message TableIndex {
   string name = 1;
   repeated uint32 column_ids = 2;
 
-  // if true, index will create after data written to bigbytes,
+  // if true, index will create after data written to bigbytesdb,
   // no need execute refresh index manually.
   bool sync_creation = 3;
 

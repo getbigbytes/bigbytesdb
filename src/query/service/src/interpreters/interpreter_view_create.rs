@@ -15,16 +15,16 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_sql::plans::CreateViewPlan;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_view::view_table::QUERY;
-use bigbytes_common_storages_view::view_table::VIEW_ENGINE;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_sql::plans::CreateViewPlan;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_view::view_table::QUERY;
+use bigbytesdb_common_storages_view::view_table::VIEW_ENGINE;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;
@@ -72,7 +72,7 @@ impl Interpreter for CreateViewInterpreter {
                         && !table_function.contains(&table_name.to_string())
                         && !table.table().is_stage_table()
                     {
-                        return Err(bigbytes_common_exception::ErrorCode::UnknownTable(format!(
+                        return Err(bigbytesdb_common_exception::ErrorCode::UnknownTable(format!(
                             "VIEW QUERY: table `{}`.`{}` not exists in catalog '{}'",
                             database_name,
                             table_name,

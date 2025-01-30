@@ -16,15 +16,15 @@ use std::fmt::Debug;
 use std::fmt::Display;
 use std::io::Write;
 
-use bigbytes_common_ast::ast::quote::ident_needs_quote;
-use bigbytes_common_ast::ast::quote::QuotedIdent;
-use bigbytes_common_ast::parser::expr::*;
-use bigbytes_common_ast::parser::query::*;
-use bigbytes_common_ast::parser::script::script_block;
-use bigbytes_common_ast::parser::script::script_stmt;
-use bigbytes_common_ast::parser::statement::insert_stmt;
-use bigbytes_common_ast::parser::token::*;
-use bigbytes_common_ast::parser::*;
+use bigbytesdb_common_ast::ast::quote::ident_needs_quote;
+use bigbytesdb_common_ast::ast::quote::QuotedIdent;
+use bigbytesdb_common_ast::parser::expr::*;
+use bigbytesdb_common_ast::parser::query::*;
+use bigbytesdb_common_ast::parser::script::script_block;
+use bigbytesdb_common_ast::parser::script::script_stmt;
+use bigbytesdb_common_ast::parser::statement::insert_stmt;
+use bigbytesdb_common_ast::parser::token::*;
+use bigbytesdb_common_ast::parser::*;
 use goldenfile::Mint;
 use nom_rule::rule;
 
@@ -81,7 +81,7 @@ fn run_parser_with_dialect<P, O>(
     }
 }
 
-// UPDATE_GOLDENFILES=1 cargo test --package bigbytes-common-ast --test it -- parser::test_statement
+// UPDATE_GOLDENFILES=1 cargo test --package bigbytesdb-common-ast --test it -- parser::test_statement
 #[test]
 fn test_statement() {
     let mut mint = Mint::new("tests/it/testdata");
@@ -504,7 +504,7 @@ fn test_statement() {
                 disable_variant_check=true;
         "#,
         r#"
-            COPY INTO books FROM 's3://bigbytes/books.csv'
+            COPY INTO books FROM 's3://bigbytesdb/books.csv'
                 CONNECTION = (
                     ENDPOINT_URL = 'http://localhost:9000/',
                     ACCESS_KEY_ID = 'ROOTUSER',

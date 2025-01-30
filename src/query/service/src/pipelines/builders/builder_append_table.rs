@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_meta_app::schema::UpsertTableCopiedFileReq;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_meta_app::schema::UpsertTableCopiedFileReq;
+use bigbytesdb_common_pipeline_core::Pipeline;
 
 use crate::pipelines::PipelineBuilder;
 use crate::sessions::QueryContext;

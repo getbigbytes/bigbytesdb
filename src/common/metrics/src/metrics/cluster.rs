@@ -14,10 +14,10 @@
 
 use std::sync::LazyLock;
 
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::register_gauge_family;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
-use bigbytes_common_base::runtime::metrics::FamilyGauge;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::register_gauge_family;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::FamilyGauge;
 
 static CLUSTER_CLUSTER_HEARTBEAT_COUNT: LazyLock<FamilyCounter<Vec<(&'static str, String)>>> =
     LazyLock::new(|| register_counter_family("cluster_heartbeat_count"));

@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::utils::FromData;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::utils::FromData;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
 
 use crate::SyncOneBlockSystemTable;
 use crate::SyncSystemTable;
@@ -42,15 +42,15 @@ impl SyncSystemTable for CreditsTable {
     }
 
     fn get_full_data(&self, _: Arc<dyn TableContext>) -> Result<DataBlock> {
-        let names: Vec<String> = env!("BIGBYTES_CREDITS_NAMES")
+        let names: Vec<String> = env!("BIGBYTESDB_CREDITS_NAMES")
             .split_terminator(',')
             .map(|x| x.trim().to_string())
             .collect();
-        let versions: Vec<String> = env!("BIGBYTES_CREDITS_VERSIONS")
+        let versions: Vec<String> = env!("BIGBYTESDB_CREDITS_VERSIONS")
             .split_terminator(',')
             .map(|x| x.trim().to_string())
             .collect();
-        let licenses: Vec<String> = env!("BIGBYTES_CREDITS_LICENSES")
+        let licenses: Vec<String> = env!("BIGBYTESDB_CREDITS_LICENSES")
             .split_terminator(',')
             .map(|x| x.trim().to_string())
             .collect();

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license::LicenseInfo;
-use bigbytes_common_license::license_manager::LicenseManager;
-use bigbytes_enterprise_query::license::RealLicenseManager;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license::LicenseInfo;
+use bigbytesdb_common_license::license_manager::LicenseManager;
+use bigbytesdb_enterprise_query::license::RealLicenseManager;
+use bigbytesdb_query::test_kits::*;
 use jwt_simple::algorithms::ES256KeyPair;
 use jwt_simple::claims::Claims;
 use jwt_simple::prelude::Duration;
@@ -38,7 +38,7 @@ fn build_custom_claims(
 }
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_parse_license() -> bigbytes_common_exception::Result<()> {
+async fn test_parse_license() -> bigbytesdb_common_exception::Result<()> {
     let fixture = TestFixture::setup().await?;
 
     let key_pair = ES256KeyPair::generate();
@@ -47,7 +47,7 @@ async fn test_parse_license() -> bigbytes_common_exception::Result<()> {
         key_pair.public_key().to_pem().unwrap(),
     );
     let claims = Claims::with_custom_claims(
-        build_custom_claims("trial".to_string(), "bigbytes".to_string(), None),
+        build_custom_claims("trial".to_string(), "bigbytesdb".to_string(), None),
         Duration::from_hours(2),
     );
     let token = key_pair.sign(claims)?;
@@ -80,7 +80,7 @@ async fn test_parse_license() -> bigbytes_common_exception::Result<()> {
 }
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_license_features() -> bigbytes_common_exception::Result<()> {
+async fn test_license_features() -> bigbytesdb_common_exception::Result<()> {
     let fixture = TestFixture::setup().await?;
 
     let key_pair = ES256KeyPair::generate();

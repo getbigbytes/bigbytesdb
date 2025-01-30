@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_functions::aggregates::eval_aggr;
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_functions::aggregates::eval_aggr;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
 use itertools::Itertools;
 
 use crate::optimizer::histogram_from_ndv;

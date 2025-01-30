@@ -19,26 +19,26 @@ use std::io::Result;
 use std::time::Duration;
 
 use anyhow::anyhow;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::storage::StorageAzblobConfig;
-use bigbytes_common_meta_app::storage::StorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::storage::StorageAzblobConfig;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig;
 #[cfg(feature = "storage-hdfs")]
-use bigbytes_common_meta_app::storage::StorageHdfsConfig;
-use bigbytes_common_meta_app::storage::StorageHttpConfig;
-use bigbytes_common_meta_app::storage::StorageHuggingfaceConfig;
-use bigbytes_common_meta_app::storage::StorageIpfsConfig;
-use bigbytes_common_meta_app::storage::StorageMokaConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
-use bigbytes_enterprise_storage_encryption::get_storage_encryption_handler;
+use bigbytesdb_common_meta_app::storage::StorageHdfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageHttpConfig;
+use bigbytesdb_common_meta_app::storage::StorageHuggingfaceConfig;
+use bigbytesdb_common_meta_app::storage::StorageIpfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageMokaConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_enterprise_storage_encryption::get_storage_encryption_handler;
 use log::warn;
 use opendal::layers::AsyncBacktraceLayer;
 use opendal::layers::ConcurrentLimitLayer;
@@ -99,7 +99,7 @@ pub fn init_operator(cfg: &StorageParams) -> Result<Operator> {
 /// ```txt
 /// error[E0275]: overflow evaluating the requirement `http::response::Response<()>: std::marker::Send`
 ///      |
-///      = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`bigbytes_common_storage`)
+///      = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`bigbytesdb_common_storage`)
 /// note: required because it appears within the type `h2::proto::peer::PollMessage`
 ///     --> /home/xuanwo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/h2-0.4.5/src/proto/peer.rs:43:10
 ///      |
@@ -120,11 +120,11 @@ pub fn build_operator<B: Builder>(builder: B) -> Result<Operator> {
 
     let mut op = ob
         .layer({
-            let retry_timeout = env::var("_BIGBYTES_INTERNAL_RETRY_TIMEOUT")
+            let retry_timeout = env::var("_BIGBYTESDB_INTERNAL_RETRY_TIMEOUT")
                 .ok()
                 .and_then(|v| v.parse::<u64>().ok())
                 .unwrap_or(10);
-            let retry_io_timeout = env::var("_BIGBYTES_INTERNAL_RETRY_IO_TIMEOUT")
+            let retry_io_timeout = env::var("_BIGBYTESDB_INTERNAL_RETRY_IO_TIMEOUT")
                 .ok()
                 .and_then(|v| v.parse::<u64>().ok())
                 .unwrap_or(60);
@@ -159,7 +159,7 @@ pub fn build_operator<B: Builder>(builder: B) -> Result<Operator> {
         // Add PrometheusClientLayer
         .layer(METRICS_LAYER.clone());
 
-    if let Ok(permits) = env::var("_BIGBYTES_INTERNAL_MAX_CONCURRENT_IO_REQUEST") {
+    if let Ok(permits) = env::var("_BIGBYTESDB_INTERNAL_MAX_CONCURRENT_IO_REQUEST") {
         if let Ok(permits) = permits.parse::<usize>() {
             op = op.layer(ConcurrentLimitLayer::new(permits));
         }
@@ -442,7 +442,7 @@ impl DataOperator {
     pub async fn init(
         conf: &StorageConfig,
         spill_params: Option<StorageParams>,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         GlobalInstance::set(Self::try_create(conf, spill_params).await?);
 
         Ok(())
@@ -452,7 +452,7 @@ impl DataOperator {
     pub fn try_new(
         conf: &StorageConfig,
         spill_params: Option<StorageParams>,
-    ) -> bigbytes_common_exception::Result<DataOperator> {
+    ) -> bigbytesdb_common_exception::Result<DataOperator> {
         let operator = init_operator(&conf.params)?;
         let spill_operator = spill_params.as_ref().map(init_operator).transpose()?;
 
@@ -468,7 +468,7 @@ impl DataOperator {
     pub async fn try_create(
         conf: &StorageConfig,
         spill_params: Option<StorageParams>,
-    ) -> bigbytes_common_exception::Result<DataOperator> {
+    ) -> bigbytesdb_common_exception::Result<DataOperator> {
         let operator = init_operator(&conf.params)?;
         check_operator(&operator, &conf.params).await?;
 
@@ -490,7 +490,7 @@ impl DataOperator {
     }
 
     /// Check license must be run after license manager setup.
-    pub async fn check_license(&self) -> bigbytes_common_exception::Result<()> {
+    pub async fn check_license(&self) -> bigbytesdb_common_exception::Result<()> {
         if self.params.need_encryption_feature() {
             get_storage_encryption_handler().check_license().await?;
         }
@@ -505,7 +505,7 @@ impl DataOperator {
 pub async fn check_operator(
     operator: &Operator,
     params: &StorageParams,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     // OpenDAL will send a real request to underlying storage to check whether it works or not.
     // If this check failed, it's highly possible that the users have configured it wrongly.
     //

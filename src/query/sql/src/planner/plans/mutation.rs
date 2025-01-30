@@ -16,15 +16,15 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_pipeline_core::LockGuard;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_pipeline_core::LockGuard;
 
 use crate::binder::MutationStrategy;
 use crate::binder::MutationType;

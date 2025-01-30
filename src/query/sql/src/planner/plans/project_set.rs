@@ -15,7 +15,7 @@
 use std::ops::Deref;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::RelExpr;
 use crate::optimizer::RelationalProperty;
@@ -50,7 +50,7 @@ impl Operator for ProjectSet {
     fn derive_relational_prop(
         &self,
         rel_expr: &RelExpr,
-    ) -> bigbytes_common_exception::Result<Arc<RelationalProperty>> {
+    ) -> bigbytesdb_common_exception::Result<Arc<RelationalProperty>> {
         let child_prop = rel_expr.derive_relational_prop_child(0)?.as_ref().clone();
 
         // Derive output columns
@@ -85,7 +85,7 @@ impl Operator for ProjectSet {
         }))
     }
 
-    fn derive_stats(&self, rel_expr: &RelExpr) -> bigbytes_common_exception::Result<Arc<StatInfo>> {
+    fn derive_stats(&self, rel_expr: &RelExpr) -> bigbytesdb_common_exception::Result<Arc<StatInfo>> {
         let mut input_stat = rel_expr.derive_cardinality_child(0)?.deref().clone();
         self.derive_project_set_stats(&mut input_stat)
     }

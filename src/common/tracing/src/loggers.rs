@@ -14,7 +14,7 @@
 
 use std::path::Path;
 
-use bigbytes_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_base::runtime::ThreadTracker;
 use log::Record;
 use logforth::append::rolling_file::NonBlockingBuilder;
 use logforth::append::rolling_file::RollingFileWriter;

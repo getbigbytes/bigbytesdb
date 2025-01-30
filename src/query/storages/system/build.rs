@@ -15,6 +15,6 @@
 #![allow(clippy::uninlined_format_args)]
 
 fn main() {
-    bigbytes_common_building::setup();
-    bigbytes_common_building::setup_commit_authors();
+    bigbytesdb_common_building::setup();
+    bigbytesdb_common_building::setup_commit_authors();
 }

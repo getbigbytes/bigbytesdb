@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::*;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::*;
+use bigbytesdb_common_exception::Result;
 use unicode_segmentation::UnicodeSegmentation;
 
 #[test]
 fn test_progress() -> Result<()> {
-    let original_key = "bigbytes/test_user123!!";
+    let original_key = "bigbytesdb/test_user123!!";
     let new_key = escape_for_key(original_key);
-    assert_eq!(Ok("bigbytes%2ftest_user123%21%21".to_string()), new_key);
+    assert_eq!(Ok("bigbytesdb%2ftest_user123%21%21".to_string()), new_key);
     assert_eq!(
         Ok(original_key.to_string()),
         unescape_for_key(new_key.unwrap().as_str())

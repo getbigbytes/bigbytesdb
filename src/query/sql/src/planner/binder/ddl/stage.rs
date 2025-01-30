@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::CreateStageStmt;
-use bigbytes_common_ast::ast::FileFormatOptions;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::FileFormatOptionsReader;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_storage::init_operator;
+use bigbytesdb_common_ast::ast::CreateStageStmt;
+use bigbytesdb_common_ast::ast::FileFormatOptions;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::FileFormatOptionsReader;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_storage::init_operator;
 
 use super::super::copy_into_table::resolve_stage_location;
 use crate::binder::location::parse_storage_params_from_uri;

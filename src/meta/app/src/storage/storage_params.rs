@@ -17,9 +17,9 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio::time::timeout;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio::time::timeout;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -356,7 +356,7 @@ pub struct StorageS3Config {
     pub security_token: String,
     pub master_key: String,
     pub root: String,
-    /// This flag is used internally to control whether bigbytes load
+    /// This flag is used internally to control whether bigbytesdb load
     /// credentials from environment like env, profile and web token.
     pub disable_credential_loader: bool,
     /// Enable this flag to send API in virtual host style.

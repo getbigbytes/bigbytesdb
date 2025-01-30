@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_metrics::storage::metrics_inc_block_index_read_bytes;
-use bigbytes_storages_common_cache::CacheKey;
-use bigbytes_storages_common_cache::CachedObject;
-use bigbytes_storages_common_cache::InMemoryCacheReader;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_cache::Loader;
-use bigbytes_storages_common_index::filters::Filter;
-use bigbytes_storages_common_index::filters::Xor8Filter;
-use bigbytes_storages_common_table_meta::meta::SingleColumnMeta;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_metrics::storage::metrics_inc_block_index_read_bytes;
+use bigbytesdb_storages_common_cache::CacheKey;
+use bigbytesdb_storages_common_cache::CachedObject;
+use bigbytesdb_storages_common_cache::InMemoryCacheReader;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_cache::Loader;
+use bigbytesdb_storages_common_index::filters::Filter;
+use bigbytesdb_storages_common_index::filters::Xor8Filter;
+use bigbytesdb_storages_common_table_meta::meta::SingleColumnMeta;
 use opendal::Operator;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReader;
 use parquet::arrow::parquet_to_arrow_field_levels;
@@ -135,7 +135,7 @@ impl Loader<Xor8Filter> for Xor8FilterLoader {
         let bloom_filter_binary = record.column(0).clone();
         let col = Column::from_arrow_rs(
             bloom_filter_binary,
-            &bigbytes_common_expression::types::DataType::Binary,
+            &bigbytesdb_common_expression::types::DataType::Binary,
         )?;
         let filter_bytes = col
             .as_binary()

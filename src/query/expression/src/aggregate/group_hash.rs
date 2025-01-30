@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::Index;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::Index;
+use bigbytesdb_common_exception::Result;
 use ethnum::i256;
 
 use crate::types::AnyType;
@@ -464,7 +464,7 @@ impl AggHash for ScalarRef<'_> {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_column::bitmap::Bitmap;
+    use bigbytesdb_common_column::bitmap::Bitmap;
 
     use super::*;
     use crate::types::ArgType;

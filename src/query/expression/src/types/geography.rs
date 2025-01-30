@@ -19,11 +19,11 @@ use std::ops::Range;
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::geography::*;
-use bigbytes_common_io::wkb::make_point;
-use bigbytes_common_io::wkb::read_wkb_header;
-pub use bigbytes_common_io::wkb::WkbInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::geography::*;
+use bigbytesdb_common_io::wkb::make_point;
+use bigbytesdb_common_io::wkb::read_wkb_header;
+pub use bigbytesdb_common_io::wkb::WkbInfo;
 use geozero::wkb::Ewkb;
 use geozero::ToWkt;
 use serde::Deserialize;

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::SecondaryRolesOption;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::SecondaryRolesOption;
+use bigbytesdb_common_exception::Result;
 
 use crate::plans::Plan;
 use crate::plans::SetRolePlan;

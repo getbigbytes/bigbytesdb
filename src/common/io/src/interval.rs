@@ -15,8 +15,8 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 pub trait BufferReadIntervalExt {
     fn read_interval_text(&mut self) -> Result<Interval>;

@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::LockType;
-use bigbytes_common_pipeline_core::LockGuard;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::LockType;
+use bigbytesdb_common_pipeline_core::LockGuard;
 
 use crate::table_context::TableContext;
 

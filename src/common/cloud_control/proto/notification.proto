@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "bigbytes.com/cloudcontrol/notification/proto";
+option go_package = "bigbytesdb.com/cloudcontrol/notification/proto";
 import "timestamp.proto";
 
 package notificationproto;

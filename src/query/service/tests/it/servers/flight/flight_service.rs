@@ -18,14 +18,14 @@ use std::str::FromStr;
 
 use arrow_flight::flight_service_client::FlightServiceClient;
 use arrow_flight::Empty;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::ConnectionFactory;
-use bigbytes_common_grpc::GrpcConnectionError;
-use bigbytes_common_grpc::RpcClientTlsConfig;
-use bigbytes_query::servers::flight::FlightService;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::ConnectionFactory;
+use bigbytesdb_common_grpc::GrpcConnectionError;
+use bigbytesdb_common_grpc::RpcClientTlsConfig;
+use bigbytesdb_query::servers::flight::FlightService;
+use bigbytesdb_query::test_kits::*;
 
 use crate::tests::tls_constants::TEST_CA_CERT;
 use crate::tests::tls_constants::TEST_CN_NAME;

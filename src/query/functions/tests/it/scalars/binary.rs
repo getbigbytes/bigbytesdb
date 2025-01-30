@@ -14,9 +14,9 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::BinaryType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::BinaryType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;
@@ -52,7 +52,7 @@ fn test_to_hex(file: &mut impl Write) {
     run_ast(file, "to_hex(to_binary('abc'))", &[]);
     run_ast(file, "to_hex(to_binary(a))", &[(
         "a",
-        StringType::from_data(vec!["abc", "def", "bigbytes"]),
+        StringType::from_data(vec!["abc", "def", "bigbytesdb"]),
     )]);
 }
 

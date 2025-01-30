@@ -448,11 +448,11 @@ def main(args):
     os.environ.setdefault("QUERY_BINARY", args.binary)
     os.environ.setdefault("QUERY_DATABASE", args.database)
 
-    bigbytes_query_proc_create = Popen(shlex.split(args.client),
+    bigbytesdb_query_proc_create = Popen(shlex.split(args.client),
                                        stdin=PIPE,
                                        stdout=PIPE,
                                        stderr=PIPE)
-    bigbytes_query_proc_create.communicate(b"SELECT 1")
+    bigbytesdb_query_proc_create.communicate(b"SELECT 1")
 
     def sute_key_func(item):
         if -1 == item.find('_'):
@@ -636,13 +636,13 @@ def get_additional_client_options_url(args):
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description='bigbytes-query functional tests')
+    parser = ArgumentParser(description='bigbytesdb-query functional tests')
     parser.add_argument('-q', '--suites', help='Path to suites dir')
     parser.add_argument(
         '-b',
         '--binary',
-        default='bigbytes-query',
-        help='Path to bigbytes-query binary or name of binary in PATH')
+        default='bigbytesdb-query',
+        help='Path to bigbytesdb-query binary or name of binary in PATH')
     parser.add_argument('-c',
                         '--client',
                         default='mysql',
@@ -718,7 +718,7 @@ if __name__ == '__main__':
             the value can be \'standalone\' or \'cluster\'')
 
     args = parser.parse_args()
-    if os.getenv("BIGBYTES_DEV_CONTAINER") is not None:
+    if os.getenv("BIGBYTESDB_DEV_CONTAINER") is not None:
         args.client = 'stdbuf -i0 -o0 -e0 {}'.format(args.client)
     if args.suites is None and os.path.isdir('suites'):
         args.suites = 'suites'

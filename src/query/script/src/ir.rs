@@ -16,13 +16,13 @@ use std::fmt;
 use std::fmt::Display;
 use std::hash::Hash;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use derive_visitor::DriveMut;
 use derive_visitor::VisitorMut;
 

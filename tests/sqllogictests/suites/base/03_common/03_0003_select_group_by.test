@@ -198,7 +198,7 @@ select (number % 3)::Decimal(19, 2) c, to_string(number % 3) d, count() from num
 2.00 2 33
 
 
-## group by variant  https://github.com/getbigbytes/bigbytes/issues/10603
+## group by variant  https://github.com/getbigbytes/bigbytesdb/issues/10603
 
 query TI
 select number::Variant a, count()  from numbers(3) group by a order by a;

@@ -12,12 +12,12 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_query::interpreters::InterpreterFactory;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_query::interpreters::InterpreterFactory;
+use bigbytesdb_query::test_kits::*;
 use futures_util::TryStreamExt;
 
 use crate::storages::fuse::utils::do_purge_test;

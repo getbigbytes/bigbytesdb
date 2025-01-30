@@ -15,7 +15,7 @@
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

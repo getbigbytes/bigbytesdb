@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_expression::types::string::StringDomain;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::Domain;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::BLOCK_NAME_COL_NAME;
-use bigbytes_common_expression::SEGMENT_NAME_COL_NAME;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_expression::types::string::StringDomain;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::Domain;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::BLOCK_NAME_COL_NAME;
+use bigbytesdb_common_expression::SEGMENT_NAME_COL_NAME;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 /// Only support `_segment_name` and `_block_name` now.
 pub struct InternalColumnPruner {

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -22,11 +22,11 @@ echo "Install dependence"
 python3 -m pip install --quiet mysql-connector-python requests
 
 echo "calling test suite"
-echo "Starting Cluster bigbytes-query"
-./scripts/ci/deploy/bigbytes-query-cluster-3-nodes.sh
+echo "Starting Cluster bigbytesdb-query"
+./scripts/ci/deploy/bigbytesdb-query-cluster-3-nodes.sh
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
 cd "$SCRIPT_PATH/../../tests" || exit
 
-echo "Starting bigbytes-test"
-./bigbytes-test --mode 'cluster' --run-dir 1_stateful
+echo "Starting bigbytesdb-test"
+./bigbytesdb-test --mode 'cluster' --run-dir 1_stateful

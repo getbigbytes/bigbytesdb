@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::binder::MutationStrategy;
-use bigbytes_common_sql::executor::physical_plans::MutationOrganize;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::binder::MutationStrategy;
+use bigbytesdb_common_sql::executor::physical_plans::MutationOrganize;
 
 use crate::pipelines::PipelineBuilder;
 

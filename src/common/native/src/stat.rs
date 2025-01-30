@@ -14,10 +14,10 @@
 
 use std::io::BufRead;
 
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::MAX_DECIMAL128_PRECISION;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::MAX_DECIMAL128_PRECISION;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 
 use crate::compression::Compression;
 use crate::error::Result;
@@ -187,13 +187,13 @@ fn size_of_primitive(p: &NumberDataType) -> usize {
 mod test {
     use std::io::BufRead;
 
-    use bigbytes_common_column::binary::BinaryColumn;
-    use bigbytes_common_expression::infer_schema_type;
-    use bigbytes_common_expression::types::Int64Type;
-    use bigbytes_common_expression::Column;
-    use bigbytes_common_expression::FromData;
-    use bigbytes_common_expression::TableField;
-    use bigbytes_common_expression::TableSchema;
+    use bigbytesdb_common_column::binary::BinaryColumn;
+    use bigbytesdb_common_expression::infer_schema_type;
+    use bigbytesdb_common_expression::types::Int64Type;
+    use bigbytesdb_common_expression::Column;
+    use bigbytesdb_common_expression::FromData;
+    use bigbytesdb_common_expression::TableField;
+    use bigbytesdb_common_expression::TableSchema;
 
     use super::stat_simple;
     use super::ColumnInfo;

@@ -16,9 +16,9 @@ mod array;
 pub mod batch_read;
 pub mod deserialize;
 use batch_read::batch_read_column;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 pub use deserialize::column_iters;
 pub use deserialize::ColumnIter;
 

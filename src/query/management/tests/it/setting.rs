@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::*;
-use bigbytes_common_meta_app::principal::UserSetting;
-use bigbytes_common_meta_app::principal::UserSettingValue;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_embedded::MemMeta;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::*;
+use bigbytesdb_common_meta_app::principal::UserSetting;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_embedded::MemMeta;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
 use fastrace::func_name;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
@@ -33,7 +33,7 @@ async fn test_set_setting() -> Result<()> {
         let setting = UserSetting::create("max_threads", UserSettingValue::UInt64(3));
         mgr.set_setting(setting.clone()).await?;
         let value = kv_api
-            .get_kv("__fd_settings/bigbytes_query/max_threads")
+            .get_kv("__fd_settings/bigbytesdb_query/max_threads")
             .await?;
 
         match value {
@@ -53,7 +53,7 @@ async fn test_set_setting() -> Result<()> {
         let setting = UserSetting::create("max_threads", UserSettingValue::UInt64(1));
         mgr.set_setting(setting.clone()).await?;
         let value = kv_api
-            .get_kv("__fd_settings/bigbytes_query/max_threads")
+            .get_kv("__fd_settings/bigbytesdb_query/max_threads")
             .await?;
 
         match value {
@@ -115,7 +115,7 @@ async fn new_setting_api() -> Result<(Arc<MemMeta>, SettingMgr)> {
     let test_api = Arc::new(MemMeta::default());
     let mgr = SettingMgr::create(
         test_api.clone(),
-        &Tenant::new_or_err("bigbytes_query", func_name!()).unwrap(),
+        &Tenant::new_or_err("bigbytesdb_query", func_name!()).unwrap(),
     );
     Ok((test_api, mgr))
 }

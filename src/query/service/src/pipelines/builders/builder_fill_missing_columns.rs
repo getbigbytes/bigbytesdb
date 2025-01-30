@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
 
 use crate::pipelines::processors::transforms::TransformAddComputedColumns;
 use crate::pipelines::processors::TransformResortAddOn;

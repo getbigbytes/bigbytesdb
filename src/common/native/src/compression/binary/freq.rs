@@ -17,7 +17,7 @@ use std::ops::Deref;
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::binary::BinaryColumn;
+use bigbytesdb_common_column::binary::BinaryColumn;
 use roaring::RoaringBitmap;
 
 use super::BinaryCompression;

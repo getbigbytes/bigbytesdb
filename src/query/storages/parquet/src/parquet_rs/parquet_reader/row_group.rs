@@ -18,9 +18,9 @@ use std::sync::Arc;
 
 use bytes::Buf;
 use bytes::Bytes;
-use bigbytes_common_base::rangemap::RangeMerger;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::rangemap::RangeMerger;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use opendal::Operator;
 use parquet::arrow::arrow_reader::RowGroups;
 use parquet::arrow::arrow_reader::RowSelection;
@@ -295,7 +295,7 @@ where
     F: FnOnce() -> Result<T> + Send + 'static,
     T: Send + 'static,
 {
-    match bigbytes_common_base::runtime::try_spawn_blocking(f) {
+    match bigbytesdb_common_base::runtime::try_spawn_blocking(f) {
         Ok(handler) => handler.await.map_err(ErrorCode::from_std_error)?,
         Err(f) => f(),
     }

@@ -16,49 +16,49 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_expression::type_check::check;
-use bigbytes_common_expression::types::number::Int32Type;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_functions::aggregates::eval_aggr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_storages_fuse::statistics::reducers::reduce_block_metas;
-use bigbytes_common_storages_fuse::statistics::Trim;
-use bigbytes_common_storages_fuse::statistics::STATS_REPLACEMENT_CHAR;
-use bigbytes_common_storages_fuse::statistics::STATS_STRING_PREFIX_LEN;
-use bigbytes_common_storages_fuse::FuseStorageFormat;
-use bigbytes_query::storages::fuse::io::TableMetaLocationGenerator;
-use bigbytes_query::storages::fuse::statistics::gen_columns_statistics;
-use bigbytes_query::storages::fuse::statistics::reducers;
-use bigbytes_query::storages::fuse::statistics::ClusterStatsGenerator;
-use bigbytes_query::storages::fuse::statistics::StatisticsAccumulator;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::ClusterStatistics;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::Compression;
-use bigbytes_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_expression::type_check::check;
+use bigbytesdb_common_expression::types::number::Int32Type;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_functions::aggregates::eval_aggr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_storages_fuse::statistics::reducers::reduce_block_metas;
+use bigbytesdb_common_storages_fuse::statistics::Trim;
+use bigbytesdb_common_storages_fuse::statistics::STATS_REPLACEMENT_CHAR;
+use bigbytesdb_common_storages_fuse::statistics::STATS_STRING_PREFIX_LEN;
+use bigbytesdb_common_storages_fuse::FuseStorageFormat;
+use bigbytesdb_query::storages::fuse::io::TableMetaLocationGenerator;
+use bigbytesdb_query::storages::fuse::statistics::gen_columns_statistics;
+use bigbytesdb_query::storages::fuse::statistics::reducers;
+use bigbytesdb_query::storages::fuse::statistics::ClusterStatsGenerator;
+use bigbytesdb_query::storages::fuse::statistics::StatisticsAccumulator;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::ClusterStatistics;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Compression;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
 use opendal::Operator;
 use rand::Rng;
 
 #[test]
-fn test_ft_stats_block_stats() -> bigbytes_common_exception::Result<()> {
+fn test_ft_stats_block_stats() -> bigbytesdb_common_exception::Result<()> {
     let schema = Arc::new(TableSchema::new(vec![
         TableField::new("a", TableDataType::Number(NumberDataType::Int32)),
         TableField::new("b", TableDataType::String),
@@ -82,7 +82,7 @@ fn test_ft_stats_block_stats() -> bigbytes_common_exception::Result<()> {
 }
 
 #[test]
-fn test_ft_stats_block_stats_with_column_distinct_count() -> bigbytes_common_exception::Result<()> {
+fn test_ft_stats_block_stats_with_column_distinct_count() -> bigbytesdb_common_exception::Result<()> {
     let schema = Arc::new(TableSchema::new(vec![
         TableField::new("a", TableDataType::Number(NumberDataType::Int32)),
         TableField::new("b", TableDataType::String),
@@ -109,7 +109,7 @@ fn test_ft_stats_block_stats_with_column_distinct_count() -> bigbytes_common_exc
 }
 
 #[test]
-fn test_ft_tuple_stats_block_stats() -> bigbytes_common_exception::Result<()> {
+fn test_ft_tuple_stats_block_stats() -> bigbytesdb_common_exception::Result<()> {
     let schema = Arc::new(TableSchema::new(vec![TableField::new(
         "a",
         TableDataType::Tuple {
@@ -142,7 +142,7 @@ fn test_ft_tuple_stats_block_stats() -> bigbytes_common_exception::Result<()> {
 }
 
 #[test]
-fn test_ft_stats_col_stats_reduce() -> bigbytes_common_exception::Result<()> {
+fn test_ft_stats_col_stats_reduce() -> bigbytesdb_common_exception::Result<()> {
     let num_of_blocks = 10;
     let rows_per_block = 3;
     let val_start_with = 1;
@@ -152,7 +152,7 @@ fn test_ft_stats_col_stats_reduce() -> bigbytes_common_exception::Result<()> {
     let col_stats = blocks
         .iter()
         .map(|b| gen_columns_statistics(&b.clone().unwrap(), None, &schema))
-        .collect::<bigbytes_common_exception::Result<Vec<_>>>()?;
+        .collect::<bigbytesdb_common_exception::Result<Vec<_>>>()?;
     let r = reducers::reduce_block_statistics(&col_stats);
     assert_eq!(3, r.len());
     let col0_stats = r.get(&0).unwrap();
@@ -188,7 +188,7 @@ fn test_ft_stats_col_stats_reduce() -> bigbytes_common_exception::Result<()> {
 }
 
 #[test]
-fn test_reduce_block_statistics_in_memory_size() -> bigbytes_common_exception::Result<()> {
+fn test_reduce_block_statistics_in_memory_size() -> bigbytesdb_common_exception::Result<()> {
     let iter = |mut idx| {
         std::iter::from_fn(move || {
             idx += 1;
@@ -219,7 +219,7 @@ fn test_reduce_block_statistics_in_memory_size() -> bigbytes_common_exception::R
 }
 
 #[test]
-fn test_reduce_cluster_statistics() -> bigbytes_common_exception::Result<()> {
+fn test_reduce_cluster_statistics() -> bigbytesdb_common_exception::Result<()> {
     let default_cluster_key_id = Some(0);
     let cluster_stats_0 = Some(ClusterStatistics::new(
         0,
@@ -312,7 +312,7 @@ fn test_reduce_cluster_statistics() -> bigbytes_common_exception::Result<()> {
 }
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_accumulator() -> bigbytes_common_exception::Result<()> {
+async fn test_accumulator() -> bigbytesdb_common_exception::Result<()> {
     let (schema, blocks) = TestFixture::gen_sample_blocks(10, 1);
     let mut stats_acc = StatisticsAccumulator::default();
 
@@ -334,7 +334,7 @@ async fn test_accumulator() -> bigbytes_common_exception::Result<()> {
 }
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_ft_cluster_stats_with_stats() -> bigbytes_common_exception::Result<()> {
+async fn test_ft_cluster_stats_with_stats() -> bigbytesdb_common_exception::Result<()> {
     let schema = DataSchemaRefExt::create(vec![DataField::new(
         "a",
         DataType::Number(NumberDataType::Int32),
@@ -429,8 +429,8 @@ async fn test_ft_cluster_stats_with_stats() -> bigbytes_common_exception::Result
 }
 
 #[test]
-fn test_ft_stats_block_stats_string_columns_trimming() -> bigbytes_common_exception::Result<()> {
-    let suite = || -> bigbytes_common_exception::Result<()> {
+fn test_ft_stats_block_stats_string_columns_trimming() -> bigbytesdb_common_exception::Result<()> {
+    let suite = || -> bigbytesdb_common_exception::Result<()> {
         // prepare random strings
         // 100 string, length ranges from 0 to 100 (chars)
         let mut rand_strings: Vec<String> = vec![];
@@ -483,16 +483,16 @@ fn test_ft_stats_block_stats_string_columns_trimming() -> bigbytes_common_except
 
 #[test]
 fn test_ft_stats_block_stats_string_columns_trimming_using_eval(
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     // verifies (randomly) the following assumptions:
     //
-    // https://github.com/getbigbytes/bigbytes/issues/7829
+    // https://github.com/getbigbytes/bigbytesdb/issues/7829
     // > ...
     // > in a way that preserves the property of min/max statistics:
     // > the trimmed max should be larger than the non-trimmed one, and the trimmed min
     // > should be lesser than the non-trimmed one.
 
-    let suite = || -> bigbytes_common_exception::Result<()> {
+    let suite = || -> bigbytesdb_common_exception::Result<()> {
         // prepare random strings
         // 100 string, length ranges from 0 to 100 (chars)
         let mut rand_strings: Vec<String> = vec![];
@@ -589,7 +589,7 @@ fn char_len(value: &str) -> usize {
 }
 
 #[test]
-fn test_reduce_block_meta() -> bigbytes_common_exception::Result<()> {
+fn test_reduce_block_meta() -> bigbytesdb_common_exception::Result<()> {
     // case 1: empty input should return the default statistics
     let block_metas: Vec<BlockMeta> = vec![];
     let reduced = reduce_block_metas(&block_metas, BlockThresholds::default(), None);

@@ -19,28 +19,28 @@ use std::time::Duration;
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::time::sleep;
-use bigbytes_common_meta_client::ClientHandle;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::protobuf::watch_request::FilterType;
-use bigbytes_common_meta_types::protobuf::Event;
-use bigbytes_common_meta_types::protobuf::KvMeta;
-use bigbytes_common_meta_types::protobuf::SeqV;
-use bigbytes_common_meta_types::protobuf::TxnRequest;
-use bigbytes_common_meta_types::protobuf::WatchRequest;
-use bigbytes_common_meta_types::txn_condition;
-use bigbytes_common_meta_types::txn_op;
-use bigbytes_common_meta_types::ConditionResult;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::TxnCondition;
-use bigbytes_common_meta_types::TxnDeleteByPrefixRequest;
-use bigbytes_common_meta_types::TxnOp;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_meta::meta_service::MetaNode;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::time::sleep;
+use bigbytesdb_common_meta_client::ClientHandle;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::protobuf::watch_request::FilterType;
+use bigbytesdb_common_meta_types::protobuf::Event;
+use bigbytesdb_common_meta_types::protobuf::KvMeta;
+use bigbytesdb_common_meta_types::protobuf::SeqV;
+use bigbytesdb_common_meta_types::protobuf::TxnRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchRequest;
+use bigbytesdb_common_meta_types::txn_condition;
+use bigbytesdb_common_meta_types::txn_op;
+use bigbytesdb_common_meta_types::ConditionResult;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::TxnCondition;
+use bigbytesdb_common_meta_types::TxnDeleteByPrefixRequest;
+use bigbytesdb_common_meta_types::TxnOp;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_meta::meta_service::MetaNode;
 use log::info;
 use test_harness::test;
 
@@ -57,7 +57,7 @@ async fn test_watch_main(
 
     {
         let client = make_client(&addr)?;
-        let _h = bigbytes_common_base::runtime::spawn(async move {
+        let _h = bigbytesdb_common_base::runtime::spawn(async move {
             for update in updates.iter() {
                 client.upsert_kv(update.clone()).await.unwrap();
             }
@@ -93,7 +93,7 @@ async fn test_watch_txn_main(
 
     {
         let client = make_client(&addr)?;
-        let _h = bigbytes_common_base::runtime::spawn(async move {
+        let _h = bigbytesdb_common_base::runtime::spawn(async move {
             client.transaction(txn).await.unwrap();
         });
     }
@@ -384,7 +384,7 @@ async fn test_watch_initial_flush() -> anyhow::Result<()> {
         }
     };
 
-    let _h = bigbytes_common_base::runtime::spawn(cache_updater);
+    let _h = bigbytesdb_common_base::runtime::spawn(cache_updater);
 
     tokio::time::sleep(Duration::from_secs(1)).await;
     let keys = {
@@ -483,7 +483,7 @@ async fn test_watch_expired_events() -> anyhow::Result<()> {
         ]);
 
         let client = make_client(&addr)?;
-        let _h = bigbytes_common_base::runtime::spawn(async move {
+        let _h = bigbytesdb_common_base::runtime::spawn(async move {
             let _res = client.transaction(txn).await;
         });
     }
@@ -551,7 +551,7 @@ async fn test_watch_expired_events() -> anyhow::Result<()> {
 #[test(harness = meta_service_test_harness)]
 #[fastrace::trace]
 async fn test_watch_stream_count() -> anyhow::Result<()> {
-    // When the client drops the stream, bigbytes-meta should reclaim the resources.
+    // When the client drops the stream, bigbytesdb-meta should reclaim the resources.
 
     let (tc, addr) = crate::tests::start_metasrv().await?;
 

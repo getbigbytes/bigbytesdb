@@ -17,10 +17,10 @@ use std::fmt::Formatter;
 use std::str::FromStr;
 
 use clap::Args;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::background::BackgroundJobParams;
-use bigbytes_common_meta_app::background::BackgroundJobType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::background::BackgroundJobParams;
+use bigbytesdb_common_meta_app::background::BackgroundJobType;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -52,14 +52,14 @@ pub struct BackgroundCompactionConfig {
     // Compact segments if a table has too many small segments
     // `segment_limit` is the maximum number of segments that would be compacted in a batch
     // None represent their is no limit
-    // Details: https://docs.bigbytes.com/sql/sql-commands/ddl/table/optimize-table#segment-compaction
+    // Details: https://docs.bigbytesdb.com/sql/sql-commands/ddl/table/optimize-table#segment-compaction
     #[clap(long, value_name = "VALUE")]
     pub segment_limit: Option<u64>,
 
     // Compact small blocks into large one.
     // `block_limit` is the maximum number of blocks that would be compacted in a batch
     // None represent their is no limit
-    // Details: https://docs.bigbytes.com/sql/sql-commands/ddl/table/optimize-table#segment-compaction
+    // Details: https://docs.bigbytesdb.com/sql/sql-commands/ddl/table/optimize-table#segment-compaction
     #[clap(long, value_name = "VALUE")]
     pub block_limit: Option<u64>,
 

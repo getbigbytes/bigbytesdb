@@ -14,11 +14,11 @@
 
 use core::default::Default;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_enterprise_query::background_service::should_continue_compaction;
-use bigbytes_enterprise_query::background_service::CompactionJob;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_enterprise_query::background_service::should_continue_compaction;
+use bigbytesdb_enterprise_query::background_service::CompactionJob;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_get_compaction_advice_sql() -> Result<()> {

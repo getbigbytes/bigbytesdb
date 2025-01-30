@@ -15,11 +15,11 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::WindowDefinition;
-use bigbytes_common_ast::ast::WindowSpec;
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::WindowDefinition;
+use bigbytesdb_common_ast::ast::WindowSpec;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use super::select::SelectList;
 use crate::binder::ColumnBinding;

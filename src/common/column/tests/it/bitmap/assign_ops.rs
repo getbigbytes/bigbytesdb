@@ -13,10 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::binary_assign;
-use bigbytes_common_column::bitmap::unary_assign;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::binary_assign;
+use bigbytesdb_common_column::bitmap::unary_assign;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
 use proptest::prelude::*;
 
 use crate::bitmap::bitmap_strategy;

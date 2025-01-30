@@ -16,9 +16,9 @@ use std::collections::HashSet;
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_catalog::plan::InvertedIndexInfo;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::plan::InvertedIndexInfo;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use educe::Educe;
 
 use super::RelationalProperty;

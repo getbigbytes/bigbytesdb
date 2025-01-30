@@ -80,13 +80,13 @@ static HYBRID_CONFIGS: LazyLock<Vec<(Box<ClientType>, usize)>> = LazyLock::new(|
     ]
 });
 
-pub struct Bigbytes {
+pub struct Bigbytesdb {
     client: Client,
 }
 
-impl Bigbytes {
+impl Bigbytesdb {
     pub fn create(client: Client) -> Self {
-        Bigbytes { client }
+        Bigbytesdb { client }
     }
     pub fn client_name(&self) -> &str {
         self.client.engine_name()
@@ -94,7 +94,7 @@ impl Bigbytes {
 }
 
 #[async_trait::async_trait]
-impl sqllogictest::AsyncDB for Bigbytes {
+impl sqllogictest::AsyncDB for Bigbytesdb {
     type Error = DSqlLogicTestError;
     type ColumnType = DefaultColumnType;
 
@@ -186,9 +186,9 @@ async fn run_hybrid_client(
     Ok(())
 }
 
-// Create new bigbytes with client type
+// Create new bigbytesdb with client type
 #[async_recursion::async_recursion(#[recursive::recursive])]
-async fn create_bigbytes(client_type: &ClientType, filename: &str) -> Result<Bigbytes> {
+async fn create_bigbytes(client_type: &ClientType, filename: &str) -> Result<Bigbytesdb> {
     let mut client: Client;
     let args = SqlLogicTestArgs::parse();
     match client_type {
@@ -232,7 +232,7 @@ async fn create_bigbytes(client_type: &ClientType, filename: &str) -> Result<Big
     }
 
     println!("Running {} test for file: {} ...", client_type, filename);
-    Ok(Bigbytes::create(client))
+    Ok(Bigbytesdb::create(client))
 }
 
 async fn run_suits(args: SqlLogicTestArgs, client_type: ClientType) -> Result<()> {
@@ -242,7 +242,7 @@ async fn run_suits(args: SqlLogicTestArgs, client_type: ClientType) -> Result<()
     let mut files = vec![];
     let start = Instant::now();
     // Walk each suit dir and read all files in it
-    // After get a slt file, set the file name to bigbytes
+    // After get a slt file, set the file name to bigbytesdb
     let suits = std::fs::read_dir(args.suites).unwrap();
     for suit in suits {
         // Get a suit and find all slt files in the suit

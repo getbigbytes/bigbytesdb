@@ -21,19 +21,19 @@ mod upsert_pb;
 
 use std::future::Future;
 
-use bigbytes_common_meta_app::data_id::DataId;
-use bigbytes_common_meta_app::tenant_key::resource::TenantResource;
-use bigbytes_common_meta_app::KeyWithTenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::DirName;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_kvapi::kvapi::NonEmptyItem;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::SeqValue;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_proto_conv::FromToProto;
+use bigbytesdb_common_meta_app::data_id::DataId;
+use bigbytesdb_common_meta_app::tenant_key::resource::TenantResource;
+use bigbytesdb_common_meta_app::KeyWithTenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::DirName;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_kvapi::kvapi::NonEmptyItem;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::SeqValue;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_proto_conv::FromToProto;
 use futures::future::FutureExt;
 use futures::future::TryFutureExt;
 use futures::stream;
@@ -513,24 +513,24 @@ mod tests {
     use async_trait::async_trait;
     use chrono::DateTime;
     use chrono::Utc;
-    use bigbytes_common_meta_app::schema::CatalogIdIdent;
-    use bigbytes_common_meta_app::schema::CatalogMeta;
-    use bigbytes_common_meta_app::schema::CatalogOption;
-    use bigbytes_common_meta_app::schema::HiveCatalogOption;
-    use bigbytes_common_meta_app::storage::StorageS3Config;
-    use bigbytes_common_meta_app::tenant::Tenant;
-    use bigbytes_common_meta_kvapi::kvapi::DirName;
-    use bigbytes_common_meta_kvapi::kvapi::KVApi;
-    use bigbytes_common_meta_kvapi::kvapi::KVStream;
-    use bigbytes_common_meta_kvapi::kvapi::UpsertKVReply;
-    use bigbytes_common_meta_types::protobuf::StreamItem;
-    use bigbytes_common_meta_types::seq_value::SeqV;
-    use bigbytes_common_meta_types::seq_value::SeqValue;
-    use bigbytes_common_meta_types::MetaError;
-    use bigbytes_common_meta_types::TxnReply;
-    use bigbytes_common_meta_types::TxnRequest;
-    use bigbytes_common_meta_types::UpsertKV;
-    use bigbytes_common_proto_conv::FromToProto;
+    use bigbytesdb_common_meta_app::schema::CatalogIdIdent;
+    use bigbytesdb_common_meta_app::schema::CatalogMeta;
+    use bigbytesdb_common_meta_app::schema::CatalogOption;
+    use bigbytesdb_common_meta_app::schema::HiveCatalogOption;
+    use bigbytesdb_common_meta_app::storage::StorageS3Config;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_kvapi::kvapi::DirName;
+    use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+    use bigbytesdb_common_meta_kvapi::kvapi::KVStream;
+    use bigbytesdb_common_meta_kvapi::kvapi::UpsertKVReply;
+    use bigbytesdb_common_meta_types::protobuf::StreamItem;
+    use bigbytesdb_common_meta_types::seq_value::SeqV;
+    use bigbytesdb_common_meta_types::seq_value::SeqValue;
+    use bigbytesdb_common_meta_types::MetaError;
+    use bigbytesdb_common_meta_types::TxnReply;
+    use bigbytesdb_common_meta_types::TxnRequest;
+    use bigbytesdb_common_meta_types::UpsertKV;
+    use bigbytesdb_common_proto_conv::FromToProto;
     use futures::StreamExt;
     use futures::TryStreamExt;
     use prost::Message;
@@ -648,12 +648,12 @@ mod tests {
             catalog_option: CatalogOption::Hive(HiveCatalogOption {
                 address: "127.0.0.1:10000".to_string(),
                 storage_params: Some(Box::new(
-                    bigbytes_common_meta_app::storage::StorageParams::S3(StorageS3Config {
+                    bigbytesdb_common_meta_app::storage::StorageParams::S3(StorageS3Config {
                         endpoint_url: "http://127.0.0.1:9900".to_string(),
                         region: "hello".to_string(),
                         bucket: "world".to_string(),
-                        access_key_id: "bigbytes_has_super_power".to_string(),
-                        secret_access_key: "bigbytes_has_super_power".to_string(),
+                        access_key_id: "bigbytesdb_has_super_power".to_string(),
+                        secret_access_key: "bigbytesdb_has_super_power".to_string(),
                         ..Default::default()
                     }),
                 )),

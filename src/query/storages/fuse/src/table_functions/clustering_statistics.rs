@@ -14,29 +14,29 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::string::StringColumnBuilder;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::Int32Type;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_expression::Value;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::Int32Type;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::io::SegmentsIO;
 use crate::sessions::TableContext;
@@ -94,7 +94,7 @@ impl SimpleArgFunc for ClusteringStatistics {
         let tenant_id = ctx.get_tenant();
 
         let tbl = ctx
-            .get_catalog(bigbytes_common_catalog::catalog_kind::CATALOG_DEFAULT)
+            .get_catalog(bigbytesdb_common_catalog::catalog_kind::CATALOG_DEFAULT)
             .await?
             .get_table(
                 &tenant_id,

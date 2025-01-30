@@ -16,7 +16,7 @@ use std::pin::Pin;
 use std::task::Context;
 use std::task::Poll;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 use futures::Stream;
 #[cfg(not(target_os = "windows"))]
 use tokio::signal::unix::signal;

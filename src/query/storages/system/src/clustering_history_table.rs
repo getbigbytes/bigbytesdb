@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
 
 use crate::SystemLogElement;
 use crate::SystemLogQueue;

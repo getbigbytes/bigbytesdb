@@ -17,17 +17,17 @@ use std::env;
 use clap::ArgAction;
 use clap::Args;
 use clap::Parser;
-use bigbytes_common_meta_raft_store::config::get_default_raft_advertise_host;
-use bigbytes_common_meta_raft_store::config::RaftConfig as InnerRaftConfig;
-use bigbytes_common_meta_types::MetaStartupError;
-use bigbytes_common_tracing::Config as InnerLogConfig;
-use bigbytes_common_tracing::FileConfig as InnerFileLogConfig;
-use bigbytes_common_tracing::OTLPConfig;
-use bigbytes_common_tracing::ProfileLogConfig;
-use bigbytes_common_tracing::QueryLogConfig;
-use bigbytes_common_tracing::StderrConfig as InnerStderrLogConfig;
-use bigbytes_common_tracing::StructLogConfig;
-use bigbytes_common_tracing::TracingConfig;
+use bigbytesdb_common_meta_raft_store::config::get_default_raft_advertise_host;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig as InnerRaftConfig;
+use bigbytesdb_common_meta_types::MetaStartupError;
+use bigbytesdb_common_tracing::Config as InnerLogConfig;
+use bigbytesdb_common_tracing::FileConfig as InnerFileLogConfig;
+use bigbytesdb_common_tracing::OTLPConfig;
+use bigbytesdb_common_tracing::ProfileLogConfig;
+use bigbytesdb_common_tracing::QueryLogConfig;
+use bigbytesdb_common_tracing::StderrConfig as InnerStderrLogConfig;
+use bigbytesdb_common_tracing::StructLogConfig;
+use bigbytesdb_common_tracing::TracingConfig;
 use serde::Deserialize;
 use serde::Serialize;
 use serfig::collectors::from_env;
@@ -64,11 +64,11 @@ pub struct Config {
     #[clap(long, default_value = "")]
     pub cmd: String,
 
-    /// The key sent to bigbytes-meta server and is only used when running with `--cmd kvapi::*`
+    /// The key sent to bigbytesdb-meta server and is only used when running with `--cmd kvapi::*`
     #[clap(long, default_value = "")]
     pub key: Vec<String>,
 
-    /// The value sent to bigbytes-meta server and is only used when running with `--cmd kvapi::upsert`
+    /// The value sent to bigbytesdb-meta server and is only used when running with `--cmd kvapi::upsert`
     #[clap(long, default_value = "")]
     pub value: String,
 
@@ -76,7 +76,7 @@ pub struct Config {
     #[clap(long)]
     pub expire_after: Option<u64>,
 
-    /// The prefix sent to bigbytes-meta server and is only used when running with `--cmd kvapi::list`
+    /// The prefix sent to bigbytesdb-meta server and is only used when running with `--cmd kvapi::list`
     #[clap(long, default_value = "")]
     pub prefix: String,
 
@@ -94,7 +94,7 @@ pub struct Config {
     pub log_level: String,
 
     /// Log file dir
-    #[clap(long = "log-dir", default_value = "./.bigbytes/logs")]
+    #[clap(long = "log-dir", default_value = "./.bigbytesdb/logs")]
     pub log_dir: String,
 
     #[clap(flatten)]
@@ -144,7 +144,7 @@ impl From<Config> for InnerConfig {
         if outer.log_level != "INFO" {
             log.file.level = outer.log_level.to_string();
         }
-        if outer.log_dir != "./.bigbytes/logs" {
+        if outer.log_dir != "./.bigbytesdb/logs" {
             log.file.dir = outer.log_dir.to_string();
         }
 
@@ -410,7 +410,7 @@ impl Into<Config> for ConfigViaEnv {
                 file_dir: self.metasrv_log_file_dir,
                 file_format: self.metasrv_log_file_format,
                 file_limit: self.metasrv_log_file_limit,
-                file_prefix_filter: "bigbytes_,openraft".to_string(),
+                file_prefix_filter: "bigbytesdb_,openraft".to_string(),
             },
             stderr: StderrLogConfig {
                 stderr_on: self.metasrv_log_stderr_on,
@@ -466,7 +466,7 @@ pub struct RaftConfig {
     pub raft_api_port: u16,
 
     /// The dir to store persisted meta state, including raft logs, state machine etc.
-    #[clap(long, default_value = "./.bigbytes/meta")]
+    #[clap(long, default_value = "./.bigbytesdb/meta")]
     pub raft_dir: String,
 
     /// Whether to fsync meta to disk for every meta write(raft log, state machine etc).
@@ -537,13 +537,13 @@ pub struct RaftConfig {
     #[clap(long, default_value = "1073741824")]
     pub snapshot_db_block_cache_size: u64,
 
-    /// Start bigbytes-meta in single node mode.
+    /// Start bigbytesdb-meta in single node mode.
     /// It initialize a single node cluster, if meta data is not initialized.
     /// If on-disk data is already initialized, this argument has no effect.
     #[clap(long)]
     pub single: bool,
 
-    /// Bring up a bigbytes-meta node and join a cluster.
+    /// Bring up a bigbytesdb-meta node and join a cluster.
     ///
     /// It will take effect only when the meta data is not initialized.
     /// If on-disk data is already initialized, this argument has no effect.
@@ -552,7 +552,7 @@ pub struct RaftConfig {
     #[clap(long)]
     pub join: Vec<String>,
 
-    /// Do not run bigbytes-meta, but just remove a node from its cluster via the provided endpoints.
+    /// Do not run bigbytesdb-meta, but just remove a node from its cluster via the provided endpoints.
     ///
     /// This node will be removed by `id`.
     #[clap(long)]
@@ -711,7 +711,7 @@ pub struct FileLogConfig {
     pub file_level: String,
 
     /// Log file dir
-    #[clap(long = "log-file-dir", default_value = "./.bigbytes/logs")]
+    #[clap(long = "log-file-dir", default_value = "./.bigbytesdb/logs")]
     #[serde(rename = "dir")]
     pub file_dir: String,
 
@@ -726,9 +726,9 @@ pub struct FileLogConfig {
     pub file_limit: usize,
 
     /// Log prefix filter, separated by comma.
-    /// For example, `"bigbytes_,openraft"` enables logging for `bigbytes_*` crates and `openraft` crate.
+    /// For example, `"bigbytesdb_,openraft"` enables logging for `bigbytesdb_*` crates and `openraft` crate.
     /// This filter does not affect `WARNING` and `ERROR` log.
-    #[clap(long = "log-file-prefix-filter", default_value = "bigbytes_,openraft")]
+    #[clap(long = "log-file-prefix-filter", default_value = "bigbytesdb_,openraft")]
     #[serde(rename = "prefix_filter")]
     pub file_prefix_filter: String,
 }

@@ -1,11 +1,11 @@
 [package]
-name = "bigbytes-functions-scalar-arithmetic"
+name = "bigbytesdb-functions-scalar-arithmetic"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bigbytes-common-expression = { workspace = true }
-bigbytes-functions-scalar-decimal = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-functions-scalar-decimal = { workspace = true }
 ethnum = { workspace = true }
 lexical-core = { workspace = true }
 match-template = { workspace = true }

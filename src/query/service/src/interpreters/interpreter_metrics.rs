@@ -16,9 +16,9 @@ use std::time::Duration;
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_metrics::interpreter::*;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_metrics::interpreter::*;
 
 use crate::sessions::QueryContext;
 use crate::sessions::TableContext;

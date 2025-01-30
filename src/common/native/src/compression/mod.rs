@@ -20,7 +20,7 @@ pub mod double;
 pub mod integer;
 
 pub use basic::CommonCompression;
-use bigbytes_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Bitmap;
 
 use crate::error::Result;
 

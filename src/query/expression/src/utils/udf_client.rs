@@ -22,14 +22,14 @@ use arrow_flight::encode::FlightDataEncoderBuilder;
 use arrow_flight::flight_service_client::FlightServiceClient;
 use arrow_flight::FlightDescriptor;
 use arrow_select::concat::concat_batches;
-use bigbytes_common_base::headers::HEADER_FUNCTION;
-use bigbytes_common_base::headers::HEADER_FUNCTION_HANDLER;
-use bigbytes_common_base::headers::HEADER_QUERY_ID;
-use bigbytes_common_base::headers::HEADER_TENANT;
-use bigbytes_common_base::version::BIGBYTES_SEMVER;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::DNSService;
+use bigbytesdb_common_base::headers::HEADER_FUNCTION;
+use bigbytesdb_common_base::headers::HEADER_FUNCTION_HANDLER;
+use bigbytesdb_common_base::headers::HEADER_QUERY_ID;
+use bigbytesdb_common_base::headers::HEADER_TENANT;
+use bigbytesdb_common_base::version::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::DNSService;
 use futures::stream;
 use futures::StreamExt;
 use futures::TryStreamExt;
@@ -71,7 +71,7 @@ impl UDFFlightClient {
             .map_err(|err| {
                 ErrorCode::UDFServerConnectError(format!("Invalid UDF Server address: {err}"))
             })?
-            .user_agent(format!("bigbytes-query/{}", *BIGBYTES_SEMVER))
+            .user_agent(format!("bigbytesdb-query/{}", *BIGBYTESDB_SEMVER))
             .map_err(|err| {
                 ErrorCode::UDFServerConnectError(format!("Invalid UDF Client User Agent: {err}"))
             })?

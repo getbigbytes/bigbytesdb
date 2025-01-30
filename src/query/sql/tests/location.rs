@@ -19,24 +19,24 @@ mod optimizer;
 use std::collections::BTreeMap;
 
 use anyhow::Result;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-// use bigbytes_common_storage::StorageFtpConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig;
-use bigbytes_common_meta_app::storage::StorageHttpConfig;
-use bigbytes_common_meta_app::storage::StorageIpfsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
-use bigbytes_common_meta_app::storage::STORAGE_GCS_DEFAULT_ENDPOINT;
-use bigbytes_common_meta_app::storage::STORAGE_IPFS_DEFAULT_ENDPOINT;
-use bigbytes_common_meta_app::storage::STORAGE_S3_DEFAULT_ENDPOINT;
-use bigbytes_common_sql::planner::binder::parse_uri_location;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+// use bigbytesdb_common_storage::StorageFtpConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig;
+use bigbytesdb_common_meta_app::storage::StorageHttpConfig;
+use bigbytesdb_common_meta_app::storage::StorageIpfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_common_meta_app::storage::STORAGE_GCS_DEFAULT_ENDPOINT;
+use bigbytesdb_common_meta_app::storage::STORAGE_IPFS_DEFAULT_ENDPOINT;
+use bigbytesdb_common_meta_app::storage::STORAGE_S3_DEFAULT_ENDPOINT;
+use bigbytesdb_common_sql::planner::binder::parse_uri_location;
 
 #[tokio::test]
 async fn test_parse_uri_location() -> Result<()> {

@@ -1,4 +1,4 @@
-# Bigbytes All-in-One Docker Image
+# Bigbytesdb All-in-One Docker Image
 
 Support Platform: `linux/amd64`, `linux/arm64`
 
@@ -23,16 +23,16 @@ Support Platform: `linux/amd64`, `linux/arm64`
 
 ### Run default config with fs backend
 ```
-docker run -p 8000:8000 getbigbytes/bigbytes
+docker run -p 8000:8000 getbigbytes/bigbytesdb
 ```
 
 ### Adding built-in query user
 ```
 docker run \
     -p 8000:8000 \
-    -e QUERY_DEFAULT_USER=bigbytes \
-    -e QUERY_DEFAULT_PASSWORD=bigbytes \
-    getbigbytes/bigbytes
+    -e QUERY_DEFAULT_USER=bigbytesdb \
+    -e QUERY_DEFAULT_PASSWORD=bigbytesdb \
+    getbigbytes/bigbytesdb
 ```
 
 > NOTE:
@@ -47,7 +47,7 @@ docker run \
     -p 9000:9000 \
     -e MINIO_ENABLED=true \
     -v minio_data_dir:/var/lib/minio \
-    getbigbytes/bigbytes
+    getbigbytes/bigbytesdb
 ```
 
 ### Run with external S3 service
@@ -60,39 +60,39 @@ docker run \
     -e AWS_S3_BUCKET=some_bucket \
     -e AWS_ACCESS_KEY_ID=some_key \
     -e AWS_SECRET_ACCESS_KEY=some_secret \
-    getbigbytes/bigbytes
+    getbigbytes/bigbytesdb
 ```
 
 ### Run with persistent local storage & logs
 ```
 docker run \
     -p 8000:8000 \
-    -v meta_storage_dir:/var/lib/bigbytes/meta \
-    -v query_storage_dir:/var/lib/bigbytes/query \
-    -v log_dir:/var/log/bigbytes \
-    getbigbytes/bigbytes
+    -v meta_storage_dir:/var/lib/bigbytesdb/meta \
+    -v query_storage_dir:/var/lib/bigbytesdb/query \
+    -v log_dir:/var/log/bigbytesdb \
+    getbigbytes/bigbytesdb
 ```
 
 ### Run with self managed query config
 ```
 docker run \
     -p 8000:8000 \
-    -e QUERY_CONFIG_FILE=/etc/bigbytes/mine.toml \
-    -v query_config_file:/etc/bigbytes/mine.toml \
-    getbigbytes/bigbytes
+    -e QUERY_CONFIG_FILE=/etc/bigbytesdb/mine.toml \
+    -v query_config_file:/etc/bigbytesdb/mine.toml \
+    getbigbytes/bigbytesdb
 ```
 
 
 ## How to connect
 
-There are two ways connecting to bigbytes with docker:
+There are two ways connecting to bigbytesdb with docker:
 
 ### Using default added root user
 
 ```shell
 docker run \
     --net=host \
-    getbigbytes/bigbytes
+    getbigbytes/bigbytesdb
 
 
 ❯ bendsql
@@ -125,14 +125,14 @@ mysql>
 docker run \
     -p 8000:8000 \
     -p 3307:3307 \
-    -e QUERY_DEFAULT_USER=bigbytes \
-    -e QUERY_DEFAULT_PASSWORD=bigbytes \
-    getbigbytes/bigbytes
+    -e QUERY_DEFAULT_USER=bigbytesdb \
+    -e QUERY_DEFAULT_PASSWORD=bigbytesdb \
+    getbigbytes/bigbytesdb
 
 
-❯ bendsql -u bigbytes -p bigbytes
+❯ bendsql -u bigbytesdb -p bigbytesdb
 Welcome to BendSQL.
-Trying connect to localhost:8000 as user bigbytes.
+Trying connect to localhost:8000 as user bigbytesdb.
 Connected to BigbytesQuery v1.1.2-nightly-8ade21e4669e0a2cc100615247705feacdf76c5b(rust-1.70.0-nightly-2023-04-15T16:08:52.195357424Z)
 
 bendsql>

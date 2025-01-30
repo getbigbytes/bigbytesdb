@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-index"
+name = "bigbytesdb-storages-common-index"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -17,11 +17,11 @@ ignored = ["xorfilter-rs", "match-template"]
 anyerror = { workspace = true }
 cbordata = { workspace = true }
 
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 fastrace = { workspace = true }
 jsonb = { workspace = true }
 levenshtein_automata = { workspace = true }

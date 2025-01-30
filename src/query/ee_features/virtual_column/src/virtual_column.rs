@@ -14,19 +14,19 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateVirtualColumnReq;
-use bigbytes_common_meta_app::schema::DropVirtualColumnReq;
-use bigbytes_common_meta_app::schema::ListVirtualColumnsReq;
-use bigbytes_common_meta_app::schema::UpdateVirtualColumnReq;
-use bigbytes_common_meta_app::schema::VirtualColumnMeta;
-use bigbytes_common_meta_app::schema::VirtualField;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::DropVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::ListVirtualColumnsReq;
+use bigbytesdb_common_meta_app::schema::UpdateVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::VirtualColumnMeta;
+use bigbytesdb_common_meta_app::schema::VirtualField;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 
 #[async_trait::async_trait]
 pub trait VirtualColumnHandler: Sync + Send {

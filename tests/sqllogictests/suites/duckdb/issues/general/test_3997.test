@@ -1,5 +1,5 @@
 # CTEs on Insert/update/delete statements
-# issue https://github.com/getbigbytes/bigbytes/issues/7356
+# issue https://github.com/getbigbytes/bigbytesdb/issues/7356
 
 # statement ok
 # drop table if exists x

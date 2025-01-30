@@ -16,16 +16,16 @@ use std::time::Duration;
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::background::task_creator::BackgroundTaskCreator;
-use bigbytes_common_meta_app::background::BackgroundJobParams;
-use bigbytes_common_meta_app::background::BackgroundJobState;
-use bigbytes_common_meta_app::background::BackgroundJobStatus;
-use bigbytes_common_meta_app::background::BackgroundJobType;
-use bigbytes_common_meta_app::background::BackgroundTaskState;
-use bigbytes_common_meta_app::background::BackgroundTaskType;
-use bigbytes_common_meta_app::background::CompactionStats;
-use bigbytes_common_meta_app::background::VacuumStats;
-use bigbytes_common_meta_app::schema::TableStatistics;
+use bigbytesdb_common_meta_app::background::task_creator::BackgroundTaskCreator;
+use bigbytesdb_common_meta_app::background::BackgroundJobParams;
+use bigbytesdb_common_meta_app::background::BackgroundJobState;
+use bigbytesdb_common_meta_app::background::BackgroundJobStatus;
+use bigbytesdb_common_meta_app::background::BackgroundJobType;
+use bigbytesdb_common_meta_app::background::BackgroundTaskState;
+use bigbytesdb_common_meta_app::background::BackgroundTaskType;
+use bigbytesdb_common_meta_app::background::CompactionStats;
+use bigbytesdb_common_meta_app::background::VacuumStats;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
 use fastrace::func_name;
 
 use crate::common;
@@ -48,7 +48,7 @@ fn test_decode_v44_background_task() -> anyhow::Result<()> {
         32, 48, 48, 58, 48, 48, 58, 48, 48, 32, 85, 84, 67, 160, 6, 45, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::background::BackgroundTaskInfo {
+    let want = || bigbytesdb_common_meta_app::background::BackgroundTaskInfo {
         last_updated: Some(Utc.with_ymd_and_hms(2014, 11, 28, 12, 0, 9).unwrap()),
         task_type: BackgroundTaskType::COMPACTION,
         task_state: BackgroundTaskState::DONE,
@@ -79,11 +79,11 @@ fn test_decode_v40_background_task_case_2() -> anyhow::Result<()> {
         85, 84, 67, 160, 6, 45, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::background::BackgroundTaskInfo {
+    let want = || bigbytesdb_common_meta_app::background::BackgroundTaskInfo {
         last_updated: Some(Utc.with_ymd_and_hms(2014, 11, 28, 12, 0, 9).unwrap()),
         task_type: BackgroundTaskType::VACUUM,
         task_state: BackgroundTaskState::STARTED,
-        message: "bigbytes background task".to_string(),
+        message: "bigbytesdb background task".to_string(),
         compaction_task_stats: Some(CompactionStats {
             db_id: 21,
             table_id: 92,
@@ -130,7 +130,7 @@ fn test_decode_v44_background_job() -> anyhow::Result<()> {
         32, 48, 48, 58, 48, 48, 58, 48, 48, 32, 85, 84, 67, 160, 6, 45, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::background::BackgroundJobInfo {
+    let want = || bigbytesdb_common_meta_app::background::BackgroundJobInfo {
         job_params: Some(BackgroundJobParams {
             job_type: BackgroundJobType::INTERVAL,
             scheduled_job_interval: std::time::Duration::from_secs(100),

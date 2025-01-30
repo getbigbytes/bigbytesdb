@@ -12,7 +12,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/bigbytes/meta"
+    path: "/mnt/bigbytesdb/meta"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -33,12 +33,12 @@ spec:
     spec:
       dnsConfig:
         searches:
-          - "meta-service.bigbytes-system.svc.cluster.local"
+          - "meta-service.bigbytesdb-system.svc.cluster.local"
       containers:
-        - name: bigbytes-meta
-          image: getbigbytes/bigbytes-meta:latest
+        - name: bigbytesdb-meta
+          image: getbigbytes/bigbytesdb-meta:latest
           command:
-            - /bigbytes-meta
+            - /bigbytesdb-meta
           args:
             - --single
           env:

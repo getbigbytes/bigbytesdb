@@ -16,7 +16,7 @@ use std::borrow::Borrow;
 use std::io;
 use std::ops::RangeBounds;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
 use futures_util::StreamExt;
 use rotbl::v001::SeqMarked;
 

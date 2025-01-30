@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_datavalues::DataTypeImpl;
-use bigbytes_common_datavalues::DataValue;
+use bigbytesdb_common_datavalues::DataTypeImpl;
+use bigbytesdb_common_datavalues::DataValue;
 
 use crate::types::number::NumberScalar;
 use crate::types::*;
@@ -73,7 +73,7 @@ pub fn from_type(datatype: &DataTypeImpl) -> TableDataType {
     }
 }
 
-pub fn from_schema(schema: &bigbytes_common_datavalues::DataSchema) -> TableSchema {
+pub fn from_schema(schema: &bigbytesdb_common_datavalues::DataSchema) -> TableSchema {
     let fields = schema
         .fields()
         .iter()

@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio::sync::mpsc::Receiver;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_base::base::tokio::sync::mpsc::Receiver;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
 
 use crate::SyncSource;
 use crate::SyncSourcer;

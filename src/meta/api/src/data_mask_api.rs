@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::data_mask::CreateDatamaskReply;
-use bigbytes_common_meta_app::data_mask::CreateDatamaskReq;
-use bigbytes_common_meta_app::data_mask::DataMaskId;
-use bigbytes_common_meta_app::data_mask::DataMaskNameIdent;
-use bigbytes_common_meta_app::data_mask::DatamaskMeta;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_meta_app::data_mask::CreateDatamaskReply;
+use bigbytesdb_common_meta_app::data_mask::CreateDatamaskReq;
+use bigbytesdb_common_meta_app::data_mask::DataMaskId;
+use bigbytesdb_common_meta_app::data_mask::DataMaskNameIdent;
+use bigbytesdb_common_meta_app::data_mask::DatamaskMeta;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::SeqV;
 
 use crate::kv_app_error::KVAppError;
 

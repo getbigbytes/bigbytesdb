@@ -137,7 +137,7 @@ impl LibraryLoader {
             return Ok(binary_library);
         };
 
-        // Symbol binary in the same dir ./bigbytes-query.debug
+        // Symbol binary in the same dir ./bigbytesdb-query.debug
         let mut binary_debug_path = binary_path.clone();
         binary_debug_path.set_extension("debug");
 
@@ -152,7 +152,7 @@ impl LibraryLoader {
         }
 
         // Symbol binary in the system lib/debug/relative_path dir
-        // /usr/lib/debug/home/ubuntu/bigbytes/bigbytes-query.debug
+        // /usr/lib/debug/home/ubuntu/bigbytesdb/bigbytesdb-query.debug
         let Ok(relative_path) = binary_path.strip_prefix("/") else {
             return Err(std::io::Error::other("Cannot strip_prefix for path"));
         };

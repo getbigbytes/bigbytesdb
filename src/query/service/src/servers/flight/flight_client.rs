@@ -21,10 +21,10 @@ use arrow_flight::FlightData;
 use arrow_flight::Ticket;
 use async_channel::Receiver;
 use async_channel::Sender;
-use bigbytes_common_base::base::tokio::time::Duration;
-use bigbytes_common_base::runtime::drop_guard;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio::time::Duration;
+use bigbytesdb_common_base::runtime::drop_guard;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use fastrace::func_path;
 use fastrace::future::FutureExt;
 use fastrace::Span;
@@ -81,7 +81,7 @@ impl FlightClient {
 
         drop(message);
         let mut request =
-            bigbytes_common_tracing::inject_span_to_tonic_request(Request::new(Action {
+            bigbytesdb_common_tracing::inject_span_to_tonic_request(Request::new(Action {
                 body: body.into(),
                 r#type: path.to_string(),
             }));
@@ -148,7 +148,7 @@ impl FlightClient {
             .with_metadata("x-query-id", query_id)?
             .with_metadata("x-fragment-id", &fragment.to_string())?
             .build();
-        let request = bigbytes_common_tracing::inject_span_to_tonic_request(request);
+        let request = bigbytesdb_common_tracing::inject_span_to_tonic_request(request);
 
         let streaming = self.get_streaming(request).await?;
 
@@ -197,7 +197,7 @@ impl FlightClient {
         }
         .in_span(Span::enter_with_local_parent(func_path!()));
 
-        bigbytes_common_base::runtime::spawn(fut);
+        bigbytesdb_common_base::runtime::spawn(fut);
 
         (notify, rx)
     }

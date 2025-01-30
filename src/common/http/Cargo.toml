@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-http"
+name = "bigbytesdb-common-http"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -15,8 +15,8 @@ memory-profiling = ["tempfile"]
 
 [dependencies]
 anyerror = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 futures = { workspace = true }
 http = { workspace = true }
 log = { workspace = true }

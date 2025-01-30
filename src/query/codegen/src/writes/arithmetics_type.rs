@@ -16,7 +16,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 
-use bigbytes_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberDataType;
 
 pub enum OP {
     Plus,

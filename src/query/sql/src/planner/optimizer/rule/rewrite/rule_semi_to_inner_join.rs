@@ -15,7 +15,7 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::extract::Matcher;
 use crate::optimizer::rule::Rule;

@@ -51,7 +51,7 @@ select * from distributed_target_test order by a;
 8 x
 
 statement ok
-create table distributed_source_test(a int,b string,is_bigbytes_deleted bool) cluster by(a,b);
+create table distributed_source_test(a int,b string,is_bigbytesdb_deleted bool) cluster by(a,b);
 
 statement ok
 insert into distributed_source_test values(1,'d',true),(2,'e',true),(3,'f',false),(4,'e',true),(5,'f',false);
@@ -72,8 +72,8 @@ statement ok
 copy into @distributed_source_parquet from (select * from distributed_source_test);
 
 query TTT
-merge into `distributed_target_test` as tt using (select `a`,`b`,`is_bigbytes_deleted` from @distributed_source_parquet (pattern => '.*[.]parquet')) as ss on (ss.`a` = tt.`a`)
-when matched and ss.`is_bigbytes_deleted` = true then delete when matched then update * when not matched and ss.`is_bigbytes_deleted` = false then insert *;
+merge into `distributed_target_test` as tt using (select `a`,`b`,`is_bigbytesdb_deleted` from @distributed_source_parquet (pattern => '.*[.]parquet')) as ss on (ss.`a` = tt.`a`)
+when matched and ss.`is_bigbytesdb_deleted` = true then delete when matched then update * when not matched and ss.`is_bigbytesdb_deleted` = false then insert *;
 ----
 2 4 8
 

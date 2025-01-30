@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::ColumnID;
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::GroupBy;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_ast::ast::SelectStmt;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::ast::ColumnID;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::GroupBy;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_ast::ast::SelectStmt;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::ast::TableReference;
 use derive_visitor::VisitorMut;
 
 #[derive(Debug, Clone, Default, VisitorMut)]
@@ -44,7 +44,7 @@ impl DistinctToGroupBy {
         } = stmt;
 
         if group_by.is_none() && select_list.len() == 1 && from.len() == 1 {
-            if let bigbytes_common_ast::ast::SelectTarget::AliasedExpr {
+            if let bigbytesdb_common_ast::ast::SelectTarget::AliasedExpr {
                 expr:
                     box Expr::FunctionCall {
                         span,
@@ -101,7 +101,7 @@ impl DistinctToGroupBy {
                         hints: None,
                         top_n: None,
                         distinct: false,
-                        select_list: vec![bigbytes_common_ast::ast::SelectTarget::AliasedExpr {
+                        select_list: vec![bigbytesdb_common_ast::ast::SelectTarget::AliasedExpr {
                             expr: Box::new(Expr::FunctionCall {
                                 span: None,
                                 func: FunctionCall {

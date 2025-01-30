@@ -15,7 +15,7 @@
 use std::io::Cursor;
 use std::sync::Arc;
 
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_expression::Scalar;
 use parquet::arrow::arrow_reader::RowSelector;
 use parquet::file::metadata::RowGroupMetaData;
 use parquet::format::PageLocation;

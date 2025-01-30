@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-blocks"
+name = "bigbytesdb-storages-common-blocks"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,9 +11,9 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 parking_lot = { workspace = true }
 parquet = { workspace = true }
 

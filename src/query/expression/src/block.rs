@@ -18,8 +18,8 @@ use std::fmt::Debug;
 use std::ops::Range;
 
 use arrow_array::ArrayRef;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::schema::DataSchema;
 use crate::types::AnyType;

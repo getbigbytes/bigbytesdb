@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_sql::plans::ExistsTablePlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_sql::plans::ExistsTablePlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

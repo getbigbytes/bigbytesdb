@@ -19,14 +19,14 @@ mod utils;
 use std::fmt::Debug;
 
 pub use common::*;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::ArgType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::SortColumnDescription;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::ArgType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::SortColumnDescription;
 pub use simple::*;
 pub use utils::*;
 

@@ -14,12 +14,12 @@
 
 use std::io::Cursor;
 
-use bigbytes_common_column::binary::BinaryColumn;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::types::GeographyColumn;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_column::binary::BinaryColumn;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::types::GeographyColumn;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::compression::binary::decompress_binary;
 use crate::error::Result;

@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-sled-store"
+name = "bigbytesdb-common-meta-sled-store"
 description = "Sled store backend for raft state machine"
 version = { workspace = true }
 authors = { workspace = true }
@@ -17,8 +17,8 @@ io-uring = ["sled/io_uring"]
 [dependencies]
 anyerror = { workspace = true }
 byteorder = { workspace = true }
-bigbytes-common-meta-stoerr = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-meta-stoerr = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 fastrace = { workspace = true }
 log = { workspace = true }
 openraft = { workspace = true }

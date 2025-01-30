@@ -16,15 +16,15 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::vec;
 
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_storages_fuse::operations::ConflictResolveContext;
-use bigbytes_common_storages_fuse::operations::MutationGenerator;
-use bigbytes_common_storages_fuse::operations::SnapshotChanges;
-use bigbytes_common_storages_fuse::operations::SnapshotGenerator;
-use bigbytes_storages_common_session::TxnManager;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_storages_fuse::operations::ConflictResolveContext;
+use bigbytesdb_common_storages_fuse::operations::MutationGenerator;
+use bigbytesdb_common_storages_fuse::operations::SnapshotChanges;
+use bigbytesdb_common_storages_fuse::operations::SnapshotGenerator;
+use bigbytesdb_storages_common_session::TxnManager;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 #[test]
 /// base snapshot contains segments 1, 2, 3,

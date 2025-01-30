@@ -15,7 +15,7 @@
 use std::convert::TryInto;
 use std::io::Read;
 
-use bigbytes_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Bitmap;
 
 use super::NativeReadBuf;
 use crate::compression::Compression;

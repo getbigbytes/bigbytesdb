@@ -15,10 +15,10 @@
 use std::sync::atomic::AtomicUsize;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
 
 use super::parquet_file::append_data_to_parquet_files;
 use super::row_based_file::append_data_to_row_based_files;
@@ -30,7 +30,7 @@ impl StageTable {
         &self,
         ctx: Arc<dyn TableContext>,
         pipeline: &mut Pipeline,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let settings = ctx.get_settings();
 
         let fmt = self.table_info.stage_info.file_format_params.clone();

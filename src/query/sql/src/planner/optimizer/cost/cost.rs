@@ -16,7 +16,7 @@ use std::fmt::Display;
 use std::ops::Add;
 use std::ops::AddAssign;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::MExpr;
 use crate::optimizer::Memo;

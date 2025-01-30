@@ -15,13 +15,13 @@
 use std::ops::Deref;
 
 use async_trait::async_trait;
-use bigbytes_common_meta_types::errors;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::errors;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures_util::stream::BoxStream;
 use futures_util::StreamExt;
 use futures_util::TryStreamExt;

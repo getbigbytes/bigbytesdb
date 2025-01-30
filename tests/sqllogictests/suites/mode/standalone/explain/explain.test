@@ -841,7 +841,7 @@ drop table a;
 statement ok
 drop table b;
 
-# https://github.com/getbigbytes/bigbytes/pull/12026
+# https://github.com/getbigbytes/bigbytesdb/pull/12026
 query T
 explain select number, pt, register_at from (select a.number, pt,register_at from ( select number,  to_yyyymmdd(to_timestamp(number))   as pt
 from numbers(10) where number > 5

@@ -1,6 +1,6 @@
 [package]
-name = "bigbytes-binaries"
-description = "bigbytes command line tools"
+name = "bigbytesdb-binaries"
+description = "bigbytesdb command line tools"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -10,30 +10,30 @@ edition = { workspace = true }
 [features]
 default = ["simd", "jemalloc"]
 memory-profiling = [
-    "bigbytes-query/memory-profiling",
-    "bigbytes-common-base/memory-profiling",
+    "bigbytesdb-query/memory-profiling",
+    "bigbytesdb-common-base/memory-profiling",
 ]
-python-udf = ["bigbytes-query/python-udf"]
-simd = ["bigbytes-query/simd"]
-jemalloc = ["bigbytes-common-base/jemalloc", "bigbytes-query/jemalloc"]
+python-udf = ["bigbytesdb-query/python-udf"]
+simd = ["bigbytesdb-query/simd"]
+jemalloc = ["bigbytesdb-common-base/jemalloc", "bigbytesdb-query/jemalloc"]
 io-uring = [
-    "bigbytes-query/io-uring",
+    "bigbytesdb-query/io-uring",
 ]
 
 [dependencies]
 clap = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-license = { workspace = true }
-bigbytes-common-meta-client = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-storage = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
-bigbytes-enterprise-background-service = { workspace = true }
-bigbytes-enterprise-query = { workspace = true }
-bigbytes-query = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-license = { workspace = true }
+bigbytesdb-common-meta-client = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
+bigbytesdb-enterprise-background-service = { workspace = true }
+bigbytesdb-enterprise-query = { workspace = true }
+bigbytesdb-query = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 limits-rs = { workspace = true }
 log = { workspace = true }
 opendal = { workspace = true }
@@ -43,13 +43,13 @@ serfig = { workspace = true }
 tokio = { workspace = true }
 
 [[bin]]
-name = "bigbytes-query"
+name = "bigbytesdb-query"
 path = "query/ee_main.rs"
 doctest = false
 test = false
 
 [[bin]]
-name = "bigbytes-query-oss"
+name = "bigbytesdb-query-oss"
 path = "query/oss_main.rs"
 doctest = false
 test = false

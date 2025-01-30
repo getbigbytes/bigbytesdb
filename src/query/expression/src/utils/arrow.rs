@@ -24,11 +24,11 @@ use arrow_ipc::writer::FileWriter;
 use arrow_ipc::writer::IpcWriteOptions;
 use arrow_ipc::CompressionType;
 use arrow_schema::Schema;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::Column;
 use crate::DataField;

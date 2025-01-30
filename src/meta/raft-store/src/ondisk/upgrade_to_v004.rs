@@ -18,10 +18,10 @@ use std::fs;
 use std::path::Path;
 use std::sync::Arc;
 
-use bigbytes_common_meta_sled_store::drop_sled_db;
-use bigbytes_common_meta_sled_store::init_get_sled_db;
-use bigbytes_common_meta_sled_store::SledTree;
-use bigbytes_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_sled_store::drop_sled_db;
+use bigbytesdb_common_meta_sled_store::init_get_sled_db;
+use bigbytesdb_common_meta_sled_store::SledTree;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
 use fs_extra::dir::CopyOptions;
 use log::debug;
 use openraft::LogIdOptionExt;

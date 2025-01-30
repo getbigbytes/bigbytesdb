@@ -14,7 +14,7 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
 use fastrace::func_name;
 
 use crate::common;
@@ -41,7 +41,7 @@ fn test_decode_v47_catalog() -> anyhow::Result<()> {
         49, 50, 58, 48, 48, 58, 48, 57, 32, 85, 84, 67, 160, 6, 47, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::schema::CatalogMeta {
+    let want = || bigbytesdb_common_meta_app::schema::CatalogMeta {
         catalog_option: CatalogOption::Default,
         created_on: Utc.with_ymd_and_hms(2014, 11, 28, 12, 0, 9).unwrap(),
     };

@@ -14,8 +14,8 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;
@@ -134,7 +134,7 @@ fn test_noteq(file: &mut impl Write) {
     );
     run_ast(
         file,
-        r#"parse_json('"bigbytes"') != parse_json('"bigbytes"')"#,
+        r#"parse_json('"bigbytesdb"') != parse_json('"bigbytesdb"')"#,
         &[],
     );
     let table = [
@@ -238,7 +238,7 @@ fn test_lte(file: &mut impl Write) {
         (
             "lhs",
             StringType::from_data(vec![
-                r#""bigbytes""#,
+                r#""bigbytesdb""#,
                 r#"{"k":"v","a":"b"}"#,
                 r#"[1,2,3,["a","b","c"]]"#,
             ]),
@@ -246,7 +246,7 @@ fn test_lte(file: &mut impl Write) {
         (
             "rhs",
             StringType::from_data(vec![
-                r#""bigbytes""#,
+                r#""bigbytesdb""#,
                 r#"{"k":"a","a":"d"}"#,
                 r#"[0,2,3,["a","b","c"]]"#,
             ]),

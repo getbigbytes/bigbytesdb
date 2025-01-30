@@ -14,11 +14,11 @@
 
 use std::time::Duration;
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::principal::StageInfo;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum PresignAction {

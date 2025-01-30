@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::UpdateTableMetaReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_sql::plans::AlterTableClusterKeyPlan;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::UpdateTableMetaReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_sql::plans::AlterTableClusterKeyPlan;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
 
 use super::Interpreter;
 use crate::pipelines::PipelineBuildResult;

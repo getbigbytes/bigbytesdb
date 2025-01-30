@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
 
 use crate::aggregating_index::RealAggregatingIndexHandler;
 use crate::data_mask::RealDatamaskHandler;

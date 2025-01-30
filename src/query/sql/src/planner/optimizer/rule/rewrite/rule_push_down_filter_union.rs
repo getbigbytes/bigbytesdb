@@ -15,7 +15,7 @@
 use std::sync::Arc;
 
 use ahash::HashMap;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::ColumnBindingBuilder;
 use crate::optimizer::extract::Matcher;

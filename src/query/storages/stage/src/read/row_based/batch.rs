@@ -14,7 +14,7 @@
 
 use std::intrinsics::unlikely;
 
-use bigbytes_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfo;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Serialize;

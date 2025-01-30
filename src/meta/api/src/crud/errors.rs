@@ -14,11 +14,11 @@
 
 use std::error::Error;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::tenant_key::errors::ExistError;
-use bigbytes_common_meta_app::tenant_key::errors::UnknownError;
-use bigbytes_common_meta_app::tenant_key::resource::TenantResource;
-use bigbytes_common_meta_types::MetaError;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::tenant_key::errors::ExistError;
+use bigbytesdb_common_meta_app::tenant_key::errors::UnknownError;
+use bigbytesdb_common_meta_app::tenant_key::resource::TenantResource;
+use bigbytesdb_common_meta_types::MetaError;
 
 /// CRUD Error that can be an API level error or a business error.
 #[derive(Clone, Debug, thiserror::Error)]

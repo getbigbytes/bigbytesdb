@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::CreateOption;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::DictionaryMeta;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::CreateOption;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::DictionaryMeta;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[derive(Clone, Debug)]
 pub struct CreateDictionaryPlan {

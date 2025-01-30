@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_sql::plans::CreateRolePlan;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
-use bigbytes_common_users::BUILTIN_ROLE_PUBLIC;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_sql::plans::CreateRolePlan;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
+use bigbytesdb_common_users::BUILTIN_ROLE_PUBLIC;
 use log::debug;
 
 use crate::interpreters::Interpreter;

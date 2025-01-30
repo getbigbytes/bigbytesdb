@@ -55,7 +55,7 @@ runs:
         # Keep them in one line due to https://github.com/PyO3/maturin-action/issues/153
         rustup-components: rust-std rustfmt
         args: ${{ steps.opts.outputs.BUILD_ARGS }}
-        docker-options: --env RUSTC_WRAPPER=sccache --env SCCACHE_GCS_RW_MODE=READ_WRITE --env SCCACHE_GCS_BUCKET=bigbytes-ci --env SCCACHE_GCS_KEY_PREFIX=cache/sccache/
+        docker-options: --env RUSTC_WRAPPER=sccache --env SCCACHE_GCS_RW_MODE=READ_WRITE --env SCCACHE_GCS_BUCKET=bigbytesdb-ci --env SCCACHE_GCS_KEY_PREFIX=cache/sccache/
         before-script-linux: |
           unset RUSTC_WRAPPER
           ../../scripts/setup/dev_setup.sh -yb

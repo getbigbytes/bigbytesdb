@@ -12,21 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::hilbert_index;
-use bigbytes_common_expression::types::ArrayType;
-use bigbytes_common_expression::types::BinaryType;
-use bigbytes_common_expression::types::GenericType;
-use bigbytes_common_expression::types::NullableType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::ALL_NUMERICS_TYPES;
-use bigbytes_common_expression::vectorize_with_builder_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::with_number_mapped_type;
-use bigbytes_common_expression::FixedLengthEncoding;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::hilbert_index;
+use bigbytesdb_common_expression::types::ArrayType;
+use bigbytesdb_common_expression::types::BinaryType;
+use bigbytesdb_common_expression::types::GenericType;
+use bigbytesdb_common_expression::types::NullableType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::ALL_NUMERICS_TYPES;
+use bigbytesdb_common_expression::vectorize_with_builder_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::with_number_mapped_type;
+use bigbytesdb_common_expression::FixedLengthEncoding;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
 
 pub fn register(registry: &mut FunctionRegistry) {
     registry.register_passthrough_nullable_1_arg::<StringType, BinaryType, _, _>(

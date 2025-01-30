@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::quote::display_ident;
-use bigbytes_common_ast::ast::CopyIntoLocationSource;
-use bigbytes_common_ast::ast::CopyIntoLocationStmt;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::init_stage_operator;
+use bigbytesdb_common_ast::ast::quote::display_ident;
+use bigbytesdb_common_ast::ast::CopyIntoLocationSource;
+use bigbytesdb_common_ast::ast::CopyIntoLocationStmt;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::init_stage_operator;
 use opendal::ErrorKind;
 
 use crate::binder::copy_into_table::resolve_file_location;

@@ -15,9 +15,9 @@
 use std::fmt::Debug;
 use std::fmt::Formatter;
 
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
 use serde::Deserializer;
 use serde::Serializer;
 

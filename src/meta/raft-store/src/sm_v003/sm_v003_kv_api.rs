@@ -15,15 +15,15 @@
 use std::future;
 use std::io;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KVStream;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::SeqValue;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KVStream;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::SeqValue;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures_util::StreamExt;
 use futures_util::TryStreamExt;
 

@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::processors::create_resize_item;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::create_dummy_item;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::processors::create_resize_item;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::create_dummy_item;
 
 use super::exchange_params::ExchangeParams;
 use super::exchange_sink_writer::create_writer_item;

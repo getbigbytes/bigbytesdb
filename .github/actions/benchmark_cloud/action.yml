@@ -20,7 +20,7 @@ inputs:
     description: "Small/Medium/Large"
     required: true
   version:
-    description: "Bigbytes version"
+    description: "Bigbytesdb version"
     required: true
   cloud_user:
     description: "Benchmark cloud user"
@@ -46,7 +46,7 @@ runs:
       shell: bash
       id: prepare
       env:
-        BENDSQL_DSN: "bigbytes://${{ inputs.cloud_user }}:${{ inputs.cloud_password }}@${{ inputs.cloud_gateway }}:443"
+        BENDSQL_DSN: "bigbytesdb://${{ inputs.cloud_user }}:${{ inputs.cloud_password }}@${{ inputs.cloud_gateway }}:443"
       run: |
         if [[ "${{ inputs.dataset }}" == "load" ]]; then
           echo "database=load_test_${{ inputs.run_id }}" >> $GITHUB_OUTPUT
@@ -79,10 +79,10 @@ runs:
       run: |
         case ${{ inputs.source }} in
           pr)
-            yq -i '.system = "Bigbytes(PR#${{ inputs.source_id }})"' result.json
+            yq -i '.system = "Bigbytesdb(PR#${{ inputs.source_id }})"' result.json
             ;;
           release)
-            yq -i '.system = "Bigbytes(Release@${{ inputs.source_id }})"' result.json
+            yq -i '.system = "Bigbytesdb(Release@${{ inputs.source_id }})"' result.json
             ;;
           *)
             echo "Unsupported benchmark source: ${{ inputs.source }}"
@@ -102,6 +102,6 @@ runs:
       continue-on-error: true
       shell: bash
       env:
-        BENDSQL_DSN: "bigbytes://${{ inputs.cloud_user }}:${{ inputs.cloud_password }}@${{ inputs.cloud_gateway }}:443"
+        BENDSQL_DSN: "bigbytesdb://${{ inputs.cloud_user }}:${{ inputs.cloud_password }}@${{ inputs.cloud_gateway }}:443"
       run: |
         echo "DROP WAREHOUSE IF EXISTS 'benchmark-${{ inputs.run_id }}';" | bendsql

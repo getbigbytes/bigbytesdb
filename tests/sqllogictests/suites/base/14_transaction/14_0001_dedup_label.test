@@ -11,10 +11,10 @@ statement ok
 begin;
 
 statement ok
-INSERT /*+ SET_VAR(deduplicate_label='bigbytes') */ INTO t1 (a, b) VALUES(1, false);
+INSERT /*+ SET_VAR(deduplicate_label='bigbytesdb') */ INTO t1 (a, b) VALUES(1, false);
 
 statement ok
-UPDATE /*+ SET_VAR(deduplicate_label='bigbytes') */ t1 SET a = 20 WHERE b = false;
+UPDATE /*+ SET_VAR(deduplicate_label='bigbytesdb') */ t1 SET a = 20 WHERE b = false;
 
 query II
 SELECT * FROM t1;
@@ -30,7 +30,7 @@ SELECT * FROM t1;
 1 0
 
 statement ok
-REPLACE /*+ SET_VAR(deduplicate_label='bigbytes') */ INTO t1 on(a,b) VALUES(40, false);
+REPLACE /*+ SET_VAR(deduplicate_label='bigbytesdb') */ INTO t1 on(a,b) VALUES(40, false);
 
 query II
 SELECT * FROM t1;

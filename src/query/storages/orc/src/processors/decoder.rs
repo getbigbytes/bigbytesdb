@@ -15,15 +15,15 @@
 use std::sync::Arc;
 
 use arrow_array::RecordBatch;
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_pipeline_transforms::processors::AccumulatingTransform;
-use bigbytes_common_storage::CopyStatus;
-use bigbytes_common_storage::FileStatus;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_pipeline_transforms::processors::AccumulatingTransform;
+use bigbytesdb_common_storage::CopyStatus;
+use bigbytesdb_common_storage::FileStatus;
 use orc_rust::array_decoder::NaiveStripeDecoder;
 
 use crate::strip::StripeInMemory;

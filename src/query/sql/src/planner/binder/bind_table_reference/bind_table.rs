@@ -15,28 +15,28 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::SampleConfig;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::ast::TemporalClause;
-use bigbytes_common_ast::ast::WithOptions;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TimeNavigation;
-use bigbytes_common_catalog::table_with_options::check_with_opt_valid;
-use bigbytes_common_catalog::table_with_options::get_with_opt_consume;
-use bigbytes_common_catalog::table_with_options::get_with_opt_max_batch_size;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_meta_app::schema::ListVirtualColumnsReq;
-use bigbytes_common_meta_app::schema::VirtualField;
-use bigbytes_common_meta_types::MetaId;
-use bigbytes_common_storages_view::view_table::QUERY;
-use bigbytes_storages_common_table_meta::table::get_change_type;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::SampleConfig;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::ast::TemporalClause;
+use bigbytesdb_common_ast::ast::WithOptions;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TimeNavigation;
+use bigbytesdb_common_catalog::table_with_options::check_with_opt_valid;
+use bigbytesdb_common_catalog::table_with_options::get_with_opt_consume;
+use bigbytesdb_common_catalog::table_with_options::get_with_opt_max_batch_size;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_meta_app::schema::ListVirtualColumnsReq;
+use bigbytesdb_common_meta_app::schema::VirtualField;
+use bigbytesdb_common_meta_types::MetaId;
+use bigbytesdb_common_storages_view::view_table::QUERY;
+use bigbytesdb_storages_common_table_meta::table::get_change_type;
 
 use crate::binder::util::TableIdentifier;
 use crate::binder::Binder;
@@ -189,7 +189,7 @@ impl Binder {
             }
 
             let query =
-                bigbytes_common_base::runtime::block_on(table_meta.generate_changes_query(
+                bigbytesdb_common_base::runtime::block_on(table_meta.generate_changes_query(
                     self.ctx.clone(),
                     database.as_str(),
                     table_name.as_str(),
@@ -367,7 +367,7 @@ impl Binder {
             .contains(&table_index)
         {
             let table_id = table_meta.get_id();
-            let virtual_column_fields = bigbytes_common_base::runtime::block_on(
+            let virtual_column_fields = bigbytesdb_common_base::runtime::block_on(
                 self.get_virtual_columns(catalog_name, table_id),
             )?;
             bind_context

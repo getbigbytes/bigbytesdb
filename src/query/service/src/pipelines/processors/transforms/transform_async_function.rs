@@ -15,17 +15,17 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Value;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReq;
-use bigbytes_common_meta_app::schema::SequenceIdent;
-use bigbytes_common_pipeline_transforms::processors::AsyncTransform;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReq;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncTransform;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::pipelines::processors::transforms::transform_dictionary::DictionaryOperator;
 use crate::sessions::QueryContext;

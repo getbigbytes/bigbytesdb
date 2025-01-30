@@ -19,12 +19,12 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::Histogram;
-use bigbytes_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::Histogram;
+use bigbytesdb_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
 
 use crate::optimizer::histogram_from_ndv;
 use crate::optimizer::ColumnSet;

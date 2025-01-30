@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::InsertSource;
-use bigbytes_common_ast::ast::InsertStmt;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::InsertSource;
+use bigbytesdb_common_ast::ast::InsertStmt;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRefExt;
 
 use super::util::TableIdentifier;
 use crate::binder::Binder;

@@ -14,9 +14,9 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_proto_conv::Incompatible;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_proto_conv::Incompatible;
 
 /// An error occurred when decoding protobuf encoded value.
 #[derive(Clone, Debug, PartialEq, thiserror::Error)]

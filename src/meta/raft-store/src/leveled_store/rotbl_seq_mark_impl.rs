@@ -16,7 +16,7 @@
 
 use std::io;
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
 use rotbl::v001::SeqMarked;
 
 use crate::marked::Marked;

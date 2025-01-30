@@ -43,7 +43,7 @@ module.exports = async ({ context, core }) => {
               {
                 tag: "a",
                 text: "Release Notes",
-                href: `https://github.com/getbigbytes/bigbytes/releases/tag/${VERSION}`,
+                href: `https://github.com/getbigbytes/bigbytesdb/releases/tag/${VERSION}`,
               },
             ],
           ],

@@ -14,9 +14,9 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::storage::StorageParams;
 use fastrace::func_name;
 use mt::storage::StorageS3Config;
 
@@ -73,8 +73,8 @@ fn test_decode_v42_s3_stage_new_field() -> anyhow::Result<()> {
         comment: "test".to_string(),
         number_of_files: 100,
         creator: Some(UserIdentity {
-            username: "bigbytes".to_string(),
-            hostname: "bigbytes.rs".to_string(),
+            username: "bigbytesdb".to_string(),
+            hostname: "bigbytesdb.rs".to_string(),
         }),
         created_on: DateTime::<Utc>::default(),
     };

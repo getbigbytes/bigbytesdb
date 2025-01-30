@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRefExt;
 use itertools::Itertools;
 
 use crate::optimizer::extract::Matcher;

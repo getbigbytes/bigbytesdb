@@ -77,7 +77,7 @@ SELECT * FROM t;
 8
 9
 
-# bug: https://github.com/getbigbytes/bigbytes/issues/17027
+# bug: https://github.com/getbigbytes/bigbytesdb/issues/17027
 statement ok
 CREATE or replace TABLE parent_child
 (

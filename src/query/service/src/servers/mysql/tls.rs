@@ -15,8 +15,8 @@
 use std::fs::File;
 use std::io::BufReader;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use itertools::Itertools;
 use rustls::ServerConfig;
 use rustls_pemfile::certs;

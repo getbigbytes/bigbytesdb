@@ -12,32 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::BinaryOperator;
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr as AExpr;
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::IntervalKind;
-use bigbytes_common_ast::ast::Literal as ASTLiteral;
-use bigbytes_common_ast::ast::MapAccessor;
-use bigbytes_common_ast::ast::UnaryOperator;
-use bigbytes_common_ast::ast::Weekday;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_expression::shrink_scalar;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::types::decimal::DecimalDataType;
-use bigbytes_common_expression::types::decimal::DecimalScalar;
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::BinaryOperator;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr as AExpr;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::IntervalKind;
+use bigbytesdb_common_ast::ast::Literal as ASTLiteral;
+use bigbytesdb_common_ast::ast::MapAccessor;
+use bigbytesdb_common_ast::ast::UnaryOperator;
+use bigbytesdb_common_ast::ast::Weekday;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_expression::shrink_scalar;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::types::decimal::DecimalDataType;
+use bigbytesdb_common_expression::types::decimal::DecimalScalar;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 pub fn parse_raw_expr(text: &str, columns: &[(&str, DataType)]) -> RawExpr {
     let tokens = tokenize_sql(text).unwrap();
@@ -256,7 +256,7 @@ pub fn transform_expr(ast: AExpr, columns: &[(&str, DataType)]) -> RawExpr {
         } => {
             if let Some(inner) = trim_where {
                 match inner.0 {
-                    bigbytes_common_ast::ast::TrimWhere::Both => RawExpr::FunctionCall {
+                    bigbytesdb_common_ast::ast::TrimWhere::Both => RawExpr::FunctionCall {
                         span,
                         name: "trim_both".to_string(),
                         params: vec![],
@@ -265,7 +265,7 @@ pub fn transform_expr(ast: AExpr, columns: &[(&str, DataType)]) -> RawExpr {
                             transform_expr(*inner.1, columns),
                         ],
                     },
-                    bigbytes_common_ast::ast::TrimWhere::Leading => RawExpr::FunctionCall {
+                    bigbytesdb_common_ast::ast::TrimWhere::Leading => RawExpr::FunctionCall {
                         span,
                         name: "trim_leading".to_string(),
                         params: vec![],
@@ -274,7 +274,7 @@ pub fn transform_expr(ast: AExpr, columns: &[(&str, DataType)]) -> RawExpr {
                             transform_expr(*inner.1, columns),
                         ],
                     },
-                    bigbytes_common_ast::ast::TrimWhere::Trailing => RawExpr::FunctionCall {
+                    bigbytesdb_common_ast::ast::TrimWhere::Trailing => RawExpr::FunctionCall {
                         span,
                         name: "trim_trailing".to_string(),
                         params: vec![],
@@ -588,46 +588,46 @@ pub fn transform_expr(ast: AExpr, columns: &[(&str, DataType)]) -> RawExpr {
     }
 }
 
-fn transform_data_type(target_type: bigbytes_common_ast::ast::TypeName) -> DataType {
+fn transform_data_type(target_type: bigbytesdb_common_ast::ast::TypeName) -> DataType {
     match target_type {
-        bigbytes_common_ast::ast::TypeName::Boolean => DataType::Boolean,
-        bigbytes_common_ast::ast::TypeName::UInt8 => DataType::Number(NumberDataType::UInt8),
-        bigbytes_common_ast::ast::TypeName::UInt16 => DataType::Number(NumberDataType::UInt16),
-        bigbytes_common_ast::ast::TypeName::UInt32 => DataType::Number(NumberDataType::UInt32),
-        bigbytes_common_ast::ast::TypeName::UInt64 => DataType::Number(NumberDataType::UInt64),
-        bigbytes_common_ast::ast::TypeName::Int8 => DataType::Number(NumberDataType::Int8),
-        bigbytes_common_ast::ast::TypeName::Int16 => DataType::Number(NumberDataType::Int16),
-        bigbytes_common_ast::ast::TypeName::Int32 => DataType::Number(NumberDataType::Int32),
-        bigbytes_common_ast::ast::TypeName::Int64 => DataType::Number(NumberDataType::Int64),
-        bigbytes_common_ast::ast::TypeName::Float32 => DataType::Number(NumberDataType::Float32),
-        bigbytes_common_ast::ast::TypeName::Float64 => DataType::Number(NumberDataType::Float64),
-        bigbytes_common_ast::ast::TypeName::Decimal { precision, scale } => {
+        bigbytesdb_common_ast::ast::TypeName::Boolean => DataType::Boolean,
+        bigbytesdb_common_ast::ast::TypeName::UInt8 => DataType::Number(NumberDataType::UInt8),
+        bigbytesdb_common_ast::ast::TypeName::UInt16 => DataType::Number(NumberDataType::UInt16),
+        bigbytesdb_common_ast::ast::TypeName::UInt32 => DataType::Number(NumberDataType::UInt32),
+        bigbytesdb_common_ast::ast::TypeName::UInt64 => DataType::Number(NumberDataType::UInt64),
+        bigbytesdb_common_ast::ast::TypeName::Int8 => DataType::Number(NumberDataType::Int8),
+        bigbytesdb_common_ast::ast::TypeName::Int16 => DataType::Number(NumberDataType::Int16),
+        bigbytesdb_common_ast::ast::TypeName::Int32 => DataType::Number(NumberDataType::Int32),
+        bigbytesdb_common_ast::ast::TypeName::Int64 => DataType::Number(NumberDataType::Int64),
+        bigbytesdb_common_ast::ast::TypeName::Float32 => DataType::Number(NumberDataType::Float32),
+        bigbytesdb_common_ast::ast::TypeName::Float64 => DataType::Number(NumberDataType::Float64),
+        bigbytesdb_common_ast::ast::TypeName::Decimal { precision, scale } => {
             DataType::Decimal(DecimalDataType::from_size(DecimalSize { precision, scale }).unwrap())
         }
-        bigbytes_common_ast::ast::TypeName::Binary => DataType::Binary,
-        bigbytes_common_ast::ast::TypeName::String => DataType::String,
-        bigbytes_common_ast::ast::TypeName::Timestamp => DataType::Timestamp,
-        bigbytes_common_ast::ast::TypeName::Date => DataType::Date,
-        bigbytes_common_ast::ast::TypeName::Interval => DataType::Interval,
-        bigbytes_common_ast::ast::TypeName::Array(item_type) => {
+        bigbytesdb_common_ast::ast::TypeName::Binary => DataType::Binary,
+        bigbytesdb_common_ast::ast::TypeName::String => DataType::String,
+        bigbytesdb_common_ast::ast::TypeName::Timestamp => DataType::Timestamp,
+        bigbytesdb_common_ast::ast::TypeName::Date => DataType::Date,
+        bigbytesdb_common_ast::ast::TypeName::Interval => DataType::Interval,
+        bigbytesdb_common_ast::ast::TypeName::Array(item_type) => {
             DataType::Array(Box::new(transform_data_type(*item_type)))
         }
-        bigbytes_common_ast::ast::TypeName::Map { key_type, val_type } => {
+        bigbytesdb_common_ast::ast::TypeName::Map { key_type, val_type } => {
             let key_type = transform_data_type(*key_type);
             let val_type = transform_data_type(*val_type);
             DataType::Map(Box::new(DataType::Tuple(vec![key_type, val_type])))
         }
-        bigbytes_common_ast::ast::TypeName::Bitmap => DataType::Bitmap,
-        bigbytes_common_ast::ast::TypeName::Tuple { fields_type, .. } => {
+        bigbytesdb_common_ast::ast::TypeName::Bitmap => DataType::Bitmap,
+        bigbytesdb_common_ast::ast::TypeName::Tuple { fields_type, .. } => {
             DataType::Tuple(fields_type.into_iter().map(transform_data_type).collect())
         }
-        bigbytes_common_ast::ast::TypeName::Nullable(inner_type) => {
+        bigbytesdb_common_ast::ast::TypeName::Nullable(inner_type) => {
             DataType::Nullable(Box::new(transform_data_type(*inner_type)))
         }
-        bigbytes_common_ast::ast::TypeName::Variant => DataType::Variant,
-        bigbytes_common_ast::ast::TypeName::Geometry => DataType::Geometry,
-        bigbytes_common_ast::ast::TypeName::Geography => DataType::Geography,
-        bigbytes_common_ast::ast::TypeName::NotNull(inner_type) => transform_data_type(*inner_type),
+        bigbytesdb_common_ast::ast::TypeName::Variant => DataType::Variant,
+        bigbytesdb_common_ast::ast::TypeName::Geometry => DataType::Geometry,
+        bigbytesdb_common_ast::ast::TypeName::Geography => DataType::Geography,
+        bigbytesdb_common_ast::ast::TypeName::NotNull(inner_type) => transform_data_type(*inner_type),
     }
 }
 

@@ -12,13 +12,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_query::storages::fuse::io::TableMetaLocationGenerator;
-use bigbytes_query::test_kits::TestFixture;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_query::storages::fuse::io::TableMetaLocationGenerator;
+use bigbytesdb_query::test_kits::TestFixture;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use futures_util::TryStreamExt;
 use uuid::Uuid;
 
@@ -38,7 +38,7 @@ fn test_meta_locations() -> Result<()> {
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_array_cache_of_nested_column_iusse_14502() -> Result<()> {
-    // https://github.com/getbigbytes/bigbytes/issues/14502
+    // https://github.com/getbigbytes/bigbytesdb/issues/14502
     // ~~~
     //  create table t1(c tuple(c1 int not null, c2 int null) null);
     //  insert into t1 values((1,null));

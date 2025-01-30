@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 use crate::executor::PhysicalPlan;
 use crate::ColumnBinding;

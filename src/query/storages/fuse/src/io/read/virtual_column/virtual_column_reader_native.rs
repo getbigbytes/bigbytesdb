@@ -14,8 +14,8 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_expression::ColumnId;
-use bigbytes_storages_common_pruner::VirtualBlockMetaIndex;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_storages_common_pruner::VirtualBlockMetaIndex;
 
 use super::VirtualColumnReader;
 use crate::io::BlockReader;

@@ -17,32 +17,32 @@ use std::collections::BTreeMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::Filters;
-use bigbytes_common_catalog::plan::InternalColumn;
-use bigbytes_common_catalog::plan::PrewhereInfo;
-use bigbytes_common_catalog::plan::Projection;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::VirtualColumnField;
-use bigbytes_common_catalog::plan::VirtualColumnInfo;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::type_check::get_simple_cast_function;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::ROW_ID_COL_NAME;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::Filters;
+use bigbytesdb_common_catalog::plan::InternalColumn;
+use bigbytesdb_common_catalog::plan::PrewhereInfo;
+use bigbytesdb_common_catalog::plan::Projection;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::VirtualColumnField;
+use bigbytesdb_common_catalog::plan::VirtualColumnInfo;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::type_check::get_simple_cast_function;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::ROW_ID_COL_NAME;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use itertools::Itertools;
 use rand::distributions::Bernoulli;
 use rand::distributions::Distribution;
@@ -616,7 +616,7 @@ impl PhysicalPlanBuilder {
     pub(crate) fn build_agg_index(
         agg: &crate::plans::AggIndexInfo,
         source_fields: &[DataField],
-    ) -> Result<bigbytes_common_catalog::plan::AggIndexInfo> {
+    ) -> Result<bigbytesdb_common_catalog::plan::AggIndexInfo> {
         // Build projection
         let used_columns = agg.used_columns();
         let mut col_indices = Vec::with_capacity(used_columns.len());
@@ -663,7 +663,7 @@ impl PhysicalPlanBuilder {
             })
             .collect::<Result<Vec<_>>>()?;
 
-        Ok(bigbytes_common_catalog::plan::AggIndexInfo {
+        Ok(bigbytesdb_common_catalog::plan::AggIndexInfo {
             index_id: agg.index_id,
             filter,
             selection,

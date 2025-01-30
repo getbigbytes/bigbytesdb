@@ -15,29 +15,29 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_base::runtime::GlobalQueryRuntime;
-use bigbytes_common_catalog::catalog::CatalogCreator;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_cloud_control::cloud_api::CloudControlApiProvider;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::StackTrace;
-use bigbytes_common_meta_app::schema::CatalogType;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_storage::ShareTableConfig;
-use bigbytes_common_storages_hive::HiveCreator;
-use bigbytes_common_storages_iceberg::IcebergCreator;
-use bigbytes_common_storages_system::ProfilesLogQueue;
-use bigbytes_common_tracing::GlobalLogger;
-use bigbytes_common_users::builtin::BuiltIn;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_enterprise_resources_management::DummyResourcesManagement;
-use bigbytes_storages_common_cache::CacheManager;
-use bigbytes_storages_common_cache::TempDirManager;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_base::runtime::GlobalQueryRuntime;
+use bigbytesdb_common_catalog::catalog::CatalogCreator;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_cloud_control::cloud_api::CloudControlApiProvider;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::StackTrace;
+use bigbytesdb_common_meta_app::schema::CatalogType;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_storage::ShareTableConfig;
+use bigbytesdb_common_storages_hive::HiveCreator;
+use bigbytesdb_common_storages_iceberg::IcebergCreator;
+use bigbytesdb_common_storages_system::ProfilesLogQueue;
+use bigbytesdb_common_tracing::GlobalLogger;
+use bigbytesdb_common_users::builtin::BuiltIn;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_enterprise_resources_management::DummyResourcesManagement;
+use bigbytesdb_storages_common_cache::CacheManager;
+use bigbytesdb_storages_common_cache::TempDirManager;
 
 use crate::auth::AuthMgr;
 use crate::builtin::BuiltinUDFs;
@@ -67,7 +67,7 @@ impl GlobalServices {
         StackTrace::pre_load_symbol();
 
         // app name format: node_id[0..7]@cluster_id
-        let app_name_shuffle = format!("bigbytes-query-{}", config.query.cluster_id);
+        let app_name_shuffle = format!("bigbytesdb-query-{}", config.query.cluster_id);
 
         // The order of initialization is very important
         // 1. global config init.
@@ -75,7 +75,7 @@ impl GlobalServices {
 
         // 2. log init.
         let mut log_labels = BTreeMap::new();
-        log_labels.insert("service".to_string(), "bigbytes-query".to_string());
+        log_labels.insert("service".to_string(), "bigbytesdb-query".to_string());
         log_labels.insert(
             "tenant_id".to_string(),
             config.query.tenant_id.tenant_name().to_string(),

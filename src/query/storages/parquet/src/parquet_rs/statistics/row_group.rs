@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::TableField;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 use parquet::file::metadata::RowGroupMetaData;
 
 use crate::parquet_rs::statistics::column::convert_column_statistics;

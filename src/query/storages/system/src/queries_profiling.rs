@@ -15,26 +15,26 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::profile::ProfileStatisticsName;
-use bigbytes_common_catalog::table::DistributionLevel;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::UInt32Type;
-use bigbytes_common_expression::types::VariantType;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_pipeline_core::PlanProfile;
+use bigbytesdb_common_base::runtime::profile::ProfileStatisticsName;
+use bigbytesdb_common_catalog::table::DistributionLevel;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::UInt32Type;
+use bigbytesdb_common_expression::types::VariantType;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_pipeline_core::PlanProfile;
 
 use crate::SyncOneBlockSystemTable;
 use crate::SyncSystemTable;
@@ -183,7 +183,7 @@ impl SystemLogElement for ProfilesLogElement {
     fn fill_to_data_block(
         &self,
         _: &mut Vec<ColumnBuilder>,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         unreachable!()
     }
 }

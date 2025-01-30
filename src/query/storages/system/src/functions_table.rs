@@ -14,23 +14,23 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::utils::FromData;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_functions::aggregates::AggregateFunctionFactory;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_sql::TypeChecker;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::utils::FromData;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_functions::aggregates::AggregateFunctionFactory;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_sql::TypeChecker;
 
 use crate::table::AsyncOneBlockSystemTable;
 use crate::table::AsyncSystemTable;
@@ -60,7 +60,7 @@ impl AsyncSystemTable for FunctionsTable {
                 .map(|name| name.to_string()),
         );
         scalar_func_names.extend(
-            bigbytes_common_ast::ast::Expr::all_function_like_syntaxes()
+            bigbytesdb_common_ast::ast::Expr::all_function_like_syntaxes()
                 .iter()
                 .map(|name| name.to_lowercase()),
         );

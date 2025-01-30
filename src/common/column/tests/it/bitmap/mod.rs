@@ -19,7 +19,7 @@ mod immutable;
 mod mutable;
 mod utils;
 
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::Bitmap;
 use proptest::prelude::*;
 
 /// Returns a strategy of an arbitrary sliced [`Bitmap`] of size up to 1000

@@ -25,8 +25,8 @@ use crate::tenant_key::raw::TIdentRaw;
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::schema::catalog_id_ident::CatalogId;
     use crate::schema::CatalogNameIdent;
@@ -55,7 +55,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::CatalogNameIdent;
     use crate::tenant::Tenant;

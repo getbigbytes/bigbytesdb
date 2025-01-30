@@ -14,12 +14,12 @@
 
 use std::any::Any;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_storages_parquet::ParquetPart;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_storages_parquet::ParquetPart;
 
 /// only support parquet for now: https://github.com/delta-io/delta/issues/87
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Eq, Debug, Clone)]

@@ -15,10 +15,10 @@
 use std::cmp::Ordering;
 use std::ops::Range;
 
-use bigbytes_common_column::binview::BinaryViewColumnBuilder;
-use bigbytes_common_column::binview::BinaryViewColumnIter;
-use bigbytes_common_column::binview::Utf8ViewColumn;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::binview::BinaryViewColumnBuilder;
+use bigbytesdb_common_column::binview::BinaryViewColumnIter;
+use bigbytesdb_common_column::binview::Utf8ViewColumn;
+use bigbytesdb_common_exception::Result;
 
 use crate::property::Domain;
 use crate::types::binary::BinaryColumn;

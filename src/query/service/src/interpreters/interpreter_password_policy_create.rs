@@ -15,19 +15,19 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::PasswordPolicy;
-use bigbytes_common_sql::plans::CreatePasswordPolicyPlan;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_common_users::DEFAULT_PASSWORD_HISTORY;
-use bigbytes_common_users::DEFAULT_PASSWORD_LOCKOUT_TIME_MINS;
-use bigbytes_common_users::DEFAULT_PASSWORD_MAX_AGE_DAYS;
-use bigbytes_common_users::DEFAULT_PASSWORD_MAX_LENGTH;
-use bigbytes_common_users::DEFAULT_PASSWORD_MAX_RETRIES;
-use bigbytes_common_users::DEFAULT_PASSWORD_MIN_AGE_DAYS;
-use bigbytes_common_users::DEFAULT_PASSWORD_MIN_CHARS;
-use bigbytes_common_users::DEFAULT_PASSWORD_MIN_LENGTH;
-use bigbytes_common_users::DEFAULT_PASSWORD_MIN_SPECIAL_CHARS;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::PasswordPolicy;
+use bigbytesdb_common_sql::plans::CreatePasswordPolicyPlan;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_HISTORY;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_LOCKOUT_TIME_MINS;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MAX_AGE_DAYS;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MAX_LENGTH;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MAX_RETRIES;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MIN_AGE_DAYS;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MIN_CHARS;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MIN_LENGTH;
+use bigbytesdb_common_users::DEFAULT_PASSWORD_MIN_SPECIAL_CHARS;
 use log::debug;
 
 use crate::interpreters::Interpreter;

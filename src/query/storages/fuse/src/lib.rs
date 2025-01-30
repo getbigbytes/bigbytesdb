@@ -38,10 +38,10 @@ pub mod statistics;
 pub mod table_functions;
 
 pub use constants::*;
-use bigbytes_common_catalog::table::NavigationPoint;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableStatistics;
-pub use bigbytes_common_catalog::table_context::TableContext;
+use bigbytesdb_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableStatistics;
+pub use bigbytesdb_common_catalog::table_context::TableContext;
 pub use fuse_column::FuseTableColumnStatisticsProvider;
 pub use fuse_part::FuseBlockPartInfo;
 pub use fuse_part::FuseLazyPartInfo;
@@ -52,7 +52,7 @@ pub use io::BlockReadResult;
 pub use pruning::SegmentLocation;
 
 mod sessions {
-    pub use bigbytes_common_catalog::table_context::TableContext;
+    pub use bigbytesdb_common_catalog::table_context::TableContext;
 }
 
-pub use bigbytes_storages_common_index as index;
+pub use bigbytesdb_storages_common_index as index;

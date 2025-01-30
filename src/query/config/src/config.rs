@@ -24,35 +24,35 @@ use clap::Args;
 use clap::Parser;
 use clap::Subcommand;
 use clap::ValueEnum;
-use bigbytes_common_base::base::mask_string;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserSettingValue;
-use bigbytes_common_meta_app::storage::StorageAzblobConfig as InnerStorageAzblobConfig;
-use bigbytes_common_meta_app::storage::StorageCosConfig as InnerStorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig as InnerStorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig as InnerStorageGcsConfig;
-use bigbytes_common_meta_app::storage::StorageHdfsConfig as InnerStorageHdfsConfig;
-use bigbytes_common_meta_app::storage::StorageMokaConfig as InnerStorageMokaConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig as InnerStorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig as InnerStorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config as InnerStorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig as InnerStorageWebhdfsConfig;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_storage::StorageConfig as InnerStorageConfig;
-use bigbytes_common_tracing::Config as InnerLogConfig;
-use bigbytes_common_tracing::FileConfig as InnerFileLogConfig;
-use bigbytes_common_tracing::OTLPConfig as InnerOTLPLogConfig;
-use bigbytes_common_tracing::OTLPEndpointConfig as InnerOTLPEndpointConfig;
-use bigbytes_common_tracing::OTLPProtocol;
-use bigbytes_common_tracing::ProfileLogConfig as InnerProfileLogConfig;
-use bigbytes_common_tracing::QueryLogConfig as InnerQueryLogConfig;
-use bigbytes_common_tracing::StderrConfig as InnerStderrLogConfig;
-use bigbytes_common_tracing::StructLogConfig as InnerStructLogConfig;
-use bigbytes_common_tracing::TracingConfig as InnerTracingConfig;
+use bigbytesdb_common_base::base::mask_string;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_meta_app::storage::StorageAzblobConfig as InnerStorageAzblobConfig;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig as InnerStorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig as InnerStorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig as InnerStorageGcsConfig;
+use bigbytesdb_common_meta_app::storage::StorageHdfsConfig as InnerStorageHdfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageMokaConfig as InnerStorageMokaConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig as InnerStorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig as InnerStorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config as InnerStorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig as InnerStorageWebhdfsConfig;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_storage::StorageConfig as InnerStorageConfig;
+use bigbytesdb_common_tracing::Config as InnerLogConfig;
+use bigbytesdb_common_tracing::FileConfig as InnerFileLogConfig;
+use bigbytesdb_common_tracing::OTLPConfig as InnerOTLPLogConfig;
+use bigbytesdb_common_tracing::OTLPEndpointConfig as InnerOTLPEndpointConfig;
+use bigbytesdb_common_tracing::OTLPProtocol;
+use bigbytesdb_common_tracing::ProfileLogConfig as InnerProfileLogConfig;
+use bigbytesdb_common_tracing::QueryLogConfig as InnerQueryLogConfig;
+use bigbytesdb_common_tracing::StderrConfig as InnerStderrLogConfig;
+use bigbytesdb_common_tracing::StructLogConfig as InnerStructLogConfig;
+use bigbytesdb_common_tracing::TracingConfig as InnerTracingConfig;
 use serde::Deserialize;
 use serde::Serialize;
 use serde_with::with_prefix;
@@ -72,7 +72,7 @@ use crate::background_config::BackgroundConfig;
 use crate::builtin::BuiltInConfig;
 use crate::builtin::UDFConfig;
 use crate::builtin::UserConfig;
-use crate::BIGBYTES_COMMIT_VERSION;
+use crate::BIGBYTESDB_COMMIT_VERSION;
 
 const CATALOG_HIVE: &str = "hive";
 
@@ -88,7 +88,7 @@ const CATALOG_HIVE: &str = "hive";
 /// Only adding new fields is allowed.
 /// This same rules should be applied to all fields of this struct.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize, Parser)]
-#[clap(name = "bigbytes-query", about, version = & * * BIGBYTES_COMMIT_VERSION, author)]
+#[clap(name = "bigbytesdb-query", about, version = & * * BIGBYTESDB_COMMIT_VERSION, author)]
 #[serde(default)]
 pub struct Config {
     /// Run a command and quit
@@ -97,7 +97,7 @@ pub struct Config {
     pub subcommand: Option<Commands>,
 
     // To be compatible with the old version, we keep the `cmd` arg
-    // We should always use `bigbytes-query ver` instead `bigbytes-query --cmd ver` in latest version
+    // We should always use `bigbytesdb-query ver` instead `bigbytesdb-query --cmd ver` in latest version
     #[clap(long)]
     pub cmd: Option<String>,
 
@@ -1538,7 +1538,7 @@ pub struct QueryConfig {
     pub max_query_log_size: usize,
 
     #[clap(long, value_name = "VALUE")]
-    pub bigbytes_enterprise_license: Option<String>,
+    pub bigbytesdb_enterprise_license: Option<String>,
     /// If in management mode, only can do some meta level operations(database/table/user/stage etc.) with metasrv.
     #[clap(long)]
     pub management_mode: bool,
@@ -1649,7 +1649,7 @@ pub struct QueryConfig {
     /// Parquet file with smaller size will be read as a whole file, instead of column by column.
     /// For example:
     /// parquet_fast_read_bytes = 52428800
-    /// will let bigbytes read whole file for parquet file less than 50MB and read column by column
+    /// will let bigbytesdb read whole file for parquet file less than 50MB and read column by column
     /// if file size is greater than 50MB
     #[clap(long, value_name = "VALUE")]
     pub parquet_fast_read_bytes: Option<u64>,
@@ -1777,7 +1777,7 @@ impl TryInto<InnerQueryConfig> for QueryConfig {
             table_engine_memory_enabled: self.table_engine_memory_enabled,
             shutdown_wait_timeout_ms: self.shutdown_wait_timeout_ms,
             max_query_log_size: self.max_query_log_size,
-            bigbytes_enterprise_license: self.bigbytes_enterprise_license,
+            bigbytesdb_enterprise_license: self.bigbytesdb_enterprise_license,
             management_mode: self.management_mode,
             parquet_fast_read_bytes: self.parquet_fast_read_bytes,
             max_storage_io_requests: self.max_storage_io_requests,
@@ -1871,7 +1871,7 @@ impl From<InnerQueryConfig> for QueryConfig {
             table_engine_memory_enabled: inner.table_engine_memory_enabled,
             shutdown_wait_timeout_ms: inner.shutdown_wait_timeout_ms,
             max_query_log_size: inner.max_query_log_size,
-            bigbytes_enterprise_license: inner.bigbytes_enterprise_license,
+            bigbytesdb_enterprise_license: inner.bigbytesdb_enterprise_license,
             management_mode: inner.management_mode,
             parquet_fast_read_bytes: inner.parquet_fast_read_bytes,
             max_storage_io_requests: inner.max_storage_io_requests,
@@ -1939,7 +1939,7 @@ pub struct LogConfig {
     #[clap(
         long = "log-dir",
         value_name = "VALUE",
-        default_value = "./.bigbytes/logs"
+        default_value = "./.bigbytesdb/logs"
     )]
     pub dir: String,
 
@@ -2012,7 +2012,7 @@ impl TryInto<InnerLogConfig> for LogConfig {
         if self.level != "INFO" {
             file.level = self.level.to_string();
         }
-        if self.dir != "./.bigbytes/logs" {
+        if self.dir != "./.bigbytesdb/logs" {
             file.dir = self.dir.to_string();
         }
 
@@ -2110,7 +2110,7 @@ pub struct FileLogConfig {
     #[clap(
         long = "log-file-dir",
         value_name = "VALUE",
-        default_value = "./.bigbytes/logs"
+        default_value = "./.bigbytesdb/logs"
     )]
     #[serde(rename = "dir")]
     pub file_dir: String,
@@ -2126,12 +2126,12 @@ pub struct FileLogConfig {
     pub file_limit: usize,
 
     /// Log prefix filter, separated by comma.
-    /// For example, `"bigbytes_,openraft"` enables logging for `bigbytes_*` crates and `openraft` crate.
+    /// For example, `"bigbytesdb_,openraft"` enables logging for `bigbytesdb_*` crates and `openraft` crate.
     /// This filter does not affect `WARNING` and `ERROR` log.
     #[clap(
         long = "log-file-prefix-filter",
         value_name = "VALUE",
-        default_value = "bigbytes_,openraft"
+        default_value = "bigbytesdb_,openraft"
     )]
     #[serde(rename = "prefix_filter")]
     pub file_prefix_filter: String,
@@ -2969,7 +2969,7 @@ pub struct DiskCacheConfig {
     #[clap(
         long = "cache-disk-path",
         value_name = "VALUE",
-        default_value = "./.bigbytes/_cache"
+        default_value = "./.bigbytesdb/_cache"
     )]
     pub path: String,
 

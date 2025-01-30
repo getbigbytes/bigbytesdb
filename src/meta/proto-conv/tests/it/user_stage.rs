@@ -14,7 +14,7 @@
 
 //! Test StageInfo
 
-use bigbytes_common_meta_app as mt;
+use bigbytesdb_common_meta_app as mt;
 use fastrace::func_name;
 
 use crate::common;

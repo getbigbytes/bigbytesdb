@@ -16,43 +16,43 @@ use std::str::FromStr;
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::is_internal_column;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license::Feature::ComputedColumn;
-use bigbytes_common_license::license::Feature::InvertedIndex;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::schema::CommitTableMetaReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_pipeline_core::ExecutionInfo;
-use bigbytes_common_sql::field_default_value;
-use bigbytes_common_sql::plans::CreateTablePlan;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::FuseStorageFormat;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_enterprise_attach_table::get_attach_table_handler;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_COMMENT;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_STORAGE_PREFIX;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::is_internal_column;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license::Feature::ComputedColumn;
+use bigbytesdb_common_license::license::Feature::InvertedIndex;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::schema::CommitTableMetaReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_pipeline_core::ExecutionInfo;
+use bigbytesdb_common_sql::field_default_value;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::FuseStorageFormat;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_enterprise_attach_table::get_attach_table_handler;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_COMMENT;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_STORAGE_PREFIX;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
 use log::error;
 use log::info;
 
@@ -296,7 +296,7 @@ impl CreateTableInterpreter {
         if !GlobalConfig::instance().query.management_mode {
             if let Some(snapshot_loc) = self.plan.options.get(OPT_KEY_SNAPSHOT_LOCATION) {
                 // using application level data operator is a temp workaround
-                // please see discussions https://github.com/getbigbytes/bigbytes/pull/10424
+                // please see discussions https://github.com/getbigbytes/bigbytesdb/pull/10424
                 let operator = self.ctx.get_application_level_data_operator()?.operator();
                 let reader = MetaReaders::table_snapshot_reader(operator);
 

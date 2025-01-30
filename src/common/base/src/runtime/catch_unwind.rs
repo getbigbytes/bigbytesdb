@@ -17,8 +17,8 @@ use std::pin::Pin;
 use std::task::Context;
 use std::task::Poll;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use futures::FutureExt;
 
 pub struct CatchUnwindError;

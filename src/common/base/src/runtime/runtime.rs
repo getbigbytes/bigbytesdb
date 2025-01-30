@@ -22,9 +22,9 @@ use std::task::Poll;
 use std::time::Duration;
 use std::time::Instant;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
 use futures::future;
 use futures::FutureExt;
 use log::info;

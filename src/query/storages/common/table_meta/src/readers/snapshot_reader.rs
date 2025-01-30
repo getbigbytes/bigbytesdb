@@ -15,8 +15,8 @@
 use std::io::Read;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
 
 use crate::meta::load_json;
 use crate::meta::FormatVersion;

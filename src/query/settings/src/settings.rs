@@ -20,10 +20,10 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 
 use dashmap::DashMap;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserSettingValue;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 use itertools::Itertools;
 use serde::Deserializer;
 use serde::Serializer;
@@ -281,9 +281,9 @@ mod tests {
     use std::sync::Arc;
 
     use dashmap::DashMap;
-    use bigbytes_common_exception::Result;
-    use bigbytes_common_meta_app::principal::UserSettingValue;
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_exception::Result;
+    use bigbytesdb_common_meta_app::principal::UserSettingValue;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use crate::ChangeValue;
     use crate::ScopeLevel;

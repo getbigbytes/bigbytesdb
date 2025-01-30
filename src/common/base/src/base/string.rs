@@ -14,8 +14,8 @@
 
 use std::string::FromUtf8Error;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use regex::Regex;
 use unicode_segmentation::UnicodeSegmentation;
 

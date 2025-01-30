@@ -17,15 +17,15 @@ use std::io::Cursor;
 use std::sync::Arc;
 
 use arrow_schema::Schema as ArrowSchema;
-use bigbytes_common_base::base::tokio::sync::Mutex;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_storage::StageFileInfo;
-use bigbytes_common_storage::StageFilesInfo;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_common_base::base::tokio::sync::Mutex;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_storage::StageFileInfo;
+use bigbytesdb_common_storage::StageFilesInfo;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
 use parquet::file::metadata::ParquetMetaData;
 use parquet::format::SchemaElement;
 use parquet::schema::types;
@@ -136,8 +136,8 @@ mod tests {
     use std::sync::Arc;
 
     use arrow_schema::Schema as ArrowSchema;
-    use bigbytes_common_base::base::tokio::sync::Mutex;
-    use bigbytes_common_storage::StageFilesInfo;
+    use bigbytesdb_common_base::base::tokio::sync::Mutex;
+    use bigbytesdb_common_storage::StageFilesInfo;
     use parquet::basic::ConvertedType;
     use parquet::basic::Repetition;
     use parquet::basic::Type as PhysicalType;

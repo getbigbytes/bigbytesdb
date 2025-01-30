@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-storages-fuse"
+name = "bigbytesdb-common-storages-fuse"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,33 +12,33 @@ test = true
 
 [dependencies]
 
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-hashtable = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-license = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-native = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
-bigbytes-common-pipeline-sinks = { workspace = true }
-bigbytes-common-pipeline-sources = { workspace = true }
-bigbytes-common-pipeline-transforms = { workspace = true }
-bigbytes-common-sql = { workspace = true }
-bigbytes-common-storage = { workspace = true }
-bigbytes-common-users = { workspace = true }
-bigbytes-enterprise-fail-safe = { workspace = true }
-bigbytes-storages-common-blocks = { workspace = true }
-bigbytes-storages-common-cache = { workspace = true }
-bigbytes-storages-common-index = { workspace = true }
-bigbytes-storages-common-io = { workspace = true }
-bigbytes-storages-common-pruner = { workspace = true }
-bigbytes-storages-common-session = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-hashtable = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-license = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-native = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
+bigbytesdb-common-pipeline-sinks = { workspace = true }
+bigbytesdb-common-pipeline-sources = { workspace = true }
+bigbytesdb-common-pipeline-transforms = { workspace = true }
+bigbytesdb-common-sql = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
+bigbytesdb-common-users = { workspace = true }
+bigbytesdb-enterprise-fail-safe = { workspace = true }
+bigbytesdb-storages-common-blocks = { workspace = true }
+bigbytesdb-storages-common-cache = { workspace = true }
+bigbytesdb-storages-common-index = { workspace = true }
+bigbytesdb-storages-common-io = { workspace = true }
+bigbytesdb-storages-common-pruner = { workspace = true }
+bigbytesdb-storages-common-session = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 
 ahash = { workspace = true }
 arrow = { workspace = true }

@@ -18,12 +18,12 @@ use std::time::Duration;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::AbortChecker;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::FuseTable;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::AbortChecker;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::FuseTable;
 // (TableName, file, file size)
 pub type VacuumDropFileInfo = (String, String, u64);
 

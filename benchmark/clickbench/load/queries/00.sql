@@ -107,4 +107,4 @@ CREATE TABLE hits_parquet (
     CLID INTEGER NOT NULL
 ) CLUSTER BY (CounterID, EventDate, UserID, EventTime, WatchID);
 COPY INTO hits_parquet
-FROM 's3://bigbytes-datasets/hits_compatible/hits.parquet' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'PARQUET');
+FROM 's3://bigbytesdb-datasets/hits_compatible/hits.parquet' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'PARQUET');

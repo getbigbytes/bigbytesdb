@@ -21,7 +21,7 @@ pub mod memory;
 
 pub use bit_util::*;
 pub use byte_writer::ByteWriter;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableDataType;
 
 #[macro_export]
 macro_rules! with_match_integer_double_type {
@@ -38,9 +38,9 @@ macro_rules! with_match_integer_double_type {
                 $body_primitive
             };
         }
-        use bigbytes_common_expression::types::NumberDataType::*;
-        use bigbytes_common_expression::types::F32;
-        use bigbytes_common_expression::types::F64;
+        use bigbytesdb_common_expression::types::NumberDataType::*;
+        use bigbytesdb_common_expression::types::F32;
+        use bigbytesdb_common_expression::types::F64;
 
         match $key_type {
             Int8 => __with_ty__! { i8 },

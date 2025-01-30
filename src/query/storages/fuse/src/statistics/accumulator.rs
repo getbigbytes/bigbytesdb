@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
 
 #[derive(Default)]
 pub struct StatisticsAccumulator {

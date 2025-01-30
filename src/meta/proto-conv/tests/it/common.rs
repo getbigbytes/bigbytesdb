@@ -16,8 +16,8 @@ use std::fmt::Debug;
 use std::fmt::Display;
 
 use convert_case::Casing;
-use bigbytes_common_proto_conv::FromToProto;
-use bigbytes_common_proto_conv::VER;
+use bigbytesdb_common_proto_conv::FromToProto;
+use bigbytesdb_common_proto_conv::VER;
 use pretty_assertions::assert_eq;
 
 /// Tests converting rust types from/to protobuf defined types.

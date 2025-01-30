@@ -15,8 +15,8 @@
 use std::io;
 use std::mem::MaybeUninit;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use micromarshal::Unmarshal;
 
 use crate::stat_buffer::StatBuffer;

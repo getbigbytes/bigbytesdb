@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package bigbytes_proto;
+package bigbytesdb_proto;
 
 import "user.proto";
 import "table.proto";

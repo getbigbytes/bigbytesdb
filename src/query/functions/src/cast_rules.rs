@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::type_check::ALL_SIMPLE_CAST_FUNCTIONS;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::ALL_INTEGER_TYPES;
-use bigbytes_common_expression::types::ALL_NUMERICS_TYPES;
-use bigbytes_common_expression::AutoCastRules;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::type_check::ALL_SIMPLE_CAST_FUNCTIONS;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::ALL_INTEGER_TYPES;
+use bigbytesdb_common_expression::types::ALL_NUMERICS_TYPES;
+use bigbytesdb_common_expression::AutoCastRules;
+use bigbytesdb_common_expression::FunctionRegistry;
 
 use crate::scalars::ALL_COMP_FUNC_NAMES;
 use crate::scalars::ALL_STRING_FUNC_NAMES;

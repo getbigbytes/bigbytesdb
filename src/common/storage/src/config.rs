@@ -16,11 +16,11 @@ use std::fmt::Debug;
 use std::path::Path;
 use std::sync::Arc;
 
-use bigbytes_common_auth::RefreshableToken;
-use bigbytes_common_auth::TokenFile;
-use bigbytes_common_base::base::tokio::sync::RwLock;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_auth::RefreshableToken;
+use bigbytesdb_common_auth::TokenFile;
+use bigbytesdb_common_base::base::tokio::sync::RwLock;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_meta_app::storage::StorageParams;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -58,7 +58,7 @@ impl ShareTableConfig {
         share_endpoint_address: &str,
         token_file: &str,
         default_token: String,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         GlobalInstance::set(Self::try_create(
             share_endpoint_address,
             token_file,
@@ -72,7 +72,7 @@ impl ShareTableConfig {
         share_endpoint_address: &str,
         token_file: &str,
         default_token: String,
-    ) -> bigbytes_common_exception::Result<ShareTableConfig> {
+    ) -> bigbytesdb_common_exception::Result<ShareTableConfig> {
         let share_endpoint_address = if share_endpoint_address.is_empty() {
             None
         } else {

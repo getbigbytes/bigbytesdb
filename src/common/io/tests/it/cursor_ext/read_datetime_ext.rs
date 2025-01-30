@@ -14,8 +14,8 @@
 
 use std::io::Cursor;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::cursor_ext::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::cursor_ext::*;
 use jiff::tz::TimeZone;
 
 #[test]

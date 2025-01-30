@@ -15,11 +15,11 @@
 use std::collections::BTreeMap;
 use std::fmt::Debug;
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::CreateOption;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CreateConnectionPlan {

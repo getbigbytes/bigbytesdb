@@ -14,26 +14,26 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::IndexMeta;
-use bigbytes_common_meta_app::schema::ListIndexesByIdReq;
-use bigbytes_common_meta_app::schema::ListVirtualColumnsReq;
-use bigbytes_common_meta_types::MetaId;
-use bigbytes_common_pipeline_core::ExecutionInfo;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::plans::RefreshIndexPlan;
-use bigbytes_common_sql::plans::RefreshTableIndexPlan;
-use bigbytes_common_sql::plans::RefreshVirtualColumnPlan;
-use bigbytes_common_sql::BindContext;
-use bigbytes_common_sql::Binder;
-use bigbytes_common_sql::Metadata;
-use bigbytes_common_sql::NameResolutionContext;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::IndexMeta;
+use bigbytesdb_common_meta_app::schema::ListIndexesByIdReq;
+use bigbytesdb_common_meta_app::schema::ListVirtualColumnsReq;
+use bigbytesdb_common_meta_types::MetaId;
+use bigbytesdb_common_pipeline_core::ExecutionInfo;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::plans::RefreshIndexPlan;
+use bigbytesdb_common_sql::plans::RefreshTableIndexPlan;
+use bigbytesdb_common_sql::plans::RefreshVirtualColumnPlan;
+use bigbytesdb_common_sql::BindContext;
+use bigbytesdb_common_sql::Binder;
+use bigbytesdb_common_sql::Metadata;
+use bigbytesdb_common_sql::NameResolutionContext;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 use log::info;
 use parking_lot::RwLock;
 

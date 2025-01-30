@@ -19,9 +19,9 @@ use std::io;
 use std::io::BufWriter;
 use std::io::Write;
 
-use bigbytes_common_meta_types::protobuf::SnapshotChunkRequestV003;
-use bigbytes_common_meta_types::raft_types::SnapshotMeta;
-use bigbytes_common_meta_types::raft_types::Vote;
+use bigbytesdb_common_meta_types::protobuf::SnapshotChunkRequestV003;
+use bigbytesdb_common_meta_types::raft_types::SnapshotMeta;
+use bigbytesdb_common_meta_types::raft_types::Vote;
 use log::debug;
 use log::error;
 use log::info;
@@ -86,7 +86,7 @@ impl ReceiverV003 {
     ) {
         let (tx, mut rx) = mpsc::channel(1024);
 
-        let join_handle = bigbytes_common_base::runtime::spawn_blocking(move || {
+        let join_handle = bigbytesdb_common_base::runtime::spawn_blocking(move || {
             let with_context =
                 |e: io::Error| io::Error::new(e.kind(), format!("{} while {}", e, context));
 

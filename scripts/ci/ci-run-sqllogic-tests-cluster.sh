@@ -1,13 +1,13 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
 
 export STORAGE_ALLOW_INSECURE=true
 
-echo "Starting Cluster bigbytes-query"
-./scripts/ci/deploy/bigbytes-query-cluster-3-nodes.sh
+echo "Starting Cluster bigbytesdb-query"
+./scripts/ci/deploy/bigbytesdb-query-cluster-3-nodes.sh
 
 export RUST_BACKTRACE=1
 
@@ -21,5 +21,5 @@ if [ $# -gt 0 ]; then
 fi
 echo "Run suites using argument: $RUN_DIR"
 
-echo "Starting bigbytes-sqllogic tests"
-target/${BUILD_PROFILE}/bigbytes-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --enable_sandbox --parallel ${TEST_PARALLEL} --skip_file tpcds_q64.test,tpcds_join_order.test
+echo "Starting bigbytesdb-sqllogic tests"
+target/${BUILD_PROFILE}/bigbytesdb-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --enable_sandbox --parallel ${TEST_PARALLEL} --skip_file tpcds_q64.test,tpcds_join_order.test

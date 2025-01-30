@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[async_trait::async_trait]
 pub trait BackgroundServiceHandler: Sync + Send {

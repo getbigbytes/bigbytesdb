@@ -1,4 +1,4 @@
-# GitHub issue: https://github.com/getbigbytes/bigbytes/issues/14165
+# GitHub issue: https://github.com/getbigbytes/bigbytesdb/issues/14165
 
 statement ok
 drop database if exists invalid_thrift;

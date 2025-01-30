@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_sql::executor::physical_plans::Limit;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_sql::executor::physical_plans::Limit;
 
 use crate::pipelines::processors::TransformLimit;
 use crate::pipelines::PipelineBuilder;

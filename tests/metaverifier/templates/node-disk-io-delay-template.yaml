@@ -1,18 +1,18 @@
 kind: IOChaos
 apiVersion: chaos-mesh.org/v1alpha1
 metadata:
-  namespace: bigbytes
+  namespace: bigbytesdb
   name: meta-node-io-delay
   annotations:
     experiment.chaos-mesh.org/pause: 'false'
 spec:
   selector:
     namespaces:
-      - bigbytes
+      - bigbytesdb
     labelSelectors:
       statefulset.kubernetes.io/pod-name: ${NODE}
   mode: all
   action: latency
   delay: ${DELAY}
   percent: ${PENCENT}
-  volumePath: /data/bigbytes-meta
+  volumePath: /data/bigbytesdb-meta

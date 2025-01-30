@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_native::read as nread;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_native::read as nread;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
 use log::debug;
 
 use super::AggIndexReader;

@@ -15,8 +15,8 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
 
 #[derive(Clone)]
 pub struct ExecutorSettings {

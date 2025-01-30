@@ -14,7 +14,7 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_expression::ColumnId;
+use bigbytesdb_common_expression::ColumnId;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -92,7 +92,7 @@ pub struct DecimalSize {
 mod converters {
     use super::*;
 
-    impl From<TableField> for bigbytes_common_expression::TableField {
+    impl From<TableField> for bigbytesdb_common_expression::TableField {
         fn from(value: TableField) -> Self {
             Self {
                 name: value.name,
@@ -104,7 +104,7 @@ mod converters {
         }
     }
 
-    impl From<TableDataType> for bigbytes_common_expression::TableDataType {
+    impl From<TableDataType> for bigbytesdb_common_expression::TableDataType {
         fn from(value: TableDataType) -> Self {
             match value {
                 TableDataType::Null => Self::Null,
@@ -141,24 +141,24 @@ mod converters {
         }
     }
 
-    impl From<bigbytes_common_expression::types::number::NumberDataType> for NumberDataType {
-        fn from(value: bigbytes_common_expression::types::number::NumberDataType) -> Self {
+    impl From<bigbytesdb_common_expression::types::number::NumberDataType> for NumberDataType {
+        fn from(value: bigbytesdb_common_expression::types::number::NumberDataType) -> Self {
             match value {
-                bigbytes_common_expression::types::number::NumberDataType::UInt8 => Self::UInt8,
-                bigbytes_common_expression::types::number::NumberDataType::UInt16 => Self::UInt16,
-                bigbytes_common_expression::types::number::NumberDataType::UInt32 => Self::UInt32,
-                bigbytes_common_expression::types::number::NumberDataType::UInt64 => Self::UInt64,
-                bigbytes_common_expression::types::number::NumberDataType::Int8 => Self::Int8,
-                bigbytes_common_expression::types::number::NumberDataType::Int16 => Self::Int16,
-                bigbytes_common_expression::types::number::NumberDataType::Int32 => Self::Int32,
-                bigbytes_common_expression::types::number::NumberDataType::Int64 => Self::Int64,
-                bigbytes_common_expression::types::number::NumberDataType::Float32 => Self::Float32,
-                bigbytes_common_expression::types::number::NumberDataType::Float64 => Self::Float64,
+                bigbytesdb_common_expression::types::number::NumberDataType::UInt8 => Self::UInt8,
+                bigbytesdb_common_expression::types::number::NumberDataType::UInt16 => Self::UInt16,
+                bigbytesdb_common_expression::types::number::NumberDataType::UInt32 => Self::UInt32,
+                bigbytesdb_common_expression::types::number::NumberDataType::UInt64 => Self::UInt64,
+                bigbytesdb_common_expression::types::number::NumberDataType::Int8 => Self::Int8,
+                bigbytesdb_common_expression::types::number::NumberDataType::Int16 => Self::Int16,
+                bigbytesdb_common_expression::types::number::NumberDataType::Int32 => Self::Int32,
+                bigbytesdb_common_expression::types::number::NumberDataType::Int64 => Self::Int64,
+                bigbytesdb_common_expression::types::number::NumberDataType::Float32 => Self::Float32,
+                bigbytesdb_common_expression::types::number::NumberDataType::Float64 => Self::Float64,
             }
         }
     }
 
-    impl From<NumberDataType> for bigbytes_common_expression::types::number::NumberDataType {
+    impl From<NumberDataType> for bigbytesdb_common_expression::types::number::NumberDataType {
         fn from(value: NumberDataType) -> Self {
             match value {
                 NumberDataType::UInt8 => Self::UInt8,
@@ -175,7 +175,7 @@ mod converters {
         }
     }
 
-    impl From<DecimalDataType> for bigbytes_common_expression::types::DecimalDataType {
+    impl From<DecimalDataType> for bigbytesdb_common_expression::types::DecimalDataType {
         fn from(value: DecimalDataType) -> Self {
             match value {
                 DecimalDataType::Decimal128(value) => Self::Decimal128(value.into()),
@@ -184,7 +184,7 @@ mod converters {
         }
     }
 
-    impl From<DecimalSize> for bigbytes_common_expression::types::DecimalSize {
+    impl From<DecimalSize> for bigbytesdb_common_expression::types::DecimalSize {
         fn from(value: DecimalSize) -> Self {
             Self {
                 precision: value.precision,
@@ -193,7 +193,7 @@ mod converters {
         }
     }
 
-    impl From<TableSchema> for bigbytes_common_expression::TableSchema {
+    impl From<TableSchema> for bigbytesdb_common_expression::TableSchema {
         fn from(value: TableSchema) -> Self {
             Self {
                 fields: value

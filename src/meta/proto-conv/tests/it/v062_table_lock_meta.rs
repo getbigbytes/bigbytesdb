@@ -16,8 +16,8 @@ use std::collections::BTreeMap;
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::LockMeta;
-use bigbytes_common_meta_app::schema::LockType;
+use bigbytesdb_common_meta_app::schema::LockMeta;
+use bigbytesdb_common_meta_app::schema::LockType;
 use fastrace::func_name;
 
 use crate::common;

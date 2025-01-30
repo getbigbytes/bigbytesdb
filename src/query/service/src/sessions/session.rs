@@ -16,24 +16,24 @@ use std::collections::HashMap;
 use std::net::SocketAddr;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::drop_guard;
-use bigbytes_common_catalog::cluster_info::Cluster;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_io::prelude::FormatSettings;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_pipeline_core::PlanProfile;
-use bigbytes_common_settings::Settings;
-use bigbytes_common_users::GrantObjectVisibilityChecker;
-use bigbytes_storages_common_session::TempTblMgrRef;
-use bigbytes_storages_common_session::TxnManagerRef;
+use bigbytesdb_common_base::runtime::drop_guard;
+use bigbytesdb_common_catalog::cluster_info::Cluster;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_io::prelude::FormatSettings;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_pipeline_core::PlanProfile;
+use bigbytesdb_common_settings::Settings;
+use bigbytesdb_common_users::GrantObjectVisibilityChecker;
+use bigbytesdb_storages_common_session::TempTblMgrRef;
+use bigbytesdb_storages_common_session::TxnManagerRef;
 use log::debug;
 use parking_lot::RwLock;
 
@@ -223,7 +223,7 @@ impl Session {
     // set_authed_user() is called after authentication is passed in various protocol handlers, like
     // HTTP handler, clickhouse query handler, mysql query handler. restricted_role represents the role
     // granted by external authenticator, it will overwrite the current user's granted roles, and
-    // becomes the CURRENT ROLE if not set X-BIGBYTES-ROLE.
+    // becomes the CURRENT ROLE if not set X-BIGBYTESDB-ROLE.
     #[async_backtrace::framed]
     pub async fn set_authed_user(
         &self,

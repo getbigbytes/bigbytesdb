@@ -13,24 +13,24 @@
 // limitations under the License.
 
 use chrono::Utc;
-use bigbytes_common_ast::ast::CallProcedureStmt;
-use bigbytes_common_ast::ast::CreateProcedureStmt;
-use bigbytes_common_ast::ast::DescProcedureStmt;
-use bigbytes_common_ast::ast::DropProcedureStmt;
-use bigbytes_common_ast::ast::ExecuteImmediateStmt;
-use bigbytes_common_ast::ast::ProcedureIdentity as AstProcedureIdentity;
-use bigbytes_common_ast::ast::ProcedureLanguage;
-use bigbytes_common_ast::ast::ProcedureType;
-use bigbytes_common_ast::ast::ShowOptions;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_meta_app::principal::GetProcedureReq;
-use bigbytes_common_meta_app::principal::ProcedureIdentity;
-use bigbytes_common_meta_app::principal::ProcedureMeta;
-use bigbytes_common_meta_app::principal::ProcedureNameIdent;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::CallProcedureStmt;
+use bigbytesdb_common_ast::ast::CreateProcedureStmt;
+use bigbytesdb_common_ast::ast::DescProcedureStmt;
+use bigbytesdb_common_ast::ast::DropProcedureStmt;
+use bigbytesdb_common_ast::ast::ExecuteImmediateStmt;
+use bigbytesdb_common_ast::ast::ProcedureIdentity as AstProcedureIdentity;
+use bigbytesdb_common_ast::ast::ProcedureLanguage;
+use bigbytesdb_common_ast::ast::ProcedureType;
+use bigbytesdb_common_ast::ast::ShowOptions;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_meta_app::principal::GetProcedureReq;
+use bigbytesdb_common_meta_app::principal::ProcedureIdentity;
+use bigbytesdb_common_meta_app::principal::ProcedureMeta;
+use bigbytesdb_common_meta_app::principal::ProcedureNameIdent;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::binder::show::get_show_options;
 use crate::plans::CallProcedurePlan;
@@ -234,7 +234,7 @@ fn generate_procedure_name_ident(
     for arg in name.args_type.split(',') {
         args_type.push(DataType::from(&resolve_type_name_by_str(arg, true)?));
     }
-    let new_name = bigbytes_common_ast::ast::ProcedureIdentity {
+    let new_name = bigbytesdb_common_ast::ast::ProcedureIdentity {
         name: name.name.to_string(),
         args_type: args_type
             .iter()

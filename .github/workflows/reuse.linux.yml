@@ -57,7 +57,7 @@ jobs:
       - uses: ./.github/actions/build_linux
         timeout-minutes: 60
         env:
-          BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY: ${{ secrets.BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY }}
+          BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY: ${{ secrets.BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY }}
         with:
           sha: ${{ github.sha }}
           target: ${{ matrix.arch }}-unknown-linux-gnu

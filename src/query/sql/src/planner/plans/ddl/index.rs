@@ -14,13 +14,13 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_ast::ast::TableIndexType;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::IndexMeta;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_types::MetaId;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_ast::ast::TableIndexType;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::IndexMeta;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_types::MetaId;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 
 use crate::plans::Plan;
 

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::prelude::bincode_deserialize_from_slice;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::prelude::bincode_deserialize_from_slice;
 use ethnum::i256;
 
 use super::partitioned_payload::PartitionedPayload;

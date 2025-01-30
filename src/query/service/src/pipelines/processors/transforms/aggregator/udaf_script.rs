@@ -22,24 +22,24 @@ use arrow_array::Array;
 use arrow_array::RecordBatch;
 use arrow_schema::ArrowError;
 use arrow_schema::DataType as ArrowType;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::converts::arrow::ARROW_EXT_TYPE_VARIANT;
-use bigbytes_common_expression::converts::arrow::EXTENSION_KEY;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::AggrState;
-use bigbytes_common_expression::AggrStateRegistry;
-use bigbytes_common_expression::AggrStateType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::InputColumns;
-use bigbytes_common_functions::aggregates::AggregateFunction;
-use bigbytes_common_sql::plans::UDFLanguage;
-use bigbytes_common_sql::plans::UDFScriptCode;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::converts::arrow::ARROW_EXT_TYPE_VARIANT;
+use bigbytesdb_common_expression::converts::arrow::EXTENSION_KEY;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::AggrState;
+use bigbytesdb_common_expression::AggrStateRegistry;
+use bigbytesdb_common_expression::AggrStateType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::InputColumns;
+use bigbytesdb_common_functions::aggregates::AggregateFunction;
+use bigbytesdb_common_sql::plans::UDFLanguage;
+use bigbytesdb_common_sql::plans::UDFScriptCode;
 
 use super::runtime_pool::Pool;
 use super::runtime_pool::RuntimeBuilder;
@@ -475,8 +475,8 @@ mod tests {
     use arrow_array::StructArray;
     use arrow_schema::DataType as ArrowType;
     use arrow_schema::Field;
-    use bigbytes_common_expression::types::ArgType;
-    use bigbytes_common_expression::types::Float32Type;
+    use bigbytesdb_common_expression::types::ArgType;
+    use bigbytesdb_common_expression::types::Float32Type;
 
     use super::*;
 
@@ -559,7 +559,7 @@ export function finish(state) {
     #[cfg(feature = "python-udf")]
     #[test]
     fn test_python_runtime() -> Result<()> {
-        use bigbytes_common_expression::types::Int32Type;
+        use bigbytesdb_common_expression::types::Int32Type;
 
         let code = Vec::from(
             r#"

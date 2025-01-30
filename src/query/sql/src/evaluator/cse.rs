@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::Expr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use log::debug;
 
 use super::BlockOperator;

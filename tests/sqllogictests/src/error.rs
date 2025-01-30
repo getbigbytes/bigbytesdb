@@ -15,7 +15,7 @@
 use std::fmt::Display;
 use std::io::Error as IOError;
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 use mysql_async::Error as MysqlClientError;
 use reqwest::Error as HttpClientError;
 use serde::Deserialize;
@@ -52,9 +52,9 @@ pub enum DSqlLogicTestError {
     // Error from sqllogictest-rs
     #[error("SqlLogicTest error(from sqllogictest-rs crate): {0}")]
     SqlLogicTest(#[from] TestError),
-    // Error from bigbytes
-    #[error("Bigbytes error: {0}")]
-    Bigbytes(#[from] ErrorCode),
+    // Error from bigbytesdb
+    #[error("Bigbytesdb error: {0}")]
+    Bigbytesdb(#[from] ErrorCode),
     // Error from mysql client
     #[error("mysql client error: {0}")]
     MysqlClient(#[from] MysqlClientError),
@@ -70,8 +70,8 @@ pub enum DSqlLogicTestError {
     // Error from serde json
     #[error("Serde json error: {0}")]
     SerdeJson(#[from] SerdeJsonError),
-    // Error from bigbytes sqllogictests
-    #[error("Bigbytes sqllogictests error: {0}")]
+    // Error from bigbytesdb sqllogictests
+    #[error("Bigbytesdb sqllogictests error: {0}")]
     SelfError(String),
 }
 

@@ -15,19 +15,19 @@
 use std::collections::BTreeMap;
 use std::str::FromStr;
 
-use bigbytes_common_ast::parser::parse_comma_separated_idents;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::is_stream_column_id;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_ast::parser::parse_comma_separated_idents;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::is_stream_column_id;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
 
 use crate::normalize_identifier;
 use crate::planner::semantic::NameResolutionContext;

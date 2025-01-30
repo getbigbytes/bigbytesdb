@@ -14,10 +14,10 @@
 
 use std::net::TcpListener;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_query::servers::FlightSQLServer;
-use bigbytes_query::test_kits::ConfigBuilder;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::servers::FlightSQLServer;
+use bigbytesdb_query::test_kits::ConfigBuilder;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_flight_sql_server_port_used() -> Result<()> {

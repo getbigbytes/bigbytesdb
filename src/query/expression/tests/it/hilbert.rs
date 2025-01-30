@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::hilbert_decompress;
-use bigbytes_common_expression::hilbert_decompress_state_list;
-use bigbytes_common_expression::hilbert_index;
-use bigbytes_common_expression::FixedLengthEncoding;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::hilbert_decompress;
+use bigbytesdb_common_expression::hilbert_decompress_state_list;
+use bigbytesdb_common_expression::hilbert_index;
+use bigbytesdb_common_expression::FixedLengthEncoding;
 
 #[test]
 fn test_hilbert() -> Result<()> {

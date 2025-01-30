@@ -15,7 +15,7 @@
 use std::io;
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
 use log::info;
 use openraft::SnapshotId;
 use rotbl::v001::Rotbl;

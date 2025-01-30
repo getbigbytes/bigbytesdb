@@ -21,8 +21,8 @@ pub use kvapi_impl::Resource;
 
 mod kvapi_impl {
 
-    use bigbytes_common_exception::ErrorCode;
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_exception::ErrorCode;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::principal::user_defined_file_format_ident::UserDefinedFileFormatIdent;
     use crate::principal::UserDefinedFileFormat;
@@ -66,7 +66,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::principal::user_defined_file_format_ident::UserDefinedFileFormatIdent;
     use crate::tenant::Tenant;

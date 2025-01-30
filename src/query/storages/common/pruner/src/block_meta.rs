@@ -16,13 +16,13 @@ use std::collections::BTreeMap;
 use std::collections::HashSet;
 use std::ops::Range;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::F32;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::BlockMetaInfoPtr;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::F32;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, Default, PartialEq, Eq)]
 pub struct BlockMetaIndex {

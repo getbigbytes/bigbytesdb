@@ -15,8 +15,8 @@
 use std::sync::Arc;
 
 use arrow_schema::Schema;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, PartialEq, Eq, Debug)]
 pub struct ResultScanTableInfo {

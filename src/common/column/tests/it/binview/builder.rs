@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::binview::BinaryViewColumnBuilder;
-use bigbytes_common_column::binview::Utf8ViewColumn;
+use bigbytesdb_common_column::binview::BinaryViewColumnBuilder;
+use bigbytesdb_common_column::binview::Utf8ViewColumn;
 
 #[test]
 fn extend_from_iter() {

@@ -18,8 +18,8 @@ use std::fmt::Formatter;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::pb::schedule_options::ScheduleType;
 use crate::pb::ScheduleOptions;

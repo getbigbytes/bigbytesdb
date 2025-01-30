@@ -14,8 +14,8 @@
 
 use std::time::Instant;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use itertools::Itertools;
 
 use crate::filter::select_expr_permutation::FilterPermutation;

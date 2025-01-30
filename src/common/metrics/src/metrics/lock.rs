@@ -14,10 +14,10 @@
 
 use std::sync::LazyLock;
 
-use bigbytes_common_base::runtime::metrics::register_counter;
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::Counter;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::register_counter;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::Counter;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
 
 use crate::VecLabels;
 

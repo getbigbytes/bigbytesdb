@@ -14,38 +14,38 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_sql::optimizer::OptimizerContext;
-use bigbytes_common_sql::optimizer::RecursiveOptimizer;
-use bigbytes_common_sql::optimizer::RuleID;
-use bigbytes_common_sql::optimizer::SExpr;
-use bigbytes_common_sql::optimizer::DEFAULT_REWRITE_RULES;
-use bigbytes_common_sql::plans::AggIndexInfo;
-use bigbytes_common_sql::plans::CreateTablePlan;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::plans::RelOperator;
-use bigbytes_common_sql::BindContext;
-use bigbytes_common_sql::Binder;
-use bigbytes_common_sql::Metadata;
-use bigbytes_common_sql::MetadataRef;
-use bigbytes_common_sql::NameResolutionContext;
-use bigbytes_query::interpreters::CreateTableInterpreter;
-use bigbytes_query::interpreters::Interpreter;
-use bigbytes_query::test_kits::TestFixture;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_sql::optimizer::OptimizerContext;
+use bigbytesdb_common_sql::optimizer::RecursiveOptimizer;
+use bigbytesdb_common_sql::optimizer::RuleID;
+use bigbytesdb_common_sql::optimizer::SExpr;
+use bigbytesdb_common_sql::optimizer::DEFAULT_REWRITE_RULES;
+use bigbytesdb_common_sql::plans::AggIndexInfo;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::plans::RelOperator;
+use bigbytesdb_common_sql::BindContext;
+use bigbytesdb_common_sql::Binder;
+use bigbytesdb_common_sql::Metadata;
+use bigbytesdb_common_sql::MetadataRef;
+use bigbytesdb_common_sql::NameResolutionContext;
+use bigbytesdb_query::interpreters::CreateTableInterpreter;
+use bigbytesdb_query::interpreters::Interpreter;
+use bigbytesdb_query::test_kits::TestFixture;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
 use parking_lot::RwLock;
 
 #[derive(Default)]
@@ -472,13 +472,13 @@ fn find_push_down_index_info(s_expr: &SExpr) -> Result<&Option<AggIndexInfo>> {
 fn format_selection(info: &AggIndexInfo) -> Vec<String> {
     info.selection
         .iter()
-        .map(|sel| bigbytes_common_sql::format_scalar(&sel.scalar))
+        .map(|sel| bigbytesdb_common_sql::format_scalar(&sel.scalar))
         .collect()
 }
 
 fn format_filter(info: &AggIndexInfo) -> Vec<String> {
     info.predicates
         .iter()
-        .map(bigbytes_common_sql::format_scalar)
+        .map(bigbytesdb_common_sql::format_scalar)
         .collect()
 }

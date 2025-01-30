@@ -68,7 +68,7 @@ pub async fn refresh_handler(
             }))
         }
         _ => {
-            unreachable!("/v1/session/refresh should be authed by bigbytes refresh token")
+            unreachable!("/v1/session/refresh should be authed by bigbytesdb refresh token")
         }
     }
 }

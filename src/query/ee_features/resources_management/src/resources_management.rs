@@ -15,14 +15,14 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::SelectedNode;
-use bigbytes_common_management::WarehouseInfo;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_common_meta_types::NodeType;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::SelectedNode;
+use bigbytesdb_common_management::WarehouseInfo;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::NodeType;
 
 #[async_trait::async_trait]
 pub trait ResourcesManagement: Sync + Send + 'static {
@@ -96,31 +96,31 @@ impl ResourcesManagement for DummyResourcesManagement {
     }
 
     async fn create_warehouse(&self, _: String, _: Vec<SelectedNode>) -> Result<WarehouseInfo> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn drop_warehouse(&self, _: String) -> Result<WarehouseInfo> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn resume_warehouse(&self, _: String) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn suspend_warehouse(&self, _: String) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn rename_warehouse(&self, _: String, _: String) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn inspect_warehouse(&self, _: String) -> Result<Vec<NodeInfo>> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn list_warehouses(&self) -> Result<Vec<WarehouseInfo>> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn add_warehouse_cluster(
@@ -129,15 +129,15 @@ impl ResourcesManagement for DummyResourcesManagement {
         _: String,
         _: Vec<SelectedNode>,
     ) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn rename_warehouse_cluster(&self, _: String, _: String, _: String) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn drop_warehouse_cluster(&self, _: String, _: String) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn assign_warehouse_nodes(
@@ -145,7 +145,7 @@ impl ResourcesManagement for DummyResourcesManagement {
         _: String,
         _: HashMap<String, Vec<SelectedNode>>,
     ) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn unassign_warehouse_nodes(
@@ -153,11 +153,11 @@ impl ResourcesManagement for DummyResourcesManagement {
         _: String,
         _: HashMap<String, Vec<SelectedNode>>,
     ) -> Result<()> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 
     async fn list_online_nodes(&self) -> Result<Vec<NodeInfo>> {
-        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytes Enterprise Edition license. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/"))
+        Err(ErrorCode::Unimplemented("The use of this feature requires a Bigbytesdb Enterprise Edition license. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/"))
     }
 }
 

@@ -18,18 +18,18 @@ use std::time::Instant;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_catalog::table::NavigationPoint;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::io::SnapshotLiteExtended;
-use bigbytes_common_storages_fuse::io::SnapshotsIO;
-use bigbytes_common_storages_fuse::io::TableMetaLocationGenerator;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::io::SnapshotLiteExtended;
+use bigbytesdb_common_storages_fuse::io::SnapshotsIO;
+use bigbytesdb_common_storages_fuse::io::TableMetaLocationGenerator;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
 
 use crate::storages::fuse::get_snapshot_referenced_segments;
 

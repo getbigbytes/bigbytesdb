@@ -14,7 +14,7 @@
 
 use std::any::Any;
 
-use bigbytes_common_metrics::http::metrics_incr_http_response_panics_count;
+use bigbytesdb_common_metrics::http::metrics_incr_http_response_panics_count;
 use http::StatusCode;
 
 #[derive(Clone, Debug)]

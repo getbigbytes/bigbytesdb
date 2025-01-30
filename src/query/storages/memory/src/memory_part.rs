@@ -15,8 +15,8 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
 
 /// Memory table lazy partition information.
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Eq)]

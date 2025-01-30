@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use chrono::Utc;
-use bigbytes_common_auth::RefreshableToken;
-use bigbytes_common_auth::TokenFile;
-use bigbytes_common_base::base::tokio;
+use bigbytesdb_common_auth::RefreshableToken;
+use bigbytesdb_common_auth::TokenFile;
+use bigbytesdb_common_base::base::tokio;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn direct_token() {

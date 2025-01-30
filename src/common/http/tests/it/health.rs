@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_http::health_handler;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_http::health_handler;
 use http::Method;
 use http::StatusCode;
 use http::Uri;
@@ -24,7 +24,7 @@ use poem::Route;
 use pretty_assertions::assert_eq;
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_health() -> bigbytes_common_exception::Result<()> {
+async fn test_health() -> bigbytesdb_common_exception::Result<()> {
     let cluster_router = Route::new().at("/v1/health", get(health_handler));
     // health check
     let response = cluster_router

@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_pipeline_core::PipeItem;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_pipeline_core::PipeItem;
+use bigbytesdb_common_pipeline_core::Pipeline;
 
 use super::exchange_params::ExchangeParams;
 use super::exchange_sink_writer::create_writer_item;

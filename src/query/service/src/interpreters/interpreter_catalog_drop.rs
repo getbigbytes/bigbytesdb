@@ -15,10 +15,10 @@
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::DropCatalogPlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::DropCatalogPlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 use log::debug;
 
 use super::Interpreter;

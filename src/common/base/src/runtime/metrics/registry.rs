@@ -17,8 +17,8 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 use std::sync::LazyLock;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use parking_lot::MappedMutexGuard;
 use parking_lot::Mutex;
 use parking_lot::MutexGuard;
@@ -83,7 +83,7 @@ pub struct GlobalRegistry {
 
 impl GlobalRegistry {
     pub fn create() -> GlobalRegistry {
-        let mut registry = Registry::with_prefix("bigbytes");
+        let mut registry = Registry::with_prefix("bigbytesdb");
         registry.register_collector(ProcessCollector::new());
         GlobalRegistry {
             inner: Mutex::new(GlobalRegistryInner {

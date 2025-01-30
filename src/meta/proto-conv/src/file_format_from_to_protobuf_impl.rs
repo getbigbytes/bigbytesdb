@@ -17,11 +17,11 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_io::GeometryDataType;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::BinaryFormat;
-use bigbytes_common_meta_app::principal::EmptyFieldAs;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_io::GeometryDataType;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::BinaryFormat;
+use bigbytesdb_common_meta_app::principal::EmptyFieldAs;
+use bigbytesdb_common_protos::pb;
 use num::FromPrimitive;
 
 use crate::reader_check_msg;

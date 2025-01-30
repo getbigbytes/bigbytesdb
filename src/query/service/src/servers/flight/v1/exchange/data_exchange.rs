@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::RemoteExpr;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub enum DataExchange {

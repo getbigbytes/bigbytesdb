@@ -14,10 +14,10 @@
 
 use std::time::Duration;
 
-use bigbytes_common_meta_types::protobuf::BooleanExpression;
-use bigbytes_common_meta_types::TxnCondition;
-use bigbytes_common_meta_types::TxnOp;
-use bigbytes_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::protobuf::BooleanExpression;
+use bigbytesdb_common_meta_types::TxnCondition;
+use bigbytesdb_common_meta_types::TxnOp;
+use bigbytesdb_common_meta_types::TxnRequest;
 
 #[test]
 fn test_txn_request_serde() -> anyhow::Result<()> {

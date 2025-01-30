@@ -17,16 +17,16 @@
 
 mod entry;
 
-use bigbytes_common_base::mem_allocator::GlobalAllocator;
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
-use bigbytes_common_tracing::pipe_file;
-use bigbytes_common_tracing::set_crash_hook;
-use bigbytes_common_tracing::SignalListener;
-use bigbytes_enterprise_query::enterprise_services::EnterpriseServices;
+use bigbytesdb_common_base::mem_allocator::GlobalAllocator;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
+use bigbytesdb_common_tracing::pipe_file;
+use bigbytesdb_common_tracing::set_crash_hook;
+use bigbytesdb_common_tracing::SignalListener;
+use bigbytesdb_enterprise_query::enterprise_services::EnterpriseServices;
 use entry::MainError;
 
 use crate::entry::init_services;
@@ -37,7 +37,7 @@ use crate::entry::start_services;
 pub static GLOBAL_ALLOCATOR: GlobalAllocator = GlobalAllocator;
 
 fn main() {
-    let binary_version = (*bigbytes_common_config::BIGBYTES_COMMIT_VERSION).clone();
+    let binary_version = (*bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION).clone();
 
     // Crash tracker
     let (input, output) = pipe_file().unwrap();
@@ -49,12 +49,12 @@ fn main() {
 
     match Runtime::with_default_worker_threads() {
         Err(cause) => {
-            eprintln!("Bigbytes Query start failure, cause: {:?}", cause);
+            eprintln!("Bigbytesdb Query start failure, cause: {:?}", cause);
             std::process::exit(cause.code() as i32);
         }
         Ok(rt) => {
             if let Err(cause) = rt.block_on(main_entrypoint()) {
-                eprintln!("Bigbytes Query start failure, cause: {:?}", cause);
+                eprintln!("Bigbytesdb Query start failure, cause: {:?}", cause);
                 std::process::exit(cause.code() as i32);
             }
         }

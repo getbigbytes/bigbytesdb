@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::local_block_meta_serde;
-use bigbytes_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::local_block_meta_serde;
+use bigbytesdb_common_expression::BlockMetaInfo;
 
 use super::super::SortSpillParams;
 

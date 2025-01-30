@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-cache"
+name = "bigbytesdb-storages-common-cache"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,14 +12,14 @@ test = true
 
 [dependencies]
 arrow = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-cache = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-storages-common-index = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-cache = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-storages-common-index = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }

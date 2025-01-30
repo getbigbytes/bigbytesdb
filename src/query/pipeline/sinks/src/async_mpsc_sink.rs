@@ -16,11 +16,11 @@ use std::any::Any;
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::Event;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::Event;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
 
 /// Sink with multiple inputs.
 #[async_trait]

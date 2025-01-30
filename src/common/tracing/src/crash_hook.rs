@@ -24,9 +24,9 @@ use std::sync::Mutex;
 use std::sync::PoisonError;
 use std::time::Duration;
 
-use bigbytes_common_base::runtime::Thread;
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_exception::StackTrace;
+use bigbytesdb_common_base::runtime::Thread;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_exception::StackTrace;
 
 const BUFFER_SIZE: usize = {
     size_of::<i32>() // sig
@@ -500,7 +500,7 @@ mod tests {
     use std::io::Read;
     use std::ptr::addr_of_mut;
 
-    use bigbytes_common_base::runtime::ThreadTracker;
+    use bigbytesdb_common_base::runtime::ThreadTracker;
 
     use crate::crash_hook::pipe_file;
     use crate::crash_hook::read_i32;

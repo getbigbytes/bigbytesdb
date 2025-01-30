@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::executor::explain::PlanStatsInfo;
 use crate::executor::PhysicalPlan;

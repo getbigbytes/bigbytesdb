@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::VirtualField;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::VirtualField;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CreateVirtualColumnPlan {

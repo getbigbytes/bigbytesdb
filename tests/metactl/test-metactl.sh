@@ -15,8 +15,8 @@ want_snapshot_v004="$SCRIPT_PATH/want_snapshot_v004"
 exported="$SCRIPT_PATH/exported"
 grpc_exported="$SCRIPT_PATH/grpc_exported"
 
-chmod +x ./target/${BUILD_PROFILE}/bigbytes-metactl
-chmod +x ./target/${BUILD_PROFILE}/bigbytes-meta
+chmod +x ./target/${BUILD_PROFILE}/bigbytesdb-metactl
+chmod +x ./target/${BUILD_PROFILE}/bigbytesdb-meta
 
 # rm -rf "$meta_dir" || echo "Skip rm: $meta_dir"
 
@@ -34,7 +34,7 @@ metactl_import_export () {
 
     echo " === import into $meta_dir"
     cat $src |
-        ./target/${BUILD_PROFILE}/bigbytes-metactl import --raft-dir "$meta_dir"
+        ./target/${BUILD_PROFILE}/bigbytesdb-metactl import --raft-dir "$meta_dir"
 
     sleep 1
 
@@ -55,7 +55,7 @@ metactl_import_export () {
     echo " === "
 
     echo " === export from $meta_dir"
-    ./target/${BUILD_PROFILE}/bigbytes-metactl export --raft-dir "$meta_dir" >$exported
+    ./target/${BUILD_PROFILE}/bigbytesdb-metactl export --raft-dir "$meta_dir" >$exported
 
     echo " === check backup date: $want_exported and exported: $exported"
     diff $want_exported $exported
@@ -64,17 +64,17 @@ metactl_import_export () {
     echo " === ${title} 3. Test export from running meta-service to file $grpc_exported"
     echo " === "
 
-    echo " === start bigbytes-meta"
+    echo " === start bigbytesdb-meta"
     # Give it a very big heartbeat interval to prevent election.
     # Election will change the `vote` in storage and thus fail the following `diff`
     # in this test.
-    ./target/${BUILD_PROFILE}/bigbytes-meta --single --heartbeat-interval 100000 --raft-dir "$meta_dir" --log-file-level=debug &
+    ./target/${BUILD_PROFILE}/bigbytesdb-meta --single --heartbeat-interval 100000 --raft-dir "$meta_dir" --log-file-level=debug &
     METASRV_PID=$!
     echo " === pid: $METASRV_PID"
     sleep 10
 
-    echo " === export from running bigbytes-meta to $grpc_exported"
-    ./target/${BUILD_PROFILE}/bigbytes-metactl export --grpc-api-address "localhost:9191" >$grpc_exported
+    echo " === export from running bigbytesdb-meta to $grpc_exported"
+    ./target/${BUILD_PROFILE}/bigbytesdb-metactl export --grpc-api-address "localhost:9191" >$grpc_exported
 
     echo " === grpc_exported file data start..."
     cat $grpc_exported
@@ -97,15 +97,15 @@ echo " === "
 
 rm -rf "$meta_dir"
 
-echo " === start a single node bigbytes-meta"
+echo " === start a single node bigbytesdb-meta"
 # test export from grpc
-./target/${BUILD_PROFILE}/bigbytes-meta --single --raft-dir "$meta_dir" --log-file-level=debug &
+./target/${BUILD_PROFILE}/bigbytesdb-meta --single --raft-dir "$meta_dir" --log-file-level=debug &
 METASRV_PID=$!
 echo $METASRV_PID
 sleep 10
 
-echo " === export data from a running bigbytes-meta to $grpc_exported"
-./target/${BUILD_PROFILE}/bigbytes-metactl export --grpc-api-address "localhost:9191" >$grpc_exported
+echo " === export data from a running bigbytesdb-meta to $grpc_exported"
+./target/${BUILD_PROFILE}/bigbytesdb-metactl export --grpc-api-address "localhost:9191" >$grpc_exported
 
 echo " === grpc_exported file data start..."
 cat $grpc_exported
@@ -142,6 +142,6 @@ echo '["header",{"DataHeader":{"key":"header","value":{"version":"V100"}}}]' > $
 
 echo " === import into $meta_dir"
 cat $grpc_exported |
-    ./target/${BUILD_PROFILE}/bigbytes-metactl import --raft-dir "$meta_dir"  \
+    ./target/${BUILD_PROFILE}/bigbytesdb-metactl import --raft-dir "$meta_dir"  \
     && { echo " === expect error when importing incompatible header"; exit 1; } \
     || echo " === error is expected. OK";

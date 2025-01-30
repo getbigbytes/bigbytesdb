@@ -77,7 +77,7 @@ impl TenantOwnershipObjectIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::principal::OwnershipInfo;
     use crate::principal::TenantOwnershipObjectIdent;
@@ -105,7 +105,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::principal::OwnershipObject;
     use crate::principal::TenantOwnershipObjectIdent;

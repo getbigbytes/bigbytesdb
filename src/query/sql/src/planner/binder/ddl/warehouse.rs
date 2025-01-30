@@ -15,21 +15,21 @@
 use std::collections::hash_map::Entry;
 use std::collections::HashMap;
 
-use bigbytes_common_ast::ast::AddWarehouseClusterStmt;
-use bigbytes_common_ast::ast::AssignWarehouseNodesStmt;
-use bigbytes_common_ast::ast::CreateWarehouseStmt;
-use bigbytes_common_ast::ast::DropWarehouseClusterStmt;
-use bigbytes_common_ast::ast::DropWarehouseStmt;
-use bigbytes_common_ast::ast::InspectWarehouseStmt;
-use bigbytes_common_ast::ast::RenameWarehouseClusterStmt;
-use bigbytes_common_ast::ast::RenameWarehouseStmt;
-use bigbytes_common_ast::ast::ResumeWarehouseStmt;
-use bigbytes_common_ast::ast::ShowOnlineNodesStmt;
-use bigbytes_common_ast::ast::ShowWarehousesStmt;
-use bigbytes_common_ast::ast::SuspendWarehouseStmt;
-use bigbytes_common_ast::ast::UnassignWarehouseNodesStmt;
-use bigbytes_common_ast::ast::UseWarehouseStmt;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::AddWarehouseClusterStmt;
+use bigbytesdb_common_ast::ast::AssignWarehouseNodesStmt;
+use bigbytesdb_common_ast::ast::CreateWarehouseStmt;
+use bigbytesdb_common_ast::ast::DropWarehouseClusterStmt;
+use bigbytesdb_common_ast::ast::DropWarehouseStmt;
+use bigbytesdb_common_ast::ast::InspectWarehouseStmt;
+use bigbytesdb_common_ast::ast::RenameWarehouseClusterStmt;
+use bigbytesdb_common_ast::ast::RenameWarehouseStmt;
+use bigbytesdb_common_ast::ast::ResumeWarehouseStmt;
+use bigbytesdb_common_ast::ast::ShowOnlineNodesStmt;
+use bigbytesdb_common_ast::ast::ShowWarehousesStmt;
+use bigbytesdb_common_ast::ast::SuspendWarehouseStmt;
+use bigbytesdb_common_ast::ast::UnassignWarehouseNodesStmt;
+use bigbytesdb_common_ast::ast::UseWarehouseStmt;
+use bigbytesdb_common_exception::Result;
 
 use crate::plans::AddWarehouseClusterPlan;
 use crate::plans::AssignWarehouseNodesPlan;

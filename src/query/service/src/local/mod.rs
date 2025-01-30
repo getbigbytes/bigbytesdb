@@ -22,20 +22,20 @@ use std::io::stdin;
 use std::io::IsTerminal;
 use std::path::Path;
 
-use bigbytes_common_config::Config;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license_manager::LicenseManager;
-use bigbytes_common_license::license_manager::OssLicenseManager;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_config::Config;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license_manager::LicenseManager;
+use bigbytesdb_common_license::license_manager::OssLicenseManager;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
 
 use crate::clusters::ClusterDiscovery;
 use crate::GlobalServices;
 
 pub async fn query_local(query_sql: &str, output_format: &str) -> Result<()> {
     let temp_dir = tempfile::tempdir()?;
-    let p = env::var("BIGBYTES_DATA_PATH");
+    let p = env::var("BIGBYTESDB_DATA_PATH");
     let path = match &p {
         Ok(p) => Path::new(p),
         Err(_) => temp_dir.path(),

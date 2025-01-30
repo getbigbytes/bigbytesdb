@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::SetOperation;
+use bigbytesdb_common_ast::ast::SetOperation;
 use derive_visitor::VisitorMut;
 
 #[derive(Debug, Clone, Default, VisitorMut)]

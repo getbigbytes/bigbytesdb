@@ -20,18 +20,18 @@ extern crate criterion;
 use std::ops::Deref;
 
 use criterion::Criterion;
-use bigbytes_common_expression::types::number::NumberColumn;
-use bigbytes_common_expression::types::string::StringColumnBuilder;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_storages_common_index::filters::Filter;
-use bigbytes_storages_common_index::filters::FilterBuilder;
-use bigbytes_storages_common_index::filters::Xor8Builder;
-use bigbytes_storages_common_index::BloomIndex;
+use bigbytesdb_common_expression::types::number::NumberColumn;
+use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_storages_common_index::filters::Filter;
+use bigbytesdb_storages_common_index::filters::FilterBuilder;
+use bigbytesdb_storages_common_index::filters::Xor8Builder;
+use bigbytesdb_storages_common_index::BloomIndex;
 use rand::prelude::random;
 use rand::rngs::StdRng;
 use rand::Rng;
@@ -42,7 +42,7 @@ use rand::SeedableRng;
 /// Benchmark and optimization log:
 ///
 /// - 2022-10-14:
-///   Reproduce the building process same as bigbytes-query does: collect keys with `column.to_values()`:
+///   Reproduce the building process same as bigbytesdb-query does: collect keys with `column.to_values()`:
 ///   i64:                       210ns/key
 ///   string of length 16 to 32: 240ns/key
 ///

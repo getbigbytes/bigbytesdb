@@ -16,8 +16,8 @@ use std::fmt;
 use std::ops::Deref;
 use std::ops::DerefMut;
 
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::tenant_key::resource::TenantResource;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::tenant_key::resource::TenantResource;
 
 use crate::FromToProto;
 use crate::Incompatible;

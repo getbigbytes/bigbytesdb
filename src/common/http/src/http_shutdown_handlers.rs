@@ -16,10 +16,10 @@ use std::net::SocketAddr;
 use std::time::Duration;
 
 use anyerror::AnyError;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::sync::broadcast;
-use bigbytes_common_base::base::tokio::sync::oneshot;
-use bigbytes_common_base::base::tokio::task::JoinHandle;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::sync::broadcast;
+use bigbytesdb_common_base::base::tokio::sync::oneshot;
+use bigbytesdb_common_base::base::tokio::task::JoinHandle;
 use futures::future::Either;
 use futures::FutureExt;
 use log::error;
@@ -80,7 +80,7 @@ impl HttpShutdownHandler {
         }
 
         let (tx, rx) = oneshot::channel();
-        let join_handle = bigbytes_common_base::runtime::spawn(
+        let join_handle = bigbytesdb_common_base::runtime::spawn(
             poem::Server::new_with_acceptor(acceptor)
                 .name(self.service_name.clone())
                 .idle_timeout(Duration::from_secs(20))

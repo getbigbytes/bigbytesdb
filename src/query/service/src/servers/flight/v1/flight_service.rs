@@ -29,8 +29,8 @@ use arrow_flight::PutResult;
 use arrow_flight::Result as FlightResult;
 use arrow_flight::SchemaResult;
 use arrow_flight::Ticket;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
 use fastrace::func_path;
 use fastrace::prelude::*;
 use futures_util::stream;
@@ -108,7 +108,7 @@ impl FlightService for BigbytesQueryFlightService {
 
     #[async_backtrace::framed]
     async fn do_get(&self, request: Request<Ticket>) -> Response<Self::DoGetStream> {
-        let root = bigbytes_common_tracing::start_trace_for_remote_request(func_path!(), &request);
+        let root = bigbytesdb_common_tracing::start_trace_for_remote_request(func_path!(), &request);
         let _guard = root.set_local_parent();
 
         match request.get_metadata("x-type")?.as_str() {
@@ -157,7 +157,7 @@ impl FlightService for BigbytesQueryFlightService {
 
     #[async_backtrace::framed]
     async fn do_action(&self, request: Request<Action>) -> Response<Self::DoActionStream> {
-        let root = bigbytes_common_tracing::start_trace_for_remote_request(func_path!(), &request);
+        let root = bigbytesdb_common_tracing::start_trace_for_remote_request(func_path!(), &request);
 
         let secret = request.get_metadata("secret")?;
 

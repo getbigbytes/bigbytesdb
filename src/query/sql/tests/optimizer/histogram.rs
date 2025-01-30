@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::Histogram;
-use bigbytes_common_storage::HistogramBucket;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::Histogram;
+use bigbytesdb_common_storage::HistogramBucket;
 
 #[test]
 fn test_histogram() {

@@ -14,7 +14,7 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 /// Fuse engine table type.
 /// This is used to distinguish different table types.

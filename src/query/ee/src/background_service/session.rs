@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
-use bigbytes_query::sessions::Session;
-use bigbytes_query::sessions::SessionManager;
-use bigbytes_query::sessions::SessionType;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
+use bigbytesdb_query::sessions::Session;
+use bigbytesdb_query::sessions::SessionManager;
+use bigbytesdb_query::sessions::SessionType;
 
 pub async fn create_session(conf: &InnerConfig) -> Result<Arc<Session>> {
     let session_manager = SessionManager::instance();

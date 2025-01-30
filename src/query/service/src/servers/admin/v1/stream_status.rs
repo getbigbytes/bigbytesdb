@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::app_error::AppError;
-use bigbytes_common_meta_app::app_error::UnknownTableId;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_storages_stream::stream_table::StreamTable;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::app_error::AppError;
+use bigbytesdb_common_meta_app::app_error::UnknownTableId;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_storages_stream::stream_table::StreamTable;
 use fastrace::func_name;
 use log::debug;
 use poem::web::Json;

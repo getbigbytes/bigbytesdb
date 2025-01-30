@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::FormatTreeNode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::FormatTreeNode;
+use bigbytesdb_common_exception::Result;
 use itertools::Itertools;
 
 use crate::optimizer::RelExpr;
@@ -67,12 +67,12 @@ impl IdHumanizer for DefaultIdHumanizer {
 ///
 /// # Example
 /// ```
-/// use bigbytes_query::planner::format::display_rel_operator::DefaultIdHumanizer;
-/// use bigbytes_query::planner::format::display_rel_operator::DefaultOperatorHumanizer;
-/// use bigbytes_query::planner::format::display_rel_operator::Filter;
-/// use bigbytes_query::planner::format::display_rel_operator::IdHumanizer;
-/// use bigbytes_query::planner::format::display_rel_operator::OperatorHumanizer;
-/// use bigbytes_query::planner::format::display_rel_operator::RelOperator;
+/// use bigbytesdb_query::planner::format::display_rel_operator::DefaultIdHumanizer;
+/// use bigbytesdb_query::planner::format::display_rel_operator::DefaultOperatorHumanizer;
+/// use bigbytesdb_query::planner::format::display_rel_operator::Filter;
+/// use bigbytesdb_query::planner::format::display_rel_operator::IdHumanizer;
+/// use bigbytesdb_query::planner::format::display_rel_operator::OperatorHumanizer;
+/// use bigbytesdb_query::planner::format::display_rel_operator::RelOperator;
 ///
 /// let id_humanizer = DefaultIdHumanizer;
 /// let operator_humanizer = DefaultOperatorHumanizer;

@@ -14,7 +14,7 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema as mt;
+use bigbytesdb_common_meta_app::schema as mt;
 use fastrace::func_name;
 use maplit::btreemap;
 

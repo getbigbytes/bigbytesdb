@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::sessions::QueryContext;
 
@@ -39,7 +39,7 @@ pub async fn validate_grant_object_exists(
                 .exists_table(&tenant, database_name, table_name)
                 .await?
             {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownTable(format!(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownTable(format!(
                     "table `{}`.`{}` not exists in catalog '{}'",
                     database_name, table_name, catalog_name,
                 )));
@@ -48,7 +48,7 @@ pub async fn validate_grant_object_exists(
         GrantObject::Database(catalog_name, database_name) => {
             let catalog = ctx.get_catalog(catalog_name).await?;
             if !catalog.exists_database(&tenant, database_name).await? {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownDatabase(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownDatabase(
                     format!("database {} not exists", database_name,),
                 ));
             }
@@ -56,7 +56,7 @@ pub async fn validate_grant_object_exists(
         GrantObject::DatabaseById(catalog_name, db_id) => {
             let catalog = ctx.get_catalog(catalog_name).await?;
             if catalog.get_db_name_by_id(*db_id).await.is_err() {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownDatabaseId(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownDatabaseId(
                     format!(
                         "database id {} not exists in catalog {}",
                         db_id, catalog_name
@@ -68,7 +68,7 @@ pub async fn validate_grant_object_exists(
             let catalog = ctx.get_catalog(catalog_name).await?;
 
             if catalog.get_table_meta_by_id(*table_id).await?.is_none() {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownTableId(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownTableId(
                     format!(
                         "table id `{}`.`{}` not exists in catalog '{}'",
                         db_id, table_id, catalog_name,
@@ -78,7 +78,7 @@ pub async fn validate_grant_object_exists(
         }
         GrantObject::UDF(udf) => {
             if !UserApiProvider::instance().exists_udf(&tenant, udf).await? {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownFunction(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownFunction(
                     format!("udf {udf} not exists"),
                 ));
             }
@@ -88,7 +88,7 @@ pub async fn validate_grant_object_exists(
                 .exists_stage(&ctx.get_tenant(), stage)
                 .await?
             {
-                return Err(bigbytes_common_exception::ErrorCode::UnknownStage(format!(
+                return Err(bigbytesdb_common_exception::ErrorCode::UnknownStage(format!(
                     "stage {stage} not exists"
                 )));
             }

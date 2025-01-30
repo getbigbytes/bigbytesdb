@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_formats::output_format::OutputFormat;
-use bigbytes_common_formats::ClickhouseFormatType;
-use bigbytes_common_formats::FileFormatOptionsExt;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_formats::output_format::OutputFormat;
+use bigbytesdb_common_formats::ClickhouseFormatType;
+use bigbytesdb_common_formats::FileFormatOptionsExt;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
 
 mod field_decoder;
 mod field_encoder;

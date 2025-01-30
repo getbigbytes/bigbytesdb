@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReply;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReply;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 #[async_trait::async_trait]
 pub trait UserApi: Sync + Send {

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use anyerror::AnyError;
-use bigbytes_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
 
 use crate::raft_types::InitializeError;
 use crate::raft_types::RaftError;

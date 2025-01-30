@@ -17,11 +17,11 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::ops::Not;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use itertools::Itertools;
 use log::error;
 

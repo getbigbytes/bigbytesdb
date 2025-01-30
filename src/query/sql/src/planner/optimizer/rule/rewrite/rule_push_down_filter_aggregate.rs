@@ -75,7 +75,7 @@ impl Rule for RulePushDownFilterAggregate {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let filter: Filter = s_expr.plan().clone().try_into()?;
         let aggregate_expr = s_expr.child(0)?;
         let aggregate: Aggregate = aggregate_expr.plan().clone().try_into()?;

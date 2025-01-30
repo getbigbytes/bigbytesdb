@@ -14,19 +14,19 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::io::SegmentsIO;
 use crate::sessions::TableContext;

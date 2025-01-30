@@ -16,10 +16,10 @@ use std::marker::PhantomData;
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::decimal::*;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::decimal::*;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::*;
 
 use super::aggregate_scalar_state::ChangeIf;
 use super::FunctionData;

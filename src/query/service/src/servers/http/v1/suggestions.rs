@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_enterprise_background_service::Suggestion;
+use bigbytesdb_enterprise_background_service::Suggestion;
 use http::StatusCode;
 use poem::error::InternalServerError;
 use poem::error::Result as PoemResult;

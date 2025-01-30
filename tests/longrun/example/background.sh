@@ -1,5 +1,5 @@
 source "$(dirname "${BASH_SOURCE[0]}")/../utils/logging.sh"
-DSN=bigbytes://root:@localhost:8000/?sslmode=disable
+DSN=bigbytesdb://root:@localhost:8000/?sslmode=disable
 
 
 for ((i=0; i<=3; i++)); do

@@ -14,19 +14,19 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::DatabaseId;
-use bigbytes_common_meta_app::schema::DatabaseInfo;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_storages_information_schema::ColumnsTable;
-use bigbytes_common_storages_information_schema::KeyColumnUsageTable;
-use bigbytes_common_storages_information_schema::KeywordsTable;
-use bigbytes_common_storages_information_schema::SchemataTable;
-use bigbytes_common_storages_information_schema::StatisticsTable;
-use bigbytes_common_storages_information_schema::TablesTable;
-use bigbytes_common_storages_information_schema::ViewsTable;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::DatabaseId;
+use bigbytesdb_common_meta_app::schema::DatabaseInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_storages_information_schema::ColumnsTable;
+use bigbytesdb_common_storages_information_schema::KeyColumnUsageTable;
+use bigbytesdb_common_storages_information_schema::KeywordsTable;
+use bigbytesdb_common_storages_information_schema::SchemataTable;
+use bigbytesdb_common_storages_information_schema::StatisticsTable;
+use bigbytesdb_common_storages_information_schema::TablesTable;
+use bigbytesdb_common_storages_information_schema::ViewsTable;
 
 use crate::catalogs::InMemoryMetas;
 use crate::databases::Database;

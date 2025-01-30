@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::table::CompactionLimits;
-use bigbytes_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table::CompactionLimits;
+use bigbytesdb_common_catalog::table::NavigationPoint;
 
 use crate::plans::Operator;
 use crate::plans::RelOp;

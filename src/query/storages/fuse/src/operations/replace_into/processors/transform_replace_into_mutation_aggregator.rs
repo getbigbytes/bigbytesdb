@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::PipeItem;
-use bigbytes_common_pipeline_transforms::processors::AsyncAccumulatingTransform;
-use bigbytes_common_pipeline_transforms::processors::AsyncAccumulatingTransformer;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::PipeItem;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncAccumulatingTransform;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncAccumulatingTransformer;
 
 use crate::operations::replace_into::meta::ReplaceIntoOperation;
 use crate::operations::replace_into::mutator::ReplaceIntoOperationAggregator;

@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::group::Group;
 use crate::optimizer::m_expr::MExpr;

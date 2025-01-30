@@ -15,22 +15,22 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::CatalogInfo;
-use bigbytes_common_meta_app::schema::DatabaseInfo;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_sql::resolve_type_name_by_str;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::CatalogInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_sql::resolve_type_name_by_str;
 use hive_metastore as hms;
 
 use crate::hive_database::HiveDatabase;

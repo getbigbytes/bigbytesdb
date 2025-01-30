@@ -15,22 +15,22 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_api::kv_pb_api::KVPbApi;
-use bigbytes_common_meta_api::kv_pb_api::UpsertPB;
-use bigbytes_common_meta_app::principal::client_session::ClientSession;
-use bigbytes_common_meta_app::principal::client_session_ident::ClientSessionIdent;
-use bigbytes_common_meta_app::principal::client_session_ident::UserSessionId;
-use bigbytes_common_meta_app::principal::user_token::QueryTokenInfo;
-use bigbytes_common_meta_app::principal::user_token_ident::TokenIdent;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_meta_types::With;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_api::kv_pb_api::KVPbApi;
+use bigbytesdb_common_meta_api::kv_pb_api::UpsertPB;
+use bigbytesdb_common_meta_app::principal::client_session::ClientSession;
+use bigbytesdb_common_meta_app::principal::client_session_ident::ClientSessionIdent;
+use bigbytesdb_common_meta_app::principal::client_session_ident::UserSessionId;
+use bigbytesdb_common_meta_app::principal::user_token::QueryTokenInfo;
+use bigbytesdb_common_meta_app::principal::user_token_ident::TokenIdent;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::With;
 
 pub struct ClientSessionMgr {
     kv_api: Arc<dyn kvapi::KVApi<Error = MetaError>>,

@@ -34,8 +34,8 @@ impl DataMaskNameIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::data_mask::DataMaskId;
     use crate::data_mask::DataMaskNameIdent;
@@ -61,7 +61,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::data_mask::DataMaskNameIdent;
     use crate::tenant::Tenant;

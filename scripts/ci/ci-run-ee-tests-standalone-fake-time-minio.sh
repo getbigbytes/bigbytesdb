@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -23,20 +23,20 @@ python3 -m pip install --quiet mysql-connector-python
 
 echo "Starting standalone BigbytesQuery(faked time: 2 days ago)"
 sudo date -s "-2 days"
-./scripts/ci/deploy/bigbytes-query-standalone.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
 pushd "$SCRIPT_PATH/../../tests" || exit
 
 echo "Preparing data (faked time)"
-./bigbytes-test --mode 'standalone' --run-dir 8_faked_time_prepare
+./bigbytesdb-test --mode 'standalone' --run-dir 8_faked_time_prepare
 
 popd
 echo "Starting standalone BigbytesQuery"
 sudo date -s "+2 days"
-./scripts/ci/deploy/bigbytes-query-standalone.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 pushd "$SCRIPT_PATH/../../tests" || exit
 
 echo "Testing"
-./bigbytes-test --mode 'standalone' --run-dir 9_faked_time
+./bigbytesdb-test --mode 'standalone' --run-dir 9_faked_time

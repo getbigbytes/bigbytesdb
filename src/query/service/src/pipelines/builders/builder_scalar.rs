@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::evaluator::CompoundBlockOperator;
-use bigbytes_common_sql::executor::physical_plans::EvalScalar;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::evaluator::CompoundBlockOperator;
+use bigbytesdb_common_sql::executor::physical_plans::EvalScalar;
 
 use crate::pipelines::PipelineBuilder;
 

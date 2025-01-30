@@ -15,10 +15,10 @@
 use std::error::Error;
 use std::fmt;
 
-use bigbytes_common_meta_types::anyerror::AnyError;
-use bigbytes_common_meta_types::raft_types::ErrorSubject;
-use bigbytes_common_meta_types::raft_types::ErrorVerb;
-use bigbytes_common_meta_types::raft_types::StorageError;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_meta_types::raft_types::ErrorSubject;
+use bigbytesdb_common_meta_types::raft_types::ErrorVerb;
+use bigbytesdb_common_meta_types::raft_types::StorageError;
 use log::debug;
 use log::error;
 

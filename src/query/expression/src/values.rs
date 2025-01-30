@@ -24,14 +24,14 @@ use base64::prelude::*;
 use binary::BinaryColumnBuilder;
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::prelude::BinaryRead;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::prelude::BinaryRead;
 use enum_as_inner::EnumAsInner;
 use ethnum::i256;
 use geo::Geometry;
@@ -1411,7 +1411,7 @@ impl Column {
                 GeometryType::from_data(data)
             }
             DataType::Geography => {
-                use bigbytes_common_io::geography;
+                use bigbytesdb_common_io::geography;
 
                 let mut builder = GeographyType::create_builder(len, &[]);
                 for _ in 0..len {
@@ -2124,7 +2124,7 @@ impl ColumnBuilder {
                 reader.read_exact(&mut builder.row_buffer)?;
 
                 #[cfg(debug_assertions)]
-                bigbytes_common_column::binview::CheckUTF8::check_utf8(&builder.row_buffer)
+                bigbytesdb_common_column::binview::CheckUTF8::check_utf8(&builder.row_buffer)
                     .unwrap();
 
                 builder.commit_row();
@@ -2226,7 +2226,7 @@ impl ColumnBuilder {
                     let bytes = &reader[step * row..];
 
                     #[cfg(debug_assertions)]
-                    bigbytes_common_column::binview::CheckUTF8::check_utf8(&bytes).unwrap();
+                    bigbytesdb_common_column::binview::CheckUTF8::check_utf8(&bytes).unwrap();
 
                     let s = unsafe { std::str::from_utf8_unchecked(bytes) };
                     builder.put_and_commit(s);

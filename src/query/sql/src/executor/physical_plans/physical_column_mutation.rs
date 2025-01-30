@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 use crate::executor::physical_plan::PhysicalPlan;
 use crate::executor::physical_plans::MutationKind;

@@ -3,7 +3,7 @@ extends: default
 ignore: |
   build/
   target/
-  .bigbytes/
+  .bigbytesdb/
 
 rules:
   # 120 chars should be enough, but don't fail if a line is longer

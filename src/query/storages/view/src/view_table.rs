@@ -15,11 +15,11 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::catalog::StorageDescription;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_catalog::catalog::StorageDescription;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 pub struct ViewTable {
     table_info: TableInfo,

@@ -13,28 +13,28 @@
 // limitations under the License.
 
 use chrono::Utc;
-use bigbytes_common_meta_app::app_error::AppError;
-use bigbytes_common_meta_app::app_error::OutofSequenceRange;
-use bigbytes_common_meta_app::app_error::SequenceError;
-use bigbytes_common_meta_app::app_error::WrongSequenceCount;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::CreateSequenceReply;
-use bigbytes_common_meta_app::schema::CreateSequenceReq;
-use bigbytes_common_meta_app::schema::DropSequenceReply;
-use bigbytes_common_meta_app::schema::DropSequenceReq;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReply;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReq;
-use bigbytes_common_meta_app::schema::SequenceIdent;
-use bigbytes_common_meta_app::schema::SequenceMeta;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_app::app_error::AppError;
+use bigbytesdb_common_meta_app::app_error::OutofSequenceRange;
+use bigbytesdb_common_meta_app::app_error::SequenceError;
+use bigbytesdb_common_meta_app::app_error::WrongSequenceCount;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReply;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReq;
+use bigbytesdb_common_meta_app::schema::DropSequenceReply;
+use bigbytesdb_common_meta_app::schema::DropSequenceReq;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReply;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReq;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_meta_app::schema::SequenceMeta;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::TxnRequest;
 use fastrace::func_name;
 use log::debug;
 
-use crate::bigbytes_common_meta_types::With;
+use crate::bigbytesdb_common_meta_types::With;
 use crate::kv_app_error::KVAppError;
 use crate::kv_pb_api::KVPbApi;
 use crate::kv_pb_api::UpsertPB;

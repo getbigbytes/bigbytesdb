@@ -24,7 +24,7 @@ SELECT CAST('1e1' AS DOUBLE)
 ----
 10.0
 
-# TODO issue https://github.com/getbigbytes/bigbytes/issues/7389
+# TODO issue https://github.com/getbigbytes/bigbytesdb/issues/7389
 # query I
 # SELECT CAST('   1e1' AS DOUBLE)
 

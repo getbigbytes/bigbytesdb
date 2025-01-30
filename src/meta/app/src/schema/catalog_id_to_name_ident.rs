@@ -36,7 +36,7 @@ impl CatalogIdToNameIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::catalog_name_ident::CatalogNameIdentRaw;
     use crate::schema::CatalogIdToNameIdent;
@@ -65,7 +65,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::CatalogIdToNameIdent;
     use crate::schema::catalog_id_ident::CatalogId;

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::RemoteExpr;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::RemoteExpr;
 
 use crate::executor::physical_plans::common::FragmentKind;
 use crate::executor::PhysicalPlan;

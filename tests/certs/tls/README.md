@@ -16,11 +16,11 @@ Certificate:
         Serial Number:
             65:08:78:3f:75:71:8a:08:56:5f:26:d2:c8:db:61:66:a2:00:7a:fd
     Signature Algorithm: sha256WithRSAEncryption
-        Issuer: C=US, ST=LA, L=CA, O=Getbigbytes, OU=Bigbytes, CN=Bigbytes
+        Issuer: C=US, ST=LA, L=CA, O=Getbigbytes, OU=Bigbytesdb, CN=Bigbytesdb
         Validity
             Not Before: Sep 15 09:09:00 2023 GMT
             Not After : Sep 14 09:09:00 2024 GMT
-        Subject: C=US, ST=CA, L=San Francisco, CN=Bigbytes Server
+        Subject: C=US, ST=CA, L=San Francisco, CN=Bigbytesdb Server
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (2048 bit)

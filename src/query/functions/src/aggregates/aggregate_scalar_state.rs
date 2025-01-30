@@ -17,11 +17,11 @@ use std::marker::PhantomData;
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::ColumnBuilder;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::ColumnBuilder;
 
 // These types can downcast their builders successfully.
 // TODO(@b41sh):  Variant => VariantType can't be used because it will use Scalar::String to compare

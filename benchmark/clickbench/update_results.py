@@ -49,7 +49,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     title = f"ClickBench - {args.dataset} - "
-    url = "https://github.com/getbigbytes/bigbytes/"
+    url = "https://github.com/getbigbytes/bigbytesdb/"
     if args.pr:
         title += f"PR #{args.pr}"
         url += f"pull/{args.pr}"

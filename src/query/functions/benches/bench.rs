@@ -19,11 +19,11 @@ extern crate criterion;
 mod parser;
 
 use criterion::Criterion;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 fn bench(c: &mut Criterion) {
     let mut group = c.benchmark_group("bench_array");

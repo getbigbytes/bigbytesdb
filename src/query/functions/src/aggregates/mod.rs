@@ -84,4 +84,4 @@ pub use aggregate_sum::*;
 pub use aggregate_unary::*;
 pub use aggregator::Aggregators;
 pub use aggregator_common::*;
-pub use bigbytes_common_expression::aggregate as aggregate_function;
+pub use bigbytesdb_common_expression::aggregate as aggregate_function;

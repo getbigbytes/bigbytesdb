@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
-use bigbytes_storages_common_table_meta::meta::SingleColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::SingleColumnMeta;
 use parquet::file::metadata::RowGroupMetaData;
 
 pub fn build_columns_meta(row_group: &RowGroupMetaData) -> HashMap<u32, ColumnMeta> {

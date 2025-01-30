@@ -12,26 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::arithmetics_type::ResultTypeOfBinary;
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::SimpleDomain;
-use bigbytes_common_expression::types::ALL_INTEGER_TYPES;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::with_integer_mapped_type;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::numeric_basic_arithmetic::divide_function;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_basic_arithmetic;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_divide;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_intdiv;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_minus;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_modulo;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_multiply;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_plus;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::vectorize_modulo;
+use bigbytesdb_common_expression::arithmetics_type::ResultTypeOfBinary;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::SimpleDomain;
+use bigbytesdb_common_expression::types::ALL_INTEGER_TYPES;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::with_integer_mapped_type;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::numeric_basic_arithmetic::divide_function;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_basic_arithmetic;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_divide;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_intdiv;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_minus;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_modulo;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_multiply;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_plus;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::vectorize_modulo;
 use num_traits::AsPrimitive;
 
 pub fn register_integer_basic_arithmetic(registry: &mut FunctionRegistry) {

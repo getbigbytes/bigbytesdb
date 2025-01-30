@@ -14,33 +14,33 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::is_internal_column;
-use bigbytes_common_expression::is_stream_column;
-use bigbytes_common_expression::types::decimal::Decimal128Type;
-use bigbytes_common_expression::types::decimal::Decimal256Type;
-use bigbytes_common_expression::types::decimal::DecimalDataType;
-use bigbytes_common_expression::types::decimal::DecimalDomain;
-use bigbytes_common_expression::types::nullable::NullableDomain;
-use bigbytes_common_expression::types::number::SimpleDomain;
-use bigbytes_common_expression::types::string::StringDomain;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DateType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::TimestampType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::with_number_mapped_type;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::Domain;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::is_internal_column;
+use bigbytesdb_common_expression::is_stream_column;
+use bigbytesdb_common_expression::types::decimal::Decimal128Type;
+use bigbytesdb_common_expression::types::decimal::Decimal256Type;
+use bigbytesdb_common_expression::types::decimal::DecimalDataType;
+use bigbytesdb_common_expression::types::decimal::DecimalDomain;
+use bigbytesdb_common_expression::types::nullable::NullableDomain;
+use bigbytesdb_common_expression::types::number::SimpleDomain;
+use bigbytesdb_common_expression::types::string::StringDomain;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DateType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::TimestampType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::with_number_mapped_type;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::Domain;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 
 use crate::Index;
 
@@ -249,6 +249,6 @@ pub fn statistics_to_domain(mut stats: Vec<&ColumnStatistics>, data_type: &DataT
 
 impl Index for RangeIndex {
     fn supported_type(data_type: &DataType) -> bool {
-        bigbytes_storages_common_table_meta::meta::supported_stat_type(data_type)
+        bigbytesdb_storages_common_table_meta::meta::supported_stat_type(data_type)
     }
 }

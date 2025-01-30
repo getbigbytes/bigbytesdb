@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio::sync::watch;
-use bigbytes_common_base::base::tokio::sync::watch::Receiver;
-use bigbytes_common_base::base::tokio::sync::watch::Sender;
-use bigbytes_common_expression::Expr;
+use bigbytesdb_common_base::base::tokio::sync::watch;
+use bigbytesdb_common_base::base::tokio::sync::watch::Receiver;
+use bigbytesdb_common_base::base::tokio::sync::watch::Sender;
+use bigbytesdb_common_expression::Expr;
 use xorf::BinaryFuse16;
 
 #[derive(Clone, Debug, Default)]

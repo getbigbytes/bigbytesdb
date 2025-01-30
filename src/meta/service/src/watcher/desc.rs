@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::protobuf::watch_request::FilterType;
+use bigbytesdb_common_meta_types::protobuf::watch_request::FilterType;
 
 use crate::watcher::id::WatcherId;
 use crate::watcher::KeyRange;

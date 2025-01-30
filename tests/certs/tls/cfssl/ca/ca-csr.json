@@ -1,5 +1,5 @@
 {
-    "CN": "Bigbytes",
+    "CN": "Bigbytesdb",
     "CA": {
         "expiry": "87600h"
     },
@@ -13,7 +13,7 @@
             "L": "CA",
             "O": "Getbigbytes",
             "ST": "LA",
-            "OU": "Bigbytes"
+            "OU": "Bigbytesdb"
         }
     ]
 }

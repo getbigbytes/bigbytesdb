@@ -18,14 +18,14 @@
 use std::ops::Deref;
 use std::time::Duration;
 
-use bigbytes_common_grpc::ConnectionFactory;
-use bigbytes_common_meta_client::from_digit_ver;
-use bigbytes_common_meta_client::to_digit_ver;
-use bigbytes_common_meta_client::MetaChannelManager;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_client::METACLI_COMMIT_SEMVER;
-use bigbytes_common_meta_client::MIN_METASRV_SEMVER;
-use bigbytes_meta::version::MIN_METACLI_SEMVER;
+use bigbytesdb_common_grpc::ConnectionFactory;
+use bigbytesdb_common_meta_client::from_digit_ver;
+use bigbytesdb_common_meta_client::to_digit_ver;
+use bigbytesdb_common_meta_client::MetaChannelManager;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_client::METACLI_COMMIT_SEMVER;
+use bigbytesdb_common_meta_client::MIN_METASRV_SEMVER;
+use bigbytesdb_meta::version::MIN_METACLI_SEMVER;
 use log::debug;
 use log::info;
 use semver::Version;

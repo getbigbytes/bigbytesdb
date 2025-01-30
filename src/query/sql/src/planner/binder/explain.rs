@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::ExplainKind;
-use bigbytes_common_ast::ast::ExplainOption;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::ExplainKind;
+use bigbytesdb_common_ast::ast::ExplainOption;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::plans::Plan;
 use crate::BindContext;

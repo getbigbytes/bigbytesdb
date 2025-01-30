@@ -15,8 +15,8 @@
 use std::collections::BTreeMap;
 use std::convert::TryFrom;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 pub const PARTITION_KEYS: &str = "partition_keys";
 pub const LOCATION: &str = "location";

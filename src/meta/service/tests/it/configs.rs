@@ -15,7 +15,7 @@
 use std::fs::File;
 use std::io::Write;
 
-use bigbytes_meta::configs::Config;
+use bigbytesdb_meta::configs::Config;
 use tempfile::tempdir;
 
 #[test]

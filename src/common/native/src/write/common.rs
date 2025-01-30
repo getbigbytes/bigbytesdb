@@ -14,7 +14,7 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::Column;
+use bigbytesdb_common_expression::Column;
 
 use super::write;
 use super::NativeWriter;

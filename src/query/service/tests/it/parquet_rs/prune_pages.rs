@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::plan::ParquetReadOptions;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_storages_parquet::ParquetRSPruner;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::plan::ParquetReadOptions;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_storages_parquet::ParquetRSPruner;
 use parquet::arrow::arrow_reader::ArrowReaderMetadata;
 use parquet::arrow::arrow_reader::ArrowReaderOptions;
 use parquet::arrow::arrow_reader::RowSelection;

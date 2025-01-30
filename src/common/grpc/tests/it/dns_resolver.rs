@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::DNSResolver;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::DNSResolver;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_resolver_github() -> Result<()> {

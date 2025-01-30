@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::KeyAccessor;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_hashtable::HashJoinHashtableLike;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::KeyAccessor;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_hashtable::HashJoinHashtableLike;
 
 use super::ProbeState;
 use crate::pipelines::processors::transforms::hash_join::common::wrap_true_validity;

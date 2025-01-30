@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::drop_guard;
+use bigbytesdb_common_base::runtime::drop_guard;
 
 pub trait UnlockApi: Sync + Send {
     fn unlock(&self, revision: u64);

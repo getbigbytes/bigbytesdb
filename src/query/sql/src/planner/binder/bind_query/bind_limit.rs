@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::Binder;
 use crate::optimizer::SExpr;

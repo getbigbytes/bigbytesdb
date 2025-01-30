@@ -14,10 +14,10 @@
 
 use std::fmt::Debug;
 
-use bigbytes_common_meta_types::protobuf::WatchResponse;
-use bigbytes_common_meta_types::sys_data::SysData;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::SeqV;
 use tokio::sync::mpsc;
 use tonic::Status;
 

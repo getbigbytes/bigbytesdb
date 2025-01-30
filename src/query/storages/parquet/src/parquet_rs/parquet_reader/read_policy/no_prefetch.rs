@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::TopKSorter;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::TopKSorter;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReader;
 use parquet::arrow::arrow_reader::RowSelection;
 use parquet::arrow::parquet_to_arrow_field_levels;

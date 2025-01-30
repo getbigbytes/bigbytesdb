@@ -14,8 +14,8 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
 
 use crate::optimizer::RelationalProperty;
 use crate::plans::walk_expr;

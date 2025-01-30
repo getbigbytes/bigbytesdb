@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_transforms::processors::AsyncTransform;
-use bigbytes_common_pipeline_transforms::processors::AsyncTransformer;
-use bigbytes_common_pipeline_transforms::processors::Transform;
-use bigbytes_common_pipeline_transforms::processors::Transformer;
-use bigbytes_common_sql::IndexType;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncTransform;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncTransformer;
+use bigbytesdb_common_pipeline_transforms::processors::Transform;
+use bigbytesdb_common_pipeline_transforms::processors::Transformer;
+use bigbytesdb_common_sql::IndexType;
 use log::debug;
 
 use super::native_data_source::NativeDataSource;
@@ -221,7 +221,7 @@ impl AsyncTransform for ReadNativeDataTransform<false> {
                         let virtual_reader = self.virtual_reader.clone();
                         let ctx = self.context.clone();
                         chunks.push(async move {
-                            let handler = bigbytes_common_base::runtime::spawn(async move {
+                            let handler = bigbytesdb_common_base::runtime::spawn(async move {
                                 let fuse_part = FuseBlockPartInfo::from_part(&part)?;
                                 if let Some(index_reader) = index_reader.as_ref() {
                                     let loc =

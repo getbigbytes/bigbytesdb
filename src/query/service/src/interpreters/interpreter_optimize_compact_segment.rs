@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::OptimizeCompactSegmentPlan;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::OptimizeCompactSegmentPlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

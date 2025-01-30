@@ -16,9 +16,9 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_expression::types::number::NumberDataType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_functions::aggregates::AggregateFunctionFactory;
+use bigbytesdb_common_expression::types::number::NumberDataType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_functions::aggregates::AggregateFunctionFactory;
 
 use crate::binder::wrap_cast;
 use crate::binder::ColumnBindingBuilder;
@@ -265,7 +265,7 @@ impl Rule for RuleEagerAggregation {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let mut matched_idx = 0;
         for (idx, matcher) in self.matchers.iter().enumerate() {
             if matcher.matches(s_expr) {
@@ -1353,7 +1353,7 @@ fn decompose_avg(
     func_name: &mut String,
     metadata: MetadataRef,
     function_factory: &AggregateFunctionFactory,
-) -> bigbytes_common_exception::Result<(usize, usize, usize)> {
+) -> bigbytesdb_common_exception::Result<(usize, usize, usize)> {
     *func_name = "sum".to_string();
     // Add COUNT aggregate functions.
     final_agg
@@ -1422,7 +1422,7 @@ fn update_aggregate_and_eval(
     eval_scalars: &mut Vec<&mut EvalScalar>,
     eval_scalar_items: &HashMap<usize, Vec<usize>>,
     avg_components: &HashMap<usize, usize>,
-) -> bigbytes_common_exception::Result<(bool, usize, usize)> {
+) -> bigbytesdb_common_exception::Result<(bool, usize, usize)> {
     let final_aggregate_function = &mut final_agg.aggregate_functions[index];
 
     let old_index = final_aggregate_function.index;
@@ -1473,7 +1473,7 @@ fn create_eager_count_multiply_scalar_item(
     eager_count_index: IndexType,
     extra_eval_scalar: &EvalScalar,
     metadata: MetadataRef,
-) -> bigbytes_common_exception::Result<ScalarItem> {
+) -> bigbytesdb_common_exception::Result<ScalarItem> {
     let new_index = metadata.write().add_derived_column(
         format!("{} * _eager_count", aggregate_function.display_name),
         aggregate_function.args[0].data_type()?,

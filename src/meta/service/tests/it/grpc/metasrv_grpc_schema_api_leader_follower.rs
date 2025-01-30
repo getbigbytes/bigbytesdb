@@ -14,7 +14,7 @@
 
 //! Test metasrv SchemaApi by writing to leader and then reading from a follower.
 
-use bigbytes_common_meta_api::SchemaApiTestSuite;
+use bigbytesdb_common_meta_api::SchemaApiTestSuite;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

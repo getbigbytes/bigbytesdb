@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_api::kv_pb_api::KVPbApi;
-use bigbytes_common_meta_api::kv_pb_api::UpsertPB;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_meta_app::tenant::TenantQuotaIdent;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MatchSeqExt;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_meta_types::With;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_api::kv_pb_api::KVPbApi;
+use bigbytesdb_common_meta_api::kv_pb_api::UpsertPB;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_meta_app::tenant::TenantQuotaIdent;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MatchSeqExt;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::With;
 use fastrace::func_name;
 
 use super::quota_api::QuotaApi;

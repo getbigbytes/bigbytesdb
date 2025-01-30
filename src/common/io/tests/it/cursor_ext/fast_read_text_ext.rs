@@ -16,8 +16,8 @@ use std::collections::VecDeque;
 use std::io::Cursor;
 
 use aho_corasick::AhoCorasick;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::cursor_ext::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::cursor_ext::*;
 
 #[test]
 fn test_positions() -> Result<()> {

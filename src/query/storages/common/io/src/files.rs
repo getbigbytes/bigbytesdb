@@ -15,9 +15,9 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_base::runtime::execute_futures_in_parallel;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::execute_futures_in_parallel;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
 use log::info;
 use opendal::Operator;
 
@@ -90,7 +90,7 @@ impl Files {
     #[async_backtrace::framed]
     async fn delete_files(op: Operator, locations: Vec<String>) -> Result<()> {
         let start = Instant::now();
-        // temporary fix for https://github.com/getbigbytes/bigbytes/issues/13804
+        // temporary fix for https://github.com/getbigbytes/bigbytesdb/issues/13804
         let locations = locations
             .into_iter()
             .map(|loc| loc.trim_start_matches('/').to_owned())

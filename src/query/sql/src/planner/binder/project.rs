@@ -16,24 +16,24 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::ColumnFilter;
-use bigbytes_common_ast::ast::ColumnID;
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Indirection;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::ColumnFilter;
+use bigbytesdb_common_ast::ast::ColumnID;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Indirection;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use derive_visitor::DriveMut;
 use derive_visitor::VisitorMut;
 use itertools::Itertools;
@@ -514,7 +514,7 @@ impl Binder {
                 ConstantFolder::fold(&expr, &self.ctx.get_function_context()?, &BUILTIN_FUNCTIONS);
 
             match new_expr {
-                bigbytes_common_expression::Expr::Constant {
+                bigbytesdb_common_expression::Expr::Constant {
                     scalar: Scalar::Array(Column::Boolean(bitmap)),
                     ..
                 } => {

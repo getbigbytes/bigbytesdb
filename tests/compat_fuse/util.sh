@@ -1,13 +1,13 @@
 #!/bin/bash
 
-query_config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
+query_config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
 query_test_path="tests/sqllogictests"
-bend_repo_url="https://github.com/getbigbytes/bigbytes"
+bend_repo_url="https://github.com/getbigbytes/bigbytesdb"
 
 
 binary_url() {
     local ver="$1"
-    echo "https://github.com/getbigbytes/bigbytes/releases/download/v${ver}-nightly/bigbytes-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
+    echo "https://github.com/getbigbytes/bigbytesdb/releases/download/v${ver}-nightly/bigbytesdb-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
 }
 
 # Clone only specified dir or file in the specified commit
@@ -54,15 +54,15 @@ download_query_config() {
 
 
 
-# download a specific version of bigbytes, untar it to folder `./bins/$ver`
+# download a specific version of bigbytesdb, untar it to folder `./bins/$ver`
 # `ver` is semver without prefix `v` or `-nightly`
 download_binary() {
     local ver="$1"
 
     local url="$(binary_url $ver)"
-    local fn="bigbytes-$ver.tar.gz"
+    local fn="bigbytesdb-$ver.tar.gz"
 
-    if [ -f ./bins/$ver/bigbytes-query ]; then
+    if [ -f ./bins/$ver/bigbytesdb-query ]; then
         echo " === binaries exist: $(ls ./bins/$ver/* | tr '\n' ' ')"
         chmod +x ./bins/$ver/*
         return
@@ -122,10 +122,10 @@ run_test() {
 
     echo " === Test with query-$query_old_ver and current query"
 
-    local query_old="./bins/$query_old_ver/bin/bigbytes-query"
-    local query_new="./bins/current/bigbytes-query"
-    local metasrv_old="./bins/$meta_ver/bin/bigbytes-meta"
-    local sqllogictests="./bins/current/bigbytes-sqllogictests"
+    local query_old="./bins/$query_old_ver/bin/bigbytesdb-query"
+    local query_new="./bins/current/bigbytesdb-query"
+    local metasrv_old="./bins/$meta_ver/bin/bigbytesdb-meta"
+    local sqllogictests="./bins/current/bigbytesdb-sqllogictests"
 
 
     echo " === metasrv version"
@@ -140,27 +140,27 @@ run_test() {
 
     sleep 1
 
-    kill_proc bigbytes-query
-    kill_proc bigbytes-meta
+    kill_proc bigbytesdb-query
+    kill_proc bigbytesdb-meta
 
     echo " === Clean meta dir"
-    rm -rf .bigbytes || echo " === no dir to rm: .bigbytes"
+    rm -rf .bigbytesdb || echo " === no dir to rm: .bigbytesdb"
     rm nohup.out || echo "no nohup.out"
 
-    echo ' === Start bigbytes-meta...'
+    echo ' === Start bigbytesdb-meta...'
 
     export RUST_BACKTRACE=1
 
     if [ "$forward" == "forward" ]
     then
-        echo ' === Start bigbytes-meta and new bigbytes-query...'
-        config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
+        echo ' === Start bigbytesdb-meta and new bigbytesdb-query...'
+        config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
         log="query-current.log"
         start $metasrv_old $query_new $config_path $log
 
         echo " === Run test: fuse_compat_write with current query"
     else
-        echo ' === Start bigbytes-meta and old bigbytes-query...'
+        echo ' === Start bigbytesdb-meta and old bigbytesdb-query...'
         log="query-old.log"
         start "$metasrv_old" "$query_old" "$old_config_path" $log
 
@@ -174,17 +174,17 @@ run_test() {
     # run_logictest new_logictest/$query_new_ver fuse_compat_write
     $sqllogictests --handlers mysql --suites "$logictest_path" --run_file fuse_compat_write
 
-    kill_proc bigbytes-query
+    kill_proc bigbytesdb-query
 
     if [ "$forward" == 'forward' ]
     then
-        echo " === Start old bigbytes-meta and bigbytes-query..."
+        echo " === Start old bigbytesdb-meta and bigbytesdb-query..."
         log="query-old.log"
         start "" "$query_old" "$old_config_path" $log
         echo " === Run test: fuse_compat_read with old query"
     else
-        echo ' === Start new bigbytes-meta and bigbytes-query...'
-        config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
+        echo ' === Start new bigbytesdb-meta and bigbytesdb-query...'
+        config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
         log="query-current.log"
         start "" $query_new $config_path $log
         echo " === Run test: fuse_compat_read with current query"
@@ -202,17 +202,17 @@ start() {
       export RUST_BACKTRACE=1
 
       if [ ".$metasrv" = "." ]; then
-          echo " === Do not start bigbytes-meta"
+          echo " === Do not start bigbytesdb-meta"
       else
-          echo " === Start $metasrv bigbytes-meta..."
+          echo " === Start $metasrv bigbytesdb-meta..."
 
           nohup "$metasrv" --single --log-level=DEBUG &
           python3 scripts/ci/wait_tcp.py --timeout 20 --port 9191
       fi
 
-      echo " === Start $query bigbytes-query..."
+      echo " === Start $query bigbytesdb-query..."
 
-      echo "bigbytes config path: $config_path"
+      echo "bigbytesdb config path: $config_path"
 
       nohup "$query" -c "$config_path" --log-level DEBUG --meta-endpoints "0.0.0.0:9191" > "$log" &
       python3 scripts/ci/wait_tcp.py --timeout 30 --port 3307
@@ -221,6 +221,6 @@ start() {
 # Run suppelmentary stateless tests
 run_stateless() {
     local case_path="$1"
-    local bigbytes_test="tests/bigbytes-test"
-    ${bigbytes_test} --mode 'standalone' --suites tests/compat_fuse/compat-stateless --run-dir $case_path
+    local bigbytesdb_test="tests/bigbytesdb-test"
+    ${bigbytesdb_test} --mode 'standalone' --suites tests/compat_fuse/compat-stateless --run-dir $case_path
 }

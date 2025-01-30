@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-aggregating-index"
+name = "bigbytesdb-enterprise-aggregating-index"
 description = "aggregating index handler"
 version = { workspace = true }
 authors = { workspace = true }
@@ -14,10 +14,10 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
 
 [build-dependencies]
 

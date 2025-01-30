@@ -14,13 +14,13 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_catalog::plan::PartInfoType;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_catalog::plan::PartInfoType;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 use crate::executor::physical_plans::CommitSink;
 use crate::executor::physical_plans::Exchange;

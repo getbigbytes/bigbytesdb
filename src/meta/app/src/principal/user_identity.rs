@@ -14,11 +14,11 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KeyBuilder;
-use bigbytes_common_meta_kvapi::kvapi::KeyCodec;
-use bigbytes_common_meta_kvapi::kvapi::KeyError;
-use bigbytes_common_meta_kvapi::kvapi::KeyParser;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyBuilder;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyCodec;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyError;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyParser;
 
 /// Uniquely identifies a user with a username and a hostname.
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, Eq, PartialEq, Hash, Default)]
@@ -86,8 +86,8 @@ impl KeyCodec for UserIdentity {
     }
 }
 
-impl From<bigbytes_common_ast::ast::UserIdentity> for UserIdentity {
-    fn from(user: bigbytes_common_ast::ast::UserIdentity) -> Self {
+impl From<bigbytesdb_common_ast::ast::UserIdentity> for UserIdentity {
+    fn from(user: bigbytesdb_common_ast::ast::UserIdentity) -> Self {
         UserIdentity::new(user.username, user.hostname)
     }
 }

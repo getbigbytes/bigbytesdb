@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-storages-stage"
+name = "bigbytesdb-common-storages-stage"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -16,26 +16,26 @@ async-backtrace = { workspace = true }
 async-trait = { workspace = true }
 bstr = { workspace = true }
 csv-core = { workspace = true }
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-compress = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-formats = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
-bigbytes-common-pipeline-sources = { workspace = true }
-bigbytes-common-pipeline-transforms = { workspace = true }
-bigbytes-common-settings = { workspace = true }
-bigbytes-common-storage = { workspace = true }
-bigbytes-common-storages-orc = { workspace = true }
-bigbytes-common-storages-parquet = { workspace = true }
-bigbytes-storages-common-stage = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-compress = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-formats = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
+bigbytesdb-common-pipeline-sources = { workspace = true }
+bigbytesdb-common-pipeline-transforms = { workspace = true }
+bigbytesdb-common-settings = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
+bigbytesdb-common-storages-orc = { workspace = true }
+bigbytesdb-common-storages-parquet = { workspace = true }
+bigbytesdb-storages-common-stage = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 enum-as-inner = { workspace = true }
 futures = { workspace = true }
 log = { workspace = true }

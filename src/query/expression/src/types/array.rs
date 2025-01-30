@@ -17,9 +17,9 @@ use std::iter::TrustedLen;
 use std::marker::PhantomData;
 use std::ops::Range;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use super::AnyType;
 use super::DecimalSize;

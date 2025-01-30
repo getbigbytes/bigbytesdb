@@ -19,7 +19,7 @@ use std::iter::TrustedLen;
 use std::ops::Range;
 use std::sync::Arc;
 
-use bigbytes_common_base::vec_ext::VecExt;
+use bigbytesdb_common_base::vec_ext::VecExt;
 
 use super::utils::count_zeros;
 use super::utils::fmt;

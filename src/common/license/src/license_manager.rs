@@ -15,9 +15,9 @@
 use std::ops::Deref;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use jwt_simple::claims::JWTClaims;
 
 use crate::license::Feature;

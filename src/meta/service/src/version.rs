@@ -18,7 +18,7 @@ use feature_set::FeatureSet;
 use semver::Version;
 
 pub static METASRV_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
-    let build_semver = option_env!("BIGBYTES_GIT_SEMVER");
+    let build_semver = option_env!("BIGBYTESDB_GIT_SEMVER");
     let git_sha = option_env!("VERGEN_GIT_SHA");
     let rustc_semver = option_env!("VERGEN_RUSTC_SEMVER");
     let timestamp = option_env!("VERGEN_BUILD_TIMESTAMP");
@@ -33,7 +33,7 @@ pub static METASRV_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
 });
 
 pub static METASRV_GIT_SEMVER: LazyLock<String> =
-    LazyLock::new(|| match option_env!("BIGBYTES_GIT_SEMVER") {
+    LazyLock::new(|| match option_env!("BIGBYTESDB_GIT_SEMVER") {
         Some(v) => v.to_string(),
         None => "unknown".to_string(),
     });
@@ -45,8 +45,8 @@ pub static METASRV_GIT_SHA: LazyLock<String> =
     });
 
 pub static METASRV_SEMVER: LazyLock<Version> = LazyLock::new(|| {
-    let build_semver = option_env!("BIGBYTES_GIT_SEMVER");
-    let semver = build_semver.expect("BIGBYTES_GIT_SEMVER can not be None");
+    let build_semver = option_env!("BIGBYTESDB_GIT_SEMVER");
+    let semver = build_semver.expect("BIGBYTESDB_GIT_SEMVER can not be None");
 
     let semver = semver.strip_prefix('v').unwrap_or(semver);
 

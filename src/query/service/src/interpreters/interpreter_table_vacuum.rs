@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_license::license::Feature::Vacuum;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_sql::plans::VacuumTablePlan;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::FUSE_TBL_BLOCK_PREFIX;
-use bigbytes_common_storages_fuse::FUSE_TBL_SEGMENT_PREFIX;
-use bigbytes_common_storages_fuse::FUSE_TBL_SNAPSHOT_PREFIX;
-use bigbytes_common_storages_fuse::FUSE_TBL_XOR_BLOOM_INDEX_PREFIX;
-use bigbytes_enterprise_vacuum_handler::get_vacuum_handler;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_license::license::Feature::Vacuum;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_sql::plans::VacuumTablePlan;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::FUSE_TBL_BLOCK_PREFIX;
+use bigbytesdb_common_storages_fuse::FUSE_TBL_SEGMENT_PREFIX;
+use bigbytesdb_common_storages_fuse::FUSE_TBL_SNAPSHOT_PREFIX;
+use bigbytesdb_common_storages_fuse::FUSE_TBL_XOR_BLOOM_INDEX_PREFIX;
+use bigbytesdb_enterprise_vacuum_handler::get_vacuum_handler;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

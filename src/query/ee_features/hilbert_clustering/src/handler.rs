@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::ReclusterInfoSideCar;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::ReclusterInfoSideCar;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 #[async_trait::async_trait]
 pub trait HilbertClusteringHandler: Sync + Send {

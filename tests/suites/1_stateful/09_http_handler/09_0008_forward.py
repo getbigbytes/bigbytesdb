@@ -3,7 +3,7 @@
 import requests
 
 auth = ("root", "")
-STICKY_HEADER = "X-BIGBYTES-STICKY-NODE"
+STICKY_HEADER = "X-BIGBYTESDB-STICKY-NODE"
 
 import logging
 

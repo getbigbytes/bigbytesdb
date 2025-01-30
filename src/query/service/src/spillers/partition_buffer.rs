@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
 
 pub enum PartitionBufferFetchOption {
     /// Read all data from the partition.

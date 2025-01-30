@@ -54,7 +54,7 @@ runs:
       run: |
         artifacts="${{ inputs.artifacts }}"
         for artifact in ${artifacts//,/ }; do
-          echo "==> building bigbytes-$artifact with sanitizer ..."
-          cargo -Zbuild-std -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --features ${{ inputs.features }} --manifest-path src/binaries/Cargo.toml --bin bigbytes-$artifact
+          echo "==> building bigbytesdb-$artifact with sanitizer ..."
+          cargo -Zbuild-std -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --features ${{ inputs.features }} --manifest-path src/binaries/Cargo.toml --bin bigbytesdb-$artifact
         done
-        ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-*
+        ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-*

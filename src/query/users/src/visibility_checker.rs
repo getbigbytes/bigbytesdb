@@ -16,13 +16,13 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::string::ToString;
 
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserGrantSet;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserGrantSet;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 use enumflags2::BitFlags;
 use itertools::Itertools;
 

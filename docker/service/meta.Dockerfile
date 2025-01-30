@@ -8,11 +8,11 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/apt/*
-COPY ./distro/$TARGETPLATFORM/bigbytes-meta /bigbytes-meta
-COPY ./distro/$TARGETPLATFORM/bigbytes-metactl /bigbytes-metactl
+COPY ./distro/$TARGETPLATFORM/bigbytesdb-meta /bigbytesdb-meta
+COPY ./distro/$TARGETPLATFORM/bigbytesdb-metactl /bigbytesdb-metactl
 RUN useradd --uid 1000 --shell /sbin/nologin \
-    --home-dir /var/lib/bigbytes --user-group \
-    --comment "Bigbytes cloud data analytics" bigbytes && \
-    mkdir -p /var/lib/bigbytes && \
-    chown -R bigbytes:bigbytes /var/lib/bigbytes
-ENTRYPOINT ["/bigbytes-meta"]
+    --home-dir /var/lib/bigbytesdb --user-group \
+    --comment "Bigbytesdb cloud data analytics" bigbytesdb && \
+    mkdir -p /var/lib/bigbytesdb && \
+    chown -R bigbytesdb:bigbytesdb /var/lib/bigbytesdb
+ENTRYPOINT ["/bigbytesdb-meta"]

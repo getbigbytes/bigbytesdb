@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::storage::StorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
 use fastrace::func_name;
 
 use crate::common;

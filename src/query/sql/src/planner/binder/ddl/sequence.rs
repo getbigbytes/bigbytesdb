@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::CreateSequenceStmt;
-use bigbytes_common_ast::ast::DropSequenceStmt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_ast::ast::CreateSequenceStmt;
+use bigbytesdb_common_ast::ast::DropSequenceStmt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
 
 use crate::plans::CreateSequencePlan;
 use crate::plans::DropSequencePlan;

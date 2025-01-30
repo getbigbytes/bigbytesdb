@@ -17,9 +17,9 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 
 use dashmap::DashMap;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_types::MetaId;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_types::MetaId;
 
 use crate::storages::Table;
 

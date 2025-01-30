@@ -17,8 +17,8 @@
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_meta_api::BackgroundApiTestSuite;
-use bigbytes_common_meta_api::SchemaApiTestSuite;
+use bigbytesdb_common_meta_api::BackgroundApiTestSuite;
+use bigbytesdb_common_meta_api::SchemaApiTestSuite;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

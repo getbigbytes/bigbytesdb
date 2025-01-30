@@ -14,19 +14,19 @@
 
 use std::io::Write;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::decimal::Decimal128Type;
-use bigbytes_common_expression::types::number::Int64Type;
-use bigbytes_common_expression::types::number::UInt64Type;
-use bigbytes_common_expression::types::BitmapType;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalSize;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::TimestampType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_functions::aggregates::eval_aggr_for_test;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::decimal::Decimal128Type;
+use bigbytesdb_common_expression::types::number::Int64Type;
+use bigbytesdb_common_expression::types::number::UInt64Type;
+use bigbytesdb_common_expression::types::BitmapType;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalSize;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::TimestampType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_functions::aggregates::eval_aggr_for_test;
 use goldenfile::Mint;
 use itertools::Itertools;
 use roaring::RoaringTreemap;
@@ -37,7 +37,7 @@ use super::AggregationSimulator;
 
 fn eval_aggr(
     name: &str,
-    params: Vec<bigbytes_common_expression::Scalar>,
+    params: Vec<bigbytesdb_common_expression::Scalar>,
     columns: &[Column],
     rows: usize,
 ) -> Result<(Column, DataType)> {

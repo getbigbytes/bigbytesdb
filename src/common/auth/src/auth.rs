@@ -22,7 +22,7 @@ use base64::prelude::*;
 use chrono::DateTime;
 use chrono::Duration;
 use chrono::Utc;
-use bigbytes_common_base::base::tokio::sync::RwLock;
+use bigbytesdb_common_base::base::tokio::sync::RwLock;
 use http::HeaderValue;
 
 // Token file reference.

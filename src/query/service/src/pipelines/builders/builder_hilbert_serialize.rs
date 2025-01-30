@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_transforms::processors::build_compact_block_no_split_pipeline;
-use bigbytes_common_sql::executor::physical_plans::HilbertSerialize;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_storages_factory::Table;
-use bigbytes_common_storages_fuse::operations::TransformSerializeBlock;
-use bigbytes_common_storages_fuse::statistics::ClusterStatsGenerator;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_transforms::processors::build_compact_block_no_split_pipeline;
+use bigbytesdb_common_sql::executor::physical_plans::HilbertSerialize;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_storages_factory::Table;
+use bigbytesdb_common_storages_fuse::operations::TransformSerializeBlock;
+use bigbytesdb_common_storages_fuse::statistics::ClusterStatsGenerator;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::pipelines::PipelineBuilder;
 

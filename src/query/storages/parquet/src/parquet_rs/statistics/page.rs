@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::decimal::Decimal;
-use bigbytes_common_expression::types::decimal::DecimalScalar;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_common_expression::types::decimal::Decimal;
+use bigbytesdb_common_expression::types::decimal::DecimalScalar;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
 use ethnum::I256;
 use parquet::data_type::AsBytes;
 use parquet::data_type::ByteArray;

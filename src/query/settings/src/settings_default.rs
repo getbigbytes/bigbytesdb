@@ -17,10 +17,10 @@ use std::fmt::Display;
 use std::ops::RangeInclusive;
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
 use once_cell::sync::OnceCell;
 
 use super::settings_getter_setter::SpillFileFormat;
@@ -516,7 +516,7 @@ impl DefaultSettings {
                 }),
                 ("query_result_cache_allow_inconsistent", DefaultSettingValue {
                     value: UserSettingValue::UInt64(0),
-                    desc: "Determines whether Bigbytes will return cached query results that are inconsistent with the underlying data.",
+                    desc: "Determines whether Bigbytesdb will return cached query results that are inconsistent with the underlying data.",
                     mode: SettingMode::Both,
                     scope: SettingScope::Both,
                     range: Some(SettingRange::Numeric(0..=1)),
@@ -530,7 +530,7 @@ impl DefaultSettings {
                 }),
                 ("hive_parquet_chunk_size", DefaultSettingValue {
                     value: UserSettingValue::UInt64(16384),
-                    desc: "The max number of rows each read from parquet to bigbytes processor",
+                    desc: "The max number of rows each read from parquet to bigbytesdb processor",
                     mode: SettingMode::Both,
                     scope: SettingScope::Both,
                     range: Some(SettingRange::Numeric(0..=u64::MAX)),

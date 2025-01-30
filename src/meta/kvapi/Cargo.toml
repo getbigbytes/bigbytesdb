@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-kvapi"
+name = "bigbytesdb-common-meta-kvapi"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -15,8 +15,8 @@ test = true
 [dependencies]
 anyhow = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 fastrace = { workspace = true }
 futures-util = { workspace = true }
 log = { workspace = true }

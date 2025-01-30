@@ -14,8 +14,8 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_types::MetaError;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_types::MetaError;
 
 use crate::errors::TenantError;
 

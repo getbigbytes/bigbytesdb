@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::UndropDatabasePlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::UndropDatabasePlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

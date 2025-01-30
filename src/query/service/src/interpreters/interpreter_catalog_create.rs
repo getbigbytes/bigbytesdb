@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CatalogIdIdent;
-use bigbytes_common_meta_app::schema::CatalogInfo;
-use bigbytes_common_meta_app::schema::CatalogMeta;
-use bigbytes_common_meta_app::schema::CatalogNameIdent;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_sql::plans::CreateCatalogPlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CatalogIdIdent;
+use bigbytesdb_common_meta_app::schema::CatalogInfo;
+use bigbytesdb_common_meta_app::schema::CatalogMeta;
+use bigbytesdb_common_meta_app::schema::CatalogNameIdent;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_sql::plans::CreateCatalogPlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 use log::debug;
 
 use super::Interpreter;

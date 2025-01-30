@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e

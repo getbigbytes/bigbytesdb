@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::catalog_kind::CATALOG_DEFAULT;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_enterprise_fail_safe::get_fail_safe_handler;
-use bigbytes_enterprise_fail_safe::FailSafeHandlerWrapper;
+use bigbytesdb_common_catalog::catalog_kind::CATALOG_DEFAULT;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_enterprise_fail_safe::get_fail_safe_handler;
+use bigbytesdb_enterprise_fail_safe::FailSafeHandlerWrapper;
 
 use crate::sessions::TableContext;
 use crate::table_functions::parse_db_tb_args;

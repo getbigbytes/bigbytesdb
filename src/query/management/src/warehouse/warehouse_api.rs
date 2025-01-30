@@ -14,13 +14,13 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::SeqV;
 
-/// Bigbytes-query cluster ID.
+/// Bigbytesdb-query cluster ID.
 ///
-/// A cluster is a collection of bigbytes nodes for computation.
+/// A cluster is a collection of bigbytesdb nodes for computation.
 pub type ClusterId = String;
 
 /// Name of a node group.
@@ -61,7 +61,7 @@ pub struct SystemManagedWarehouse {
     pub clusters: HashMap<String, SystemManagedCluster>,
 }
 
-/// Bigbytes-query cluster management API
+/// Bigbytesdb-query cluster management API
 #[async_trait::async_trait]
 pub trait WarehouseApi: Sync + Send {
     /// Start a new node.

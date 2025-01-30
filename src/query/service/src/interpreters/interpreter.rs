@@ -16,33 +16,33 @@ use std::collections::BTreeMap;
 use std::sync::Arc;
 use std::time::SystemTime;
 
-use bigbytes_common_ast::ast::AlterTableAction;
-use bigbytes_common_ast::ast::AlterTableStmt;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::ModifyColumnAction;
-use bigbytes_common_ast::ast::OptimizeTableAction;
-use bigbytes_common_ast::ast::OptimizeTableStmt;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_base::base::short_sql;
-use bigbytes_common_base::runtime::profile::get_statistics_desc;
-use bigbytes_common_base::runtime::profile::ProfileDesc;
-use bigbytes_common_base::runtime::profile::ProfileStatisticsName;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_pipeline_core::always_callback;
-use bigbytes_common_pipeline_core::processors::PlanProfile;
-use bigbytes_common_pipeline_core::ExecutionInfo;
-use bigbytes_common_pipeline_core::SourcePipeBuilder;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::PlanExtras;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_system::ProfilesLogElement;
-use bigbytes_common_storages_system::ProfilesLogQueue;
+use bigbytesdb_common_ast::ast::AlterTableAction;
+use bigbytesdb_common_ast::ast::AlterTableStmt;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::ModifyColumnAction;
+use bigbytesdb_common_ast::ast::OptimizeTableAction;
+use bigbytesdb_common_ast::ast::OptimizeTableStmt;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_base::base::short_sql;
+use bigbytesdb_common_base::runtime::profile::get_statistics_desc;
+use bigbytesdb_common_base::runtime::profile::ProfileDesc;
+use bigbytesdb_common_base::runtime::profile::ProfileStatisticsName;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_pipeline_core::always_callback;
+use bigbytesdb_common_pipeline_core::processors::PlanProfile;
+use bigbytesdb_common_pipeline_core::ExecutionInfo;
+use bigbytesdb_common_pipeline_core::SourcePipeBuilder;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::PlanExtras;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_system::ProfilesLogElement;
+use bigbytesdb_common_storages_system::ProfilesLogQueue;
 use derive_visitor::DriveMut;
 use derive_visitor::VisitorMut;
 use log::error;
@@ -81,7 +81,7 @@ pub trait Interpreter: Sync + Send {
 
     fn is_ddl(&self) -> bool;
 
-    /// The core of the bigbytes processor which will execute the logical plan and get the DataBlock
+    /// The core of the bigbytesdb processor which will execute the logical plan and get the DataBlock
     #[async_backtrace::framed]
     #[fastrace::trace]
     async fn execute(&self, ctx: Arc<QueryContext>) -> Result<SendableDataBlockStream> {
@@ -146,7 +146,7 @@ pub trait Interpreter: Sync + Send {
         }
     }
 
-    /// The core of the bigbytes processor which will execute the logical plan and build the pipeline
+    /// The core of the bigbytesdb processor which will execute the logical plan and build the pipeline
     async fn execute2(&self) -> Result<PipelineBuildResult>;
 
     fn set_source_pipe_builder(&self, _builder: Option<SourcePipeBuilder>) -> Result<()> {
@@ -248,7 +248,7 @@ async fn plan_sql(
     if need_acquire_lock {
         // If a lock is required, acquire the queue guard before
         // planning the statement, to avoid potential deadlocks.
-        // See PR https://github.com/getbigbytes/bigbytes/pull/16632
+        // See PR https://github.com/getbigbytes/bigbytesdb/pull/16632
         let query_entry = QueryEntry::create_entry(&ctx, &extras, true)?;
         let guard = QueriesQueueManager::instance().acquire(query_entry).await?;
         let plan = planner.plan_stmt(&extras.statement, true).await?;
@@ -303,7 +303,7 @@ pub fn on_execution_finished(info: &ExecutionInfo, query_ctx: Arc<QueryContext>)
         }
 
         info!(
-            target: "bigbytes::log::profile",
+            target: "bigbytesdb::log::profile",
             "{}",
             serde_json::to_string(&QueryProfiles {
                 query_id: query_ctx.get_id(),

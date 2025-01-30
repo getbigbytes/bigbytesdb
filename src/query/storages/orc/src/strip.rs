@@ -14,8 +14,8 @@
 
 use std::fmt::Debug;
 
-use bigbytes_common_expression::local_block_meta_serde;
-use bigbytes_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::local_block_meta_serde;
+use bigbytesdb_common_expression::BlockMetaInfo;
 use orc_rust::stripe::Stripe;
 
 use crate::hashable_schema::HashableSchema;

@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Connection;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_sql::plans::DescConnectionPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::Connection;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_sql::plans::DescConnectionPlan;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::app_error::AppErrorMessage;
-use bigbytes_common_meta_app::app_error::TxnRetryMaxTimes;
-use bigbytes_common_meta_types::InvalidArgument;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::app_error::AppErrorMessage;
+use bigbytesdb_common_meta_app::app_error::TxnRetryMaxTimes;
+use bigbytesdb_common_meta_types::InvalidArgument;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaNetworkError;
 
 /// A non-business error occurs when executing a meta-service transaction.
 #[derive(thiserror::Error, Debug, Clone, PartialEq, Eq)]

@@ -21,9 +21,9 @@
 //!
 //! Usage:
 //!
-//! - Shut down all bigbytes-meta processes.
+//! - Shut down all bigbytesdb-meta processes.
 //!
-//! - Backup before proceeding: https://docs.bigbytes.com/guides/deploy/upgrade/backup-and-restore-schema
+//! - Backup before proceeding: https://docs.bigbytesdb.com/guides/deploy/upgrade/backup-and-restore-schema
 //!
 //! - To view the current TableMeta version, print all TableMeta records with the following command:
 //!   It should display a list of TableMeta record.

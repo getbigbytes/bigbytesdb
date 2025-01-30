@@ -16,50 +16,50 @@ use std::collections::VecDeque;
 use std::str;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_base::version::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_catalog::catalog_kind::CATALOG_DEFAULT;
-use bigbytes_common_catalog::cluster_info::Cluster;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::infer_table_schema;
-use bigbytes_common_expression::types::binary::BinaryColumnBuilder;
-use bigbytes_common_expression::types::number::Int32Type;
-use bigbytes_common_expression::types::number::Int64Type;
-use bigbytes_common_expression::types::string::StringColumnBuilder;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_license::license_manager::LicenseManager;
-use bigbytes_common_license::license_manager::OssLicenseManager;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::PasswordHashMethod;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_sinks::EmptySink;
-use bigbytes_common_pipeline_sources::BlocksSource;
-use bigbytes_common_sql::plans::CreateDatabasePlan;
-use bigbytes_common_sql::plans::CreateTablePlan;
-use bigbytes_common_tracing::set_panic_hook;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_base::version::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_catalog::catalog_kind::CATALOG_DEFAULT;
+use bigbytesdb_common_catalog::cluster_info::Cluster;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::infer_table_schema;
+use bigbytesdb_common_expression::types::binary::BinaryColumnBuilder;
+use bigbytesdb_common_expression::types::number::Int32Type;
+use bigbytesdb_common_expression::types::number::Int64Type;
+use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_license::license_manager::LicenseManager;
+use bigbytesdb_common_license::license_manager::OssLicenseManager;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::PasswordHashMethod;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_sinks::EmptySink;
+use bigbytesdb_common_pipeline_sources::BlocksSource;
+use bigbytesdb_common_sql::plans::CreateDatabasePlan;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_tracing::set_panic_hook;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
 use futures::TryStreamExt;
 use jsonb::Number as JsonbNumber;
 use jsonb::Object as JsonbObject;
@@ -114,8 +114,8 @@ impl Drop for TestGuard {
     fn drop(&mut self) {
         #[cfg(debug_assertions)]
         {
-            bigbytes_common_base::runtime::drop_guard(move || {
-                bigbytes_common_base::base::GlobalInstance::drop_testing(&self._thread_name);
+            bigbytesdb_common_base::runtime::drop_guard(move || {
+                bigbytesdb_common_base::base::GlobalInstance::drop_testing(&self._thread_name);
             })
         }
     }
@@ -228,14 +228,14 @@ impl TestFixture {
     /// Init the license manager.
     /// Register the cluster to the metastore.
     async fn init_global_with_config(config: &InnerConfig) -> Result<()> {
-        let binary_version = BIGBYTES_COMMIT_VERSION.clone();
+        let binary_version = BIGBYTESDB_COMMIT_VERSION.clone();
         set_panic_hook(binary_version);
         std::env::set_var("UNIT_TEST", "TRUE");
 
         #[cfg(debug_assertions)]
         {
             let thread_name = std::thread::current().name().unwrap().to_string();
-            bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+            bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
         }
 
         GlobalServices::init_with(config, false).await?;
@@ -247,7 +247,7 @@ impl TestFixture {
                 .register_to_metastore(config)
                 .await?;
             info!(
-                "Bigbytes query unit test setup registered:{:?} to metasrv:{:?}.",
+                "Bigbytesdb query unit test setup registered:{:?} to metasrv:{:?}.",
                 config.query.cluster_id, config.meta.endpoints
             );
         }

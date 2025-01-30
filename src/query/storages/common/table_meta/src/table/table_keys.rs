@@ -103,12 +103,12 @@ impl Display for ClusterType {
 }
 
 impl std::str::FromStr for ClusterType {
-    type Err = bigbytes_common_exception::ErrorCode;
+    type Err = bigbytesdb_common_exception::ErrorCode;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s.to_lowercase().as_str() {
             "linear" => Ok(ClusterType::Linear),
             "hilbert" => Ok(ClusterType::Hilbert),
-            _ => Err(bigbytes_common_exception::ErrorCode::Internal(format!(
+            _ => Err(bigbytesdb_common_exception::ErrorCode::Internal(format!(
                 "invalid cluster type: {}",
                 s
             ))),

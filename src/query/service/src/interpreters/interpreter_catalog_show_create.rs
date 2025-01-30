@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::IcebergCatalogOption;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_sql::plans::ShowCreateCatalogPlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergCatalogOption;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_sql::plans::ShowCreateCatalogPlan;
 use log::debug;
 
 use crate::interpreters::Interpreter;

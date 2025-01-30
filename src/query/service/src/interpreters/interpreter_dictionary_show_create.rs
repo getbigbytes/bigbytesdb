@@ -14,20 +14,20 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::quote::display_ident;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
-use bigbytes_common_meta_app::schema::DictionaryIdentity;
-use bigbytes_common_meta_app::schema::DictionaryMeta;
-use bigbytes_common_sql::plans::ShowCreateDictionaryPlan;
+use bigbytesdb_common_ast::ast::quote::display_ident;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
+use bigbytesdb_common_meta_app::schema::DictionaryIdentity;
+use bigbytesdb_common_meta_app::schema::DictionaryMeta;
+use bigbytesdb_common_sql::plans::ShowCreateDictionaryPlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

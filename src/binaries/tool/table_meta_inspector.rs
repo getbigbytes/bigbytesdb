@@ -22,17 +22,17 @@ use std::io::Read;
 use std::io::Write;
 
 use clap::Parser;
-use bigbytes_common_config::Config;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::init_operator;
-use bigbytes_common_storage::StorageConfig;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::Config as LogConfig;
-use bigbytes_query::GlobalServices;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_config::Config;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::init_operator;
+use bigbytesdb_common_storage::StorageConfig;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::Config as LogConfig;
+use bigbytesdb_query::GlobalServices;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use log::info;
 use opendal::services::Fs;
 use opendal::Operator;
@@ -42,7 +42,7 @@ use serfig::collectors::from_file;
 use serfig::parsers::Toml;
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, Parser)]
-#[clap(about, version = &**BIGBYTES_COMMIT_VERSION, author)]
+#[clap(about, version = &**BIGBYTESDB_COMMIT_VERSION, author)]
 pub struct InspectorConfig {
     #[clap(long, short = 'i')]
     pub input: Option<String>,

@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
-use bigbytes_query::pipelines::executor::ExecutorSettings;
-use bigbytes_query::pipelines::executor::PipelineCompleteExecutor;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
+use bigbytesdb_query::pipelines::executor::ExecutorSettings;
+use bigbytesdb_query::pipelines::executor::PipelineCompleteExecutor;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::test_kits::*;
 use futures_util::TryStreamExt;
 
 #[tokio::test(flavor = "multi_thread")]
@@ -186,7 +186,7 @@ async fn test_fuse_table_truncate_appending_concurrently() -> Result<()> {
 }
 
 async fn truncate_table(ctx: Arc<QueryContext>, table: Arc<dyn Table>) -> Result<()> {
-    let mut pipeline = bigbytes_common_pipeline_core::Pipeline::create();
+    let mut pipeline = bigbytesdb_common_pipeline_core::Pipeline::create();
     table.truncate(ctx.clone(), &mut pipeline).await?;
     if !pipeline.is_empty() {
         pipeline.set_max_threads(1);

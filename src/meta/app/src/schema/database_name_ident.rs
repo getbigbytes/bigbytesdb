@@ -34,8 +34,8 @@ impl DatabaseNameIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::primitive::Id;
     use crate::schema::database_name_ident::DatabaseNameIdent;
@@ -64,7 +64,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::DatabaseNameIdent;
     use crate::tenant::Tenant;

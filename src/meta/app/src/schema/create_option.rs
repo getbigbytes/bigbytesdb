@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CreateOption {
@@ -21,14 +21,14 @@ pub enum CreateOption {
     CreateOrReplace,
 }
 
-impl From<bigbytes_common_ast::ast::CreateOption> for CreateOption {
-    fn from(create_option: bigbytes_common_ast::ast::CreateOption) -> Self {
+impl From<bigbytesdb_common_ast::ast::CreateOption> for CreateOption {
+    fn from(create_option: bigbytesdb_common_ast::ast::CreateOption) -> Self {
         match create_option {
-            bigbytes_common_ast::ast::CreateOption::Create => CreateOption::Create,
-            bigbytes_common_ast::ast::CreateOption::CreateIfNotExists => {
+            bigbytesdb_common_ast::ast::CreateOption::Create => CreateOption::Create,
+            bigbytesdb_common_ast::ast::CreateOption::CreateIfNotExists => {
                 CreateOption::CreateIfNotExists
             }
-            bigbytes_common_ast::ast::CreateOption::CreateOrReplace => {
+            bigbytesdb_common_ast::ast::CreateOption::CreateOrReplace => {
                 CreateOption::CreateOrReplace
             }
         }

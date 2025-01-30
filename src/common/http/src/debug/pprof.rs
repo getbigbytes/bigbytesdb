@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio::time::Duration;
-use bigbytes_common_base::base::Profiling;
+use bigbytesdb_common_base::base::tokio::time::Duration;
+use bigbytesdb_common_base::base::Profiling;
 use log::debug;
 use poem::error::InternalServerError;
 use poem::web::Query;

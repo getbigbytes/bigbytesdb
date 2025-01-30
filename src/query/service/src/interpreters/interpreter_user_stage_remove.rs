@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::RemoveStagePlan;
-use bigbytes_common_storage::StageFileInfo;
-use bigbytes_common_storage::StageFilesInfo;
-use bigbytes_common_storages_stage::StageTable;
-use bigbytes_storages_common_io::Files;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::RemoveStagePlan;
+use bigbytesdb_common_storage::StageFileInfo;
+use bigbytesdb_common_storage::StageFilesInfo;
+use bigbytesdb_common_storages_stage::StageTable;
+use bigbytesdb_storages_common_io::Files;
 use futures_util::StreamExt;
 use log::debug;
 use log::error;

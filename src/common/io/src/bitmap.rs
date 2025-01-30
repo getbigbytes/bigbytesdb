@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use roaring::RoaringTreemap;
 
 pub fn parse_bitmap(buf: &[u8]) -> Result<RoaringTreemap> {
@@ -41,7 +41,7 @@ pub fn parse_bitmap(buf: &[u8]) -> Result<RoaringTreemap> {
         )
 }
 
-pub fn deserialize_bitmap(buf: &[u8]) -> bigbytes_common_exception::Result<RoaringTreemap> {
+pub fn deserialize_bitmap(buf: &[u8]) -> bigbytesdb_common_exception::Result<RoaringTreemap> {
     if buf.is_empty() {
         Ok(RoaringTreemap::new())
     } else {

@@ -1,19 +1,19 @@
 #!/bin/sh
 set -e
 
-# Add bigbytes:bigbytes user & group
-id --user bigbytes >/dev/null 2>&1 ||
-	useradd --system --shell /sbin/nologin --home-dir /var/lib/bigbytes --user-group \
-		--comment "Bigbytes cloud data analytics" bigbytes
+# Add bigbytesdb:bigbytesdb user & group
+id --user bigbytesdb >/dev/null 2>&1 ||
+	useradd --system --shell /sbin/nologin --home-dir /var/lib/bigbytesdb --user-group \
+		--comment "Bigbytesdb cloud data analytics" bigbytesdb
 
-# Create default Bigbytes data directory
-mkdir -p /var/lib/bigbytes
+# Create default Bigbytesdb data directory
+mkdir -p /var/lib/bigbytesdb
 
-# Make bigbytes:bigbytes the owner of the Bigbytes data directory
-chown -R bigbytes:bigbytes /var/lib/bigbytes
+# Make bigbytesdb:bigbytesdb the owner of the Bigbytesdb data directory
+chown -R bigbytesdb:bigbytesdb /var/lib/bigbytesdb
 
-# Create default Bigbytes log directory
-mkdir -p /var/log/bigbytes
+# Create default Bigbytesdb log directory
+mkdir -p /var/log/bigbytesdb
 
-# Make bigbytes:bigbytes the owner of the Bigbytes log directory
-chown -R bigbytes:bigbytes /var/log/bigbytes
+# Make bigbytesdb:bigbytesdb the owner of the Bigbytesdb log directory
+chown -R bigbytesdb:bigbytesdb /var/log/bigbytesdb

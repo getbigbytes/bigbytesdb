@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_query::servers::admin::v1::config::config_handler;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_query::servers::admin::v1::config::config_handler;
+use bigbytesdb_query::test_kits::*;
 use http::Method;
 use http::StatusCode;
 use http::Uri;
@@ -25,7 +25,7 @@ use poem::Route;
 use pretty_assertions::assert_eq; // for `app.oneshot()`
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_config() -> bigbytes_common_exception::Result<()> {
+async fn test_config() -> bigbytesdb_common_exception::Result<()> {
     let _fixture = TestFixture::setup().await?;
 
     let cluster_router = Route::new().at("/v1/config", get(config_handler));

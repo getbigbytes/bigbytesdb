@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfo;
 
 use crate::io::NativeSourceData;
 use crate::operations::read::data_source_with_meta::DataSourceWithMeta;

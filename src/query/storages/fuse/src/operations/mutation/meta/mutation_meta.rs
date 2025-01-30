@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::local_block_meta_serde;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::ClusterStatistics;
+use bigbytesdb_common_expression::local_block_meta_serde;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::ClusterStatistics;
 
 use crate::operations::common::BlockMetaIndex;
 use crate::operations::mutation::CompactExtraInfo;

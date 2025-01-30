@@ -15,17 +15,17 @@
 use std::ops::*;
 use std::sync::Arc;
 
-use bigbytes_common_expression::types::decimal::*;
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::vectorize_2_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::Domain;
-use bigbytes_common_expression::EvalContext;
-use bigbytes_common_expression::Function;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionEval;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_common_expression::FunctionSignature;
+use bigbytesdb_common_expression::types::decimal::*;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::vectorize_2_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::Domain;
+use bigbytesdb_common_expression::EvalContext;
+use bigbytesdb_common_expression::Function;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionEval;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionSignature;
 use ethnum::i256;
 
 use super::convert_to_decimal;

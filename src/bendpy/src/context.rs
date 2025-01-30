@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sessions::Session;
-use bigbytes_query::sessions::SessionManager;
-use bigbytes_query::sessions::SessionType;
-use bigbytes_query::sql::Planner;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sessions::Session;
+use bigbytesdb_query::sessions::SessionManager;
+use bigbytesdb_query::sessions::SessionType;
+use bigbytesdb_query::sql::Planner;
 use pyo3::prelude::*;
 
 use crate::dataframe::default_box_size;
@@ -33,7 +33,7 @@ use crate::dataframe::PyDataFrame;
 use crate::utils::wait_for_future;
 use crate::utils::RUNTIME;
 
-#[pyclass(name = "SessionContext", module = "bigbytes", subclass)]
+#[pyclass(name = "SessionContext", module = "bigbytesdb", subclass)]
 #[derive(Clone)]
 pub(crate) struct PySessionContext {
     pub(crate) session: Arc<Session>,

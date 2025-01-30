@@ -40,12 +40,12 @@ pub enum StreamMode {
 }
 
 impl std::str::FromStr for StreamMode {
-    type Err = bigbytes_common_exception::ErrorCode;
-    fn from_str(s: &str) -> bigbytes_common_exception::Result<Self> {
+    type Err = bigbytesdb_common_exception::ErrorCode;
+    fn from_str(s: &str) -> bigbytesdb_common_exception::Result<Self> {
         match s {
             MODE_APPEND_ONLY => Ok(StreamMode::AppendOnly),
             MODE_STANDARD => Ok(StreamMode::Standard),
-            _ => Err(bigbytes_common_exception::ErrorCode::IllegalStream(
+            _ => Err(bigbytesdb_common_exception::ErrorCode::IllegalStream(
                 format!("invalid stream mode: {}", s),
             )),
         }

@@ -43,7 +43,7 @@ impl Display for DatabaseId {
 }
 
 mod kvapi_key_impl {
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::DatabaseId;
     use crate::schema::DatabaseMeta;

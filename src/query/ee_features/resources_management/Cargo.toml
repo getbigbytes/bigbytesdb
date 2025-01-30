@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-resources-management"
+name = "bigbytesdb-enterprise-resources-management"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,11 +12,11 @@ test = true
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-management = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-management = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 
 [build-dependencies]
 

@@ -14,14 +14,14 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::plans::ConstantExpr;
 use crate::ScalarBinder;
@@ -49,7 +49,7 @@ pub fn bind_table_args(
             let (expr, _) =
                 ConstantFolder::fold(&expr, &scalar_binder.get_func_ctx()?, &BUILTIN_FUNCTIONS);
             match expr {
-                bigbytes_common_expression::Expr::Constant { scalar, .. } => Ok(scalar),
+                bigbytesdb_common_expression::Expr::Constant { scalar, .. } => Ok(scalar),
                 _ => Err(ErrorCode::Unimplemented(format!(
                     "Unsupported table argument type: {:?}",
                     scalar
@@ -67,7 +67,7 @@ pub fn bind_table_args(
                 let (expr, _) =
                     ConstantFolder::fold(&expr, &scalar_binder.get_func_ctx()?, &BUILTIN_FUNCTIONS);
                 match expr {
-                    bigbytes_common_expression::Expr::Constant { scalar, .. } => {
+                    bigbytesdb_common_expression::Expr::Constant { scalar, .. } => {
                         Ok((name.name.clone(), scalar))
                     }
                     _ => Err(ErrorCode::Unimplemented(format!(

@@ -15,17 +15,17 @@
 use std::net::SocketAddr;
 use std::time::Duration;
 
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_http::health_handler;
-use bigbytes_common_http::home::debug_home_handler;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_http::health_handler;
+use bigbytesdb_common_http::home::debug_home_handler;
 #[cfg(feature = "memory-profiling")]
-use bigbytes_common_http::jeprof::debug_jeprof_dump_handler;
-use bigbytes_common_http::pprof::debug_pprof_handler;
-use bigbytes_common_http::stack::debug_dump_stack;
-use bigbytes_common_http::HttpError;
-use bigbytes_common_http::HttpShutdownHandler;
-use bigbytes_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_http::jeprof::debug_jeprof_dump_handler;
+use bigbytesdb_common_http::pprof::debug_pprof_handler;
+use bigbytesdb_common_http::stack::debug_dump_stack;
+use bigbytesdb_common_http::HttpError;
+use bigbytesdb_common_http::HttpShutdownHandler;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
 use log::info;
 use log::warn;
 use poem::get;
@@ -118,7 +118,7 @@ impl AdminService {
             route = route.at(
                 // to follow the conversions of jeprof, we arrange the path in
                 // this way, so that jeprof could be invoked like:
-                //   `jeprof ./target/debug/bigbytes-query http://localhost:8080/debug/mem`
+                //   `jeprof ./target/debug/bigbytesdb-query http://localhost:8080/debug/mem`
                 // and jeprof will translate the above url into sth like:
                 //    "http://localhost:8080/debug/mem/pprof/profile?seconds=30"
                 "/debug/mem/pprof/profile",

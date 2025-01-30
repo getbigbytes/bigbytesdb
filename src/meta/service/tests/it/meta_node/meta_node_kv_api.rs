@@ -16,8 +16,8 @@ use std::sync::Arc;
 use std::sync::Mutex;
 
 use async_trait::async_trait;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_meta::meta_service::MetaNode;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_meta::meta_service::MetaNode;
 use maplit::btreeset;
 use test_harness::test;
 

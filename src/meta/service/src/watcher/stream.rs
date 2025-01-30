@@ -17,7 +17,7 @@ use std::sync::Arc;
 use std::task::Context;
 use std::task::Poll;
 
-use bigbytes_common_base::base::tokio::sync::mpsc::Receiver;
+use bigbytesdb_common_base::base::tokio::sync::mpsc::Receiver;
 use futures::Stream;
 
 use crate::watcher::StreamSender;

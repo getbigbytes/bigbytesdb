@@ -15,37 +15,37 @@
 use std::cmp::max;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio::sync::Semaphore;
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::SEGMENT_NAME_COL_NAME;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::field_default_value;
-use bigbytes_common_sql::BloomIndexColumns;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CacheManager;
-use bigbytes_storages_common_cache::SegmentBlockMetasCache;
-use bigbytes_storages_common_index::RangeIndex;
-use bigbytes_storages_common_pruner::BlockMetaIndex;
-use bigbytes_storages_common_pruner::InternalColumnPruner;
-use bigbytes_storages_common_pruner::Limiter;
-use bigbytes_storages_common_pruner::LimiterPrunerCreator;
-use bigbytes_storages_common_pruner::PagePruner;
-use bigbytes_storages_common_pruner::PagePrunerCreator;
-use bigbytes_storages_common_pruner::RangePruner;
-use bigbytes_storages_common_pruner::RangePrunerCreator;
-use bigbytes_storages_common_pruner::TopNPrunner;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::ClusterKey;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_base::base::tokio::sync::Semaphore;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::SEGMENT_NAME_COL_NAME;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::field_default_value;
+use bigbytesdb_common_sql::BloomIndexColumns;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CacheManager;
+use bigbytesdb_storages_common_cache::SegmentBlockMetasCache;
+use bigbytesdb_storages_common_index::RangeIndex;
+use bigbytesdb_storages_common_pruner::BlockMetaIndex;
+use bigbytesdb_storages_common_pruner::InternalColumnPruner;
+use bigbytesdb_storages_common_pruner::Limiter;
+use bigbytesdb_storages_common_pruner::LimiterPrunerCreator;
+use bigbytesdb_storages_common_pruner::PagePruner;
+use bigbytesdb_storages_common_pruner::PagePrunerCreator;
+use bigbytesdb_storages_common_pruner::RangePruner;
+use bigbytesdb_storages_common_pruner::RangePrunerCreator;
+use bigbytesdb_storages_common_pruner::TopNPrunner;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::ClusterKey;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 use log::info;
 use log::warn;
 use opendal::Operator;
@@ -534,7 +534,7 @@ impl FusePruner {
     }
 
     // Pruning stats.
-    pub fn pruning_stats(&self) -> bigbytes_common_catalog::plan::PruningStatistics {
+    pub fn pruning_stats(&self) -> bigbytesdb_common_catalog::plan::PruningStatistics {
         let stats = self.pruning_ctx.pruning_stats.clone();
 
         let segments_range_pruning_before = stats.get_segments_range_pruning_before() as usize;
@@ -551,7 +551,7 @@ impl FusePruner {
         let blocks_inverted_index_pruning_after =
             stats.get_blocks_inverted_index_pruning_after() as usize;
 
-        bigbytes_common_catalog::plan::PruningStatistics {
+        bigbytesdb_common_catalog::plan::PruningStatistics {
             segments_range_pruning_before,
             segments_range_pruning_after,
             blocks_range_pruning_before,

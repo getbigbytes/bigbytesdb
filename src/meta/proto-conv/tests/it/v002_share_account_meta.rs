@@ -14,7 +14,7 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::share;
+use bigbytesdb_common_meta_app::share;
 use fastrace::func_name;
 
 use crate::common;

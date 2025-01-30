@@ -49,7 +49,7 @@ echo "select f2(f1(1)), t.i as ti from t join (select 22, i from t) as t1 on 1 =
 echo "select 22, t.i as ti from t join (select 22, i from t) as t1 on f2(f1(false));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when matched then update set t3.i=f2(f1(13));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when not matched  then insert (i) values(f2(f1(100)));" | $TEST_USER_CONNECT
-# Same issue: https://github.com/getbigbytes/bigbytes/issues/13727, better to fix it in other issue.
+# Same issue: https://github.com/getbigbytes/bigbytesdb/issues/13727, better to fix it in other issue.
 #echo "REPLACE INTO t ON(i) values (f2(f1(2))), (3), (4)" | $TEST_USER_CONNECT
 #echo "insert into t select f2(f1(33))" | $TEST_USER_CONNECT
 echo "delete from t;" | $TEST_USER_CONNECT
@@ -81,7 +81,7 @@ echo "select f2(f1(1)), t.i as ti from t join (select 22, i from t) as t1 on 1 =
 echo "select 22, t.i as ti from t join (select 22, i from t) as t1 on f2(f1(false));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when matched then update set t3.i=f2(f1(13));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when not matched  then insert (i) values(f2(f1(100)));" | $TEST_USER_CONNECT
-# Same issue: https://github.com/getbigbytes/bigbytes/issues/13727, better to fix it in other issue.
+# Same issue: https://github.com/getbigbytes/bigbytesdb/issues/13727, better to fix it in other issue.
 #echo "REPLACE INTO t ON(i) values (f2(f1(2))), (3), (4)" | $TEST_USER_CONNECT
 #echo "insert into t select f2(f1(33))" | $TEST_USER_CONNECT
 echo "delete from t;" | $TEST_USER_CONNECT
@@ -111,7 +111,7 @@ echo "select f2(f1(1)), t.i as ti from t join (select 22, i from t) as t1 on 1 =
 echo "select 22, t.i as ti from t join (select 22, i from t) as t1 on f2(f1(false));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when matched then update set t3.i=f2(f1(13));" | $TEST_USER_CONNECT
 echo "set enable_experimental_merge_into = 1; merge into t as t3 using (select * from t2) as t2 on t3.i = t2.i  when not matched  then insert (i) values(f2(f1(100)));" | $TEST_USER_CONNECT
-# Same issue: https://github.com/getbigbytes/bigbytes/issues/13727, better to fix it in other issue.
+# Same issue: https://github.com/getbigbytes/bigbytesdb/issues/13727, better to fix it in other issue.
 #echo "REPLACE INTO t ON(i) values (f2(f1(2))), (3), (4)" | $TEST_USER_CONNECT
 #echo "insert into t select f2(f1(33))" | $TEST_USER_CONNECT
 echo "delete from t;" | $TEST_USER_CONNECT

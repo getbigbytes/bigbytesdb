@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::Float32Type;
-use bigbytes_common_expression::types::number::Int32Type;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::Float32Type;
+use bigbytesdb_common_expression::types::number::Int32Type;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 use pretty_assertions::assert_eq;
 
 use crate::get_output_format_clickhouse;

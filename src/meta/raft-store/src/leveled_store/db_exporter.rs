@@ -17,9 +17,9 @@
 use std::future;
 use std::io;
 
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::SeqNum;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::SeqNum;
 use futures_util::StreamExt;
 use futures_util::TryStreamExt;
 use log::info;

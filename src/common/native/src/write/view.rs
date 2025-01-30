@@ -14,8 +14,8 @@
 
 use std::io::Write;
 
-use bigbytes_common_column::binview::BinaryViewColumn;
-use bigbytes_common_column::binview::View;
+use bigbytesdb_common_column::binview::BinaryViewColumn;
+use bigbytesdb_common_column::binview::View;
 
 use super::WriteOptions;
 use crate::error::Result;

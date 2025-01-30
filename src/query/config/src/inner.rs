@@ -21,19 +21,19 @@ use std::path::PathBuf;
 use std::str::FromStr;
 use std::time::Duration;
 
-use bigbytes_common_base::base::mask_string;
-use bigbytes_common_base::base::GlobalUniqName;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_grpc::RpcClientTlsConfig;
-use bigbytes_common_meta_app::principal::UserSettingValue;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_storage::StorageConfig;
-use bigbytes_common_tracing::Config as LogConfig;
+use bigbytesdb_common_base::base::mask_string;
+use bigbytesdb_common_base::base::GlobalUniqName;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_grpc::RpcClientTlsConfig;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_storage::StorageConfig;
+use bigbytesdb_common_tracing::Config as LogConfig;
 
 use super::config::Commands;
 use super::config::Config;
@@ -76,7 +76,7 @@ pub struct InnerConfig {
 }
 
 impl InnerConfig {
-    /// As requires by [RFC: Config Backward Compatibility](https://github.com/getbigbytes/bigbytes/pull/5324), we will load user's config via wrapper [`ConfigV0`] and then convert from [`ConfigV0`] to [`InnerConfig`].
+    /// As requires by [RFC: Config Backward Compatibility](https://github.com/getbigbytes/bigbytesdb/pull/5324), we will load user's config via wrapper [`ConfigV0`] and then convert from [`ConfigV0`] to [`InnerConfig`].
     ///
     /// In the future, we could have `ConfigV1` and `ConfigV2`.
     pub async fn load() -> Result<Self> {
@@ -208,7 +208,7 @@ pub struct QueryConfig {
     /// Graceful shutdown timeout
     pub shutdown_wait_timeout_ms: u64,
     pub max_query_log_size: usize,
-    pub bigbytes_enterprise_license: Option<String>,
+    pub bigbytesdb_enterprise_license: Option<String>,
     /// If in management mode, only can do some meta level operations(database/table/user/stage etc.) with metasrv.
     pub management_mode: bool,
 
@@ -300,7 +300,7 @@ impl Default for QueryConfig {
             table_engine_memory_enabled: true,
             shutdown_wait_timeout_ms: 5000,
             max_query_log_size: 10_000,
-            bigbytes_enterprise_license: None,
+            bigbytesdb_enterprise_license: None,
             management_mode: false,
             parquet_fast_read_bytes: None,
             max_storage_io_requests: None,
@@ -350,8 +350,8 @@ impl QueryConfig {
     pub fn sanitize(&self) -> Self {
         let mut sanitized = self.clone();
         sanitized.node_secret = mask_string(&self.node_secret, 3);
-        sanitized.bigbytes_enterprise_license = self
-            .bigbytes_enterprise_license
+        sanitized.bigbytesdb_enterprise_license = self
+            .bigbytesdb_enterprise_license
             .clone()
             .map(|s| mask_string(&s, 3));
         sanitized.openai_api_key = mask_string(&self.openai_api_key, 3);
@@ -692,7 +692,7 @@ impl Default for DiskCacheConfig {
     fn default() -> Self {
         Self {
             max_bytes: 21474836480,
-            path: "./.bigbytes/_cache".to_owned(),
+            path: "./.bigbytesdb/_cache".to_owned(),
             sync_data: true,
         }
     }

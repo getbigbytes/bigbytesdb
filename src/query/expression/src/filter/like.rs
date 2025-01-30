@@ -341,55 +341,55 @@ fn find(mut haystack: &[u8], needle: &[u8]) -> Option<usize> {
 #[test]
 fn test_generate_like_pattern() {
     let segments = vec![
-        "bigbytes".as_bytes().to_vec(),
+        "bigbytesdb".as_bytes().to_vec(),
         "cloud".as_bytes().to_vec(),
         "data".as_bytes().to_vec(),
         "warehouse".as_bytes().to_vec(),
     ];
     let test_cases = vec![
         (
-            "bigbytes",
-            LikePattern::OrdinalStr("bigbytes".as_bytes().into()),
+            "bigbytesdb",
+            LikePattern::OrdinalStr("bigbytesdb".as_bytes().into()),
         ),
         (
-            "%bigbytes",
-            LikePattern::StartOfPercent("bigbytes".as_bytes().into()),
+            "%bigbytesdb",
+            LikePattern::StartOfPercent("bigbytesdb".as_bytes().into()),
         ),
         (
-            "bigbytes%",
-            LikePattern::EndOfPercent("bigbytes".as_bytes().into()),
+            "bigbytesdb%",
+            LikePattern::EndOfPercent("bigbytesdb".as_bytes().into()),
         ),
         (
-            "%bigbytes%",
-            LikePattern::SurroundByPercent(VolnitskyBase::new("bigbytes".as_bytes(), 1)),
+            "%bigbytesdb%",
+            LikePattern::SurroundByPercent(VolnitskyBase::new("bigbytesdb".as_bytes(), 1)),
         ),
         (
-            "bigbytes%cloud%data%warehouse",
+            "bigbytesdb%cloud%data%warehouse",
             LikePattern::SimplePattern((false, false, segments.clone())),
         ),
         (
-            "%bigbytes%cloud%data%warehouse",
+            "%bigbytesdb%cloud%data%warehouse",
             LikePattern::SimplePattern((true, false, segments.clone())),
         ),
         (
-            "bigbytes%cloud%data%warehouse%",
+            "bigbytesdb%cloud%data%warehouse%",
             LikePattern::SimplePattern((false, true, segments.clone())),
         ),
         (
-            "%bigbytes%cloud%data%warehouse%",
+            "%bigbytesdb%cloud%data%warehouse%",
             LikePattern::SimplePattern((true, true, segments)),
         ),
         (
-            "bigbytes_cloud%data%warehouse",
-            LikePattern::ComplexPattern("bigbytes_cloud%data%warehouse".as_bytes().into()),
+            "bigbytesdb_cloud%data%warehouse",
+            LikePattern::ComplexPattern("bigbytesdb_cloud%data%warehouse".as_bytes().into()),
         ),
         (
-            "bigbytes\\%cloud%data%warehouse",
-            LikePattern::ComplexPattern("bigbytes\\%cloud%data%warehouse".as_bytes().into()),
+            "bigbytesdb\\%cloud%data%warehouse",
+            LikePattern::ComplexPattern("bigbytesdb\\%cloud%data%warehouse".as_bytes().into()),
         ),
         (
-            "bigbytes%cloud_data%warehouse",
-            LikePattern::ComplexPattern("bigbytes%cloud_data%warehouse".as_bytes().into()),
+            "bigbytesdb%cloud_data%warehouse",
+            LikePattern::ComplexPattern("bigbytesdb%cloud_data%warehouse".as_bytes().into()),
         ),
     ];
     for (pattern, pattern_type) in test_cases {

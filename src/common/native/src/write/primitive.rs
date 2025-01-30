@@ -14,13 +14,13 @@
 
 use std::io::Write;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::i256;
-use bigbytes_common_column::types::NativeType;
-use bigbytes_common_column::types::PrimitiveType;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::types::F64;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::i256;
+use bigbytesdb_common_column::types::NativeType;
+use bigbytesdb_common_column::types::PrimitiveType;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::types::F64;
 
 use super::WriteOptions;
 use crate::compression::double::compress_double;

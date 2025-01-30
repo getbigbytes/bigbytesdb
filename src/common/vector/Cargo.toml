@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-vector"
+name = "bigbytesdb-common-vector"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,7 +11,7 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 ndarray = { workspace = true }
 
 [dev-dependencies]

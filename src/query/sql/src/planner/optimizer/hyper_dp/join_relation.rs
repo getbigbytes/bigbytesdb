@@ -16,8 +16,8 @@ use std::collections::HashSet;
 use std::sync::Arc;
 
 use ahash::HashMap;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::dynamic_sample::dynamic_sample;
 use crate::optimizer::RelExpr;

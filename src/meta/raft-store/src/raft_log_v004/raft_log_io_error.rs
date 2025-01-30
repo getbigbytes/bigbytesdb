@@ -14,8 +14,8 @@
 
 use std::io;
 
-use bigbytes_common_meta_types::raft_types::ErrorSubject;
-use bigbytes_common_meta_types::raft_types::ErrorVerb;
+use bigbytesdb_common_meta_types::raft_types::ErrorSubject;
+use bigbytesdb_common_meta_types::raft_types::ErrorVerb;
 
 use crate::raft_log_v004::io_phase::IOPhase;
 

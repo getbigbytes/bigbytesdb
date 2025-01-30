@@ -15,15 +15,15 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::ExecutionInfo;
-use bigbytes_common_sql::executor::PhysicalPlanBuilder;
-use bigbytes_common_sql::optimizer::SExpr;
-use bigbytes_common_sql::plans::OptimizeCompactBlock;
-use bigbytes_common_sql::MetadataRef;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::ExecutionInfo;
+use bigbytesdb_common_sql::executor::PhysicalPlanBuilder;
+use bigbytesdb_common_sql::optimizer::SExpr;
+use bigbytesdb_common_sql::plans::OptimizeCompactBlock;
+use bigbytesdb_common_sql::MetadataRef;
 
 use crate::interpreters::interpreter_optimize_purge::purge;
 use crate::interpreters::Interpreter;

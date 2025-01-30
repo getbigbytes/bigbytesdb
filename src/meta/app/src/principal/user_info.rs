@@ -17,9 +17,9 @@ use std::convert::TryFrom;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_ast::ast::UserOptionItem;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::UserOptionItem;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use enumflags2::bitflags;
 use enumflags2::BitFlags;
 use serde::Deserialize;

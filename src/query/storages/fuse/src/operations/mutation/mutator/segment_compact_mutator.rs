@@ -15,13 +15,13 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_metrics::storage::metrics_set_compact_segments_select_duration_second;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_metrics::storage::metrics_set_compact_segments_select_duration_second;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use log::info;
 use opendal::Operator;
 

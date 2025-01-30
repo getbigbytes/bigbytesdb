@@ -1,5 +1,5 @@
 {
-    "CN": "Bigbytes Server",
+    "CN": "Bigbytesdb Server",
     "hosts": [
         "127.0.0.1",
         "localhost",

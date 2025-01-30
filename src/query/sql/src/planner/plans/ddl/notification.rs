@@ -17,15 +17,15 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::AlterNotificationOptions;
-use bigbytes_common_ast::ast::NotificationWebhookOptions;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType::UInt64;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::AlterNotificationOptions;
+use bigbytesdb_common_ast::ast::NotificationWebhookOptions;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType::UInt64;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 pub fn notification_schema() -> DataSchemaRef {
     Arc::new(DataSchema::new(vec![

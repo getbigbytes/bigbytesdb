@@ -14,9 +14,9 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
 
 use crate::executor::explain::PlanStatsInfo;
 use crate::executor::PhysicalPlan;

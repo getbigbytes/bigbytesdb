@@ -14,13 +14,13 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
 
 use crate::executor::physical_plans::common::OnConflictField;
 use crate::executor::PhysicalPlan;

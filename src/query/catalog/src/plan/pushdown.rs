@@ -16,17 +16,17 @@ use std::collections::BTreeMap;
 use std::collections::HashSet;
 use std::fmt::Debug;
 
-use bigbytes_common_ast::ast::SampleConfig;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_storages_common_table_meta::table::ChangeType;
+use bigbytesdb_common_ast::ast::SampleConfig;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_storages_common_table_meta::table::ChangeType;
 
 use super::AggIndexInfo;
 use crate::plan::Projection;

@@ -14,32 +14,32 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::BinaryOperator;
-use bigbytes_common_ast::ast::ColumnID;
-use bigbytes_common_ast::ast::ColumnPosition;
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Expr::Array;
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::GroupBy;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Join;
-use bigbytes_common_ast::ast::JoinCondition;
-use bigbytes_common_ast::ast::JoinOperator;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::OrderByExpr;
-use bigbytes_common_ast::ast::Pivot;
-use bigbytes_common_ast::ast::PivotValues;
-use bigbytes_common_ast::ast::SelectStmt;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_ast::ast::BinaryOperator;
+use bigbytesdb_common_ast::ast::ColumnID;
+use bigbytesdb_common_ast::ast::ColumnPosition;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Expr::Array;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::GroupBy;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Join;
+use bigbytesdb_common_ast::ast::JoinCondition;
+use bigbytesdb_common_ast::ast::JoinOperator;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::OrderByExpr;
+use bigbytesdb_common_ast::ast::Pivot;
+use bigbytesdb_common_ast::ast::PivotValues;
+use bigbytesdb_common_ast::ast::SelectStmt;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
 use derive_visitor::Drive;
 use derive_visitor::Visitor;
 use log::warn;
@@ -481,7 +481,7 @@ impl<'a> SelectRewriter<'a> {
             PivotValues::Subquery(subquery) => {
                 let query_sql = subquery.to_string();
                 if let Some(subquery_executor) = &self.subquery_executor {
-                    let data_blocks = bigbytes_common_base::runtime::block_on(async move {
+                    let data_blocks = bigbytesdb_common_base::runtime::block_on(async move {
                         subquery_executor
                             .execute_query_with_sql_string(&query_sql)
                             .await

@@ -14,12 +14,12 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_sled_store::sled;
-use bigbytes_common_meta_sled_store::SledBytesError;
-use bigbytes_common_meta_sled_store::SledOrderedSerde;
-use bigbytes_common_meta_sled_store::SledSerde;
-use bigbytes_common_meta_types::anyerror::AnyError;
-use bigbytes_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_sled_store::sled;
+use bigbytesdb_common_meta_sled_store::SledBytesError;
+use bigbytesdb_common_meta_sled_store::SledOrderedSerde;
+use bigbytesdb_common_meta_sled_store::SledSerde;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_meta_types::raft_types::LogId;
 use serde::Deserialize;
 use serde::Serialize;
 use sled::IVec;

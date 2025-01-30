@@ -17,11 +17,11 @@ use std::iter::repeat_with;
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_meta_types::raft_types::LogId;
-use bigbytes_common_meta_types::raft_types::StoredMembership;
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
-use bigbytes_common_meta_types::SnapshotData;
+use bigbytesdb_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::StoredMembership;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::SnapshotData;
 use itertools::Itertools;
 use log::info;
 use openraft::SnapshotId;
@@ -177,7 +177,7 @@ pub async fn upgrade_snapshot_data_v002_to_v003_or_v004(
     };
 
     // Chain ordq output to writer
-    bigbytes_common_base::runtime::spawn_blocking(move || {
+    bigbytesdb_common_base::runtime::spawn_blocking(move || {
         // snapshot v002 stores expire index(`exp-/`) after kvs(`kv--/`),
         // We need to store expire index before kvs in snapshot v004.
         let mut kv_cache = Vec::with_capacity(1_000_000);
@@ -222,7 +222,7 @@ pub async fn upgrade_snapshot_data_v002_to_v003_or_v004(
     let f = data.into_std().await;
 
     // Feed input to the worker pool.
-    bigbytes_common_base::runtime::spawn_blocking(move || {
+    bigbytesdb_common_base::runtime::spawn_blocking(move || {
         {
             let mut br = io::BufReader::with_capacity(16 * 1024 * 1024, f);
             let lines = io::BufRead::lines(&mut br);

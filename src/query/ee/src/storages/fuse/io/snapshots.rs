@@ -18,10 +18,10 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::io::SnapshotLiteExtended;
-use bigbytes_common_storages_fuse::io::SnapshotsIO;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::io::SnapshotLiteExtended;
+use bigbytesdb_common_storages_fuse::io::SnapshotsIO;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 use log::info;
 
 #[async_backtrace::framed]

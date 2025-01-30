@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-metrics"
+name = "bigbytesdb-common-metrics"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,7 +11,7 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-base = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
 prometheus-client = { workspace = true }
 
 [target.'cfg(target_os = "linux")'.dependencies]

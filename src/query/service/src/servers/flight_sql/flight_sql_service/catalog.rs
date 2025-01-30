@@ -21,10 +21,10 @@ use arrow_flight::utils::batches_to_flight_data;
 use arrow_schema::DataType;
 use arrow_schema::Field;
 use arrow_schema::Schema;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
 use futures_util::stream;
 use log::warn;
 use tonic::Status;
@@ -49,7 +49,7 @@ impl CatalogInfoProvider {
         ctx: Arc<dyn TableContext>,
         catalog_name: Option<String>,
         database_name: Option<String>,
-    ) -> bigbytes_common_exception::Result<(Vec<String>, Vec<String>, Vec<String>, Vec<String>)>
+    ) -> bigbytesdb_common_exception::Result<(Vec<String>, Vec<String>, Vec<String>, Vec<String>)>
     {
         let tenant = ctx.get_tenant();
         let catalog_mgr = CatalogManager::instance();

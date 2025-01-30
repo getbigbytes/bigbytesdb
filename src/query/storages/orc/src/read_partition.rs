@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_storages_common_stage::SingleFilePartition;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_storages_common_stage::SingleFilePartition;
 
 pub async fn read_partitions_simple(
     ctx: Arc<dyn TableContext>,
     stage_table_info: &StageTableInfo,
-) -> bigbytes_common_exception::Result<(PartStatistics, Partitions)> {
+) -> bigbytesdb_common_exception::Result<(PartStatistics, Partitions)> {
     let thread_num = ctx.get_settings().get_max_threads()? as usize;
 
     let files = if let Some(files) = &stage_table_info.files_to_copy {

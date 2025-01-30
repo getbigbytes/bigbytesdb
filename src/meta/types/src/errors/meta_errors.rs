@@ -14,8 +14,8 @@
 
 use std::io;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
 use thiserror::Error;
 
 use crate::errors;

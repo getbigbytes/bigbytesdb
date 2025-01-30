@@ -15,9 +15,9 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use uuid::Uuid;
 
 use crate::operations::common::SnapshotGenerator;

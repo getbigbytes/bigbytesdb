@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -7,7 +7,7 @@ set -e
 export STORAGE_ALLOW_INSECURE=true
 
 echo "Starting standalone BigbytesQuery and BigbytesMeta"
-./scripts/ci/deploy/bigbytes-query-standalone-native.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone-native.sh
 
 TEST_HANDLERS=${TEST_HANDLERS:-"mysql,http"}
 TEST_PARALLEL=${TEST_PARALLEL:-8}
@@ -19,5 +19,5 @@ if [ $# -gt 0 ]; then
 fi
 echo "Run suites using argument: $RUN_DIR"
 
-echo "Starting bigbytes-sqllogic tests"
-target/${BUILD_PROFILE}/bigbytes-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --skip_dir management,cluster,explain,tpch,ee --enable_sandbox --parallel ${TEST_PARALLEL}
+echo "Starting bigbytesdb-sqllogic tests"
+target/${BUILD_PROFILE}/bigbytesdb-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --skip_dir management,cluster,explain,tpch,ee --enable_sandbox --parallel ${TEST_PARALLEL}

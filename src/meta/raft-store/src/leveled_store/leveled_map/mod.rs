@@ -13,8 +13,8 @@
 // limitations under the License.
 
 use compactor::Compactor;
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use log::info;
 use tokio::sync::oneshot::error::TryRecvError;
 

@@ -15,9 +15,9 @@
 use std::sync::Arc;
 
 use binary::BinaryColumnBuilder;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::Result;
 use string::StringColumnBuilder;
 
 use crate::types::binary::BinaryColumn;
@@ -36,7 +36,7 @@ pub const BIT_MASK: [u8; 8] = [1, 2, 4, 8, 16, 32, 64, 128];
 
 impl DataBlock {
     pub fn take<I>(&self, indices: &[I]) -> Result<Self>
-    where I: bigbytes_common_column::types::Index {
+    where I: bigbytesdb_common_column::types::Index {
         if indices.is_empty() {
             return Ok(self.slice(0..0));
         }
@@ -46,7 +46,7 @@ impl DataBlock {
     }
 
     pub fn take_with_optimize_size<I>(&self, indices: &[I]) -> Result<Self>
-    where I: bigbytes_common_column::types::Index {
+    where I: bigbytesdb_common_column::types::Index {
         if indices.is_empty() {
             return Ok(self.slice(0..0));
         }
@@ -56,7 +56,7 @@ impl DataBlock {
     }
 
     fn take_inner<I>(&self, mut taker: TakeVisitor<I>) -> Result<Self>
-    where I: bigbytes_common_column::types::Index {
+    where I: bigbytesdb_common_column::types::Index {
         let after_columns = self
             .columns()
             .iter()
@@ -79,7 +79,7 @@ impl DataBlock {
 }
 
 struct TakeVisitor<'a, I>
-where I: bigbytes_common_column::types::Index
+where I: bigbytesdb_common_column::types::Index
 {
     indices: &'a [I],
     result: Option<Value<AnyType>>,
@@ -87,7 +87,7 @@ where I: bigbytes_common_column::types::Index
 }
 
 impl<'a, I> TakeVisitor<'a, I>
-where I: bigbytes_common_column::types::Index
+where I: bigbytesdb_common_column::types::Index
 {
     fn new(indices: &'a [I]) -> Self {
         Self {
@@ -109,7 +109,7 @@ where I: bigbytes_common_column::types::Index
 }
 
 impl<I> ValueVisitor for TakeVisitor<'_, I>
-where I: bigbytes_common_column::types::Index
+where I: bigbytesdb_common_column::types::Index
 {
     fn visit_scalar(&mut self, scalar: crate::Scalar) -> Result<()> {
         self.result = Some(Value::Scalar(scalar));
@@ -248,7 +248,7 @@ where I: bigbytes_common_column::types::Index
 }
 
 impl<I> TakeVisitor<'_, I>
-where I: bigbytes_common_column::types::Index
+where I: bigbytesdb_common_column::types::Index
 {
     fn take_primitive_types<T: Copy>(&mut self, buffer: Buffer<T>) -> Buffer<T> {
         let col = buffer.as_slice();

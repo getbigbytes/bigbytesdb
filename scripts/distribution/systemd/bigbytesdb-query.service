@@ -1,0 +1,18 @@
+[Unit]
+Description=Bigbytesdb Query
+Documentation=https://docs.bigbytesdb.com
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+User=bigbytesdb
+Group=bigbytesdb
+LimitNOFILE=65535
+ExecStart=/usr/bin/bigbytesdb-query --config-file /etc/bigbytesdb/bigbytesdb-query.toml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=no
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+EnvironmentFile=-/etc/default/bigbytesdb-query
+
+[Install]
+WantedBy=multi-user.target

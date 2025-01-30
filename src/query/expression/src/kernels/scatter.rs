@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::vec_ext::VecExt;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::vec_ext::VecExt;
+use bigbytesdb_common_exception::Result;
 
 use crate::DataBlock;
 
 impl DataBlock {
     pub fn scatter<I>(&self, indices: &[I], scatter_size: usize) -> Result<Vec<Self>>
-    where I: bigbytes_common_column::types::Index {
+    where I: bigbytesdb_common_column::types::Index {
         if indices.is_empty() {
             let mut result = Vec::with_capacity(scatter_size);
             result.push(self.clone());
@@ -41,7 +41,7 @@ impl DataBlock {
     }
 
     pub fn divide_indices_by_scatter_size<I>(indices: &[I], scatter_size: usize) -> Vec<Vec<u32>>
-    where I: bigbytes_common_column::types::Index {
+    where I: bigbytesdb_common_column::types::Index {
         let mut scatter_indices: Vec<Vec<u32>> = Vec::with_capacity(scatter_size);
         unsafe {
             let mut scatter_num_rows = vec![0usize; scatter_size];

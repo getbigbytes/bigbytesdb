@@ -14,24 +14,24 @@
 
 use core::ops::Range;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_expression::block_debug::assert_block_value_eq;
-use bigbytes_common_expression::types::number::*;
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::visitor::ValueVisitor;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FilterVisitor;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::IterationStrategy;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_expression::block_debug::assert_block_value_eq;
+use bigbytesdb_common_expression::types::number::*;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::visitor::ValueVisitor;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FilterVisitor;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::IterationStrategy;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
 use goldenfile::Mint;
 
 use crate::common::*;
@@ -245,11 +245,11 @@ pub fn build_range_selection(selection: &[u32], count: usize) -> Vec<Range<u32>>
 
 /// This test covers take.rs, take_chunks.rs, take_compact.rs, take_ranges.rs, filter.rs, concat.rs.
 #[test]
-pub fn test_take_and_filter_and_concat() -> bigbytes_common_exception::Result<()> {
-    use bigbytes_common_expression::types::DataType;
-    use bigbytes_common_expression::Column;
-    use bigbytes_common_expression::DataBlock;
-    use bigbytes_common_hashtable::RowPtr;
+pub fn test_take_and_filter_and_concat() -> bigbytesdb_common_exception::Result<()> {
+    use bigbytesdb_common_expression::types::DataType;
+    use bigbytesdb_common_expression::Column;
+    use bigbytesdb_common_expression::DataBlock;
+    use bigbytesdb_common_hashtable::RowPtr;
     use itertools::Itertools;
     use rand::Rng;
 
@@ -372,11 +372,11 @@ pub fn test_take_and_filter_and_concat() -> bigbytes_common_exception::Result<()
 }
 
 #[test]
-pub fn test_concat_scalar() -> bigbytes_common_exception::Result<()> {
-    use bigbytes_common_expression::types::DataType;
-    use bigbytes_common_expression::DataBlock;
-    use bigbytes_common_expression::Scalar;
-    use bigbytes_common_expression::Value;
+pub fn test_concat_scalar() -> bigbytesdb_common_exception::Result<()> {
+    use bigbytesdb_common_expression::types::DataType;
+    use bigbytesdb_common_expression::DataBlock;
+    use bigbytesdb_common_expression::Scalar;
+    use bigbytesdb_common_expression::Value;
 
     let ty = DataType::Number(NumberDataType::UInt8);
     let scalar = Value::Scalar(Scalar::Number(NumberScalar::UInt8(1)));
@@ -416,7 +416,7 @@ pub fn test_concat_scalar() -> bigbytes_common_exception::Result<()> {
 
 /// Add more tests for take_compact.rs.
 #[test]
-pub fn test_take_compact() -> bigbytes_common_exception::Result<()> {
+pub fn test_take_compact() -> bigbytesdb_common_exception::Result<()> {
     use rand::Rng;
 
     let mut rng = rand::thread_rng();
@@ -457,10 +457,10 @@ pub fn test_take_compact() -> bigbytes_common_exception::Result<()> {
 /// B = A + A + A,  l = A.len()
 /// B.slice(0, l) == B.slice(l, l) == A
 #[test]
-pub fn test_filters() -> bigbytes_common_exception::Result<()> {
-    use bigbytes_common_expression::types::DataType;
-    use bigbytes_common_expression::Column;
-    use bigbytes_common_expression::DataBlock;
+pub fn test_filters() -> bigbytesdb_common_exception::Result<()> {
+    use bigbytesdb_common_expression::types::DataType;
+    use bigbytesdb_common_expression::Column;
+    use bigbytesdb_common_expression::DataBlock;
     use rand::Rng;
 
     let mut rng = rand::thread_rng();
@@ -520,8 +520,8 @@ pub fn test_filters() -> bigbytes_common_exception::Result<()> {
 }
 
 #[test]
-pub fn test_divide_indices_by_scatter_size() -> bigbytes_common_exception::Result<()> {
-    use bigbytes_common_expression::DataBlock;
+pub fn test_divide_indices_by_scatter_size() -> bigbytesdb_common_exception::Result<()> {
+    use bigbytesdb_common_expression::DataBlock;
     use itertools::Itertools;
     use rand::Rng;
 
@@ -560,8 +560,8 @@ pub fn test_divide_indices_by_scatter_size() -> bigbytes_common_exception::Resul
 
 /// This test covers scatter.rs.
 #[test]
-pub fn test_scatter() -> bigbytes_common_exception::Result<()> {
-    use bigbytes_common_expression::DataBlock;
+pub fn test_scatter() -> bigbytesdb_common_exception::Result<()> {
+    use bigbytesdb_common_expression::DataBlock;
     use itertools::Itertools;
     use rand::Rng;
 
@@ -626,7 +626,7 @@ fn test_builder() {
         }
     }
 
-    for (start, len) in bigbytes_common_column::bitmap::utils::SlicesIterator::new(&bitmap) {
+    for (start, len) in bigbytesdb_common_column::bitmap::utils::SlicesIterator::new(&bitmap) {
         let sub_col = col.slice(start..start + len);
         AnyType::append_column(&mut builder2, &sub_col);
     }

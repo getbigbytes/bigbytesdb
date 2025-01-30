@@ -19,8 +19,8 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::marker::PhantomData;
 
-use bigbytes_common_ast::span::pretty_print_error;
-use bigbytes_common_ast::Span;
+use bigbytesdb_common_ast::span::pretty_print_error;
+use bigbytesdb_common_ast::Span;
 use thiserror::Error;
 
 use crate::exception_backtrace::capture;
@@ -263,11 +263,11 @@ impl<C> ErrorCode<C> {
 /// Provides the `map_err_to_code` method for `Result`.
 ///
 /// ```
-/// use bigbytes_common_exception::ErrorCode;
-/// use bigbytes_common_exception::ToErrorCode;
+/// use bigbytesdb_common_exception::ErrorCode;
+/// use bigbytesdb_common_exception::ToErrorCode;
 ///
 /// let x: std::result::Result<(), std::fmt::Error> = Err(std::fmt::Error {});
-/// let y: bigbytes_common_exception::Result<()> =
+/// let y: bigbytesdb_common_exception::Result<()> =
 ///     x.map_err_to_code(ErrorCode::UnknownException, || 123);
 ///
 /// assert_eq!(

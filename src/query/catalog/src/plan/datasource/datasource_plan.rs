@@ -14,10 +14,10 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
 
 use crate::plan::datasource::datasource_info::DataSourceInfo;
 use crate::plan::PartStatistics;

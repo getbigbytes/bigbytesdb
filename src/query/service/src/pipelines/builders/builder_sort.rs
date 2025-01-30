@@ -14,23 +14,23 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::LimitType;
-use bigbytes_common_expression::SortColumnDescription;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::add_k_way_merge_sort;
-use bigbytes_common_pipeline_transforms::processors::sort::utils::add_order_field;
-use bigbytes_common_pipeline_transforms::processors::try_add_multi_sort_merge;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
-use bigbytes_common_pipeline_transforms::processors::TransformSortMergeBuilder;
-use bigbytes_common_pipeline_transforms::processors::TransformSortPartial;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::evaluator::CompoundBlockOperator;
-use bigbytes_common_sql::executor::physical_plans::Sort;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::LimitType;
+use bigbytesdb_common_expression::SortColumnDescription;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::add_k_way_merge_sort;
+use bigbytesdb_common_pipeline_transforms::processors::sort::utils::add_order_field;
+use bigbytesdb_common_pipeline_transforms::processors::try_add_multi_sort_merge;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_pipeline_transforms::processors::TransformSortMergeBuilder;
+use bigbytesdb_common_pipeline_transforms::processors::TransformSortPartial;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::evaluator::CompoundBlockOperator;
+use bigbytesdb_common_sql::executor::physical_plans::Sort;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::pipelines::processors::transforms::create_transform_sort_spill;
 use crate::pipelines::processors::transforms::create_transform_stream_sort_spill;
@@ -41,7 +41,7 @@ use crate::spillers::SpillerConfig;
 use crate::spillers::SpillerType;
 
 impl PipelineBuilder {
-    // The pipeline graph of distributed sort can be found in https://github.com/getbigbytes/bigbytes/pull/13881
+    // The pipeline graph of distributed sort can be found in https://github.com/getbigbytes/bigbytesdb/pull/13881
     pub(crate) fn build_sort(&mut self, sort: &Sort) -> Result<()> {
         self.build_pipeline(&sort.input)?;
 

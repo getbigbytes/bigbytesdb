@@ -420,7 +420,7 @@ query T
 select map_transform_values(col2, (k, v) -> CONCAT(k, v)) from map_lambda_test;
 ----
 {'k1':'k1v1','k2':'k2v2'}
-{'data':'bigbytes','space':'spacetime'}
+{'data':'bigbytesdb','space':'spacetime'}
 {}
 
 ## json map functions
@@ -428,13 +428,13 @@ select map_transform_values(col2, (k, v) -> CONCAT(k, v)) from map_lambda_test;
 query T
 select json_map_transform_keys({'data':'bend','a':'b'}::Variant, (k, v) -> CONCAT(k, v) );
 ----
-{"ab":"b","bigbytes":"bend"}
+{"ab":"b","bigbytesdb":"bend"}
 
 query TT
 select json_map_transform_values(try_cast(col2 as Variant), (k, v) -> concat(k, v)), json_map_filter(try_cast(col2 as Variant), (k, v) -> k = 'data') from map_lambda_test;
 ----
 {"k1":"k1v1","k2":"k2v2"} {}
-{"data":"bigbytes","space":"spacetime"} {"data":"bend"}
+{"data":"bigbytesdb","space":"spacetime"} {"data":"bend"}
 {} {}
 
 statement ok

@@ -19,17 +19,17 @@ use std::fmt::Debug;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::InternalColumn;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_expression::display::display_tuple_field_name;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::InternalColumn;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_expression::display::display_tuple_field_name;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 use parking_lot::RwLock;
 
 use crate::optimizer::SExpr;

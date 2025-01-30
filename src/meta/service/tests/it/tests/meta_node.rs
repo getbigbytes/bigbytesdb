@@ -18,11 +18,11 @@ use std::collections::BTreeSet;
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_meta_sled_store::openraft::ServerState;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::AppliedState;
-use bigbytes_common_meta_types::Node;
-use bigbytes_meta::meta_service::MetaNode;
+use bigbytesdb_common_meta_sled_store::openraft::ServerState;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::AppliedState;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_meta::meta_service::MetaNode;
 use log::info;
 use maplit::btreeset;
 

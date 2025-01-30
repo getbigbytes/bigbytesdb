@@ -17,8 +17,8 @@ use std::marker::PhantomData;
 use std::sync::atomic::AtomicU64;
 use std::sync::atomic::Ordering;
 
-use bigbytes_common_base::mem_allocator::DefaultAllocator;
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_base::mem_allocator::DefaultAllocator;
+use bigbytesdb_common_column::bitmap::Bitmap;
 
 use super::traits::HashJoinHashtableLike;
 use super::traits::Keyable;

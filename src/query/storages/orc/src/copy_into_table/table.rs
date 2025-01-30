@@ -14,22 +14,22 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourceInfo;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_sources::EmptySource;
-use bigbytes_common_storage::init_stage_operator;
-use bigbytes_storages_common_stage::SingleFilePartition;
+use bigbytesdb_common_catalog::plan::DataSourceInfo;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_sources::EmptySource;
+use bigbytesdb_common_storage::init_stage_operator;
+use bigbytesdb_storages_common_stage::SingleFilePartition;
 
 use crate::copy_into_table::meta::read_metas_in_parallel_for_copy;
 use crate::copy_into_table::processors::decoder::StripeDecoderForCopy;

@@ -17,12 +17,12 @@ use std::collections::VecDeque;
 use std::sync::atomic::Ordering;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_sql::optimizer::ColumnSet;
-use bigbytes_common_sql::plans::JoinType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_sql::optimizer::ColumnSet;
+use bigbytesdb_common_sql::plans::JoinType;
 
 use crate::pipelines::processors::transforms::hash_join::transform_hash_join_build::HashTableType;
 use crate::pipelines::processors::transforms::hash_join::HashJoinProbeState;

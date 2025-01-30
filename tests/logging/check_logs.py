@@ -5,8 +5,8 @@ import json
 import logging
 import argparse
 
-QUERY_LOGS_DIR = ".bigbytes/vector/query"
-PROFILE_LOGS_DIR = ".bigbytes/vector/profile"
+QUERY_LOGS_DIR = ".bigbytesdb/vector/query"
+PROFILE_LOGS_DIR = ".bigbytesdb/vector/profile"
 
 
 logger = logging.getLogger(__name__)

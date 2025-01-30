@@ -4,6 +4,6 @@ persistence:
   size: 8Gi
 
 config:
-  logDir: /.bigbytes/logs
+  logDir: /.bigbytesdb/logs
   logPrefixFilter: ""
   logLevel: "DEBUG"

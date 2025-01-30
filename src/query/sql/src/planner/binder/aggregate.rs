@@ -17,17 +17,17 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::GroupBy;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::GroupBy;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
 use itertools::Itertools;
 
 use super::prune_by_children;
@@ -73,9 +73,9 @@ use crate::MetadataRef;
 /// (SELECT min(a), b, NULL FROM t GROUP BY b) UNION (SELECT min(a), NULL, c FROM t GROUP BY c);
 /// ```
 ///
-/// In Bigbytes, we do not really rewrite the plan to a `UNION` plan.
+/// In Bigbytesdb, we do not really rewrite the plan to a `UNION` plan.
 /// We will add a new virtual column `_grouping_id` to the group by items,
-/// where `_grouping_id` is the result value of function [grouping](https://docs.bigbytes.com/sql/sql-functions/other-functions/grouping).
+/// where `_grouping_id` is the result value of function [grouping](https://docs.bigbytesdb.com/sql/sql-functions/other-functions/grouping).
 ///
 /// For example, we will rewrite the SQL above to:
 ///

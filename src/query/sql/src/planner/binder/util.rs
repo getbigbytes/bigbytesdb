@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::quote::QuotedIdent;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::IdentifierType;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_ast::span::merge_span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
+use bigbytesdb_common_ast::ast::quote::QuotedIdent;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::IdentifierType;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_ast::span::merge_span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
 
 use crate::normalize_identifier;
 use crate::optimizer::SExpr;

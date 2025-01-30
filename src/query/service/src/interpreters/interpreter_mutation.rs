@@ -14,37 +14,37 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_sinks::EmptySink;
-use bigbytes_common_pipeline_sources::EmptySource;
-use bigbytes_common_sql::binder::MutationStrategy;
-use bigbytes_common_sql::binder::MutationType;
-use bigbytes_common_sql::executor::physical_plans::create_push_down_filters;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_sql::executor::MutationBuildInfo;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_sql::executor::PhysicalPlanBuilder;
-use bigbytes_common_sql::optimizer::SExpr;
-use bigbytes_common_sql::planner::MetadataRef;
-use bigbytes_common_sql::plans;
-use bigbytes_common_sql::plans::Mutation;
-use bigbytes_common_storage::MutationStatus;
-use bigbytes_common_storages_factory::Table;
-use bigbytes_common_storages_fuse::operations::TruncateMode;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_sinks::EmptySink;
+use bigbytesdb_common_pipeline_sources::EmptySource;
+use bigbytesdb_common_sql::binder::MutationStrategy;
+use bigbytesdb_common_sql::binder::MutationType;
+use bigbytesdb_common_sql::executor::physical_plans::create_push_down_filters;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_sql::executor::MutationBuildInfo;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_sql::executor::PhysicalPlanBuilder;
+use bigbytesdb_common_sql::optimizer::SExpr;
+use bigbytesdb_common_sql::planner::MetadataRef;
+use bigbytesdb_common_sql::plans;
+use bigbytesdb_common_sql::plans::Mutation;
+use bigbytesdb_common_storage::MutationStatus;
+use bigbytesdb_common_storages_factory::Table;
+use bigbytesdb_common_storages_fuse::operations::TruncateMode;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use log::info;
 
 use crate::interpreters::common::check_deduplicate_label;
@@ -161,7 +161,7 @@ impl Interpreter for MutationInterpreter {
 impl MutationInterpreter {
     pub async fn execute_hook(
         &self,
-        mutation: &bigbytes_common_sql::plans::Mutation,
+        mutation: &bigbytesdb_common_sql::plans::Mutation,
         build_res: &mut PipelineBuildResult,
     ) {
         let hook_lock_opt = if mutation.lock_guard.is_some() {

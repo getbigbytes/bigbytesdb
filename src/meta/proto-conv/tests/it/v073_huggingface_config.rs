@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::storage::StorageHuggingfaceConfig;
+use bigbytesdb_common_meta_app::storage::StorageHuggingfaceConfig;
 use fastrace::func_name;
 
 use crate::common;
@@ -28,7 +28,7 @@ use crate::common;
 //
 #[test]
 fn test_decode_v73_huggingface_config() -> anyhow::Result<()> {
-    // Encoded data of version 73 of bigbytes_common_meta_app::storage::storage_params::StorageHuggingfaceConfig:
+    // Encoded data of version 73 of bigbytesdb_common_meta_app::storage::storage_params::StorageHuggingfaceConfig:
     // It is generated with common::test_pb_from_to().
     let storage_huggingface_config_v73 = vec![
         10, 28, 111, 112, 101, 110, 100, 97, 108, 47, 104, 117, 103, 103, 105, 110, 103, 102, 97,

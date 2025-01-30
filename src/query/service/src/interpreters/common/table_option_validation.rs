@@ -17,35 +17,35 @@ use std::collections::HashSet;
 use std::sync::LazyLock;
 
 use chrono::Duration;
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_io::constants::DEFAULT_BLOCK_MAX_ROWS;
-use bigbytes_common_io::constants::DEFAULT_MIN_TABLE_LEVEL_DATA_RETENTION_PERIOD_IN_HOURS;
-use bigbytes_common_settings::Settings;
-use bigbytes_common_sql::BloomIndexColumns;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_BLOCK_IN_MEM_SIZE_THRESHOLD;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_BLOCK_PER_SEGMENT;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_DATA_RETENTION_PERIOD_IN_HOURS;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_ROW_AVG_DEPTH_THRESHOLD;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_ROW_PER_BLOCK;
-use bigbytes_common_storages_fuse::FUSE_OPT_KEY_ROW_PER_PAGE;
-use bigbytes_storages_common_index::BloomIndex;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_BLOOM_INDEX_COLUMNS;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CHANGE_TRACKING;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_COMMENT;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CONNECTION_NAME;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_ENGINE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_LOCATION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_RANDOM_MAX_ARRAY_LEN;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_RANDOM_MAX_STRING_LEN;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_RANDOM_MIN_STRING_LEN;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_RANDOM_SEED;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TABLE_COMPRESSION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_io::constants::DEFAULT_BLOCK_MAX_ROWS;
+use bigbytesdb_common_io::constants::DEFAULT_MIN_TABLE_LEVEL_DATA_RETENTION_PERIOD_IN_HOURS;
+use bigbytesdb_common_settings::Settings;
+use bigbytesdb_common_sql::BloomIndexColumns;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_BLOCK_IN_MEM_SIZE_THRESHOLD;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_BLOCK_PER_SEGMENT;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_DATA_RETENTION_PERIOD_IN_HOURS;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_ROW_AVG_DEPTH_THRESHOLD;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_ROW_PER_BLOCK;
+use bigbytesdb_common_storages_fuse::FUSE_OPT_KEY_ROW_PER_PAGE;
+use bigbytesdb_storages_common_index::BloomIndex;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_BLOOM_INDEX_COLUMNS;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CHANGE_TRACKING;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_COMMENT;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CONNECTION_NAME;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_ENGINE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_LOCATION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_RANDOM_MAX_ARRAY_LEN;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_RANDOM_MAX_STRING_LEN;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_RANDOM_MIN_STRING_LEN;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_RANDOM_SEED;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_STORAGE_FORMAT;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TABLE_COMPRESSION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
 use log::error;
 
 /// Table option keys that can occur in 'create table statement'.
@@ -126,7 +126,7 @@ pub fn is_valid_create_opt<S: AsRef<str>>(opt_key: S, engine: &Engine) -> bool {
 
 pub fn is_valid_block_per_segment(
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     // check block_per_segment is not over 1000.
     if let Some(value) = options.get(FUSE_OPT_KEY_BLOCK_PER_SEGMENT) {
         let blocks_per_segment = value.parse::<u64>()?;
@@ -142,7 +142,7 @@ pub fn is_valid_block_per_segment(
 
 pub fn is_valid_row_per_block(
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     // check row_per_block can not be over 1000000.
     if let Some(value) = options.get(FUSE_OPT_KEY_ROW_PER_BLOCK) {
         let row_per_block = value.parse::<u64>()?;
@@ -158,7 +158,7 @@ pub fn is_valid_row_per_block(
 
 pub fn is_valid_data_retention_period(
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     if let Some(value) = options.get(FUSE_OPT_KEY_DATA_RETENTION_PERIOD_IN_HOURS) {
         let new_duration_in_hours = value.parse::<u64>()?;
 
@@ -187,7 +187,7 @@ pub fn is_valid_data_retention_period(
 pub fn is_valid_bloom_index_columns(
     options: &BTreeMap<String, String>,
     schema: TableSchemaRef,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     if let Some(value) = options.get(OPT_KEY_BLOOM_INDEX_COLUMNS) {
         BloomIndexColumns::verify_definition(value, schema, BloomIndex::supported_type)?;
     }
@@ -196,7 +196,7 @@ pub fn is_valid_bloom_index_columns(
 
 pub fn is_valid_change_tracking(
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     if let Some(value) = options.get(OPT_KEY_CHANGE_TRACKING) {
         value.to_lowercase().parse::<bool>()?;
     }
@@ -205,7 +205,7 @@ pub fn is_valid_change_tracking(
 
 pub fn is_valid_random_seed(
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     if let Some(value) = options.get(OPT_KEY_RANDOM_SEED) {
         value.parse::<u64>()?;
     }

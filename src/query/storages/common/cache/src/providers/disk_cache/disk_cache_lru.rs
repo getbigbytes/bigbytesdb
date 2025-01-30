@@ -18,10 +18,10 @@ use std::path::PathBuf;
 use std::sync::Arc;
 
 use bytes::Bytes;
-use bigbytes_common_config::DiskCacheKeyReloadPolicy;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_metrics::cache::metrics_inc_cache_miss_bytes;
+use bigbytesdb_common_config::DiskCacheKeyReloadPolicy;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_metrics::cache::metrics_inc_cache_miss_bytes;
 use log::error;
 use log::warn;
 use parking_lot::RwLock;

@@ -14,7 +14,7 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 /// Error related to tenant, unrelated to the backend service providing tenant management.
 #[derive(Clone, Debug, thiserror::Error)]

@@ -14,9 +14,9 @@
 
 use base64::engine::general_purpose;
 use base64::prelude::*;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_users::JwtAuthenticator;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_users::JwtAuthenticator;
 use jwt_simple::prelude::*;
 use wiremock::matchers::method;
 use wiremock::matchers::path;

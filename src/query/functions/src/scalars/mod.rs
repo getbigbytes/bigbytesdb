@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionRegistry;
 
 pub mod math_func {
-    pub use bigbytes_functions_scalar_math::*;
+    pub use bigbytesdb_functions_scalar_math::*;
 }
 mod array;
 mod binary;
@@ -25,14 +25,14 @@ mod comparison;
 mod control;
 
 pub mod geo_func {
-    pub use bigbytes_functions_scalar_geo::*;
+    pub use bigbytesdb_functions_scalar_geo::*;
 }
 
 mod hash;
 mod hilbert;
 
 pub mod dt_func {
-    pub use bigbytes_functions_scalar_datetime::*;
+    pub use bigbytesdb_functions_scalar_datetime::*;
 }
 
 mod map;
@@ -45,16 +45,16 @@ mod variant;
 mod vector;
 
 pub use comparison::ALL_COMP_FUNC_NAMES;
-use bigbytes_functions_scalar_arithmetic::arithmetic;
-use bigbytes_functions_scalar_numeric_basic_arithmetic::register_numeric_basic_arithmetic;
+use bigbytesdb_functions_scalar_arithmetic::arithmetic;
+use bigbytesdb_functions_scalar_numeric_basic_arithmetic::register_numeric_basic_arithmetic;
 pub use string::ALL_STRING_FUNC_NAMES;
 
 pub fn register(registry: &mut FunctionRegistry) {
     variant::register(registry);
     arithmetic::register(registry);
     // register basic arithmetic operation (+ - * / %)
-    bigbytes_functions_scalar_decimal::register_decimal_arithmetic(registry);
-    bigbytes_functions_scalar_integer_basic_arithmetic::register_integer_basic_arithmetic(registry);
+    bigbytesdb_functions_scalar_decimal::register_decimal_arithmetic(registry);
+    bigbytesdb_functions_scalar_integer_basic_arithmetic::register_integer_basic_arithmetic(registry);
     register_numeric_basic_arithmetic(registry);
     arithmetic::register_binary_arithmetic(registry);
     arithmetic::register_unary_arithmetic(registry);
@@ -73,7 +73,7 @@ pub fn register(registry: &mut FunctionRegistry) {
     geo_func::geo_h3::register(registry);
     hash::register(registry);
     other::register(registry);
-    bigbytes_functions_scalar_decimal::register_to_decimal(registry);
+    bigbytesdb_functions_scalar_decimal::register_to_decimal(registry);
     vector::register(registry);
     bitmap::register(registry);
     geo_func::geometry::register(registry);

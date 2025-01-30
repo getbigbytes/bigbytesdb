@@ -15,8 +15,8 @@
 //! This crate defines meta data types used by meta-client application, e.g. Schema, User, Share etc.
 //! Such as Database, Table and User etc.
 //!
-//! Types in this crate will not be used directly by bigbytes-meta.
-//! But instead, they are used by the caller of meta-client, e.g, bigbytes-query.
+//! Types in this crate will not be used directly by bigbytesdb-meta.
+//! But instead, they are used by the caller of meta-client, e.g, bigbytesdb-query.
 
 #![allow(clippy::uninlined_format_args)]
 #![allow(non_local_definitions)]

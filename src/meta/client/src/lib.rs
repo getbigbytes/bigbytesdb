@@ -26,7 +26,7 @@ mod message;
 
 use std::sync::LazyLock;
 
-pub use bigbytes_common_meta_api::reply::reply_to_api_result;
+pub use bigbytesdb_common_meta_api::reply::reply_to_api_result;
 pub use grpc_action::MetaGrpcReadReq;
 pub use grpc_action::MetaGrpcReq;
 pub use grpc_action::RequestFor;
@@ -38,8 +38,8 @@ pub use message::Streamed;
 use semver::Version;
 
 pub static METACLI_COMMIT_SEMVER: LazyLock<Version> = LazyLock::new(|| {
-    let build_semver = option_env!("BIGBYTES_GIT_SEMVER");
-    let semver = build_semver.expect("BIGBYTES_GIT_SEMVER can not be None");
+    let build_semver = option_env!("BIGBYTESDB_GIT_SEMVER");
+    let semver = build_semver.expect("BIGBYTESDB_GIT_SEMVER can not be None");
 
     let semver = semver.strip_prefix('v').unwrap_or(semver);
 
@@ -130,11 +130,11 @@ pub static METACLI_COMMIT_SEMVER: LazyLock<Version> = LazyLock::new(|| {
 ///   kv_read_v1:           ["2023-10-17", "1.2.163", ]
 /// ```
 // ------------------------------
-// The binary in the https://github.com/getbigbytes/bigbytes/releases/tag/v1.2.258-nightly
+// The binary in the https://github.com/getbigbytes/bigbytesdb/releases/tag/v1.2.258-nightly
 // outputs version 1.2.257;
 // ```
-// ./bigbytes-meta  --single
-// Bigbytes Metasrv
+// ./bigbytesdb-meta  --single
+// Bigbytesdb Metasrv
 // Version: v1.2.257-nightly-188426e3e6-simd(1.75.0-nightly-2023-12-17T22:09:06.675156000Z)
 // ```
 // Skip 1.2.258 use the next 1.2.259

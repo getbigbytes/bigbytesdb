@@ -15,13 +15,13 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::UpsertTableOptionReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_sql::plans::UnsetOptionsPlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::UpsertTableOptionReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_sql::plans::UnsetOptionsPlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::interpreters::common::table_option_validation::UNSET_TABLE_OPTIONS_WHITE_LIST;
 use crate::interpreters::Interpreter;

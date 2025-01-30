@@ -146,7 +146,7 @@ impl Hash for StackFrame {
 //
 // What's different from gimli-addr2line[https://github.com/gimli-rs/addr2line](why not use gimli-addr2line):
 // - Use aranges to optimize the lookup of DWARF units (if present)
-// - gimli-addr2line caches and sorts the symbol tables to speed up symbol lookup, which would introduce locks and caching (but in reality, symbol lookup is a low-frequency operation in bigbytes, and rapid reconstruction based on mmap is sufficient).
+// - gimli-addr2line caches and sorts the symbol tables to speed up symbol lookup, which would introduce locks and caching (but in reality, symbol lookup is a low-frequency operation in bigbytesdb, and rapid reconstruction based on mmap is sufficient).
 #[derive(Clone, serde::Serialize, serde::Deserialize)]
 pub struct StackTrace {
     pub(crate) frames: Vec<StackFrame>,

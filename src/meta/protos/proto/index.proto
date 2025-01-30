@@ -18,7 +18,7 @@
 
 syntax = "proto3";
 
-package bigbytes_proto;
+package bigbytesdb_proto;
 
 // IndexMeta is a container of all non-identity information.
 message IndexMeta {
@@ -48,7 +48,7 @@ message IndexMeta {
   // The time index updated.
   optional string updated_on = 6;
 
-  // if true, index will create after data written to bigbytes,
+  // if true, index will create after data written to bigbytesdb,
   // no need execute refresh index manually.
   bool sync_creation = 7;
 

@@ -15,9 +15,9 @@
 // DO NOT EDIT.
 // This crate keeps some legacy codes for compatibility, it's locked by bincode of meta's v3 version
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::months_days_micros;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::months_days_micros;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Deserializer;

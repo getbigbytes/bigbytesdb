@@ -14,11 +14,11 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_meta_raft_store::ondisk::DataVersion;
-use bigbytes_common_meta_raft_store::raft_log_v004::RaftLogStat;
-use bigbytes_common_meta_types::raft_types::LogId;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::Node;
+use bigbytesdb_common_meta_raft_store::ondisk::DataVersion;
+use bigbytesdb_common_meta_raft_store::raft_log_v004::RaftLogStat;
+use bigbytesdb_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::Node;
 
 #[derive(serde::Serialize)]
 pub struct MetaNodeStatus {

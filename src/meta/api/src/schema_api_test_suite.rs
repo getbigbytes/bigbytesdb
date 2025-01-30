@@ -23,119 +23,119 @@ use std::vec;
 use chrono::DateTime;
 use chrono::Duration;
 use chrono::Utc;
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::app_error::AppError;
-use bigbytes_common_meta_app::data_mask::CreateDatamaskReq;
-use bigbytes_common_meta_app::data_mask::DataMaskIdIdent;
-use bigbytes_common_meta_app::data_mask::DataMaskNameIdent;
-use bigbytes_common_meta_app::data_mask::DatamaskMeta;
-use bigbytes_common_meta_app::data_mask::MaskPolicyTableIdListIdent;
-use bigbytes_common_meta_app::data_mask::MaskpolicyTableIdList;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdentRaw;
-use bigbytes_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
-use bigbytes_common_meta_app::schema::index_id_ident::IndexId;
-use bigbytes_common_meta_app::schema::index_id_ident::IndexIdIdent;
-use bigbytes_common_meta_app::schema::index_id_to_name_ident::IndexIdToNameIdent;
-use bigbytes_common_meta_app::schema::least_visible_time_ident::LeastVisibleTimeIdent;
-use bigbytes_common_meta_app::schema::table_niv::TableNIV;
-use bigbytes_common_meta_app::schema::CatalogMeta;
-use bigbytes_common_meta_app::schema::CatalogNameIdent;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::CommitTableMetaReq;
-use bigbytes_common_meta_app::schema::CreateCatalogReq;
-use bigbytes_common_meta_app::schema::CreateDatabaseReply;
-use bigbytes_common_meta_app::schema::CreateDatabaseReq;
-use bigbytes_common_meta_app::schema::CreateDictionaryReq;
-use bigbytes_common_meta_app::schema::CreateIndexReq;
-use bigbytes_common_meta_app::schema::CreateLockRevReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::CreateSequenceReq;
-use bigbytes_common_meta_app::schema::CreateTableIndexReq;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::CreateVirtualColumnReq;
-use bigbytes_common_meta_app::schema::DBIdTableName;
-use bigbytes_common_meta_app::schema::DatabaseId;
-use bigbytes_common_meta_app::schema::DatabaseIdHistoryIdent;
-use bigbytes_common_meta_app::schema::DatabaseIdToName;
-use bigbytes_common_meta_app::schema::DatabaseInfo;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::schema::DbIdList;
-use bigbytes_common_meta_app::schema::DeleteLockRevReq;
-use bigbytes_common_meta_app::schema::DictionaryIdentity;
-use bigbytes_common_meta_app::schema::DictionaryMeta;
-use bigbytes_common_meta_app::schema::DropDatabaseReq;
-use bigbytes_common_meta_app::schema::DropSequenceReq;
-use bigbytes_common_meta_app::schema::DropTableByIdReq;
-use bigbytes_common_meta_app::schema::DropTableIndexReq;
-use bigbytes_common_meta_app::schema::DropVirtualColumnReq;
-use bigbytes_common_meta_app::schema::DroppedId;
-use bigbytes_common_meta_app::schema::ExtendLockRevReq;
-use bigbytes_common_meta_app::schema::GcDroppedTableReq;
-use bigbytes_common_meta_app::schema::GetDatabaseReq;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReq;
-use bigbytes_common_meta_app::schema::GetTableCopiedFileReq;
-use bigbytes_common_meta_app::schema::GetTableReq;
-use bigbytes_common_meta_app::schema::IcebergCatalogOption;
-use bigbytes_common_meta_app::schema::IcebergRestCatalogOption;
-use bigbytes_common_meta_app::schema::IndexMeta;
-use bigbytes_common_meta_app::schema::IndexNameIdent;
-use bigbytes_common_meta_app::schema::IndexNameIdentRaw;
-use bigbytes_common_meta_app::schema::IndexType;
-use bigbytes_common_meta_app::schema::LeastVisibleTime;
-use bigbytes_common_meta_app::schema::ListCatalogReq;
-use bigbytes_common_meta_app::schema::ListDatabaseReq;
-use bigbytes_common_meta_app::schema::ListDictionaryReq;
-use bigbytes_common_meta_app::schema::ListDroppedTableReq;
-use bigbytes_common_meta_app::schema::ListIndexesReq;
-use bigbytes_common_meta_app::schema::ListLockRevReq;
-use bigbytes_common_meta_app::schema::ListTableReq;
-use bigbytes_common_meta_app::schema::ListVirtualColumnsReq;
-use bigbytes_common_meta_app::schema::LockKey;
-use bigbytes_common_meta_app::schema::MarkedDeletedIndexType;
-use bigbytes_common_meta_app::schema::RenameDatabaseReq;
-use bigbytes_common_meta_app::schema::RenameDictionaryReq;
-use bigbytes_common_meta_app::schema::RenameTableReq;
-use bigbytes_common_meta_app::schema::SequenceIdent;
-use bigbytes_common_meta_app::schema::SetTableColumnMaskPolicyAction;
-use bigbytes_common_meta_app::schema::SetTableColumnMaskPolicyReq;
-use bigbytes_common_meta_app::schema::TableCopiedFileInfo;
-use bigbytes_common_meta_app::schema::TableCopiedFileNameIdent;
-use bigbytes_common_meta_app::schema::TableId;
-use bigbytes_common_meta_app::schema::TableIdHistoryIdent;
-use bigbytes_common_meta_app::schema::TableIdList;
-use bigbytes_common_meta_app::schema::TableIdToName;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_common_meta_app::schema::TruncateTableReq;
-use bigbytes_common_meta_app::schema::UndropDatabaseReq;
-use bigbytes_common_meta_app::schema::UndropTableReq;
-use bigbytes_common_meta_app::schema::UpdateDictionaryReq;
-use bigbytes_common_meta_app::schema::UpdateMultiTableMetaReq;
-use bigbytes_common_meta_app::schema::UpdateTableMetaReq;
-use bigbytes_common_meta_app::schema::UpdateVirtualColumnReq;
-use bigbytes_common_meta_app::schema::UpsertTableCopiedFileReq;
-use bigbytes_common_meta_app::schema::UpsertTableOptionReq;
-use bigbytes_common_meta_app::schema::VirtualColumnIdent;
-use bigbytes_common_meta_app::schema::VirtualField;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::ToTenant;
-use bigbytes_common_meta_app::KeyWithTenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::app_error::AppError;
+use bigbytesdb_common_meta_app::data_mask::CreateDatamaskReq;
+use bigbytesdb_common_meta_app::data_mask::DataMaskIdIdent;
+use bigbytesdb_common_meta_app::data_mask::DataMaskNameIdent;
+use bigbytesdb_common_meta_app::data_mask::DatamaskMeta;
+use bigbytesdb_common_meta_app::data_mask::MaskPolicyTableIdListIdent;
+use bigbytesdb_common_meta_app::data_mask::MaskpolicyTableIdList;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdentRaw;
+use bigbytesdb_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
+use bigbytesdb_common_meta_app::schema::index_id_ident::IndexId;
+use bigbytesdb_common_meta_app::schema::index_id_ident::IndexIdIdent;
+use bigbytesdb_common_meta_app::schema::index_id_to_name_ident::IndexIdToNameIdent;
+use bigbytesdb_common_meta_app::schema::least_visible_time_ident::LeastVisibleTimeIdent;
+use bigbytesdb_common_meta_app::schema::table_niv::TableNIV;
+use bigbytesdb_common_meta_app::schema::CatalogMeta;
+use bigbytesdb_common_meta_app::schema::CatalogNameIdent;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::CommitTableMetaReq;
+use bigbytesdb_common_meta_app::schema::CreateCatalogReq;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReply;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReq;
+use bigbytesdb_common_meta_app::schema::CreateDictionaryReq;
+use bigbytesdb_common_meta_app::schema::CreateIndexReq;
+use bigbytesdb_common_meta_app::schema::CreateLockRevReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReq;
+use bigbytesdb_common_meta_app::schema::CreateTableIndexReq;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::CreateVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::DBIdTableName;
+use bigbytesdb_common_meta_app::schema::DatabaseId;
+use bigbytesdb_common_meta_app::schema::DatabaseIdHistoryIdent;
+use bigbytesdb_common_meta_app::schema::DatabaseIdToName;
+use bigbytesdb_common_meta_app::schema::DatabaseInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::schema::DbIdList;
+use bigbytesdb_common_meta_app::schema::DeleteLockRevReq;
+use bigbytesdb_common_meta_app::schema::DictionaryIdentity;
+use bigbytesdb_common_meta_app::schema::DictionaryMeta;
+use bigbytesdb_common_meta_app::schema::DropDatabaseReq;
+use bigbytesdb_common_meta_app::schema::DropSequenceReq;
+use bigbytesdb_common_meta_app::schema::DropTableByIdReq;
+use bigbytesdb_common_meta_app::schema::DropTableIndexReq;
+use bigbytesdb_common_meta_app::schema::DropVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::DroppedId;
+use bigbytesdb_common_meta_app::schema::ExtendLockRevReq;
+use bigbytesdb_common_meta_app::schema::GcDroppedTableReq;
+use bigbytesdb_common_meta_app::schema::GetDatabaseReq;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReq;
+use bigbytesdb_common_meta_app::schema::GetTableCopiedFileReq;
+use bigbytesdb_common_meta_app::schema::GetTableReq;
+use bigbytesdb_common_meta_app::schema::IcebergCatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergRestCatalogOption;
+use bigbytesdb_common_meta_app::schema::IndexMeta;
+use bigbytesdb_common_meta_app::schema::IndexNameIdent;
+use bigbytesdb_common_meta_app::schema::IndexNameIdentRaw;
+use bigbytesdb_common_meta_app::schema::IndexType;
+use bigbytesdb_common_meta_app::schema::LeastVisibleTime;
+use bigbytesdb_common_meta_app::schema::ListCatalogReq;
+use bigbytesdb_common_meta_app::schema::ListDatabaseReq;
+use bigbytesdb_common_meta_app::schema::ListDictionaryReq;
+use bigbytesdb_common_meta_app::schema::ListDroppedTableReq;
+use bigbytesdb_common_meta_app::schema::ListIndexesReq;
+use bigbytesdb_common_meta_app::schema::ListLockRevReq;
+use bigbytesdb_common_meta_app::schema::ListTableReq;
+use bigbytesdb_common_meta_app::schema::ListVirtualColumnsReq;
+use bigbytesdb_common_meta_app::schema::LockKey;
+use bigbytesdb_common_meta_app::schema::MarkedDeletedIndexType;
+use bigbytesdb_common_meta_app::schema::RenameDatabaseReq;
+use bigbytesdb_common_meta_app::schema::RenameDictionaryReq;
+use bigbytesdb_common_meta_app::schema::RenameTableReq;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_meta_app::schema::SetTableColumnMaskPolicyAction;
+use bigbytesdb_common_meta_app::schema::SetTableColumnMaskPolicyReq;
+use bigbytesdb_common_meta_app::schema::TableCopiedFileInfo;
+use bigbytesdb_common_meta_app::schema::TableCopiedFileNameIdent;
+use bigbytesdb_common_meta_app::schema::TableId;
+use bigbytesdb_common_meta_app::schema::TableIdHistoryIdent;
+use bigbytesdb_common_meta_app::schema::TableIdList;
+use bigbytesdb_common_meta_app::schema::TableIdToName;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_common_meta_app::schema::TruncateTableReq;
+use bigbytesdb_common_meta_app::schema::UndropDatabaseReq;
+use bigbytesdb_common_meta_app::schema::UndropTableReq;
+use bigbytesdb_common_meta_app::schema::UpdateDictionaryReq;
+use bigbytesdb_common_meta_app::schema::UpdateMultiTableMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateTableMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::UpsertTableCopiedFileReq;
+use bigbytesdb_common_meta_app::schema::UpsertTableOptionReq;
+use bigbytesdb_common_meta_app::schema::VirtualColumnIdent;
+use bigbytesdb_common_meta_app::schema::VirtualField;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::ToTenant;
+use bigbytesdb_common_meta_app::KeyWithTenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::UpsertKV;
 use fastrace::func_name;
 use log::debug;
 use log::info;
@@ -1988,7 +1988,7 @@ impl SchemaApiTestSuite {
             // - verify that table created is invisible
             let req = GetTableReq::new(&tenant, db_name, tbl_name);
             let got = mt.get_table(req).await;
-            use bigbytes_common_meta_app::app_error::AppError;
+            use bigbytesdb_common_meta_app::app_error::AppError;
             assert!(matches!(
                 got.unwrap_err(),
                 KVAppError::AppError(AppError::UnknownTable(_))
@@ -5003,7 +5003,7 @@ impl SchemaApiTestSuite {
                 orphan_table_name: create_table_as_dropped_resp.orphan_table_name.clone(),
             };
             let resp = mt.commit_table_meta(commit_table_req).await;
-            use bigbytes_common_meta_app::app_error::AppError;
+            use bigbytesdb_common_meta_app::app_error::AppError;
             assert!(matches!(
                 resp.unwrap_err(),
                 KVAppError::AppError(AppError::CommitTableMetaError(_))
@@ -5038,7 +5038,7 @@ impl SchemaApiTestSuite {
                 orphan_table_name: create_table_as_dropped_resp.orphan_table_name.clone(),
             };
             let resp = mt.commit_table_meta(commit_table_req).await;
-            use bigbytes_common_meta_app::app_error::AppError;
+            use bigbytesdb_common_meta_app::app_error::AppError;
             assert!(matches!(
                 resp.unwrap_err(),
                 KVAppError::AppError(AppError::CommitTableMetaError(_))
@@ -5085,7 +5085,7 @@ impl SchemaApiTestSuite {
                 orphan_table_name: create_table_as_dropped_resp.orphan_table_name.clone(),
             };
             let resp = mt.commit_table_meta(commit_table_req).await;
-            use bigbytes_common_meta_app::app_error::AppError;
+            use bigbytesdb_common_meta_app::app_error::AppError;
             assert!(matches!(
                 resp.unwrap_err(),
                 KVAppError::AppError(AppError::CommitTableMetaError(_))
@@ -5093,7 +5093,7 @@ impl SchemaApiTestSuite {
         }
 
         {
-            use bigbytes_common_meta_app::app_error::AppError;
+            use bigbytesdb_common_meta_app::app_error::AppError;
 
             // replace with a new as_dropped = true and table_meta.as_drop is None table
             let create_table_req = CreateTableReq {

@@ -14,8 +14,8 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_meta_app::principal as mt;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_meta_app::principal as mt;
 use fastrace::func_name;
 
 use crate::common;

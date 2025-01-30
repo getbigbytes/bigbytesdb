@@ -12,20 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::map::KvPair;
-use bigbytes_common_expression::types::ArrayType;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::Float64Type;
-use bigbytes_common_expression::types::Int32Type;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::UInt32Type;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::types::UInt8Type;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::vectorize_with_builder_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::types::map::KvPair;
+use bigbytesdb_common_expression::types::ArrayType;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::Float64Type;
+use bigbytesdb_common_expression::types::Int32Type;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::UInt32Type;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::types::UInt8Type;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::vectorize_with_builder_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
 use h3o::CellIndex;
 use h3o::DirectedEdgeIndex;
 use h3o::LatLng;

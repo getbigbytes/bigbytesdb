@@ -13,7 +13,7 @@
 ## limitations under the License.
 
 
-from bigbytes import SessionContext
+from bigbytesdb import SessionContext
 import pandas as pd
 import polars
 

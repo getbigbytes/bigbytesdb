@@ -10,7 +10,7 @@ inputs:
     required: true
     default: ""
   storage-format:
-    description: "storage format for bigbytes query to test"
+    description: "storage format for bigbytesdb query to test"
     required: true
     default: all
 

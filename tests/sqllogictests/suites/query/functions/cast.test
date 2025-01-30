@@ -82,7 +82,7 @@ drop table cast_array
 statement ok
 drop table t1
 
-# for issue #14156 https://github.com/getbigbytes/bigbytes/issues/14156
+# for issue #14156 https://github.com/getbigbytes/bigbytesdb/issues/14156
 
 statement ok
 set numeric_cast_option = 'truncating'

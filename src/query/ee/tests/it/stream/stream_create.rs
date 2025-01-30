@@ -14,11 +14,11 @@
 
 use chrono::Duration;
 use chrono::Utc;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_enterprise_query::test_kits::context::EESetup;
-use bigbytes_query::test_kits::generate_snapshots;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_enterprise_query::test_kits::context::EESetup;
+use bigbytesdb_query::test_kits::generate_snapshots;
+use bigbytesdb_query::test_kits::TestFixture;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_stream_create() -> Result<()> {

@@ -1,4 +1,4 @@
-# Bigbytes-meta cluster test
+# Bigbytesdb-meta cluster test
 
 - Start a single node cluster with `--single`;
 

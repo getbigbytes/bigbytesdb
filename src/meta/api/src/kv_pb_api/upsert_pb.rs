@@ -14,12 +14,12 @@
 
 use std::time::Duration;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaSpec;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::With;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaSpec;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::With;
 
 #[derive(Clone, Debug)]
 pub struct UpsertPB<K: kvapi::Key> {

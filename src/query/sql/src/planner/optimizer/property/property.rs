@@ -44,7 +44,7 @@ impl Display for RequiredProperty {
 
 #[derive(Default, Clone, Debug)]
 pub struct Statistics {
-    // We can get the precise row count of a table in bigbytes,
+    // We can get the precise row count of a table in bigbytesdb,
     // which information is useful to optimize some queries like `COUNT(*)`.
     pub precise_cardinality: Option<u64>,
     /// Statistics of columns, column index -> column stat

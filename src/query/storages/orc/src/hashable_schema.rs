@@ -18,12 +18,12 @@ use std::hash::Hasher;
 use std::sync::Arc;
 
 use arrow_schema::SchemaRef;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
 
 #[derive(Eq, Debug, Clone)]
 pub struct HashableSchema {

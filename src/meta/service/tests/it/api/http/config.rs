@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_meta::api::http::v1::config::config_handler;
-use bigbytes_meta::configs::Config;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_meta::api::http::v1::config::config_handler;
+use bigbytesdb_meta::configs::Config;
 use http::Method;
 use http::StatusCode;
 use http::Uri;

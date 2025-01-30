@@ -16,8 +16,8 @@ use std::pin::Pin;
 use std::task::Context;
 use std::task::Poll;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
 use futures::Stream;
 
 use crate::pipelines::executor::PipelinePullingExecutor;

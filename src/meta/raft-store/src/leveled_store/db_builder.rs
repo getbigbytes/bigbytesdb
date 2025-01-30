@@ -18,8 +18,8 @@ use std::io;
 use std::path::Path;
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use futures::Stream;
 use futures_util::TryStreamExt;
 use rotbl::v001::Rotbl;

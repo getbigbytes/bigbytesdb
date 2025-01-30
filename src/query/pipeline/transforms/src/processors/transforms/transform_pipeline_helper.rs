@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_core::TransformPipeBuilder;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_core::TransformPipeBuilder;
 
 use crate::processors::AccumulatingTransform;
 use crate::processors::AccumulatingTransformer;
@@ -43,7 +43,7 @@ pub trait TransformPipelineHelper {
     where
         F: Fn() -> Result<R>;
 
-    fn try_add_transformer<F, R>(&mut self, f: F) -> bigbytes_common_exception::Result<()>
+    fn try_add_transformer<F, R>(&mut self, f: F) -> bigbytesdb_common_exception::Result<()>
     where
         F: Fn() -> Result<R>,
         R: Transform + 'static,
@@ -60,7 +60,7 @@ pub trait TransformPipelineHelper {
         self.try_add_transformer(|| Ok(f())).unwrap()
     }
 
-    fn try_add_async_transformer<F, R>(&mut self, f: F) -> bigbytes_common_exception::Result<()>
+    fn try_add_async_transformer<F, R>(&mut self, f: F) -> bigbytesdb_common_exception::Result<()>
     where
         F: Fn() -> Result<R>,
         R: AsyncTransform + 'static,
@@ -80,7 +80,7 @@ pub trait TransformPipelineHelper {
     fn try_add_accumulating_transformer<F, R>(
         &mut self,
         f: F,
-    ) -> bigbytes_common_exception::Result<()>
+    ) -> bigbytesdb_common_exception::Result<()>
     where
         F: Fn() -> Result<R>,
         R: AccumulatingTransform + 'static,
@@ -119,7 +119,7 @@ pub trait TransformPipelineHelper {
     fn try_add_async_accumulating_transformer<F, R>(
         &mut self,
         f: F,
-    ) -> bigbytes_common_exception::Result<()>
+    ) -> bigbytesdb_common_exception::Result<()>
     where
         F: Fn() -> Result<R>,
         R: AsyncAccumulatingTransform + 'static,

@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_meta_types::NodeInfo;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_meta_types::NodeInfo;
 
 /// A descriptor for a cluster.
 #[derive(Clone)]
@@ -41,7 +41,7 @@ impl ClusterDescriptor {
             "".to_string(),
             addr.into(),
             "".to_string(),
-            BIGBYTES_COMMIT_VERSION.to_string(),
+            BIGBYTESDB_COMMIT_VERSION.to_string(),
         )));
         ClusterDescriptor {
             cluster_nodes_list: new_nodes,

@@ -59,7 +59,7 @@ impl SqlInfoProvider {
     fn server_name() -> Result<RecordBatch, ArrowError> {
         RecordBatch::try_new(Self::string_schema(), vec![
             Self::key_array(SqlInfo::FlightSqlServerName),
-            Self::string_array("Bigbytes"),
+            Self::string_array("Bigbytesdb"),
         ])
     }
 

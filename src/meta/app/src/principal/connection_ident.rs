@@ -21,8 +21,8 @@ pub use kvapi_impl::Resource;
 
 mod kvapi_impl {
 
-    use bigbytes_common_exception::ErrorCode;
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_exception::ErrorCode;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::principal::connection_ident::ConnectionIdent;
     use crate::principal::UserDefinedConnection;
@@ -69,7 +69,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::ConnectionIdent;
     use crate::tenant::Tenant;

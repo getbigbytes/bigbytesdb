@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-building"
+name = "bigbytesdb-common-building"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }

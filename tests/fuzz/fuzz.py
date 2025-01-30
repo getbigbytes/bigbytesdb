@@ -69,7 +69,7 @@ prepare_sqls = [
     "insert into t3 select * from random_t3 limit 110;",
 ]
 
-# Select grammar RFC: https://github.com/getbigbytes/bigbytes/issues/4916
+# Select grammar RFC: https://github.com/getbigbytes/bigbytesdb/issues/4916
 # Here is a minimal implement
 select_grammar: Grammar = {
     "<start>": [

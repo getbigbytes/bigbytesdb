@@ -14,37 +14,37 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::Float64Type;
-use bigbytes_common_expression::types::Int32Type;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_sql::plans::AddColumnOption;
-use bigbytes_common_sql::plans::AddTableColumnPlan;
-use bigbytes_common_sql::plans::DropTableColumnPlan;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_query::interpreters::AddTableColumnInterpreter;
-use bigbytes_query::interpreters::DropTableColumnInterpreter;
-use bigbytes_query::interpreters::Interpreter;
-use bigbytes_query::interpreters::InterpreterFactory;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::Float64Type;
+use bigbytesdb_common_expression::types::Int32Type;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_sql::plans::AddColumnOption;
+use bigbytesdb_common_sql::plans::AddTableColumnPlan;
+use bigbytesdb_common_sql::plans::DropTableColumnPlan;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_query::interpreters::AddTableColumnInterpreter;
+use bigbytesdb_query::interpreters::DropTableColumnInterpreter;
+use bigbytesdb_query::interpreters::Interpreter;
+use bigbytesdb_query::interpreters::InterpreterFactory;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
 use futures_util::TryStreamExt;
 
 async fn check_segment_column_ids(
@@ -225,10 +225,10 @@ async fn test_fuse_table_optimize_alter_table() -> Result<()> {
                 3,
                 (
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::UInt64(1),
+                        bigbytesdb_common_expression::types::number::NumberScalar::UInt64(1),
                     ),
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::UInt64(4),
+                        bigbytesdb_common_expression::types::number::NumberScalar::UInt64(4),
                     ),
                 ),
             ),
@@ -236,12 +236,12 @@ async fn test_fuse_table_optimize_alter_table() -> Result<()> {
                 4,
                 (
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::Float64(
+                        bigbytesdb_common_expression::types::number::NumberScalar::Float64(
                             OrderedFloat(13.0),
                         ),
                     ),
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::Float64(
+                        bigbytesdb_common_expression::types::number::NumberScalar::Float64(
                             OrderedFloat(15.0),
                         ),
                     ),
@@ -271,10 +271,10 @@ async fn test_fuse_table_optimize_alter_table() -> Result<()> {
                 3,
                 (
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::UInt64(1),
+                        bigbytesdb_common_expression::types::number::NumberScalar::UInt64(1),
                     ),
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::UInt64(4),
+                        bigbytesdb_common_expression::types::number::NumberScalar::UInt64(4),
                     ),
                 ),
             ),
@@ -282,12 +282,12 @@ async fn test_fuse_table_optimize_alter_table() -> Result<()> {
                 4,
                 (
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::Float64(
+                        bigbytesdb_common_expression::types::number::NumberScalar::Float64(
                             OrderedFloat(13.0),
                         ),
                     ),
                     Scalar::Number(
-                        bigbytes_common_expression::types::number::NumberScalar::Float64(
+                        bigbytesdb_common_expression::types::number::NumberScalar::Float64(
                             OrderedFloat(15.0),
                         ),
                     ),

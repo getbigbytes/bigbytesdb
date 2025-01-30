@@ -15,8 +15,8 @@
 use std::fmt;
 use std::fmt::Formatter;
 
-use bigbytes_common_base::rangemap::RangeMerger;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::rangemap::RangeMerger;
+use bigbytesdb_common_exception::Result;
 
 struct Array(Vec<std::ops::Range<u64>>);
 impl fmt::Display for Array {

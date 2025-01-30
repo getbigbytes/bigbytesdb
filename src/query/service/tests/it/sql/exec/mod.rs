@@ -12,24 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_query::interpreters::Interpreter;
-use bigbytes_query::interpreters::OptimizeCompactBlockInterpreter;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_query::interpreters::Interpreter;
+use bigbytesdb_query::interpreters::OptimizeCompactBlockInterpreter;
+use bigbytesdb_query::test_kits::*;
 use futures_util::TryStreamExt;
 
 #[test]
 pub fn test_format_field_name() {
-    use bigbytes_query::sql::executor::decode_field_name;
-    use bigbytes_query::sql::executor::format_field_name;
+    use bigbytesdb_query::sql::executor::decode_field_name;
+    use bigbytesdb_query::sql::executor::format_field_name;
     let display_name = "column_name123名字".to_string();
     let index = 12321;
     let field_name = format_field_name(display_name.as_str(), index);

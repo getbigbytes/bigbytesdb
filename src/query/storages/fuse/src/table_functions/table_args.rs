@@ -14,10 +14,10 @@
 
 use std::cmp::Ordering;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::table_functions::TableArgs;
 

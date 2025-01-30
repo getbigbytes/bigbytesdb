@@ -12,25 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
 use pretty_assertions::assert_eq;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_role_manager() -> Result<()> {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {

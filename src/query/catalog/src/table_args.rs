@@ -14,9 +14,9 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
 use log::debug;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, PartialEq)]

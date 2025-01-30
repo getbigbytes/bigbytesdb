@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::PrincipalIdentity;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType::Ownership;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_sql::plans::GrantPrivilegePlan;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::PrincipalIdentity;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType::Ownership;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_sql::plans::GrantPrivilegePlan;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 use log::error;
 use log::info;
@@ -203,7 +203,7 @@ impl Interpreter for GrantPrivilegeInterpreter {
                         self.grant_ownership(&self.ctx, &tenant, &owner_object, &role)
                             .await?;
                     } else {
-                        return Err(bigbytes_common_exception::ErrorCode::UnknownRole(
+                        return Err(bigbytesdb_common_exception::ErrorCode::UnknownRole(
                             "No current role, cannot grant ownership",
                         ));
                     }
@@ -231,7 +231,7 @@ pub fn validate_grant_privileges(object: &GrantObject, privileges: UserPrivilege
         .iter()
         .all(|p| available_privileges.has_privilege(p));
     if !ok {
-        return Err(bigbytes_common_exception::ErrorCode::IllegalGrant(
+        return Err(bigbytesdb_common_exception::ErrorCode::IllegalGrant(
             "Illegal GRANT/REVOKE command; please consult the manual to see which privileges can be used",
         ));
     }

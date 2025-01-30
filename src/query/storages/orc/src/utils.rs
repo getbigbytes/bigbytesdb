@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 use orc_rust::error::OrcError;
 pub fn map_orc_error(e: OrcError, path: &str) -> ErrorCode {
     ErrorCode::BadBytes(format!("fail to read {}: {:?}", path, e))

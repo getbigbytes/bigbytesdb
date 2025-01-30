@@ -42,7 +42,7 @@ impl ProcedureIdIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::principal::procedure_id_ident::ProcedureIdIdent;
     use crate::principal::ProcedureMeta;
@@ -71,7 +71,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::ProcedureId;
     use super::ProcedureIdIdent;

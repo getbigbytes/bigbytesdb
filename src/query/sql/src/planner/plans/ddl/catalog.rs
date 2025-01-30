@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::CatalogMeta;
-use bigbytes_common_meta_app::schema::CatalogNameIdent;
-use bigbytes_common_meta_app::schema::CreateCatalogReq;
-use bigbytes_common_meta_app::schema::DropCatalogReq;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::CatalogMeta;
+use bigbytesdb_common_meta_app::schema::CatalogNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateCatalogReq;
+use bigbytesdb_common_meta_app::schema::DropCatalogReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CreateCatalogPlan {

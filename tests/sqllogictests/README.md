@@ -1,53 +1,53 @@
 ### Overview
-This is Bigbytes's [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) implementation. It uses [sqllogictest-rs](https://github.com/risinglightdb/sqllogictest-rs) to parse test files and run test cases.
+This is Bigbytesdb's [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) implementation. It uses [sqllogictest-rs](https://github.com/risinglightdb/sqllogictest-rs) to parse test files and run test cases.
 
 ### Basic usage
-Before running the following commands, you should generate **bigbytes-sqllogictests** binary file.
+Before running the following commands, you should generate **bigbytesdb-sqllogictests** binary file.
 
 ---
 Run all tests under the three handlers(mysql, http) in turn.
 ```shell
-bigbytes-sqllogictests
+bigbytesdb-sqllogictests
 ```
 ---
 Run all tests with specific handler.
 ```shell
-bigbytes-sqllogictests --handlers <handler_name>
+bigbytesdb-sqllogictests --handlers <handler_name>
 ```
 ---
 Run tests under specific directory.
 
 ```shell
-bigbytes-sqllogictests --run_dir <dir_name>
+bigbytesdb-sqllogictests --run_dir <dir_name>
 ```
 ---
 Run tests under specific file. This is the most commonly used command because users do not need to run all tests at a time and only need to run their newly added test files or test files with changes
 ```shell
-bigbytes-sqllogictests --run_file <file_name>
+bigbytesdb-sqllogictests --run_file <file_name>
 ```
 ---
 Auto complete test file which is very convenient. What you need to do is just a final check to see if the generated results meet expectations.
 ```
-bigbytes-sqllogictests --run_file <file_name> --complete
+bigbytesdb-sqllogictests --run_file <file_name> --complete
 ```
 ---
 By default, sqllogictest will fail fast when a failed test is encountered. If you want to run the full test, even with a failed test, you can run the following command:
 ```
-bigbytes-sqllogictests --no-fail-fast
+bigbytesdb-sqllogictests --no-fail-fast
 ```
 ---
 For more information, run help command:
 ```shell
-bigbytes-sqllogictests --help
+bigbytesdb-sqllogictests --help
 ```
 
 ### Parallel
 If you want to run test files in parallel, please add the following args:
 ```shell
-bigbytes-sqllogictest --enable_sandbox --parallel <number>
+bigbytesdb-sqllogictest --enable_sandbox --parallel <number>
 ```
 
-When start bigbytes query, please add `--internal-enable-sandbox-tenant` config.
+When start bigbytesdb query, please add `--internal-enable-sandbox-tenant` config.
 
 ### Sqllogictest
 Most records are either a statement or a query. A statement is an SQL command that is to be evaluated but from which we do not expect to get results (other than success or failure). A statement might be a CREATE TABLE or an INSERT or an UPDATE or a DROP INDEX. A query is an SQL command from which we expect to receive results. The result set might be empty.

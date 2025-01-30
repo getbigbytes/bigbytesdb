@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::mem_allocator::dump_profile;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_base::mem_allocator::dump_profile;
+use bigbytesdb_common_exception::ErrorCode;
 use http::StatusCode;
 use poem::error::InternalServerError;
 use poem::web::IntoResponse;

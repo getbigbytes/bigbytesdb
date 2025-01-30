@@ -264,7 +264,7 @@ pub async fn run_ttc_container(
         .take(5)
         .map(char::from)
         .collect();
-    let container_name = format!("bigbytes-ttc-{}-{}", port, x);
+    let container_name = format!("bigbytesdb-ttc-{}-{}", port, x);
     let start = Instant::now();
     println!("Start container {container_name}");
 
@@ -277,9 +277,9 @@ pub async fn run_ttc_container(
             .with_wait_for(WaitFor::message_on_stdout("Ready to accept connections"))
             .with_network("host")
             .with_env_var(
-                "BIGBYTES_DSN",
+                "BIGBYTESDB_DSN",
                 format!(
-                    "bigbytes://root:@127.0.0.1:{}?sslmode=disable",
+                    "bigbytesdb://root:@127.0.0.1:{}?sslmode=disable",
                     http_server_port
                 ),
             )

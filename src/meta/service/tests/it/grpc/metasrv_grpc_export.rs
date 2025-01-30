@@ -14,10 +14,10 @@
 
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio::time::sleep;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::protobuf as pb;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_base::base::tokio::time::sleep;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::protobuf as pb;
+use bigbytesdb_common_meta_types::UpsertKV;
 use log::info;
 use pretty_assertions::assert_eq;
 use regex::Regex;

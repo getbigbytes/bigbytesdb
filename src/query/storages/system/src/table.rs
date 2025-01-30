@@ -15,26 +15,26 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table::DistributionLevel;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_sources::AsyncSource;
-use bigbytes_common_pipeline_sources::AsyncSourcer;
-use bigbytes_common_pipeline_sources::EmptySource;
-use bigbytes_common_pipeline_sources::SyncSource;
-use bigbytes_common_pipeline_sources::SyncSourcer;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table::DistributionLevel;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_sources::AsyncSource;
+use bigbytesdb_common_pipeline_sources::AsyncSourcer;
+use bigbytesdb_common_pipeline_sources::EmptySource;
+use bigbytesdb_common_pipeline_sources::SyncSource;
+use bigbytesdb_common_pipeline_sources::SyncSourcer;
 
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Eq)]
 pub struct SystemTablePart;
@@ -366,7 +366,7 @@ impl<TTable: 'static + AsyncSystemTable> AsyncSource for SystemTableAsyncSource<
 
         #[cfg(debug_assertions)]
         {
-            use bigbytes_common_expression::types::DataType;
+            use bigbytesdb_common_expression::types::DataType;
             let table_info = self.inner.get_table_info();
             let data_types: Vec<DataType> = block
                 .columns()

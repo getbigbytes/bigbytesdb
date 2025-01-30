@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_config::GlobalConfig;
+use bigbytesdb_common_config::GlobalConfig;
 use poem::web::Json;
 use poem::IntoResponse;
 

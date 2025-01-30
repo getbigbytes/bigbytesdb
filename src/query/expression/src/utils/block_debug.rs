@@ -17,7 +17,7 @@ use std::collections::HashSet;
 use comfy_table::Cell;
 use comfy_table::CellAlignment;
 use comfy_table::Table;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 use terminal_size::terminal_size;
 use terminal_size::Width;
 use unicode_segmentation::UnicodeSegmentation;

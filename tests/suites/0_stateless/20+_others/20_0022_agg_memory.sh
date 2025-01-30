@@ -11,7 +11,7 @@ for i in `seq 1 2`;do
 done
 
 
-PIDS=($(pgrep bigbytes-query))
+PIDS=($(pgrep bigbytesdb-query))
 BEFORE_MEM=0
 for PID in "${PIDS[@]}"; do
     MEM=$(ps -o rss= -p $PID | tail -n 1)

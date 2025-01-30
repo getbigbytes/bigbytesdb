@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::FormatTreeNode;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_ast::ast::FormatTreeNode;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Serialize;
@@ -86,7 +86,7 @@ impl Insert {
     pub async fn explain(
         &self,
         verbose: bool,
-    ) -> bigbytes_common_exception::Result<Vec<DataBlock>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<DataBlock>> {
         let mut result = vec![];
 
         let Insert {
@@ -135,7 +135,7 @@ pub(crate) fn format_insert_source(
     source: &InsertInputSource,
     verbose: bool,
     mut children: Vec<FormatTreeNode>,
-) -> bigbytes_common_exception::Result<String> {
+) -> bigbytesdb_common_exception::Result<String> {
     match source {
         InsertInputSource::SelectPlan(plan) => {
             if let Plan::Query {

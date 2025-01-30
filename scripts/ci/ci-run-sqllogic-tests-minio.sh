@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -30,10 +30,10 @@ access_key_id = \"minioadmin\"
 secret_access_key = \"minioadmin\"
 allow_insecure = true"
 
-echo "$config" >>./scripts/ci/deploy/config/bigbytes-query-node-1.toml
+echo "$config" >>./scripts/ci/deploy/config/bigbytesdb-query-node-1.toml
 
 echo "Starting standalone BigbytesQuery and BigbytesMeta"
-./scripts/ci/deploy/bigbytes-query-standalone.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 TEST_HANDLERS=${TEST_HANDLERS:-"mysql,http"}
 TEST_PARALLEL=${TEST_PARALLEL:-8}
@@ -45,5 +45,5 @@ if [ $# -gt 0 ]; then
 fi
 echo "Run suites using argument: $RUN_DIR"
 
-echo "Starting bigbytes-sqllogic tests"
-target/${BUILD_PROFILE}/bigbytes-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --skip_dir management,explain_native,ee --enable_sandbox --parallel ${TEST_PARALLEL}
+echo "Starting bigbytesdb-sqllogic tests"
+target/${BUILD_PROFILE}/bigbytesdb-sqllogictests --handlers ${TEST_HANDLERS} ${RUN_DIR} --skip_dir management,explain_native,ee --enable_sandbox --parallel ${TEST_PARALLEL}

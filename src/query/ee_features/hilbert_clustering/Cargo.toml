@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-hilbert-clustering"
+name = "bigbytesdb-enterprise-hilbert-clustering"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,10 +13,10 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 
 [build-dependencies]
 

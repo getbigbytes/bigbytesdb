@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_storage::init_operator;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_enterprise_fail_safe::FailSafeHandler;
-use bigbytes_enterprise_fail_safe::FailSafeHandlerWrapper;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_storage::init_operator;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_enterprise_fail_safe::FailSafeHandler;
+use bigbytesdb_enterprise_fail_safe::FailSafeHandlerWrapper;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 use log::info;
 use log::warn;
 use opendal::ErrorKind;

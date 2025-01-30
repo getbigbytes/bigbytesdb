@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-query"
+name = "bigbytesdb-query"
 description = "A real-time Cloud Distributed Query Engine"
 version = { workspace = true }
 authors = { workspace = true }
@@ -13,14 +13,14 @@ test = true
 
 [features]
 default = ["simd"]
-simd = ["bigbytes-common-column/simd"]
+simd = ["bigbytesdb-common-column/simd"]
 python-udf = ["arrow-udf-python"]
-disable_initial_exec_tls = ["bigbytes-common-base/disable_initial_exec_tls"]
-jemalloc = ["bigbytes-common-storages-system/jemalloc"]
-memory-profiling = ["bigbytes-common-base/memory-profiling", "bigbytes-common-http/memory-profiling"]
-storage-hdfs = ["opendal/services-hdfs", "bigbytes-common-storage/storage-hdfs"]
+disable_initial_exec_tls = ["bigbytesdb-common-base/disable_initial_exec_tls"]
+jemalloc = ["bigbytesdb-common-storages-system/jemalloc"]
+memory-profiling = ["bigbytesdb-common-base/memory-profiling", "bigbytesdb-common-http/memory-profiling"]
+storage-hdfs = ["opendal/services-hdfs", "bigbytesdb-common-storage/storage-hdfs"]
 io-uring = [
-    "bigbytes-common-meta-store/io-uring",
+    "bigbytesdb-common-meta-store/io-uring",
 ]
 
 enable_queries_executor = []
@@ -54,70 +54,70 @@ chrono = { workspace = true }
 chrono-tz = { workspace = true }
 ctor = { workspace = true }
 dashmap = { workspace = true }
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-cache = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-cloud-control = { workspace = true }
-bigbytes-common-column = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-formats = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-hashtable = { workspace = true }
-bigbytes-common-http = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-license = { workspace = true }
-bigbytes-common-management = { workspace = true }
-bigbytes-common-meta-api = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-store = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-openai = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
-bigbytes-common-pipeline-sinks = { workspace = true }
-bigbytes-common-pipeline-sources = { workspace = true }
-bigbytes-common-pipeline-transforms = { workspace = true }
-bigbytes-common-script = { workspace = true }
-bigbytes-common-settings = { workspace = true }
-bigbytes-common-sql = { workspace = true }
-bigbytes-common-storage = { workspace = true }
-bigbytes-common-storages-delta = { workspace = true }
-bigbytes-common-storages-factory = { workspace = true }
-bigbytes-common-storages-fuse = { workspace = true }
-bigbytes-common-storages-hive = { workspace = true }
-bigbytes-common-storages-iceberg = { workspace = true }
-bigbytes-common-storages-information-schema = { workspace = true }
-bigbytes-common-storages-memory = { workspace = true }
-bigbytes-common-storages-null = { workspace = true }
-bigbytes-common-storages-orc = { workspace = true }
-bigbytes-common-storages-parquet = { workspace = true }
-bigbytes-common-storages-result-cache = { workspace = true }
-bigbytes-common-storages-stage = { workspace = true }
-bigbytes-common-storages-stream = { workspace = true }
-bigbytes-common-storages-system = { workspace = true }
-bigbytes-common-storages-view = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
-bigbytes-common-users = { workspace = true }
-bigbytes-enterprise-aggregating-index = { workspace = true }
-bigbytes-enterprise-attach-table = { workspace = true }
-bigbytes-enterprise-background-service = { workspace = true }
-bigbytes-enterprise-data-mask-feature = { workspace = true }
-bigbytes-enterprise-inverted-index = { workspace = true }
-bigbytes-enterprise-resources-management = { workspace = true }
-bigbytes-enterprise-stream-handler = { workspace = true }
-bigbytes-enterprise-vacuum-handler = { workspace = true }
-bigbytes-enterprise-virtual-column = { workspace = true }
-bigbytes-storages-common-blocks = { workspace = true }
-bigbytes-storages-common-cache = { workspace = true }
-bigbytes-storages-common-index = { workspace = true }
-bigbytes-storages-common-io = { workspace = true }
-bigbytes-storages-common-session = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-cache = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-cloud-control = { workspace = true }
+bigbytesdb-common-column = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-formats = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-hashtable = { workspace = true }
+bigbytesdb-common-http = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-license = { workspace = true }
+bigbytesdb-common-management = { workspace = true }
+bigbytesdb-common-meta-api = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-store = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-openai = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
+bigbytesdb-common-pipeline-sinks = { workspace = true }
+bigbytesdb-common-pipeline-sources = { workspace = true }
+bigbytesdb-common-pipeline-transforms = { workspace = true }
+bigbytesdb-common-script = { workspace = true }
+bigbytesdb-common-settings = { workspace = true }
+bigbytesdb-common-sql = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
+bigbytesdb-common-storages-delta = { workspace = true }
+bigbytesdb-common-storages-factory = { workspace = true }
+bigbytesdb-common-storages-fuse = { workspace = true }
+bigbytesdb-common-storages-hive = { workspace = true }
+bigbytesdb-common-storages-iceberg = { workspace = true }
+bigbytesdb-common-storages-information-schema = { workspace = true }
+bigbytesdb-common-storages-memory = { workspace = true }
+bigbytesdb-common-storages-null = { workspace = true }
+bigbytesdb-common-storages-orc = { workspace = true }
+bigbytesdb-common-storages-parquet = { workspace = true }
+bigbytesdb-common-storages-result-cache = { workspace = true }
+bigbytesdb-common-storages-stage = { workspace = true }
+bigbytesdb-common-storages-stream = { workspace = true }
+bigbytesdb-common-storages-system = { workspace = true }
+bigbytesdb-common-storages-view = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
+bigbytesdb-common-users = { workspace = true }
+bigbytesdb-enterprise-aggregating-index = { workspace = true }
+bigbytesdb-enterprise-attach-table = { workspace = true }
+bigbytesdb-enterprise-background-service = { workspace = true }
+bigbytesdb-enterprise-data-mask-feature = { workspace = true }
+bigbytesdb-enterprise-inverted-index = { workspace = true }
+bigbytesdb-enterprise-resources-management = { workspace = true }
+bigbytesdb-enterprise-stream-handler = { workspace = true }
+bigbytesdb-enterprise-vacuum-handler = { workspace = true }
+bigbytesdb-enterprise-virtual-column = { workspace = true }
+bigbytesdb-storages-common-blocks = { workspace = true }
+bigbytesdb-storages-common-cache = { workspace = true }
+bigbytesdb-storages-common-index = { workspace = true }
+bigbytesdb-storages-common-io = { workspace = true }
+bigbytesdb-storages-common-session = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 derive-visitor = { workspace = true }
 ethnum = { workspace = true }
 fastrace = { workspace = true }
@@ -197,7 +197,7 @@ url = { workspace = true }
 wiremock = { workspace = true }
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 
 [lints]
 workspace = true

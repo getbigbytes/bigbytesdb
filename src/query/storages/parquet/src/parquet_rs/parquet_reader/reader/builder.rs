@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::ParquetReadOptions;
-use bigbytes_common_catalog::plan::Projection;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::TopK;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_catalog::plan::ParquetReadOptions;
+use bigbytesdb_common_catalog::plan::Projection;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::TopK;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
 use opendal::Operator;
 use parquet::arrow::arrow_to_parquet_schema;
 use parquet::arrow::ProjectionMask;

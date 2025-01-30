@@ -16,8 +16,8 @@ use std::io::Cursor;
 use std::io::Read;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -194,7 +194,7 @@ impl SegmentInfo {
         let mut segment = Self::new(blocks, summary);
 
         // bytes may represent an encoded v[n]::SegmentInfo, where n <= self::SegmentInfo::VERSION
-        // please see PR https://github.com/getbigbytes/bigbytes/pull/11211 for the adjustment of
+        // please see PR https://github.com/getbigbytes/bigbytesdb/pull/11211 for the adjustment of
         // format_version`'s "semantic"
         segment.format_version = version;
         Ok(segment)

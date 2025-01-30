@@ -137,11 +137,11 @@ select '255'::BIGINT::UINT8
 ----
 255
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error xxx
 # select '-1'::BIGINT::uint8
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error xxx
 # select '256'::BIGINT::uint8
 
@@ -150,11 +150,11 @@ select '65535'::BIGINT::UINT16
 ----
 65535
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error xxx
 # select '-1'::BIGINT::uint16
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error xxx
 # select '65536'::BIGINT::uint16
 
@@ -163,11 +163,11 @@ select '4294967295'::BIGINT::UINT32
 ----
 4294967295
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error xxx
 # select '-1'::BIGINT::uint32
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # query I
 # select '4294967296'::BIGINT::uint32
 
@@ -177,7 +177,7 @@ select '4294967295'::BIGINT::UINT32
 statement error 1006
 select '18446744073709551615'::BIGINT::UINT64
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # statement error XXX
 # select '-1'::BIGINT::UINT64
 
@@ -199,7 +199,7 @@ select '4294967295'::UINT32::BIGINT
 ----
 4294967295
 
-# TODO https://github.com/getbigbytes/bigbytes/issues/7347
+# TODO https://github.com/getbigbytes/bigbytesdb/issues/7347
 # query I
 # select '18446744073709551615'::UINT64::BIGINT
 

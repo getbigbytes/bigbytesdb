@@ -15,26 +15,26 @@
 use std::collections::hash_map::DefaultHasher;
 use std::hash::Hasher;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NullableType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::FunctionID;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NullableType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::FunctionID;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::servers::flight::v1::scatter::flight_scatter::FlightScatter;
 
@@ -230,10 +230,10 @@ fn get_hash_values(
 ) -> Result<Buffer<u64>> {
     match column {
         Value::Scalar(c) => match c {
-            bigbytes_common_expression::Scalar::Null => {
+            bigbytesdb_common_expression::Scalar::Null => {
                 Ok(vec![default_scatter_index; rows].into())
             }
-            bigbytes_common_expression::Scalar::Number(NumberScalar::UInt64(x)) => {
+            bigbytesdb_common_expression::Scalar::Number(NumberScalar::UInt64(x)) => {
                 Ok(vec![x; rows].into())
             }
             _ => unreachable!(),

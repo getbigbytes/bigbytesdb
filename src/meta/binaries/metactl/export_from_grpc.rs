@@ -19,9 +19,9 @@ use std::net::SocketAddr;
 use std::net::ToSocketAddrs;
 
 use anyhow::anyhow;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_raft_store::key_spaces::RaftStoreEntry;
-use bigbytes_common_meta_types::protobuf;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_raft_store::key_spaces::RaftStoreEntry;
+use bigbytesdb_common_meta_types::protobuf;
 use tokio::net::TcpSocket;
 use tokio_stream::StreamExt;
 

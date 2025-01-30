@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::GrpcClaim;
-use bigbytes_common_grpc::GrpcToken;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::GrpcClaim;
+use bigbytesdb_common_grpc::GrpcToken;
 
 #[test]
 fn test_flight_token() -> Result<()> {

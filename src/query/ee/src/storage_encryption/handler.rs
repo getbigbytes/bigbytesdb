@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_enterprise_storage_encryption::StorageEncryptionHandler;
-use bigbytes_enterprise_storage_encryption::StorageEncryptionHandlerWrapper;
-use bigbytes_query::sessions::SessionManager;
-use bigbytes_query::sessions::SessionType;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_enterprise_storage_encryption::StorageEncryptionHandler;
+use bigbytesdb_enterprise_storage_encryption::StorageEncryptionHandlerWrapper;
+use bigbytesdb_query::sessions::SessionManager;
+use bigbytesdb_query::sessions::SessionType;
 
 pub struct RealStorageEncryptionHandler {
     cfg: InnerConfig,

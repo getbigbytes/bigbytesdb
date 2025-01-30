@@ -14,12 +14,12 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::RemoteExpr;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::RemoteExpr;
 
 use crate::executor::explain::PlanStatsInfo;
 use crate::executor::PhysicalPlan;

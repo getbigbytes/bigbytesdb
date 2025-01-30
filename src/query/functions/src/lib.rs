@@ -26,7 +26,7 @@
 
 use aggregates::AggregateFunctionFactory;
 use ctor::ctor;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionRegistry;
 use unicase::Ascii;
 
 pub mod aggregates;

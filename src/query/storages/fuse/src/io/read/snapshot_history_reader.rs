@@ -15,10 +15,10 @@
 use std::pin::Pin;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::FormatVersion;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::FormatVersion;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use futures_util::stream;
 use log::info;
 
@@ -28,7 +28,7 @@ use crate::io::TableSnapshotReader;
 pub type TableSnapshotStream = Pin<
     Box<
         dyn stream::Stream<
-                Item = bigbytes_common_exception::Result<(Arc<TableSnapshot>, FormatVersion)>,
+                Item = bigbytesdb_common_exception::Result<(Arc<TableSnapshot>, FormatVersion)>,
             > + Send,
     >,
 >;

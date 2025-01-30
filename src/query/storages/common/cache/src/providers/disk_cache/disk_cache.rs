@@ -23,10 +23,10 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_cache::Cache;
-use bigbytes_common_cache::LruCache;
-use bigbytes_common_config::DiskCacheKeyReloadPolicy;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_cache::Cache;
+use bigbytesdb_common_cache::LruCache;
+use bigbytesdb_common_config::DiskCacheKeyReloadPolicy;
+use bigbytesdb_common_exception::Result;
 use log::error;
 use log::info;
 use log::warn;

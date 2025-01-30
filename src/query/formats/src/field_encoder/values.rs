@@ -13,36 +13,36 @@
 // limitations under the License.
 
 use chrono_tz::Tz;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_expression::types::array::ArrayColumn;
-use bigbytes_common_expression::types::date::date_to_string;
-use bigbytes_common_expression::types::decimal::DecimalColumn;
-use bigbytes_common_expression::types::geography::GeographyColumn;
-use bigbytes_common_expression::types::interval::interval_to_string;
-use bigbytes_common_expression::types::nullable::NullableColumn;
-use bigbytes_common_expression::types::string::StringColumn;
-use bigbytes_common_expression::types::timestamp::timestamp_to_string;
-use bigbytes_common_expression::types::BinaryColumn;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::types::NumberColumn;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_io::constants::FALSE_BYTES_NUM;
-use bigbytes_common_io::constants::INF_BYTES_LONG;
-use bigbytes_common_io::constants::INF_BYTES_LOWER;
-use bigbytes_common_io::constants::NAN_BYTES_LOWER;
-use bigbytes_common_io::constants::NAN_BYTES_SNAKE;
-use bigbytes_common_io::constants::NULL_BYTES_UPPER;
-use bigbytes_common_io::constants::TRUE_BYTES_NUM;
-use bigbytes_common_io::ewkb_to_geo;
-use bigbytes_common_io::geo_to_ewkb;
-use bigbytes_common_io::geo_to_ewkt;
-use bigbytes_common_io::geo_to_json;
-use bigbytes_common_io::geo_to_wkb;
-use bigbytes_common_io::geo_to_wkt;
-use bigbytes_common_io::GeometryDataType;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_expression::types::array::ArrayColumn;
+use bigbytesdb_common_expression::types::date::date_to_string;
+use bigbytesdb_common_expression::types::decimal::DecimalColumn;
+use bigbytesdb_common_expression::types::geography::GeographyColumn;
+use bigbytesdb_common_expression::types::interval::interval_to_string;
+use bigbytesdb_common_expression::types::nullable::NullableColumn;
+use bigbytesdb_common_expression::types::string::StringColumn;
+use bigbytesdb_common_expression::types::timestamp::timestamp_to_string;
+use bigbytesdb_common_expression::types::BinaryColumn;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::types::NumberColumn;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_io::constants::FALSE_BYTES_NUM;
+use bigbytesdb_common_io::constants::INF_BYTES_LONG;
+use bigbytesdb_common_io::constants::INF_BYTES_LOWER;
+use bigbytesdb_common_io::constants::NAN_BYTES_LOWER;
+use bigbytesdb_common_io::constants::NAN_BYTES_SNAKE;
+use bigbytesdb_common_io::constants::NULL_BYTES_UPPER;
+use bigbytesdb_common_io::constants::TRUE_BYTES_NUM;
+use bigbytesdb_common_io::ewkb_to_geo;
+use bigbytesdb_common_io::geo_to_ewkb;
+use bigbytesdb_common_io::geo_to_ewkt;
+use bigbytesdb_common_io::geo_to_json;
+use bigbytesdb_common_io::geo_to_wkb;
+use bigbytesdb_common_io::geo_to_wkt;
+use bigbytesdb_common_io::GeometryDataType;
 use geozero::wkb::Ewkb;
 use jiff::tz::TimeZone;
 use lexical_core::ToLexical;
@@ -101,7 +101,7 @@ impl FieldEncoderValues {
     // JDBC only accept "NaN" and "Infinity".
     // mysql python client will decode to python float, which is printed as 'nan' and 'inf'
     // so we still use 'nan' and 'inf' in logic test.
-    // https://github.com/getbigbytes/bigbytes/discussions/8941
+    // https://github.com/getbigbytes/bigbytesdb/discussions/8941
     pub fn create_for_mysql_handler(
         jiff_timezone: TimeZone,
         timezone: Tz,

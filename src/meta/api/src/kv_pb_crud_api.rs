@@ -14,16 +14,16 @@
 
 use std::time::Duration;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::SeqValue;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::With;
-use bigbytes_common_proto_conv::FromToProto;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::SeqValue;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::With;
+use bigbytesdb_common_proto_conv::FromToProto;
 use fastrace::func_name;
 use log::debug;
 

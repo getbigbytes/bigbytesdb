@@ -14,23 +14,23 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::TenantUserIdent;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::KeyWithTenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReply;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MatchSeqExt;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::TenantUserIdent;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::KeyWithTenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReply;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MatchSeqExt;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::UpsertKV;
 
 use crate::serde::deserialize_struct;
 use crate::serde::serialize_struct;
@@ -66,7 +66,7 @@ impl UserMgr {
         &self,
         user_info: &UserInfo,
         seq: MatchSeq,
-    ) -> bigbytes_common_exception::Result<u64> {
+    ) -> bigbytesdb_common_exception::Result<u64> {
         let key = self.user_key(&user_info.name, &user_info.hostname);
 
         let value = serialize_struct(user_info, ErrorCode::IllegalUserInfoFormat, || "")?;
@@ -94,7 +94,7 @@ impl UserApi for UserMgr {
         &self,
         user_info: UserInfo,
         create_option: &CreateOption,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let key = self.user_key(&user_info.name, &user_info.hostname);
         let value = serialize_struct(&user_info, ErrorCode::IllegalUserInfoFormat, || "")?;
 

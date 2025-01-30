@@ -14,22 +14,22 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_common_sql::plans::CreateTablePlan;
-use bigbytes_common_storage::check_operator;
-use bigbytes_common_storage::init_operator;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::FUSE_TBL_LAST_SNAPSHOT_HINT;
-use bigbytes_enterprise_attach_table::AttachTableHandler;
-use bigbytes_enterprise_attach_table::AttachTableHandlerWrapper;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_storage::check_operator;
+use bigbytesdb_common_storage::init_operator;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::FUSE_TBL_LAST_SNAPSHOT_HINT;
+use bigbytesdb_enterprise_attach_table::AttachTableHandler;
+use bigbytesdb_enterprise_attach_table::AttachTableHandlerWrapper;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
 
 pub struct RealAttachTableHandler {}
 #[async_trait::async_trait]
@@ -39,7 +39,7 @@ impl AttachTableHandler for RealAttachTableHandler {
         &self,
         storage_prefix: &str,
         plan: &CreateTablePlan,
-    ) -> bigbytes_common_exception::Result<CreateTableReq> {
+    ) -> bigbytesdb_common_exception::Result<CreateTableReq> {
         // Safe to unwrap here, as attach table must have storage params.
         let sp = plan.storage_params.as_ref().unwrap();
         let operator = init_operator(sp)?;
@@ -99,7 +99,7 @@ impl AttachTableHandler for RealAttachTableHandler {
 }
 
 impl RealAttachTableHandler {
-    pub fn init() -> bigbytes_common_exception::Result<()> {
+    pub fn init() -> bigbytesdb_common_exception::Result<()> {
         let rm = RealAttachTableHandler {};
         let wrapper = AttachTableHandlerWrapper::new(Box::new(rm));
         GlobalInstance::set(Arc::new(wrapper));

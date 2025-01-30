@@ -16,9 +16,9 @@ use std::ops::Deref;
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio::time::Instant;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio::time::Instant;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::dynamic_sample::filter_selectivity_sample::filter_selectivity_sample;
 use crate::optimizer::dynamic_sample::join_selectivity_sample::join_selectivity_sample;

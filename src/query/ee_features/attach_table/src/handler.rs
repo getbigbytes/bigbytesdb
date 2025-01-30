@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
 
 #[async_trait::async_trait]
 pub trait AttachTableHandler: Sync + Send {

@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::MatchOperation;
-use bigbytes_common_ast::ast::MatchedClause;
-use bigbytes_common_ast::ast::MergeUpdateExpr;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_ast::ast::UpdateStmt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::MatchOperation;
+use bigbytesdb_common_ast::ast::MatchedClause;
+use bigbytesdb_common_ast::ast::MergeUpdateExpr;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::ast::UpdateStmt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::bind_mutation::bind::Mutation;
 use crate::binder::bind_mutation::bind::MutationStrategy;

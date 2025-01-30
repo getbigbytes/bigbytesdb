@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-meta"
+name = "bigbytesdb-meta"
 description = "distributed meta data service"
 version = { workspace = true }
 authors = { workspace = true }
@@ -13,10 +13,10 @@ test = true
 
 [features]
 default = []
-memory-profiling = ["bigbytes-common-base/memory-profiling", "bigbytes-common-http/memory-profiling"]
+memory-profiling = ["bigbytesdb-common-base/memory-profiling", "bigbytesdb-common-http/memory-profiling"]
 io-uring = [
-    "bigbytes-common-meta-sled-store/io-uring",
-    "bigbytes-common-meta-raft-store/io-uring",
+    "bigbytesdb-common-meta-sled-store/io-uring",
+    "bigbytesdb-common-meta-raft-store/io-uring",
 ]
 
 [dependencies]
@@ -26,18 +26,18 @@ arrow-flight = { workspace = true }
 async-trait = { workspace = true }
 backon = { workspace = true }
 clap = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-http = { workspace = true }
-bigbytes-common-meta-api = { workspace = true }
-bigbytes-common-meta-client = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-raft-store = { workspace = true }
-bigbytes-common-meta-sled-store = { workspace = true }
-bigbytes-common-meta-stoerr = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-http = { workspace = true }
+bigbytesdb-common-meta-api = { workspace = true }
+bigbytesdb-common-meta-client = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-raft-store = { workspace = true }
+bigbytesdb-common-meta-sled-store = { workspace = true }
+bigbytesdb-common-meta-stoerr = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
 deepsize = { workspace = true }
 derive_more = { workspace = true }
 fastrace = { workspace = true }
@@ -74,7 +74,7 @@ tempfile = { workspace = true }
 test-harness = { workspace = true }
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 
 [lints]
 workspace = true

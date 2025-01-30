@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-fuzz"
+name = "bigbytesdb-fuzz"
 version = "0.1.0"
 edition = "2021"
 publish = false
@@ -16,6 +16,6 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-ast = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
 
 afl = "0.12"

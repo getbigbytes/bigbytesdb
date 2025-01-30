@@ -19,12 +19,12 @@ use std::ops::BitOr;
 use std::ops::Not;
 use std::sync::Arc;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::GeometryDataType;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::GeometryDataType;
 use enum_as_inner::EnumAsInner;
 use itertools::Itertools;
 use jiff::tz::TimeZone;
@@ -689,7 +689,7 @@ where F: Fn(&[Value<AnyType>], &mut EvalContext) -> Value<AnyType> {
                 let result = match column {
                     Column::Nullable(box nullable_column) => {
                         let validity: Bitmap = bitmap.into();
-                        let validity = bigbytes_common_column::bitmap::and(
+                        let validity = bigbytesdb_common_column::bitmap::and(
                             &nullable_column.validity,
                             &validity,
                         );

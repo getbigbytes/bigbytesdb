@@ -15,12 +15,12 @@
 use std::path::PathBuf;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::CacheConfig;
-use bigbytes_common_config::CacheStorageTypeInnerConfig;
-use bigbytes_common_config::DiskCacheKeyReloadPolicy;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::CacheConfig;
+use bigbytesdb_common_config::CacheStorageTypeInnerConfig;
+use bigbytesdb_common_config::DiskCacheKeyReloadPolicy;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use log::info;
 use parking_lot::RwLock;
 

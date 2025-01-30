@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_stream::stream_table::STREAM_ENGINE;
-use bigbytes_common_storages_view::view_table::VIEW_ENGINE;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_stream::stream_table::STREAM_ENGINE;
+use bigbytesdb_common_storages_view::view_table::VIEW_ENGINE;
 
 use crate::interpreters::access::AccessChecker;
 use crate::sessions::QueryContext;
@@ -41,7 +41,7 @@ impl AccessChecker for ManagementModeAccess {
         if GlobalConfig::instance().query.management_mode {
             let ok = match plan {
                 Plan::Query {rewrite_kind, .. } => {
-                    use bigbytes_common_sql::plans::RewriteKind;
+                    use bigbytesdb_common_sql::plans::RewriteKind;
                         match rewrite_kind  {
                             Some(ref v) => matches!(v,
                             RewriteKind::ShowDatabases

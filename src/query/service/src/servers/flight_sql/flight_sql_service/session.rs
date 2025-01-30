@@ -16,9 +16,9 @@ use std::sync::Arc;
 
 use base64::prelude::BASE64_STANDARD;
 use base64::Engine;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_users::UserApiProvider;
 use tonic::metadata::MetadataMap;
 use tonic::Request;
 use tonic::Status;

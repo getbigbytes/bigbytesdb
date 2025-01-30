@@ -17,9 +17,9 @@ use std::sync::Arc;
 use arrow_schema::DataType as ArrowDataType;
 use arrow_schema::Field as ArrowField;
 use arrow_schema::Schema as ArrowSchema;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
 
 pub(crate) fn lower_field_name(field: &ArrowField) -> ArrowField {
     let name = field.name().to_lowercase();

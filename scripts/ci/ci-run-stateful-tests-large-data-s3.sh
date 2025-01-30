@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -15,14 +15,14 @@ echo "*******************************************"
 case $RUNNER_PROVIDER in
 "aws")
 	export STORAGE_TYPE=s3
-	export STORAGE_S3_BUCKET=bigbytes-ci
+	export STORAGE_S3_BUCKET=bigbytesdb-ci
 	export STORAGE_S3_REGION=us-east-2
 	export STORAGE_S3_ROOT="stateful/${TEST_ID}"
 	export STORAGE_ALLOW_INSECURE=true
 	;;
 "gcp")
 	export STORAGE_TYPE=gcs
-	export STORAGE_GCS_BUCKET=bigbytes-ci
+	export STORAGE_GCS_BUCKET=bigbytesdb-ci
 	export STORAGE_GCS_REGION=us-central1
 	export STORAGE_GCS_ROOT="stateful/${TEST_ID}"
 	;;
@@ -37,10 +37,10 @@ python3 -m pip install --quiet mysql-connector-python
 
 echo "calling test suite"
 echo "Starting standalone BigbytesQuery(debug)"
-./scripts/ci/deploy/bigbytes-query-standalone.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
 cd "$SCRIPT_PATH/../../tests" || exit
 
-echo "Starting bigbytes-test"
-./bigbytes-test "$1" --mode 'standalone' --run-dir 4_stateful_large_data
+echo "Starting bigbytesdb-test"
+./bigbytesdb-test "$1" --mode 'standalone' --run-dir 4_stateful_large_data

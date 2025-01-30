@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_pipeline_core::PipeItem;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::TransformDummy;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_pipeline_core::PipeItem;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::TransformDummy;
 
 use super::exchange_params::ExchangeParams;
 use super::exchange_params::MergeExchangeParams;

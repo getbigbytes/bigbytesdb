@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_compress::CompressAlgorithm;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_compress::CompressAlgorithm;
 
 pub fn unload_path(
     stage_table_info: &StageTableInfo,

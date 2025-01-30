@@ -13,19 +13,19 @@
 // limitations under the License.
 
 use anyerror::AnyError;
-use bigbytes_common_meta_client::MetaGrpcReadReq;
-use bigbytes_common_meta_kvapi::kvapi::GetKVReply;
-use bigbytes_common_meta_kvapi::kvapi::GetKVReq;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReply;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReq;
-use bigbytes_common_meta_kvapi::kvapi::MGetKVReply;
-use bigbytes_common_meta_kvapi::kvapi::MGetKVReq;
-use bigbytes_common_meta_types::protobuf::RaftRequest;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::AppliedState;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::LogEntry;
-use bigbytes_common_meta_types::MetaAPIError;
+use bigbytesdb_common_meta_client::MetaGrpcReadReq;
+use bigbytesdb_common_meta_kvapi::kvapi::GetKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::GetKVReq;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReq;
+use bigbytesdb_common_meta_kvapi::kvapi::MGetKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::MGetKVReq;
+use bigbytesdb_common_meta_types::protobuf::RaftRequest;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::AppliedState;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::LogEntry;
+use bigbytesdb_common_meta_types::MetaAPIError;
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 pub struct JoinRequest {

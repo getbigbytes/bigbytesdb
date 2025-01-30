@@ -14,21 +14,21 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::check_cast;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_license::license::Feature::ComputedColumn;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_pipeline_transforms::processors::Transform;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::evaluator::CompoundBlockOperator;
-use bigbytes_common_sql::parse_computed_expr;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::check_cast;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_license::license::Feature::ComputedColumn;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_pipeline_transforms::processors::Transform;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::evaluator::CompoundBlockOperator;
+use bigbytesdb_common_sql::parse_computed_expr;
 
 use crate::sessions::QueryContext;
 

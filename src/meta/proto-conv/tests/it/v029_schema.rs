@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
 use fastrace::func_name;
 
 use crate::common;

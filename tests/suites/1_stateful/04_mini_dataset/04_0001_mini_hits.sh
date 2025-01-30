@@ -9,7 +9,7 @@ cat $TESTS_DATA_DIR/ddl/hits.sql | $BENDSQL_CLIENT_CONNECT
 
 hits_statements=(
   ## load data
-  "COPY INTO hits FROM 'https://ci.bigbytes.com/dataset/stateful/hits_100k.tsv' FILE_FORMAT = ( type = 'tsv' record_delimiter = '\n' skip_header = 1 );"
+  "COPY INTO hits FROM 'https://ci.bigbytesdb.com/dataset/stateful/hits_100k.tsv' FILE_FORMAT = ( type = 'tsv' record_delimiter = '\n' skip_header = 1 );"
   ## run test
   "SELECT '====== SQL1 ======';"
   "SELECT COUNT(*) FROM hits;"
@@ -22,7 +22,7 @@ hits_statements=(
   "SELECT '====== SQL5 ======';"
   "SELECT COUNT(DISTINCT UserID) FROM hits;"
   "SELECT '====== SQL6 ======';"
-  #"SELECT COUNT(DISTINCT SearchPhrase) FROM hits;" # wait for bugfix  https://github.com/getbigbytes/bigbytes/issues/7743
+  #"SELECT COUNT(DISTINCT SearchPhrase) FROM hits;" # wait for bugfix  https://github.com/getbigbytes/bigbytesdb/issues/7743
   "SELECT COUNT(DISTINCT SearchPhrase) FROM (select SearchPhrase from hits order by SearchPhrase)"
   "SELECT '====== SQL7 ======';"
   "SELECT MIN(EventDate), MAX(EventDate) FROM hits;"

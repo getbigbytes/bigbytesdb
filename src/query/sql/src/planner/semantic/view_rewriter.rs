@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::TableReference;
 use derive_visitor::VisitorMut;
 
 #[derive(Debug, Clone, Default, VisitorMut)]

@@ -14,17 +14,17 @@
 
 use std::any::type_name;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::app_error::AppError;
-use bigbytes_common_meta_app::app_error::TenantIsEmpty;
-use bigbytes_common_meta_app::app_error::TxnRetryMaxTimes;
-use bigbytes_common_meta_stoerr::MetaStorageError;
-use bigbytes_common_meta_types::InvalidArgument;
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MetaAPIError;
-use bigbytes_common_meta_types::MetaClientError;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::app_error::AppError;
+use bigbytesdb_common_meta_app::app_error::TenantIsEmpty;
+use bigbytesdb_common_meta_app::app_error::TxnRetryMaxTimes;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_types::InvalidArgument;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MetaAPIError;
+use bigbytesdb_common_meta_types::MetaClientError;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaNetworkError;
 use tonic::Status;
 
 use crate::meta_txn_error::MetaTxnError;

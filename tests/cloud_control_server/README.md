@@ -1,4 +1,4 @@
-## Bigbytes Cloud Control grpc Server Tests
+## Bigbytesdb Cloud Control grpc Server Tests
 
 
 ### How to run
@@ -8,7 +8,7 @@ pip install grpcio grpcio-reflection protobuf
 # start UDF server
 python3 simple_server.py
 ```
-#### make sure bigbytes config is correct
+#### make sure bigbytesdb config is correct
 you need to add the setting to your config.toml
 ```toml
 [query]
@@ -17,6 +17,6 @@ cloud_control_grpc_server_address = "http://0.0.0.0:50051"
 
 #### run sql-logic-test on cloud control server
 ```sh
-./target/debug/bigbytes-sqllogictests --run_dir task
+./target/debug/bigbytesdb-sqllogictests --run_dir task
 ```
 

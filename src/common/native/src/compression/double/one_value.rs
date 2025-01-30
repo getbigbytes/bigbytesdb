@@ -15,7 +15,7 @@
 use std::io::Read;
 use std::io::Write;
 
-use bigbytes_common_column::buffer::Buffer;
+use bigbytesdb_common_column::buffer::Buffer;
 
 use super::DoubleCompression;
 use super::DoubleStats;

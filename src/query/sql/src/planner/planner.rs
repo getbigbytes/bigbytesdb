@@ -15,23 +15,23 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::InsertSource;
-use bigbytes_common_ast::ast::InsertStmt;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::parser::parse_raw_insert_stmt;
-use bigbytes_common_ast::parser::parse_raw_replace_stmt;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::token::Token;
-use bigbytes_common_ast::parser::token::TokenKind;
-use bigbytes_common_ast::parser::token::Tokenizer;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::InsertSource;
+use bigbytesdb_common_ast::ast::InsertStmt;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::parser::parse_raw_insert_stmt;
+use bigbytesdb_common_ast::parser::parse_raw_replace_stmt;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::token::Token;
+use bigbytesdb_common_ast::parser::token::TokenKind;
+use bigbytesdb_common_ast::parser::token::Tokenizer;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use derive_visitor::DriveMut;
 use log::info;
 use log::warn;
@@ -121,7 +121,7 @@ impl Planner {
 
         // Only tokenize the beginning tokens for `INSERT INTO` statement because the rest tokens after `VALUES` is unused.
         // Stop the tokenizer on unrecognized token because some values inputs (e.g. CSV) may not be valid for the tokenizer.
-        // See also: https://github.com/getbigbytes/bigbytes/issues/6669
+        // See also: https://github.com/getbigbytes/bigbytesdb/issues/6669
         let first_token = tokenizer
             .peek()
             .and_then(|token| Some(token.as_ref().ok()?.kind));
@@ -145,10 +145,10 @@ impl Planner {
                 .take_while(|token| token.is_ok())
                 // Make sure the tokens stream is always ended with EOI.
                 .chain(std::iter::once(Ok(Token::new_eoi(&final_sql))))
-                .collect::<bigbytes_common_ast::Result<_>>()
+                .collect::<bigbytesdb_common_ast::Result<_>>()
                 .unwrap()
         } else {
-            (&mut tokenizer).collect::<bigbytes_common_ast::Result<_>>()?
+            (&mut tokenizer).collect::<bigbytesdb_common_ast::Result<_>>()?
         };
 
         loop {

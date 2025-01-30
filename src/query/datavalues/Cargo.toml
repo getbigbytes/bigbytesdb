@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-datavalues"
+name = "bigbytesdb-common-datavalues"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }

@@ -4,7 +4,7 @@ from multiprocessing import Pool
 import time
 import argparse
 
-warehouse_dsn = "bigbytes://root:@localhost:8000/?sslmode=disable"
+warehouse_dsn = "bigbytesdb://root:@localhost:8000/?sslmode=disable"
 log_table = "events"
 
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     warehouse_dsn = os.getenv(
-        "WAREHOUSE_DSN", "bigbytes://root:@localhost:8000/?sslmode=disable"
+        "WAREHOUSE_DSN", "bigbytesdb://root:@localhost:8000/?sslmode=disable"
     )
     directory_path = args.dir
     maximum_time_limit = args.iter

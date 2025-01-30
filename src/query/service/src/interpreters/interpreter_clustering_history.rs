@@ -15,9 +15,9 @@
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_system::ClusteringHistoryLogElement;
-use bigbytes_common_storages_system::ClusteringHistoryQueue;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_system::ClusteringHistoryLogElement;
+use bigbytesdb_common_storages_system::ClusteringHistoryQueue;
 
 use crate::sessions::QueryContext;
 use crate::sessions::TableContext;

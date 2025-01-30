@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::seq_value::SeqValue;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::seq_value::SeqValue;
 
 use crate::marked::InternalSeq;
 use crate::marked::Marked;

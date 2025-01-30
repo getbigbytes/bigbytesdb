@@ -1,15 +1,15 @@
 # How to add new functions
 
-- [Scalar function](https://docs.bigbytes.com/guides/community/contributor/how-to-write-scalar-functions)
+- [Scalar function](https://docs.bigbytesdb.com/guides/community/contributor/how-to-write-scalar-functions)
 
-- [Aggregate function](https://docs.bigbytes.com/guides/community/contributor/how-to-write-aggregate-functions)
+- [Aggregate function](https://docs.bigbytesdb.com/guides/community/contributor/how-to-write-aggregate-functions)
 
 ## Don't forget to add tests
 
 - run:
 	`env REGENERATE_GOLDENFILES=1 cargo test` after adding new functions
 
-- build and run bigbytes, prepare for logical tests:
+- build and run bigbytesdb, prepare for logical tests:
 	```shell
 	make build
 	make run-debug
@@ -18,8 +18,8 @@
 - Add logic tests file in "tests/sqllogictests/suites/query/functions/*.test" and run:
 	```shell
 	cargo run \
-    -p bigbytes-sqllogictests \
-    --bin bigbytes-sqllogictests \
+    -p bigbytesdb-sqllogictests \
+    --bin bigbytesdb-sqllogictests \
     -- \
     --handlers "http" \
     --run_dir functions \

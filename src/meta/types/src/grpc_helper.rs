@@ -25,8 +25,8 @@ use crate::protobuf::RaftRequest;
 use crate::raft_types::RaftError;
 use crate::Endpoint;
 
-const HEADER_LEADER: &str = "x-bigbytes-meta-leader-grpc-endpoint";
-// const HEADER_LEADER_BIN: &str = "x-bigbytes-meta-leader-grpc-endpoint-bin";
+const HEADER_LEADER: &str = "x-bigbytesdb-meta-leader-grpc-endpoint";
+// const HEADER_LEADER_BIN: &str = "x-bigbytesdb-meta-leader-grpc-endpoint-bin";
 
 pub struct GrpcHelper;
 
@@ -34,7 +34,7 @@ impl GrpcHelper {
     /// Inject span into a tonic request, so that on the remote peer the tracing context can be restored.
     pub fn traced_req<T>(t: T) -> tonic::Request<T> {
         let req = tonic::Request::new(t);
-        bigbytes_common_tracing::inject_span_to_tonic_request(req)
+        bigbytesdb_common_tracing::inject_span_to_tonic_request(req)
     }
 
     /// Add leader endpoint to the reply to inform the client to contact the leader directly.

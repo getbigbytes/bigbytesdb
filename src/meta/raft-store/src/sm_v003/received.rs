@@ -14,8 +14,8 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_types::raft_types::SnapshotMeta;
-use bigbytes_common_meta_types::raft_types::Vote;
+use bigbytesdb_common_meta_types::raft_types::SnapshotMeta;
+use bigbytesdb_common_meta_types::raft_types::Vote;
 
 /// Contains information about a received snapshot data.
 #[derive(Debug)]

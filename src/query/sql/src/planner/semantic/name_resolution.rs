@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::quote::ident_needs_quote;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::IdentifierType;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_ast::ast::quote::ident_needs_quote;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::IdentifierType;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_settings::Settings;
 use derive_visitor::VisitorMut;
 
 #[derive(Debug, Clone)]
@@ -66,9 +66,9 @@ impl Default for NameResolutionContext {
 }
 
 impl TryFrom<&Settings> for NameResolutionContext {
-    type Error = bigbytes_common_exception::ErrorCode;
+    type Error = bigbytesdb_common_exception::ErrorCode;
 
-    fn try_from(settings: &Settings) -> bigbytes_common_exception::Result<Self> {
+    fn try_from(settings: &Settings) -> bigbytesdb_common_exception::Result<Self> {
         let unquoted_ident_case_sensitive = settings.get_unquoted_ident_case_sensitive()?;
         let quoted_ident_case_sensitive = settings.get_quoted_ident_case_sensitive()?;
 

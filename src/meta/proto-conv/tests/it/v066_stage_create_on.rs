@@ -14,10 +14,10 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
 use fastrace::func_name;
 
 use crate::common;
@@ -74,7 +74,7 @@ fn test_decode_v66_stage() -> anyhow::Result<()> {
         comment: "ccc".to_string(),
         number_of_files: 100,
         creator: Some(UserIdentity {
-            username: "bigbytes".to_string(),
+            username: "bigbytesdb".to_string(),
             hostname: "%".to_string(),
         }),
         created_on: DateTime::<Utc>::from_timestamp(1702603569, 0).unwrap(),

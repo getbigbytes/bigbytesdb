@@ -14,20 +14,20 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Value;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::executor::cast_expr_to_non_null_boolean;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::executor::cast_expr_to_non_null_boolean;
 
 use super::utils::expr2prdicate;
 use super::utils::get_and;
@@ -65,7 +65,7 @@ impl UpdateByExprMutator {
     pub fn update_by_expr(&self, data_block: DataBlock) -> Result<DataBlock> {
         let const_expr = Expr::Constant {
             span: None,
-            scalar: bigbytes_common_expression::Scalar::Boolean(true),
+            scalar: bigbytesdb_common_expression::Scalar::Boolean(true),
             data_type: DataType::Boolean,
         };
         let mut expr = if self.expr.is_none() {

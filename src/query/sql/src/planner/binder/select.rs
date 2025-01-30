@@ -16,19 +16,19 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::SelectStmt;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_ast::ast::SetOperator;
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::common_super_type;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ROW_ID_COLUMN_ID;
-use bigbytes_common_expression::ROW_ID_COL_NAME;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::SelectStmt;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::SetOperator;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::common_super_type;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ROW_ID_COLUMN_ID;
+use bigbytesdb_common_expression::ROW_ID_COL_NAME;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use super::sort::OrderItem;
 use super::Finder;
@@ -199,7 +199,7 @@ impl Binder {
                 cte_name,
             ),
             _ => Err(ErrorCode::Unimplemented(
-                "Unsupported query type, currently, bigbytes only support intersect distinct and except distinct",
+                "Unsupported query type, currently, bigbytesdb only support intersect distinct and except distinct",
             )),
         }
     }

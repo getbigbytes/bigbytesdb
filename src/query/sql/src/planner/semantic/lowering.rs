@@ -14,15 +14,15 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ColumnIndex;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ColumnIndex;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::binder::DummyColumnType;
 use crate::plans::ScalarExpr;

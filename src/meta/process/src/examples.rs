@@ -15,8 +15,8 @@
 use std::collections::BTreeMap;
 
 use clap::Parser;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::Config as LogConfig;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::Config as LogConfig;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -62,7 +62,7 @@ async fn upgrade_09() -> anyhow::Result<()> {
     let config = Config::parse();
 
     let _guards = init_logging(
-        "bigbytes-meta-upgrade-09",
+        "bigbytesdb-meta-upgrade-09",
         &LogConfig::default(),
         BTreeMap::new(),
     );

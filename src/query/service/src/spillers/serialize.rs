@@ -19,15 +19,15 @@ use arrow_schema::Schema;
 use buf_list::BufList;
 use buf_list::Cursor;
 use bytes::Buf;
-use bigbytes_common_base::base::Alignment;
-use bigbytes_common_base::base::DmaWriteBuf;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::arrow::read_column;
-use bigbytes_common_expression::arrow::write_column;
-use bigbytes_common_expression::infer_table_schema;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
+use bigbytesdb_common_base::base::Alignment;
+use bigbytesdb_common_base::base::DmaWriteBuf;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::arrow::read_column;
+use bigbytesdb_common_expression::arrow::write_column;
+use bigbytesdb_common_expression::infer_table_schema;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
 use opendal::Buffer;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReader;
 use parquet::arrow::ArrowWriter;
@@ -210,10 +210,10 @@ impl ChunkReader for Reader {
 #[cfg(test)]
 mod tests {
     use bytes::Bytes;
-    use bigbytes_common_expression::block_debug::assert_block_value_eq;
-    use bigbytes_common_expression::types::Int64Type;
-    use bigbytes_common_expression::types::StringType;
-    use bigbytes_common_expression::FromData;
+    use bigbytesdb_common_expression::block_debug::assert_block_value_eq;
+    use bigbytesdb_common_expression::types::Int64Type;
+    use bigbytesdb_common_expression::types::StringType;
+    use bigbytesdb_common_expression::FromData;
 
     use super::*;
 

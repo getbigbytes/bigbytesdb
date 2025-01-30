@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::optimizer::extract::Matcher;
 use crate::optimizer::rule::Rule;

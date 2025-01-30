@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::raft_types::Membership;
-use bigbytes_common_meta_types::raft_types::StoredMembership;
-use bigbytes_common_meta_types::seq_value::KVMeta;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::Node;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::raft_types::Membership;
+use bigbytesdb_common_meta_types::raft_types::StoredMembership;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures_util::TryStreamExt;
 use maplit::btreemap;
 use openraft::testing::log_id;

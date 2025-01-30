@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use bumpalo::Bump;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_io::prelude::bincode_deserialize_from_slice;
-use bigbytes_common_io::prelude::bincode_serialize_into_buf;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_io::prelude::bincode_deserialize_from_slice;
+use bigbytesdb_common_io::prelude::bincode_serialize_into_buf;
 use ethnum::i256;
 
 use crate::read;
@@ -379,7 +379,7 @@ unsafe fn row_match_binary_column(
                 } else {
                     let data_address = read::<u64>(address as _) as usize as *const u8;
                     let scalar = std::slice::from_raw_parts(data_address, len);
-                    equal = bigbytes_common_hashtable::fast_memcmp(scalar, value);
+                    equal = bigbytesdb_common_hashtable::fast_memcmp(scalar, value);
                 }
             } else {
                 equal = is_set == is_set2;
@@ -408,7 +408,7 @@ unsafe fn row_match_binary_column(
                 let data_address = read::<u64>(address as _) as usize as *const u8;
                 let scalar = std::slice::from_raw_parts(data_address, len);
 
-                equal = bigbytes_common_hashtable::fast_memcmp(scalar, value);
+                equal = bigbytesdb_common_hashtable::fast_memcmp(scalar, value);
             }
 
             if equal {
@@ -460,7 +460,7 @@ unsafe fn row_match_string_column(
                 } else {
                     let data_address = read::<u64>(address as _) as usize as *const u8;
                     let scalar = std::slice::from_raw_parts(data_address, len);
-                    equal = bigbytes_common_hashtable::fast_memcmp(scalar, value.as_bytes());
+                    equal = bigbytesdb_common_hashtable::fast_memcmp(scalar, value.as_bytes());
                 }
             } else {
                 equal = is_set == is_set2;
@@ -489,7 +489,7 @@ unsafe fn row_match_string_column(
                 let data_address = read::<u64>(address as _) as usize as *const u8;
                 let scalar = std::slice::from_raw_parts(data_address, len);
 
-                equal = bigbytes_common_hashtable::fast_memcmp(scalar, value.as_bytes());
+                equal = bigbytesdb_common_hashtable::fast_memcmp(scalar, value.as_bytes());
             }
 
             if equal {

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::ShowColumnsStmt;
-use bigbytes_common_ast::ast::ShowLimit;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::ShowColumnsStmt;
+use bigbytesdb_common_ast::ast::ShowLimit;
+use bigbytesdb_common_exception::Result;
 use log::debug;
 
 use crate::normalize_identifier;

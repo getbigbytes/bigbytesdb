@@ -14,9 +14,9 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_meta_app::schema::VirtualColumnMeta;
-use bigbytes_common_meta_app::schema::VirtualField;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_meta_app::schema::VirtualColumnMeta;
+use bigbytesdb_common_meta_app::schema::VirtualField;
 use fastrace::func_name;
 
 use crate::common;

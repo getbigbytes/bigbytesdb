@@ -4,53 +4,53 @@ platform: "linux"
 version: "${version}"
 section: "database"
 priority: "extra"
-maintainer: "Bigbytes Authors <opensource@getbigbytes.com>"
+maintainer: "Bigbytesdb Authors <opensource@getbigbytes.com>"
 description: |
-  Bigbytes is a powerful cloud data warehouse. Built for elasticity and efficiency.
-  Free and open. Also available in the cloud: https://app.bigbytes.com
+  Bigbytesdb is a powerful cloud data warehouse. Built for elasticity and efficiency.
+  Free and open. Also available in the cloud: https://app.bigbytesdb.com
 vendor: "Digitrans Inc"
-homepage: "https://bigbytes.com"
+homepage: "https://bigbytesdb.com"
 license: "Apache-2.0"
 depends:
   - libc6 (>= 2.31)
 contents:
   # Binaries
-  - src: ${path}/bin/bigbytes-query
-    dst: /usr/bin/bigbytes-query
-  - src: ${path}/bin/bigbytes-meta
-    dst: /usr/bin/bigbytes-meta
-  - src: ${path}/bin/bigbytes-metactl
-    dst: /usr/bin/bigbytes-metactl
+  - src: ${path}/bin/bigbytesdb-query
+    dst: /usr/bin/bigbytesdb-query
+  - src: ${path}/bin/bigbytesdb-meta
+    dst: /usr/bin/bigbytesdb-meta
+  - src: ${path}/bin/bigbytesdb-metactl
+    dst: /usr/bin/bigbytesdb-metactl
 
   # Configs
-  - src: ${path}/configs/bigbytes-query.toml
-    dst: /etc/bigbytes/bigbytes-query.toml
+  - src: ${path}/configs/bigbytesdb-query.toml
+    dst: /etc/bigbytesdb/bigbytesdb-query.toml
     type: config
-  - src: ${path}/configs/bigbytes-meta.toml
-    dst: /etc/bigbytes/bigbytes-meta.toml
+  - src: ${path}/configs/bigbytesdb-meta.toml
+    dst: /etc/bigbytesdb/bigbytesdb-meta.toml
     type: config
 
   # Systemd
-  - src: ${path}/systemd/bigbytes-query.service
-    dst: /lib/systemd/system/bigbytes-query.service
-  - src: ${path}/systemd/bigbytes-meta.service
-    dst: /lib/systemd/system/bigbytes-meta.service
-  - src: ${path}/systemd/bigbytes-query.default
-    dst: /etc/default/bigbytes-query
-  - src: ${path}/systemd/bigbytes-meta.default
-    dst: /etc/default/bigbytes-meta
+  - src: ${path}/systemd/bigbytesdb-query.service
+    dst: /lib/systemd/system/bigbytesdb-query.service
+  - src: ${path}/systemd/bigbytesdb-meta.service
+    dst: /lib/systemd/system/bigbytesdb-meta.service
+  - src: ${path}/systemd/bigbytesdb-query.default
+    dst: /etc/default/bigbytesdb-query
+  - src: ${path}/systemd/bigbytesdb-meta.default
+    dst: /etc/default/bigbytesdb-meta
 
   # Docs
   - src: ${path}/readme.txt
-    dst: /usr/share/doc/bigbytes/readme.txt
+    dst: /usr/share/doc/bigbytesdb/readme.txt
     file_info:
       mode: 0644
 
-  - dst: /var/lib/bigbytes
+  - dst: /var/lib/bigbytesdb
     type: dir
     file_info:
       mode: 0750
-  - dst: /var/log/bigbytes
+  - dst: /var/log/bigbytesdb
     type: dir
     file_info:
       mode: 0755

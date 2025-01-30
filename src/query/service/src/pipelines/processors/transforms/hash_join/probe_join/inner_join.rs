@@ -15,12 +15,12 @@
 use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::KeyAccessor;
-use bigbytes_common_hashtable::HashJoinHashtableLike;
-use bigbytes_common_hashtable::RowPtr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::KeyAccessor;
+use bigbytesdb_common_hashtable::HashJoinHashtableLike;
+use bigbytesdb_common_hashtable::RowPtr;
 
 use crate::pipelines::processors::transforms::hash_join::build_state::BuildBlockGenerationState;
 use crate::pipelines::processors::transforms::hash_join::common::wrap_true_validity;

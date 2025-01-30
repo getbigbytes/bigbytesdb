@@ -29,8 +29,8 @@ impl BackgroundJobIdent {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::background::background_job_id_ident::BackgroundJobId;
     use crate::background::BackgroundJobIdent;
@@ -72,7 +72,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::BackgroundJobIdent;
     use crate::tenant::Tenant;

@@ -15,11 +15,11 @@
 use std::collections::HashMap;
 use std::ops::Add;
 
-use bigbytes_common_expression::TableSchema;
-use bigbytes_storages_common_table_meta::meta::testing::StatisticsV0;
-use bigbytes_storages_common_table_meta::meta::testing::TableSnapshotV1;
-use bigbytes_storages_common_table_meta::meta::testing::TableSnapshotV2;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_storages_common_table_meta::meta::testing::StatisticsV0;
+use bigbytesdb_storages_common_table_meta::meta::testing::TableSnapshotV1;
+use bigbytesdb_storages_common_table_meta::meta::testing::TableSnapshotV2;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use uuid::Uuid;
 
 fn default_snapshot() -> TableSnapshot {
@@ -124,7 +124,7 @@ fn test_snapshot_reader() {
 #[test]
 fn test_seg_reader() {
     let meta = include_bytes!("c_seg_v4.mpk");
-    let seg = bigbytes_storages_common_table_meta::meta::SegmentInfo::from_slice(meta).unwrap();
+    let seg = bigbytesdb_storages_common_table_meta::meta::SegmentInfo::from_slice(meta).unwrap();
     assert!(!seg.summary.col_stats.is_empty());
     assert!(!seg.blocks.is_empty());
 }

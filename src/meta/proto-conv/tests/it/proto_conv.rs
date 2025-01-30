@@ -22,19 +22,19 @@ use ce::types::NumberDataType;
 use chrono::DateTime;
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_expression as ce;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema as mt;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::IcebergCatalogOption;
-use bigbytes_common_meta_app::schema::IcebergRestCatalogOption;
-use bigbytes_common_meta_app::schema::IndexType;
-use bigbytes_common_meta_app::schema::LockType;
-use bigbytes_common_proto_conv::FromToProto;
-use bigbytes_common_proto_conv::Incompatible;
-use bigbytes_common_proto_conv::VER;
+use bigbytesdb_common_expression as ce;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema as mt;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergCatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergRestCatalogOption;
+use bigbytesdb_common_meta_app::schema::IndexType;
+use bigbytesdb_common_meta_app::schema::LockType;
+use bigbytesdb_common_proto_conv::FromToProto;
+use bigbytesdb_common_proto_conv::Incompatible;
+use bigbytesdb_common_proto_conv::VER;
 use maplit::btreemap;
 use maplit::btreeset;
 use pretty_assertions::assert_eq;
@@ -225,8 +225,8 @@ pub(crate) fn new_lock_meta() -> mt::LockMeta {
     }
 }
 
-fn new_data_mask_meta() -> bigbytes_common_meta_app::data_mask::DatamaskMeta {
-    bigbytes_common_meta_app::data_mask::DatamaskMeta {
+fn new_data_mask_meta() -> bigbytesdb_common_meta_app::data_mask::DatamaskMeta {
+    bigbytesdb_common_meta_app::data_mask::DatamaskMeta {
         args: vec![("a".to_string(), "String".to_string())],
         return_type: "String".to_string(),
         body: "CASE WHEN current_role() IN('ANALYST') THEN VAL ELSE '*********' END".to_string(),
@@ -236,8 +236,8 @@ fn new_data_mask_meta() -> bigbytes_common_meta_app::data_mask::DatamaskMeta {
     }
 }
 
-fn new_table_statistics() -> bigbytes_common_meta_app::schema::TableStatistics {
-    bigbytes_common_meta_app::schema::TableStatistics {
+fn new_table_statistics() -> bigbytesdb_common_meta_app::schema::TableStatistics {
+    bigbytesdb_common_meta_app::schema::TableStatistics {
         number_of_rows: 100,
         data_bytes: 200,
         compressed_data_bytes: 15,
@@ -247,12 +247,12 @@ fn new_table_statistics() -> bigbytes_common_meta_app::schema::TableStatistics {
     }
 }
 
-fn new_catalog_meta() -> bigbytes_common_meta_app::schema::CatalogMeta {
-    bigbytes_common_meta_app::schema::CatalogMeta {
+fn new_catalog_meta() -> bigbytesdb_common_meta_app::schema::CatalogMeta {
+    bigbytesdb_common_meta_app::schema::CatalogMeta {
         catalog_option: CatalogOption::Iceberg(IcebergCatalogOption::Rest(
             IcebergRestCatalogOption {
                 uri: "http://127.0.0.1:9900".to_string(),
-                warehouse: "bigbytes_has_super_power".to_string(),
+                warehouse: "bigbytesdb_has_super_power".to_string(),
                 props: Default::default(),
             },
         )),
@@ -279,7 +279,7 @@ fn test_pb_from_to() -> anyhow::Result<()> {
 
     let data_mask_meta = new_data_mask_meta();
     let p = data_mask_meta.to_pb()?;
-    let got = bigbytes_common_meta_app::data_mask::DatamaskMeta::from_pb(p)?;
+    let got = bigbytesdb_common_meta_app::data_mask::DatamaskMeta::from_pb(p)?;
     assert_eq!(data_mask_meta, got);
 
     let lvt = new_lvt();

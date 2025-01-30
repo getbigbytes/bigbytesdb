@@ -15,36 +15,36 @@
 use std::env;
 use std::time::Duration;
 
-use bigbytes_common_base::mem_allocator::GlobalAllocator;
-use bigbytes_common_base::runtime::set_alloc_error_hook;
-use bigbytes_common_base::runtime::GLOBAL_MEM_STAT;
-use bigbytes_common_config::Commands;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_config::BIGBYTES_GIT_SEMVER;
-use bigbytes_common_config::BIGBYTES_GIT_SHA;
-use bigbytes_common_config::BIGBYTES_SEMVER;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
-use bigbytes_common_meta_client::MIN_METASRV_SEMVER;
-use bigbytes_common_metrics::system::set_system_version;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_tracing::set_panic_hook;
-use bigbytes_enterprise_background_service::get_background_service_handler;
-use bigbytes_query::clusters::ClusterDiscovery;
-use bigbytes_query::local;
-use bigbytes_query::servers::admin::AdminService;
-use bigbytes_query::servers::flight::FlightService;
-use bigbytes_query::servers::metrics::MetricService;
-use bigbytes_query::servers::FlightSQLServer;
-use bigbytes_query::servers::HttpHandler;
-use bigbytes_query::servers::HttpHandlerKind;
-use bigbytes_query::servers::MySQLHandler;
-use bigbytes_query::servers::MySQLTlsConfig;
-use bigbytes_query::servers::Server;
-use bigbytes_query::servers::ShutdownHandle;
-use bigbytes_query::GlobalServices;
+use bigbytesdb_common_base::mem_allocator::GlobalAllocator;
+use bigbytesdb_common_base::runtime::set_alloc_error_hook;
+use bigbytesdb_common_base::runtime::GLOBAL_MEM_STAT;
+use bigbytesdb_common_config::Commands;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_config::BIGBYTESDB_GIT_SEMVER;
+use bigbytesdb_common_config::BIGBYTESDB_GIT_SHA;
+use bigbytesdb_common_config::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
+use bigbytesdb_common_meta_client::MIN_METASRV_SEMVER;
+use bigbytesdb_common_metrics::system::set_system_version;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_tracing::set_panic_hook;
+use bigbytesdb_enterprise_background_service::get_background_service_handler;
+use bigbytesdb_query::clusters::ClusterDiscovery;
+use bigbytesdb_query::local;
+use bigbytesdb_query::servers::admin::AdminService;
+use bigbytesdb_query::servers::flight::FlightService;
+use bigbytesdb_query::servers::metrics::MetricService;
+use bigbytesdb_query::servers::FlightSQLServer;
+use bigbytesdb_query::servers::HttpHandler;
+use bigbytesdb_query::servers::HttpHandlerKind;
+use bigbytesdb_query::servers::MySQLHandler;
+use bigbytesdb_query::servers::MySQLTlsConfig;
+use bigbytesdb_query::servers::Server;
+use bigbytesdb_query::servers::ShutdownHandle;
+use bigbytesdb_query::GlobalServices;
 use log::info;
 
 pub struct MainError;
@@ -55,7 +55,7 @@ pub async fn run_cmd(conf: &InnerConfig) -> Result<bool, MainError> {
     match &conf.subcommand {
         None => return Ok(false),
         Some(Commands::Ver) => {
-            println!("version: {}", *BIGBYTES_SEMVER);
+            println!("version: {}", *BIGBYTESDB_SEMVER);
             println!("min-compatible-metasrv-version: {}", MIN_METASRV_SEMVER);
         }
         Some(Commands::Local {
@@ -72,7 +72,7 @@ pub async fn run_cmd(conf: &InnerConfig) -> Result<bool, MainError> {
 pub async fn init_services(conf: &InnerConfig, ee_mode: bool) -> Result<(), MainError> {
     let make_error = || "failed to init services";
 
-    let binary_version = BIGBYTES_COMMIT_VERSION.clone();
+    let binary_version = BIGBYTESDB_COMMIT_VERSION.clone();
     set_panic_hook(binary_version);
     set_alloc_error_hook();
 
@@ -126,7 +126,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
     let mut shutdown_handle = ShutdownHandle::create().with_context(make_error)?;
     let start_time = std::time::Instant::now();
 
-    info!("Bigbytes Query start with config: {:?}", conf);
+    info!("Bigbytesdb Query start with config: {:?}", conf);
 
     // Cluster register.
     {
@@ -135,7 +135,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
             .await
             .with_context(make_error)?;
         info!(
-            "Bigbytes query has been registered:{:?} to metasrv:{:?}.",
+            "Bigbytesdb query has been registered:{:?} to metasrv:{:?}.",
             conf.query.cluster_id, conf.meta.endpoints
         );
     }
@@ -197,7 +197,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
         );
     }
 
-    // Bigbytes HTTP handler.
+    // Bigbytesdb HTTP handler.
     {
         let hostname = conf.query.http_handler_host.clone();
         let listening = format!("{}:{}", hostname, conf.query.http_handler_port);
@@ -211,7 +211,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
 
         let http_handler_usage = HttpHandlerKind::Query.usage(listening);
         info!(
-            "Listening for Bigbytes HTTP API:  {}, Usage: {}",
+            "Listening for Bigbytesdb HTTP API:  {}, Usage: {}",
             listening, http_handler_usage
         );
     }
@@ -220,8 +220,8 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
     {
         set_system_version(
             "query",
-            BIGBYTES_GIT_SEMVER.as_str(),
-            BIGBYTES_GIT_SHA.as_str(),
+            BIGBYTESDB_GIT_SEMVER.as_str(),
+            BIGBYTESDB_GIT_SHA.as_str(),
         );
         let address = conf.query.metric_api_address.clone();
         let mut srv = MetricService::create();
@@ -261,10 +261,10 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
     }
 
     // Print information to users.
-    println!("Bigbytes Query");
+    println!("Bigbytesdb Query");
 
     println!();
-    println!("Version: {}", *BIGBYTES_COMMIT_VERSION);
+    println!("Version: {}", *BIGBYTESDB_COMMIT_VERSION);
 
     println!();
     println!("Logging:");
@@ -383,7 +383,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
             .with_context(make_error)?
         )
     );
-    println!("Bigbytes HTTP");
+    println!("Bigbytesdb HTTP");
     println!(
         "    listened at {}:{}",
         conf.query.http_handler_host, conf.query.http_handler_port
@@ -404,7 +404,7 @@ pub async fn start_services(conf: &InnerConfig) -> Result<(), MainError> {
         .enumerate()
     {
         if idx == 0 {
-            println!("Bigbytes Internal:");
+            println!("Bigbytesdb Internal:");
         }
         println!("    {}={}", k, v);
     }
@@ -441,7 +441,7 @@ fn check_max_open_files() {
     let limits = match limits_rs::get_own_limits() {
         Ok(limits) => limits,
         Err(err) => {
-            warn!("get system limit of bigbytes-query failed: {:?}", err);
+            warn!("get system limit of bigbytesdb-query failed: {:?}", err);
             return;
         }
     };
@@ -449,7 +449,7 @@ fn check_max_open_files() {
     if let Some(max_open_files) = max_open_files_limit {
         if max_open_files < 65535 {
             warn!(
-                "The open file limit is too low for the bigbytes-query. Please consider increase it by running `ulimit -n 65535`"
+                "The open file limit is too low for the bigbytesdb-query. Please consider increase it by running `ulimit -n 65535`"
             );
         }
     }

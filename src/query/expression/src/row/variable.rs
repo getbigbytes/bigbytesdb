@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::Bitmap;
 
 use super::row_converter::null_sentinel;
 use crate::types::binary::BinaryColumnBuilder;

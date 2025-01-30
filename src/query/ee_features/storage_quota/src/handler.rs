@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::StorageQuota;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::StorageQuota;
 
 /// StorageQuotaHandler is a trait that defines whether we support storage quota or not.
 #[async_trait::async_trait]

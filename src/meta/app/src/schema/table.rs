@@ -26,13 +26,13 @@ use std::time::Duration;
 use anyerror::func_name;
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaId;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaId;
 use maplit::hashmap;
 
 use super::CatalogInfo;
@@ -285,7 +285,7 @@ pub struct TableMeta {
 pub struct TableIndex {
     pub name: String,
     pub column_ids: Vec<u32>,
-    // if true, index will create after data written to bigbytes,
+    // if true, index will create after data written to bigbytesdb,
     // no need execute refresh index manually.
     pub sync_creation: bool,
     // if the index columns or options change,
@@ -1134,11 +1134,11 @@ pub struct TruncateTableReply {}
 pub struct EmptyProto {}
 
 mod kvapi_key_impl {
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
-    use bigbytes_common_meta_kvapi::kvapi::KeyBuilder;
-    use bigbytes_common_meta_kvapi::kvapi::KeyError;
-    use bigbytes_common_meta_kvapi::kvapi::KeyParser;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::KeyBuilder;
+    use bigbytesdb_common_meta_kvapi::kvapi::KeyError;
+    use bigbytesdb_common_meta_kvapi::kvapi::KeyParser;
 
     use crate::schema::DBIdTableName;
     use crate::schema::DatabaseId;
@@ -1309,8 +1309,8 @@ mod kvapi_key_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::schema::TableCopiedFileNameIdent;
 

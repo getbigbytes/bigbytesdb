@@ -19,8 +19,8 @@ use std::panic::Location;
 use std::time::Duration;
 use std::time::Instant;
 
-use bigbytes_common_base::runtime::catch_unwind;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::catch_unwind;
+use bigbytesdb_common_exception::Result;
 use log::info;
 
 use crate::PlanProfile;
@@ -276,8 +276,8 @@ mod tests {
     use std::sync::atomic::Ordering;
     use std::sync::Arc;
 
-    use bigbytes_common_exception::ErrorCode;
-    use bigbytes_common_exception::Result;
+    use bigbytesdb_common_exception::ErrorCode;
+    use bigbytesdb_common_exception::Result;
 
     use crate::always_callback;
     use crate::basic_callback;

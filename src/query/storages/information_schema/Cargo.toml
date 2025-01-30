@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-storages-information-schema"
+name = "bigbytesdb-common-storages-information-schema"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,10 +11,10 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-storages-view = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-storages-view = { workspace = true }
 
 [lints]
 workspace = true

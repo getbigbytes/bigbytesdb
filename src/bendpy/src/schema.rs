@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRef;
 use pyo3::prelude::*;
 
-#[pyclass(name = "Schema", module = "bigbytes", subclass)]
+#[pyclass(name = "Schema", module = "bigbytesdb", subclass)]
 
 pub struct PySchema {
     pub(crate) schema: DataSchemaRef,

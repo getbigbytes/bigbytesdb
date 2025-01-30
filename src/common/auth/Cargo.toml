@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-auth"
+name = "bigbytesdb-common-auth"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,7 +13,7 @@ test = true
 [dependencies]
 base64 = { workspace = true }
 chrono = { workspace = true }
-bigbytes-common-base = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
 http = { workspace = true }
 
 [dev-dependencies]

@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::JwtAuthenticator;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::JwtAuthenticator;
+use bigbytesdb_common_users::UserApiProvider;
 use fastrace::func_name;
 
 use crate::servers::http::v1::ClientSessionManager;

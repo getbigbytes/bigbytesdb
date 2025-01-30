@@ -17,14 +17,14 @@ use std::env::temp_dir;
 use std::fs;
 use std::io::Write;
 
-use bigbytes_common_config::CacheConfig;
-use bigbytes_common_config::CacheStorageTypeConfig;
-use bigbytes_common_config::CatalogConfig;
-use bigbytes_common_config::CatalogHiveConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_config::ThriftProtocol;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_config::CacheConfig;
+use bigbytesdb_common_config::CacheStorageTypeConfig;
+use bigbytesdb_common_config::CatalogConfig;
+use bigbytesdb_common_config::CatalogHiveConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_config::ThriftProtocol;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use pretty_assertions::assert_eq;
 
 // From env, defaulting.
@@ -700,7 +700,7 @@ fn test_env_config_webhdfs() -> Result<()> {
 /// Test whether override works as expected.
 #[test]
 fn test_override_config() -> Result<()> {
-    let file_path = temp_dir().join("bigbytes_test_config.toml");
+    let file_path = temp_dir().join("bigbytesdb_test_config.toml");
 
     let mut f = fs::File::create(&file_path)?;
     f.write_all(
@@ -744,7 +744,7 @@ share_endpoint_address = ""
 
 [log]
 level = "INFO"
-dir = "./.bigbytes/logs"
+dir = "./.bigbytesdb/logs"
 
 [log.query]
 on = false
@@ -762,7 +762,7 @@ type = "s3"
 num_cpus = 0
 
 [storage.fs]
-data_path = "./.bigbytes/data"
+data_path = "./.bigbytesdb/data"
 
 [storage.s3]
 region = ""
@@ -890,7 +890,7 @@ path = "_cache"
 /// Test old hive catalog
 #[test]
 fn test_override_config_old_hive_catalog() -> Result<()> {
-    let file_path = temp_dir().join("bigbytes_test_override_config_old_hive_catalog.toml");
+    let file_path = temp_dir().join("bigbytesdb_test_override_config_old_hive_catalog.toml");
 
     let mut f = fs::File::create(&file_path)?;
     f.write_all(
@@ -928,7 +928,7 @@ protocol = "binary"
 
 #[test]
 fn test_spill_config() -> Result<()> {
-    let file_path = temp_dir().join("bigbytes_test_spill_config.toml");
+    let file_path = temp_dir().join("bigbytesdb_test_spill_config.toml");
 
     let mut f = fs::File::create(&file_path)?;
     f.write_all(
@@ -961,7 +961,7 @@ spill_local_disk_path = "/data/spill"
 /// Test new hive catalog
 #[test]
 fn test_override_config_new_hive_catalog() -> Result<()> {
-    let file_path = temp_dir().join("bigbytes_test_override_config_new_hive_catalog.toml");
+    let file_path = temp_dir().join("bigbytesdb_test_override_config_new_hive_catalog.toml");
 
     let mut f = fs::File::create(&file_path)?;
     f.write_all(
@@ -1030,7 +1030,7 @@ fn test_env_cache_config_and_defaults() -> Result<()> {
     // test if one of the cache config option is overridden by environment variable
     // default values of other cache config options are correct
     //
-    // @see issue https://github.com/getbigbytes/bigbytes/issues/10088
+    // @see issue https://github.com/getbigbytes/bigbytesdb/issues/10088
     temp_env::with_vars(
         vec![("CACHE_ENABLE_TABLE_META_CACHE", Some("true"))],
         || {

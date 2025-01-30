@@ -16,13 +16,13 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::vec;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::aggregates::AggregateCountFunction;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::aggregates::AggregateCountFunction;
 
 use crate::binder::wrap_cast;
 use crate::binder::ColumnBindingBuilder;

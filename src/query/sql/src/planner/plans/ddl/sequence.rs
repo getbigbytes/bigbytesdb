@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CreateSequencePlan {

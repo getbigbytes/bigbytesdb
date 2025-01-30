@@ -40,17 +40,17 @@ check-license:
 	docker run -it --rm -v $(CURDIR):/github/workspace ghcr.io/korandoru/hawkeye-native:v2 check --config licenserc-ee.toml
 
 run: build-release
-	BUILD_PROFILE=release bash ./scripts/ci/deploy/bigbytes-query-standalone.sh
+	BUILD_PROFILE=release bash ./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 run-debug: build
-	bash ./scripts/ci/deploy/bigbytes-query-standalone.sh
+	bash ./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 run-debug-management: build
-	bash ./scripts/ci/deploy/bigbytes-query-management-mode.sh
+	bash ./scripts/ci/deploy/bigbytesdb-query-management-mode.sh
 
 kill:
-	killall bigbytes-query
-	killall bigbytes-meta
+	killall bigbytesdb-query
+	killall bigbytesdb-meta
 
 build:
 	bash ./scripts/build/build-debug.sh
@@ -59,9 +59,9 @@ build-release:
 	bash ./scripts/build/build-release.sh
 # ifeq ($(shell uname),Linux) # Macs don't have objcopy
 # 	# Reduce binary size by compressing binaries.
-# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytes-query
-# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytes-meta
-# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytes-metactl
+# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytesdb-query
+# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytesdb-meta
+# 	objcopy --compress-debug-sections=zlib-gnu ${CARGO_TARGET_DIR}/release/bigbytesdb-metactl
 # endif
 
 build-native:
@@ -79,7 +79,7 @@ miri:
 
 stateless-test: build
 	rm -rf ./_meta*/
-	rm -rf .bigbytes
+	rm -rf .bigbytesdb
 	ulimit -n 10000; ulimit -s 16384; bash ./scripts/ci/ci-run-stateless-tests-standalone.sh
 
 sqllogic-test: build
@@ -114,7 +114,7 @@ clean:
 	rm -f ./nohup.out ./tests/suites/0_stateless/*.stdout-e
 	rm -rf ./_meta*/ ./_logs*/ ./src/query/service_logs*/ ./src/meta/service/_logs*/ ./stateless_test_data/
 	rm -rf ./src/common/base/_logs*/ ./src/meta/raft-store/_logs*/ ./src/meta/sled-store/_logs*/
-	rm -rf ./.bigbytes ./query/service/.bigbytes ./meta/service/.bigbytes
+	rm -rf ./.bigbytesdb ./query/service/.bigbytesdb ./meta/service/.bigbytesdb
 
 genproto:
 	python  -m grpc_tools.protoc -Isrc/common/cloud_control/proto/ --python_out=tests/cloud_control_server/ --grpc_python_out=tests/cloud_control_server/ src/common/cloud_control/proto/task.proto

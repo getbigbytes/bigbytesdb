@@ -62,9 +62,9 @@ impl QueryConfig {
     fn mask_display(&self) -> Self {
         let mut masked_config = self.clone();
 
-        // Mask Bigbytes Enterprise license
-        masked_config.bigbytes_enterprise_license = self
-            .bigbytes_enterprise_license
+        // Mask Bigbytesdb Enterprise license
+        masked_config.bigbytesdb_enterprise_license = self
+            .bigbytesdb_enterprise_license
             .as_ref()
             .map(|license| mask_sensitive_field(license));
 

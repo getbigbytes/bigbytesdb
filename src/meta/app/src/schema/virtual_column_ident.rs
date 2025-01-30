@@ -36,7 +36,7 @@ impl VirtualColumnIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use super::VirtualColumnIdent;
     use crate::schema::VirtualColumnMeta;
@@ -64,7 +64,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::VirtualColumnIdent;
     use crate::tenant::Tenant;

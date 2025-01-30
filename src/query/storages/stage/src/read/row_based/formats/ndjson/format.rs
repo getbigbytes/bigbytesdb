@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::NdJsonFileFormatParams;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::NdJsonFileFormatParams;
 
 use crate::read::load_context::LoadContext;
 use crate::read::row_based::format::RowBasedFileFormat;

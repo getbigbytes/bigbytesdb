@@ -14,9 +14,9 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
 
 const SUFFIX_WITH_NAMES_AND_TYPES: &str = "withnamesandtypes";
 const SUFFIX_WITH_NAMES: &str = "withnames";

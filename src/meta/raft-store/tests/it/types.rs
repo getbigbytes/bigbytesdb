@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_sled_store::sled;
-use bigbytes_common_meta_sled_store::SledOrderedSerde;
-use bigbytes_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_sled_store::sled;
+use bigbytesdb_common_meta_sled_store::SledOrderedSerde;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
 
 #[test]
 fn test_node_id_serde_ser() -> anyhow::Result<()> {

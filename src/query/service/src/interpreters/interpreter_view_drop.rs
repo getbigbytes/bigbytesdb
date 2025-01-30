@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::DropTableByIdReq;
-use bigbytes_common_sql::plans::DropViewPlan;
-use bigbytes_common_storages_stream::stream_table::STREAM_ENGINE;
-use bigbytes_common_storages_view::view_table::VIEW_ENGINE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::DropTableByIdReq;
+use bigbytesdb_common_sql::plans::DropViewPlan;
+use bigbytesdb_common_storages_stream::stream_table::STREAM_ENGINE;
+use bigbytesdb_common_storages_view::view_table::VIEW_ENGINE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

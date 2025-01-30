@@ -26,7 +26,7 @@ includes = [
 excludes = [
     # hidden files
     ".cargo",
-    ".bigbytes",
+    ".bigbytesdb",
     ".devcontainer",
     ".github",
     ".dockerignore",

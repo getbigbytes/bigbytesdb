@@ -7,15 +7,15 @@ echo " === SCRIPT_PATH: $SCRIPT_PATH"
 cd "$SCRIPT_PATH/../../"
 pwd
 
-# environment for bigbytes-query
+# environment for bigbytesdb-query
 # tolerate insecure storage
 export STORAGE_ALLOW_INSECURE=true
 
 BUILD_PROFILE="${BUILD_PROFILE:-debug}"
 
-query_config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
+query_config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
 query_test_path="tests/sqllogictests"
-bend_repo_url="https://github.com/getbigbytes/bigbytes"
+bend_repo_url="https://github.com/getbigbytes/bigbytesdb"
 
 usage() {
 	echo " === test latest query being compatible with minimal compatible metasrv"
@@ -26,33 +26,33 @@ usage() {
 
 binary_url() {
 	local ver="$1"
-	echo "https://github.com/getbigbytes/bigbytes/releases/download/v${ver}-nightly/bigbytes-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
+	echo "https://github.com/getbigbytes/bigbytesdb/releases/download/v${ver}-nightly/bigbytesdb-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
 }
 
 test_suite_url() {
 	local ver="$1"
-	echo "https://github.com/getbigbytes/bigbytes/releases/download/v${ver}-nightly/bigbytes-testsuite-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
+	echo "https://github.com/getbigbytes/bigbytesdb/releases/download/v${ver}-nightly/bigbytesdb-testsuite-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
 }
 
 # output: 0.7.58
 # Without prefix `v` and `-nightly`
 find_min_query_ver() {
-	./bins/current/bigbytes-meta --single --cmd ver | grep min-compatible-client-version | awk '{print $2}'
+	./bins/current/bigbytesdb-meta --single --cmd ver | grep min-compatible-client-version | awk '{print $2}'
 }
 
 find_min_metasrv_ver() {
-	./bins/current/bigbytes-query --cmd ver | grep min-compatible-metasrv-version | awk '{print $2}'
+	./bins/current/bigbytesdb-query --cmd ver | grep min-compatible-metasrv-version | awk '{print $2}'
 }
 
-# download a specific version of bigbytes, untar it to folder `./bins/$ver`
+# download a specific version of bigbytesdb, untar it to folder `./bins/$ver`
 # `ver` is semver without prefix `v` or `-nightly`
 download_binary() {
 	local ver="$1"
 
 	local url="$(binary_url $ver)"
-	local fn="bigbytes-$ver.tar.gz"
+	local fn="bigbytesdb-$ver.tar.gz"
 
-	if [ -f ./bins/$ver/bigbytes-meta ]; then
+	if [ -f ./bins/$ver/bigbytesdb-meta ]; then
 		echo " === binaries exist: $(ls ./bins/$ver/* | tr '\n' ' ')"
 		chmod +x ./bins/$ver/*
 		return
@@ -112,7 +112,7 @@ download_test_suite() {
 	echo " === Download test suites $ver"
 
 	local url="$(test_suite_url $ver)"
-	local fn="bigbytes-testsuite-v${ver}.tar.gz"
+	local fn="bigbytesdb-testsuite-v${ver}.tar.gz"
 
 	curl --connect-timeout 5 --retry-all-errors --retry 5 --retry-delay 1 -L "$url" -o "$fn"
 
@@ -157,7 +157,7 @@ kill_proc() {
 }
 
 # Find path in old and new location.
-# Bigbytes release once changed binary path from `./` to `./bin`.
+# Bigbytesdb release once changed binary path from `./` to `./bin`.
 find_binary_path() {
 	local base="$1"
 	local binary_name="$2"
@@ -183,9 +183,9 @@ run_test() {
 
 	echo " === Test with query-$query_ver and metasrv-$metasrv_ver"
 
-	local query="$(find_binary_path "./bins/$query_ver" "bigbytes-query")"
-	local metasrv="$(find_binary_path "./bins/$metasrv_ver" "bigbytes-meta")"
-	local sqllogictests="$(find_binary_path "./bins/$query_ver" "bigbytes-sqllogictests")"
+	local query="$(find_binary_path "./bins/$query_ver" "bigbytesdb-query")"
+	local metasrv="$(find_binary_path "./bins/$metasrv_ver" "bigbytesdb-meta")"
+	local sqllogictests="$(find_binary_path "./bins/$query_ver" "bigbytesdb-sqllogictests")"
 
 	# "$metasrv" --single --cmd ver
 
@@ -198,25 +198,25 @@ run_test() {
 
 	sleep 1
 
-	kill_proc bigbytes-query
-	kill_proc bigbytes-meta
+	kill_proc bigbytesdb-query
+	kill_proc bigbytesdb-meta
 
   # Wait for killed process to cleanup resources
   sleep 1
 
 	echo " === Clean old meta dir"
-	rm -rf .bigbytes/meta || echo " === no meta dir to rm"
+	rm -rf .bigbytesdb/meta || echo " === no meta dir to rm"
 
 	rm nohup.out || echo "no nohup.out"
 
 	export RUST_BACKTRACE=1
 
-	echo ' === Start bigbytes-meta...'
+	echo ' === Start bigbytesdb-meta...'
 
 	nohup "$metasrv" --single --log-level=DEBUG &
 	python3 scripts/ci/wait_tcp.py --timeout 10 --port 9191
 
-	echo ' === Start bigbytes-query...'
+	echo ' === Start bigbytesdb-query...'
 
 	if [ "$query_ver" = "current" ]; then
 		config_path="$query_config_path"
@@ -245,7 +245,7 @@ run_test() {
 		rm -rf "tests/sqllogictests/suites"
 		mv "./testsuite/$query_ver/suites" "tests/sqllogictests/suites"
 
-    ./testsuite/$query_ver/bin/bigbytes-sqllogictests --handlers mysql --run_dir 05_ddl
+    ./testsuite/$query_ver/bin/bigbytesdb-sqllogictests --handlers mysql --run_dir 05_ddl
 		cd -
 	fi
 }
@@ -254,8 +254,8 @@ run_test() {
 
 chmod +x ./bins/current/*
 
-echo " === current metasrv ver: $(./bins/current/bigbytes-meta --single --cmd ver | tr '\n' ' ')"
-echo " === current   query ver: $(./bins/current/bigbytes-query --cmd ver | tr '\n' ' ')"
+echo " === current metasrv ver: $(./bins/current/bigbytesdb-meta --single --cmd ver | tr '\n' ' ')"
+echo " === current   query ver: $(./bins/current/bigbytesdb-query --cmd ver | tr '\n' ' ')"
 
 old_query_ver=$(find_min_query_ver)
 old_metasrv_ver=$(find_min_metasrv_ver)

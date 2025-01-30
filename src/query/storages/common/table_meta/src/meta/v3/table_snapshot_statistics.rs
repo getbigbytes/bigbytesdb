@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_storage::Histogram;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_storage::Histogram;
 use serde::Deserialize;
 use serde::Serialize;
 

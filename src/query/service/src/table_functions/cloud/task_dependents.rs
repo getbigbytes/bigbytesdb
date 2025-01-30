@@ -16,41 +16,41 @@ use std::any::Any;
 use std::sync::Arc;
 
 use chrono::DateTime;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_catalog::table_function::TableFunction;
-use bigbytes_common_cloud_control::client_config::build_client_config;
-use bigbytes_common_cloud_control::client_config::make_request;
-use bigbytes_common_cloud_control::cloud_api::CloudControlApiProvider;
-use bigbytes_common_cloud_control::pb::GetTaskDependentsRequest;
-use bigbytes_common_cloud_control::pb::Task;
-use bigbytes_common_cloud_control::task_utils;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::types::ArgType;
-use bigbytes_common_expression::types::ArrayType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::TimestampType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_sources::AsyncSource;
-use bigbytes_common_pipeline_sources::AsyncSourcer;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_catalog::table_function::TableFunction;
+use bigbytesdb_common_cloud_control::client_config::build_client_config;
+use bigbytesdb_common_cloud_control::client_config::make_request;
+use bigbytesdb_common_cloud_control::cloud_api::CloudControlApiProvider;
+use bigbytesdb_common_cloud_control::pb::GetTaskDependentsRequest;
+use bigbytesdb_common_cloud_control::pb::Task;
+use bigbytesdb_common_cloud_control::task_utils;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::types::ArgType;
+use bigbytesdb_common_expression::types::ArrayType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::TimestampType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_sources::AsyncSource;
+use bigbytesdb_common_pipeline_sources::AsyncSourcer;
 
 pub struct TaskDependentsTable {
     table_info: TableInfo,
@@ -82,7 +82,7 @@ impl TaskDependentsTable {
         table_func_name: &str,
         table_id: u64,
         table_args: TableArgs,
-    ) -> bigbytes_common_exception::Result<Arc<dyn TableFunction>> {
+    ) -> bigbytesdb_common_exception::Result<Arc<dyn TableFunction>> {
         let args_parsed = TaskDependentsParsed::parse(&table_args)?;
         let table_info = TableInfo {
             ident: TableIdent::new(table_id, 0),
@@ -124,7 +124,7 @@ impl Table for TaskDependentsTable {
         _ctx: Arc<dyn TableContext>,
         _push_downs: Option<PushDownInfo>,
         _dry_run: bool,
-    ) -> bigbytes_common_exception::Result<(PartStatistics, Partitions)> {
+    ) -> bigbytesdb_common_exception::Result<(PartStatistics, Partitions)> {
         // dummy statistics
         Ok((PartStatistics::new_exact(1, 1, 1, 1), Partitions::default()))
     }
@@ -139,7 +139,7 @@ impl Table for TaskDependentsTable {
         _plan: &DataSourcePlan,
         pipeline: &mut Pipeline,
         _put_cache: bool,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         pipeline.add_source(
             |output| {
                 TaskDependentsSource::create(
@@ -169,7 +169,7 @@ impl TaskDependentsSource {
         output: Arc<OutputPort>,
         task_name: String,
         recursive: bool,
-    ) -> bigbytes_common_exception::Result<ProcessorPtr> {
+    ) -> bigbytesdb_common_exception::Result<ProcessorPtr> {
         AsyncSourcer::create(ctx.clone(), output, TaskDependentsSource {
             ctx,
             task_name,
@@ -184,7 +184,7 @@ impl TaskDependentsSource {
             recursive: self.recursive,
         }
     }
-    fn to_block(&self, tasks: &Vec<Task>) -> bigbytes_common_exception::Result<DataBlock> {
+    fn to_block(&self, tasks: &Vec<Task>) -> bigbytesdb_common_exception::Result<DataBlock> {
         let mut created_on: Vec<i64> = Vec::with_capacity(tasks.len());
         let mut name: Vec<String> = Vec::with_capacity(tasks.len());
         let mut owner: Vec<String> = Vec::with_capacity(tasks.len());
@@ -237,7 +237,7 @@ impl AsyncSource for TaskDependentsSource {
     const NAME: &'static str = "task_dependents";
 
     #[async_backtrace::framed]
-    async fn generate(&mut self) -> bigbytes_common_exception::Result<Option<DataBlock>> {
+    async fn generate(&mut self) -> bigbytesdb_common_exception::Result<Option<DataBlock>> {
         if self.is_finished {
             return Ok(None);
         }
@@ -292,7 +292,7 @@ pub(crate) struct TaskDependentsParsed {
 }
 
 impl TaskDependentsParsed {
-    pub fn parse(table_args: &TableArgs) -> bigbytes_common_exception::Result<Self> {
+    pub fn parse(table_args: &TableArgs) -> bigbytesdb_common_exception::Result<Self> {
         let args = table_args.expect_all_named("task_dependents")?;
 
         let mut task_name = None;

@@ -14,7 +14,7 @@
 
 use std::alloc::Allocator;
 
-use bigbytes_common_base::runtime::drop_guard;
+use bigbytesdb_common_base::runtime::drop_guard;
 
 use super::table0::Entry;
 

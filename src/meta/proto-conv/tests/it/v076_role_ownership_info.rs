@@ -16,10 +16,10 @@ use std::collections::HashSet;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::UserGrantSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::UserGrantSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 use enumflags2::make_bitflags;
 use fastrace::func_name;
 

@@ -13,12 +13,12 @@
 // limitations under the License.
 
 use async_trait::async_trait;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::background::BackgroundJobIdent;
-use bigbytes_common_meta_app::background::BackgroundJobInfo;
-use bigbytes_common_meta_app::background::BackgroundJobParams;
-use bigbytes_common_meta_app::background::BackgroundJobStatus;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::background::BackgroundJobIdent;
+use bigbytesdb_common_meta_app::background::BackgroundJobInfo;
+use bigbytesdb_common_meta_app::background::BackgroundJobParams;
+use bigbytesdb_common_meta_app::background::BackgroundJobStatus;
+use bigbytesdb_common_meta_types::SeqV;
 
 /// A trait for implementing a background job
 ///

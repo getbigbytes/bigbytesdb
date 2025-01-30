@@ -14,7 +14,7 @@
 
 use std::collections::HashSet;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::JoinPredicate;
 use crate::executor::explain::PlanStatsInfo;

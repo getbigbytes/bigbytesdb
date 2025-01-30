@@ -15,16 +15,16 @@
 use std::intrinsics::unlikely;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::execute_futures_in_parallel;
-use bigbytes_common_base::runtime::GLOBAL_MEM_STAT;
-use bigbytes_common_catalog::plan::FullParquetMeta;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableField;
-use bigbytes_storages_common_cache::CacheManager;
-use bigbytes_storages_common_cache::InMemoryItemCacheReader;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_cache::Loader;
+use bigbytesdb_common_base::runtime::execute_futures_in_parallel;
+use bigbytesdb_common_base::runtime::GLOBAL_MEM_STAT;
+use bigbytesdb_common_catalog::plan::FullParquetMeta;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_storages_common_cache::CacheManager;
+use bigbytesdb_storages_common_cache::InMemoryItemCacheReader;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_cache::Loader;
 use opendal::Operator;
 use parquet::file::metadata::ParquetMetaData;
 use parquet::schema::types::SchemaDescPtr;
@@ -270,7 +270,7 @@ impl Loader<ParquetMetaData> for LoaderWrapper<Operator> {
             Some(v) => v,
             None => self.0.stat(location).await?.content_length(),
         };
-        bigbytes_common_storage::parquet_rs::read_metadata_async(location, &self.0, Some(size))
+        bigbytesdb_common_storage::parquet_rs::read_metadata_async(location, &self.0, Some(size))
             .await
     }
 }

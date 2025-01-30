@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_compress::CompressAlgorithm;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::principal::StageFileCompression;
+use bigbytesdb_common_compress::CompressAlgorithm;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::principal::StageFileCompression;
 
 pub fn get_compression_alg_copy(
     compress_option: StageFileCompression,
     path: &str,
-) -> bigbytes_common_exception::Result<Option<CompressAlgorithm>> {
+) -> bigbytesdb_common_exception::Result<Option<CompressAlgorithm>> {
     let compression_algo = match compress_option {
         StageFileCompression::Auto => CompressAlgorithm::from_path(path),
         StageFileCompression::Gzip => Some(CompressAlgorithm::Gzip),

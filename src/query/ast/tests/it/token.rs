@@ -15,8 +15,8 @@
 use std::fs::File;
 use std::io::Write;
 
-use bigbytes_common_ast::parser::token::*;
-use bigbytes_common_ast::Result;
+use bigbytesdb_common_ast::parser::token::*;
+use bigbytesdb_common_ast::Result;
 use goldenfile::Mint;
 
 fn run_lexer(file: &mut File, source: &str) {

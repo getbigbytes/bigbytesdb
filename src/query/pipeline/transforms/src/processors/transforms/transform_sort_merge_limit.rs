@@ -17,9 +17,9 @@ use std::cmp::Reverse;
 use std::collections::HashMap;
 use std::intrinsics::unlikely;
 
-use bigbytes_common_base::containers::FixedHeap;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_base::containers::FixedHeap;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
 
 use super::sort::Cursor;
 use super::sort::CursorOrder;

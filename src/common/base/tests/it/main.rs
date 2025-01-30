@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::mem_allocator::GlobalAllocator;
+use bigbytesdb_common_base::mem_allocator::GlobalAllocator;
 
 mod ext;
 mod fixed_heap;

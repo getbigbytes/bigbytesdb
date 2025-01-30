@@ -35,10 +35,10 @@ impl Config {
             file: FileConfig {
                 on: true,
                 level: "DEBUG".to_string(),
-                dir: "./.bigbytes/logs".to_string(),
+                dir: "./.bigbytesdb/logs".to_string(),
                 format: "text".to_string(),
                 limit: 48,
-                prefix_filter: "bigbytes_,openraft".to_string(),
+                prefix_filter: "bigbytesdb_,openraft".to_string(),
             },
             stderr: StderrConfig {
                 on: true,
@@ -75,10 +75,10 @@ impl Default for FileConfig {
         Self {
             on: true,
             level: "INFO".to_string(),
-            dir: "./.bigbytes/logs".to_string(),
+            dir: "./.bigbytesdb/logs".to_string(),
             format: "json".to_string(),
             limit: 48,
-            prefix_filter: "bigbytes_,openraft".to_string(),
+            prefix_filter: "bigbytesdb_,openraft".to_string(),
         }
     }
 }

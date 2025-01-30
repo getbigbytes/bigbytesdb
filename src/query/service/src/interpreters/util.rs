@@ -14,20 +14,20 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_script::ir::ColumnAccess;
-use bigbytes_common_script::Client;
-use bigbytes_common_sql::Planner;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_script::ir::ColumnAccess;
+use bigbytesdb_common_script::Client;
+use bigbytesdb_common_sql::Planner;
 use futures_util::TryStreamExt;
 use itertools::Itertools;
 
@@ -94,7 +94,7 @@ impl Client for ScriptClient {
     type Var = Scalar;
     type Set = QueryResult;
 
-    async fn query(&self, query: &str) -> bigbytes_common_exception::Result<Self::Set> {
+    async fn query(&self, query: &str) -> bigbytesdb_common_exception::Result<Self::Set> {
         let ctx = self
             .ctx
             .get_current_session()
@@ -118,7 +118,7 @@ impl Client for ScriptClient {
         Ok(QueryResult { schema, block })
     }
 
-    fn var_to_ast(&self, scalar: &Self::Var) -> bigbytes_common_exception::Result<Expr> {
+    fn var_to_ast(&self, scalar: &Self::Var) -> bigbytesdb_common_exception::Result<Expr> {
         let scalar = scalar.to_string();
         let ast = parse_expr(&tokenize_sql(&scalar)?, Dialect::PostgreSQL)?;
 
@@ -130,7 +130,7 @@ impl Client for ScriptClient {
         set: &Self::Set,
         row: usize,
         col: &ColumnAccess,
-    ) -> bigbytes_common_exception::Result<Self::Var> {
+    ) -> bigbytesdb_common_exception::Result<Self::Var> {
         let offset = match col {
             ColumnAccess::Position(offset) => *offset,
             // TODO(andylokandy): name resolution
@@ -177,7 +177,7 @@ impl Client for ScriptClient {
         set.block.num_rows()
     }
 
-    fn is_true(&self, scalar: &Self::Var) -> bigbytes_common_exception::Result<bool> {
+    fn is_true(&self, scalar: &Self::Var) -> bigbytesdb_common_exception::Result<bool> {
         match scalar {
             Scalar::Boolean(v) => Ok(*v),
             _ => Err(ErrorCode::ScriptExecutionError(format!(

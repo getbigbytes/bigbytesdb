@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::connect;
-use bigbytes_common_pipeline_core::processors::EventCause;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
-use bigbytes_common_pipeline_core::processors::ResizeProcessor;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::connect;
+use bigbytesdb_common_pipeline_core::processors::EventCause;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_pipeline_core::processors::ResizeProcessor;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_resize_output_finish() -> Result<()> {

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::SetType;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_ast::ast::SetType;
+use bigbytesdb_common_expression::Scalar;
 
 use super::Plan;
 

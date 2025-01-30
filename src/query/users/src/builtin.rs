@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::UserDefinedFunction;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::UserDefinedFunction;
 
 #[derive(Clone, Debug, Default, PartialEq, Eq)]
 pub struct BuiltIn {

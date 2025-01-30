@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-stage"
+name = "bigbytesdb-storages-common-stage"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -7,11 +7,11 @@ publish = { workspace = true }
 edition = { workspace = true }
 
 [dependencies]
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
 serde = { workspace = true }
 typetag = { workspace = true }
 

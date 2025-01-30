@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use async_compat::CompatExt;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_storages_stage::StageTable;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_storages_stage::StageTable;
+use bigbytesdb_common_users::UserApiProvider;
 use futures_util::io;
 use futures_util::AsyncWriteExt;
 use http::StatusCode;
@@ -69,11 +69,11 @@ impl UploadToStageArgs {
 
     // read_arg parses the http request to retrieve the arguments. In the before, we use
     // argument like `stage_name` in the header, but having underscore in the header is
-    // not a good practice. So we change the argument to `x-bigbytes-stage-name` in the
+    // not a good practice. So we change the argument to `x-bigbytesdb-stage-name` in the
     // header, but we still need to support the old argument for backward compatibility.
     fn read_arg<'a>(req: &'a Request, name: &str) -> Option<&'a str> {
-        let mut arg = req.headers().get(format!("x-bigbytes-{}", name).as_str());
-        // if "x-bigbytes-stage-name" is not found, try "stage_name", which is for backward compatibility
+        let mut arg = req.headers().get(format!("x-bigbytesdb-{}", name).as_str());
+        // if "x-bigbytesdb-stage-name" is not found, try "stage_name", which is for backward compatibility
         if arg.is_none() {
             arg = req.headers().get(name.replace('-', "_").as_str());
         }

@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::RenameDatabaseReq;
-use bigbytes_common_sql::plans::RenameDatabasePlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::RenameDatabaseReq;
+use bigbytesdb_common_sql::plans::RenameDatabasePlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

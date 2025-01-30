@@ -14,21 +14,21 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_ast::ast::AlterPasswordAction;
-use bigbytes_common_ast::ast::PasswordSetOptions;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::PrincipalIdentity;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::principal::UserOption;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::AlterPasswordAction;
+use bigbytesdb_common_ast::ast::PasswordSetOptions;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::PrincipalIdentity;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::principal::UserOption;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CreateUserPlan {

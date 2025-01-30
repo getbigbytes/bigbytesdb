@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-stream-handler"
+name = "bigbytesdb-enterprise-stream-handler"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,11 +13,11 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-sql = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-sql = { workspace = true }
 
 [build-dependencies]
 

@@ -24,47 +24,47 @@ use std::time::Duration;
 use std::time::Instant;
 
 use arrow_flight::BasicAuth;
-use bigbytes_common_base::base::tokio::select;
-use bigbytes_common_base::base::tokio::sync::mpsc;
-use bigbytes_common_base::base::tokio::sync::mpsc::UnboundedReceiver;
-use bigbytes_common_base::base::tokio::sync::mpsc::UnboundedSender;
-use bigbytes_common_base::base::tokio::sync::oneshot;
-use bigbytes_common_base::base::tokio::sync::oneshot::Sender as OneSend;
-use bigbytes_common_base::base::tokio::time::sleep;
-use bigbytes_common_base::containers::ItemManager;
-use bigbytes_common_base::containers::Pool;
-use bigbytes_common_base::future::TimedFutureExt;
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_base::runtime::UnlimitedFuture;
-use bigbytes_common_grpc::ConnectionFactory;
-use bigbytes_common_grpc::GrpcConnectionError;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_grpc::RpcClientTlsConfig;
-use bigbytes_common_meta_api::reply::reply_to_api_result;
-use bigbytes_common_meta_types::anyerror::AnyError;
-use bigbytes_common_meta_types::protobuf as pb;
-use bigbytes_common_meta_types::protobuf::meta_service_client::MetaServiceClient;
-use bigbytes_common_meta_types::protobuf::ClientInfo;
-use bigbytes_common_meta_types::protobuf::ClusterStatus;
-use bigbytes_common_meta_types::protobuf::Empty;
-use bigbytes_common_meta_types::protobuf::ExportedChunk;
-use bigbytes_common_meta_types::protobuf::HandshakeRequest;
-use bigbytes_common_meta_types::protobuf::MemberListReply;
-use bigbytes_common_meta_types::protobuf::MemberListRequest;
-use bigbytes_common_meta_types::protobuf::RaftRequest;
-use bigbytes_common_meta_types::protobuf::WatchRequest;
-use bigbytes_common_meta_types::protobuf::WatchResponse;
-use bigbytes_common_meta_types::ConnectionError;
-use bigbytes_common_meta_types::GrpcConfig;
-use bigbytes_common_meta_types::MetaClientError;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaHandshakeError;
-use bigbytes_common_meta_types::MetaNetworkError;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_metrics::count::Count;
+use bigbytesdb_common_base::base::tokio::select;
+use bigbytesdb_common_base::base::tokio::sync::mpsc;
+use bigbytesdb_common_base::base::tokio::sync::mpsc::UnboundedReceiver;
+use bigbytesdb_common_base::base::tokio::sync::mpsc::UnboundedSender;
+use bigbytesdb_common_base::base::tokio::sync::oneshot;
+use bigbytesdb_common_base::base::tokio::sync::oneshot::Sender as OneSend;
+use bigbytesdb_common_base::base::tokio::time::sleep;
+use bigbytesdb_common_base::containers::ItemManager;
+use bigbytesdb_common_base::containers::Pool;
+use bigbytesdb_common_base::future::TimedFutureExt;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_base::runtime::UnlimitedFuture;
+use bigbytesdb_common_grpc::ConnectionFactory;
+use bigbytesdb_common_grpc::GrpcConnectionError;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_grpc::RpcClientTlsConfig;
+use bigbytesdb_common_meta_api::reply::reply_to_api_result;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_meta_types::protobuf as pb;
+use bigbytesdb_common_meta_types::protobuf::meta_service_client::MetaServiceClient;
+use bigbytesdb_common_meta_types::protobuf::ClientInfo;
+use bigbytesdb_common_meta_types::protobuf::ClusterStatus;
+use bigbytesdb_common_meta_types::protobuf::Empty;
+use bigbytesdb_common_meta_types::protobuf::ExportedChunk;
+use bigbytesdb_common_meta_types::protobuf::HandshakeRequest;
+use bigbytesdb_common_meta_types::protobuf::MemberListReply;
+use bigbytesdb_common_meta_types::protobuf::MemberListRequest;
+use bigbytesdb_common_meta_types::protobuf::RaftRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::ConnectionError;
+use bigbytesdb_common_meta_types::GrpcConfig;
+use bigbytesdb_common_meta_types::MetaClientError;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaHandshakeError;
+use bigbytesdb_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_metrics::count::Count;
 use fastrace::func_name;
 use fastrace::func_path;
 use fastrace::future::FutureExt as MTFutureExt;
@@ -579,7 +579,7 @@ impl MetaGrpcClient {
                 _ => {}
             }
 
-            bigbytes_common_base::runtime::spawn_named(
+            bigbytesdb_common_base::runtime::spawn_named(
                 self.clone()
                     .handle_rpc_request(worker_request)
                     .in_span(span),
@@ -954,7 +954,7 @@ impl MetaGrpcClient {
 
         assert!(
             resp.protocol_version > 0,
-            "talking to a very old bigbytes-meta: upgrade bigbytes-meta to at least 0.8"
+            "talking to a very old bigbytesdb-meta: upgrade bigbytesdb-meta to at least 0.8"
         );
 
         let min_compatible = to_digit_ver(min_metasrv_ver);
@@ -1224,7 +1224,7 @@ impl MetaGrpcClient {
 /// Inject span into a tonic request, so that on the remote peer the tracing context can be restored.
 fn traced_req<T>(t: T) -> Request<T> {
     let req = Request::new(t);
-    let mut req = bigbytes_common_tracing::inject_span_to_tonic_request(req);
+    let mut req = bigbytesdb_common_tracing::inject_span_to_tonic_request(req);
 
     if let Some(query_id) = ThreadTracker::query_id() {
         let key = tonic::metadata::AsciiMetadataKey::from_str("QueryID");

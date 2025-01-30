@@ -12,7 +12,7 @@ export RUST_BACKTRACE=full
 
 BUILD_PROFILE="${BUILD_PROFILE:-debug}"
 
-query_config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
+query_config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
 
 usage() {
     echo " === Assert that an old version query being compatible with lastest version query on fuse-table format"
@@ -29,7 +29,7 @@ source "${SCRIPT_PATH}/util.sh"
 # e.g. old_query_ver="0.7.151"
 old_query_ver="$1"
 
-# The bigbytes-meta version runs with both old_query_ver and current query
+# The bigbytesdb-meta version runs with both old_query_ver and current query
 meta_ver="$2"
 
 # default sqllogic test suite is "testlogictest_path=${2:-"./base"}s/fuse-forward-compat/compat-logictest/"
@@ -46,8 +46,8 @@ echo " === supplementary stateless test path: ${stateless_test_path}"
 
 chmod +x ./bins/current/*
 
-echo " === current metasrv ver: $(./bins/current/bigbytes-meta --single --cmd ver | tr '\n' ' ')"
-echo " === current   query ver: $(./bins/current/bigbytes-query --cmd ver | tr '\n' ' ')"
+echo " === current metasrv ver: $(./bins/current/bigbytesdb-meta --single --cmd ver | tr '\n' ' ')"
+echo " === current   query ver: $(./bins/current/bigbytesdb-query --cmd ver | tr '\n' ' ')"
 echo " === old query ver: $old_query_ver"
 
 

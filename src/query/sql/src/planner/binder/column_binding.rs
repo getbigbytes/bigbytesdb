@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ColumnIndex;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ColumnIndex;
 
 use crate::IndexType;
 use crate::Visibility;

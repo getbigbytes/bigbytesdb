@@ -94,7 +94,7 @@ pub struct DropSequenceReply {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use super::SequenceMeta;
     use crate::tenant_key::resource::TenantResource;
@@ -116,7 +116,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::schema::SequenceIdent;
     use crate::tenant::Tenant;

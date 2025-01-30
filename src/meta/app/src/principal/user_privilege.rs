@@ -68,7 +68,7 @@ pub enum UserPrivilegeType {
     DropUser = 1 << 15,
     // Privilege to Create/Drop DataMask.
     CreateDataMask = 1 << 16,
-    // Privilege to Own a bigbytes object such as database/table.
+    // Privilege to Own a bigbytesdb object such as database/table.
     Ownership = 1 << 17,
     // Privilege to Read stage
     Read = 1 << 18,
@@ -133,40 +133,40 @@ impl Display for UserPrivilegeType {
     }
 }
 
-impl From<bigbytes_common_ast::ast::UserPrivilegeType> for UserPrivilegeType {
-    fn from(t: bigbytes_common_ast::ast::UserPrivilegeType) -> Self {
+impl From<bigbytesdb_common_ast::ast::UserPrivilegeType> for UserPrivilegeType {
+    fn from(t: bigbytesdb_common_ast::ast::UserPrivilegeType) -> Self {
         match t {
-            bigbytes_common_ast::ast::UserPrivilegeType::Usage => UserPrivilegeType::Usage,
-            bigbytes_common_ast::ast::UserPrivilegeType::Select => UserPrivilegeType::Select,
-            bigbytes_common_ast::ast::UserPrivilegeType::Insert => UserPrivilegeType::Insert,
-            bigbytes_common_ast::ast::UserPrivilegeType::Update => UserPrivilegeType::Update,
-            bigbytes_common_ast::ast::UserPrivilegeType::Delete => UserPrivilegeType::Delete,
-            bigbytes_common_ast::ast::UserPrivilegeType::Create => UserPrivilegeType::Create,
-            bigbytes_common_ast::ast::UserPrivilegeType::Drop => UserPrivilegeType::Drop,
-            bigbytes_common_ast::ast::UserPrivilegeType::Alter => UserPrivilegeType::Alter,
-            bigbytes_common_ast::ast::UserPrivilegeType::Super => UserPrivilegeType::Super,
-            bigbytes_common_ast::ast::UserPrivilegeType::CreateUser => {
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Usage => UserPrivilegeType::Usage,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Select => UserPrivilegeType::Select,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Insert => UserPrivilegeType::Insert,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Update => UserPrivilegeType::Update,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Delete => UserPrivilegeType::Delete,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Create => UserPrivilegeType::Create,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Drop => UserPrivilegeType::Drop,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Alter => UserPrivilegeType::Alter,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Super => UserPrivilegeType::Super,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::CreateUser => {
                 UserPrivilegeType::CreateUser
             }
-            bigbytes_common_ast::ast::UserPrivilegeType::CreateRole => {
+            bigbytesdb_common_ast::ast::UserPrivilegeType::CreateRole => {
                 UserPrivilegeType::CreateRole
             }
-            bigbytes_common_ast::ast::UserPrivilegeType::Grant => UserPrivilegeType::Grant,
-            bigbytes_common_ast::ast::UserPrivilegeType::CreateStage => {
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Grant => UserPrivilegeType::Grant,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::CreateStage => {
                 UserPrivilegeType::CreateStage
             }
-            bigbytes_common_ast::ast::UserPrivilegeType::DropRole => UserPrivilegeType::DropRole,
-            bigbytes_common_ast::ast::UserPrivilegeType::DropUser => UserPrivilegeType::DropUser,
-            bigbytes_common_ast::ast::UserPrivilegeType::CreateDataMask => {
+            bigbytesdb_common_ast::ast::UserPrivilegeType::DropRole => UserPrivilegeType::DropRole,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::DropUser => UserPrivilegeType::DropUser,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::CreateDataMask => {
                 UserPrivilegeType::CreateDataMask
             }
-            bigbytes_common_ast::ast::UserPrivilegeType::Ownership => UserPrivilegeType::Ownership,
-            bigbytes_common_ast::ast::UserPrivilegeType::Read => UserPrivilegeType::Read,
-            bigbytes_common_ast::ast::UserPrivilegeType::Write => UserPrivilegeType::Write,
-            bigbytes_common_ast::ast::UserPrivilegeType::CreateDatabase => {
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Ownership => UserPrivilegeType::Ownership,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Read => UserPrivilegeType::Read,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Write => UserPrivilegeType::Write,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::CreateDatabase => {
                 UserPrivilegeType::CreateDatabase
             }
-            bigbytes_common_ast::ast::UserPrivilegeType::Set => UserPrivilegeType::Set,
+            bigbytesdb_common_ast::ast::UserPrivilegeType::Set => UserPrivilegeType::Set,
         }
     }
 }

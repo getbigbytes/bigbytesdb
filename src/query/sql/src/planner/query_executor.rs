@@ -13,8 +13,8 @@
 // limitations under the License.
 
 use async_trait::async_trait;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
 
 use crate::executor::PhysicalPlan;
 

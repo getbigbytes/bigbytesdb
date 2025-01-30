@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use arrow_flight::FlightData;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::StackTrace;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::StackTrace;
 
 #[test]
 fn test_serialize() -> Result<()> {

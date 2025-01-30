@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_storage::parquet_rs::read_metadata_sync;
-use bigbytes_common_storage::read_metadata_async;
-use bigbytes_storages_common_io::ReadSettings;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_storage::parquet_rs::read_metadata_sync;
+use bigbytesdb_common_storage::read_metadata_async;
+use bigbytesdb_storages_common_io::ReadSettings;
 use log::debug;
 
 use super::AggIndexReader;

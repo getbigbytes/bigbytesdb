@@ -5,7 +5,7 @@ CURDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 QID="my_query_for_kill_${RANDOM}"
 echo "## query"
-curl -s -u root: -XPOST "http://localhost:8000/v1/query" -H "x-bigbytes-query-id:${QID}"  -H 'Content-Type: application/json' -d '{"sql": "select sleep(0.5), number from numbers(15000000000);",  "pagination": { "wait_time_secs": 6}}' | jq ".state"
+curl -s -u root: -XPOST "http://localhost:8000/v1/query" -H "x-bigbytesdb-query-id:${QID}"  -H 'Content-Type: application/json' -d '{"sql": "select sleep(0.5), number from numbers(15000000000);",  "pagination": { "wait_time_secs": 6}}' | jq ".state"
 echo "## kill"
 curl -s -u root: -XGET -w "%{http_code}\n"  "http://localhost:8000/v1/query/${QID}/kill"
 echo "## page"

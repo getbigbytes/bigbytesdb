@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_client::RequestFor;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::ForwardRPCError;
-use bigbytes_common_meta_types::MetaOperationError;
+use bigbytesdb_common_meta_client::RequestFor;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::ForwardRPCError;
+use bigbytesdb_common_meta_types::MetaOperationError;
 
 use crate::message::ForwardRequest;
 use crate::message::ForwardRequestBody;

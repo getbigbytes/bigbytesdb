@@ -16,7 +16,7 @@ use std::fmt::Debug;
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 use http::StatusCode;
 use jwt_simple::prelude::Deserialize;
 use poem::error::ResponseError;

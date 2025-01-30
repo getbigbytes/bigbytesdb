@@ -24,10 +24,10 @@ use std::task::Poll;
 use std::time::Duration;
 
 use anyerror::AnyError;
-use bigbytes_common_base::base::tokio::task::JoinHandle;
-use bigbytes_common_base::runtime;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio::task::JoinHandle;
+use bigbytesdb_common_base::runtime;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use hickory_resolver::TokioAsyncResolver;
 use hyper::Uri;
 use hyper_util::client::legacy::connect::dns::Name;

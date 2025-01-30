@@ -18,7 +18,7 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 
 use bumpalo::Bump;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use super::partitioned_payload::PartitionedPayload;
 use super::payload_flush::PayloadFlushState;

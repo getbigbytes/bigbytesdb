@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::binder::wrap_cast;
 use crate::planner::binder::BindContext;
@@ -89,7 +89,7 @@ impl<'a> ScalarBinder<'a> {
         &mut self,
         field: &DataField,
         schema: &DataSchema,
-    ) -> Result<bigbytes_common_expression::Expr> {
+    ) -> Result<bigbytesdb_common_expression::Expr> {
         if let Some(default_expr) = field.default_expr() {
             let tokens = tokenize_sql(default_expr)?;
             let ast = parse_expr(&tokens, self.dialect)?;
@@ -103,7 +103,7 @@ impl<'a> ScalarBinder<'a> {
         } else {
             // If field data type is nullable, then we'll fill it with null.
             if field.data_type().is_nullable() {
-                let expr = bigbytes_common_expression::Expr::Constant {
+                let expr = bigbytesdb_common_expression::Expr::Constant {
                     span: None,
                     scalar: Scalar::Null,
                     data_type: field.data_type().clone(),
@@ -112,7 +112,7 @@ impl<'a> ScalarBinder<'a> {
             } else {
                 let data_type = field.data_type().clone();
                 let default_value = Scalar::default_value(&data_type);
-                let expr = bigbytes_common_expression::Expr::Constant {
+                let expr = bigbytesdb_common_expression::Expr::Constant {
                     span: None,
                     scalar: default_value,
                     data_type,

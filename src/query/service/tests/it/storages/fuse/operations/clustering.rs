@@ -12,23 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_sql::plans::AlterTableClusterKeyPlan;
-use bigbytes_common_sql::plans::CreateTablePlan;
-use bigbytes_common_sql::plans::DropTableClusterKeyPlan;
-use bigbytes_query::interpreters::AlterTableClusterKeyInterpreter;
-use bigbytes_query::interpreters::CreateTableInterpreter;
-use bigbytes_query::interpreters::DropTableClusterKeyInterpreter;
-use bigbytes_query::interpreters::Interpreter;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::table::LINEAR_CLUSTER_TYPE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_sql::plans::AlterTableClusterKeyPlan;
+use bigbytesdb_common_sql::plans::CreateTablePlan;
+use bigbytesdb_common_sql::plans::DropTableClusterKeyPlan;
+use bigbytesdb_query::interpreters::AlterTableClusterKeyInterpreter;
+use bigbytesdb_query::interpreters::CreateTableInterpreter;
+use bigbytesdb_query::interpreters::DropTableClusterKeyInterpreter;
+use bigbytesdb_query::interpreters::Interpreter;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::table::LINEAR_CLUSTER_TYPE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_CLUSTER_TYPE;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_fuse_alter_table_cluster_key() -> bigbytes_common_exception::Result<()> {
+async fn test_fuse_alter_table_cluster_key() -> bigbytesdb_common_exception::Result<()> {
     let fixture = TestFixture::setup().await?;
     fixture.create_default_database().await?;
 

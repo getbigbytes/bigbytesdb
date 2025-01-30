@@ -19,8 +19,8 @@ use std::time::Instant;
 
 use base64::engine::general_purpose;
 use base64::prelude::*;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use jwt_simple::prelude::ES256PublicKey;
 use jwt_simple::prelude::RS256PublicKey;
 use log::info;

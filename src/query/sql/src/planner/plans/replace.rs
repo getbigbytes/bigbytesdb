@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FormatTreeNode;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_types::MetaId;
-use bigbytes_common_pipeline_core::LockGuard;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FormatTreeNode;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_types::MetaId;
+use bigbytesdb_common_pipeline_core::LockGuard;
 
 use super::insert::format_insert_source;
 use crate::plans::InsertInputSource;
@@ -64,7 +64,7 @@ impl Replace {
     pub async fn explain(
         &self,
         verbose: bool,
-    ) -> bigbytes_common_exception::Result<Vec<DataBlock>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<DataBlock>> {
         let mut result = vec![];
 
         let Replace {

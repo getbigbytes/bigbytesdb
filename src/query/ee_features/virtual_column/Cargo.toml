@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-virtual-column"
+name = "bigbytesdb-enterprise-virtual-column"
 description = "virtual column handler"
 version = { workspace = true }
 authors = { workspace = true }
@@ -15,13 +15,13 @@ test = true
 # Workspace dependencies
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
-bigbytes-common-storages-fuse = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
+bigbytesdb-common-storages-fuse = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 
 [build-dependencies]
 

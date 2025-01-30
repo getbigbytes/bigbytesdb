@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::CreateDatabaseReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::schema::DropDatabaseReq;
-use bigbytes_common_meta_app::schema::UndropDatabaseReq;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::schema::DropDatabaseReq;
+use bigbytesdb_common_meta_app::schema::UndropDatabaseReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 /// Create.
 #[derive(Clone, Debug, PartialEq, Eq)]

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::*;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::*;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::show::get_show_options;
 use crate::binder::Binder;

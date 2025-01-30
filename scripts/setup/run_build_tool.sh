@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -49,7 +49,7 @@ else
 FROM getbigbytes/build-tool:${RUNNER_BASE}-${TOOLCHAIN_VERSION}
 RUN useradd -u ${_UID} -M -s /bin/bash ${USER}
 RUN chown -R ${USER} /opt/rust/
-RUN printf "${USER} ALL=(ALL:ALL) NOPASSWD:ALL\\n" > /etc/sudoers.d/bigbytes
+RUN printf "${USER} ALL=(ALL:ALL) NOPASSWD:ALL\\n" > /etc/sudoers.d/bigbytesdb
 EOF
 		docker build -t "${IMAGE}" "${tmpdir}"
 		rm -rf "${tmpdir}"

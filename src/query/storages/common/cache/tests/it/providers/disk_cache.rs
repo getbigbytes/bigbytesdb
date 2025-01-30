@@ -20,11 +20,11 @@ use std::io::Write;
 use std::path::Path;
 use std::path::PathBuf;
 
-use bigbytes_common_config::DiskCacheKeyReloadPolicy;
-use bigbytes_storages_common_cache::DiskCacheError;
-use bigbytes_storages_common_cache::DiskCacheKey;
-use bigbytes_storages_common_cache::DiskCacheResult;
-use bigbytes_storages_common_cache::LruDiskCache as DiskCache;
+use bigbytesdb_common_config::DiskCacheKeyReloadPolicy;
+use bigbytesdb_storages_common_cache::DiskCacheError;
+use bigbytesdb_storages_common_cache::DiskCacheKey;
+use bigbytesdb_storages_common_cache::DiskCacheResult;
+use bigbytesdb_storages_common_cache::LruDiskCache as DiskCache;
 use log::info;
 use tempfile::TempDir;
 

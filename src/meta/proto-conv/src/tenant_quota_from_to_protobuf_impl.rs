@@ -15,8 +15,8 @@
 //! This mod is the key point about compatibility.
 //! Everytime update anything in this file, update the `VER` and let the tests pass.
 
-use bigbytes_common_meta_app::tenant;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app::tenant;
+use bigbytesdb_common_protos::pb;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

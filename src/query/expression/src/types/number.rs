@@ -21,9 +21,9 @@ use arrow_data::ArrayData;
 use arrow_data::ArrayDataBuilder;
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use enum_as_inner::EnumAsInner;
 use itertools::Itertools;
 use lexical_core::ToLexicalWithOptions;
@@ -46,7 +46,7 @@ use crate::ScalarRef;
 
 pub type F32 = OrderedFloat<f32>;
 pub type F64 = OrderedFloat<f64>;
-pub use bigbytes_common_column::buffer::Buffer;
+pub use bigbytesdb_common_column::buffer::Buffer;
 
 pub const ALL_UNSIGNED_INTEGER_TYPES: &[NumberDataType] = &[
     NumberDataType::UInt8,

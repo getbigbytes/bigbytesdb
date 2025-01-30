@@ -13,11 +13,11 @@
 // limitations under the License.
 
 use ahash::HashSet;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, PartialEq)]
 pub enum ReplaceIntoOperation {

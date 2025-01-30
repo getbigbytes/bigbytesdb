@@ -15,10 +15,10 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_cloud_control::client_config::build_client_config;
-use bigbytes_common_cloud_control::client_config::ClientConfig;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_cloud_control::client_config::build_client_config;
+use bigbytesdb_common_cloud_control::client_config::ClientConfig;
+use bigbytesdb_common_exception::Result;
 
 use crate::sessions::QueryContext;
 

@@ -32,12 +32,12 @@ _local_fs/
 stateless_test_data/
 **/_logs*/
 _data/
-_bigbytes_data/
-_bigbytes_meta/
+_bigbytesdb_data/
+_bigbytesdb_meta/
 _cache/
 _tmp/
 tls/certs/
-.bigbytes/
+.bigbytesdb/
 checksums.txt
 distro/
 dist/

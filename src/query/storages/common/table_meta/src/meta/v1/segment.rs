@@ -15,7 +15,7 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_expression::ColumnId;
+use bigbytesdb_common_expression::ColumnId;
 use serde::Deserialize;
 use serde::Serialize;
 

@@ -14,17 +14,17 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::Int32Type;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_formats::FileFormatOptionsExt;
-use bigbytes_common_meta_app::principal::FileFormatOptionsReader;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::Int32Type;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_formats::FileFormatOptionsExt;
+use bigbytesdb_common_meta_app::principal::FileFormatOptionsReader;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
 use pretty_assertions::assert_eq;
 
 use crate::get_output_format_clickhouse;

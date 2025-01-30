@@ -18,8 +18,8 @@ use std::io::Read;
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::NativeType;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::NativeType;
 use ringbuffer::AllocRingBuffer;
 use ringbuffer::RingBuffer;
 

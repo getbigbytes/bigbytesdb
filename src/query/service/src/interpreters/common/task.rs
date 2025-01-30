@@ -15,22 +15,22 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_ast::ast::ScheduleOptions;
-use bigbytes_common_ast::ast::WarehouseOptions;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_cloud_control::client_config::build_client_config;
-use bigbytes_common_cloud_control::client_config::ClientConfig;
-use bigbytes_common_cloud_control::pb::schedule_options::ScheduleType;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::ScheduleOptions;
+use bigbytesdb_common_ast::ast::WarehouseOptions;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_cloud_control::client_config::build_client_config;
+use bigbytesdb_common_cloud_control::client_config::ClientConfig;
+use bigbytesdb_common_cloud_control::pb::schedule_options::ScheduleType;
+use bigbytesdb_common_exception::Result;
 
 use crate::sessions::QueryContext;
 
 pub fn make_schedule_options(
     opt: ScheduleOptions,
-) -> bigbytes_common_cloud_control::pb::ScheduleOptions {
+) -> bigbytesdb_common_cloud_control::pb::ScheduleOptions {
     match opt {
         ScheduleOptions::IntervalSecs(secs, ms) => {
-            bigbytes_common_cloud_control::pb::ScheduleOptions {
+            bigbytesdb_common_cloud_control::pb::ScheduleOptions {
                 interval: Some(secs as i32),
                 // none if ms is 0, else some ms
                 milliseconds_interval: if ms == 0 { None } else { Some(ms) },
@@ -41,7 +41,7 @@ pub fn make_schedule_options(
         }
 
         ScheduleOptions::CronExpression(expr, timezone) => {
-            bigbytes_common_cloud_control::pb::ScheduleOptions {
+            bigbytesdb_common_cloud_control::pb::ScheduleOptions {
                 interval: None,
                 milliseconds_interval: None,
                 cron: Some(expr),
@@ -54,8 +54,8 @@ pub fn make_schedule_options(
 
 pub fn make_warehouse_options(
     opt: WarehouseOptions,
-) -> bigbytes_common_cloud_control::pb::WarehouseOptions {
-    let mut ret = bigbytes_common_cloud_control::pb::WarehouseOptions {
+) -> bigbytesdb_common_cloud_control::pb::WarehouseOptions {
+    let mut ret = bigbytesdb_common_cloud_control::pb::WarehouseOptions {
         warehouse: None,
         using_warehouse_size: None,
     };

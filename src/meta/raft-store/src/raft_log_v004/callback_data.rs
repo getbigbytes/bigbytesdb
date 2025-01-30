@@ -15,7 +15,7 @@
 use std::io;
 use std::sync::mpsc::SyncSender;
 
-use bigbytes_common_meta_types::raft_types;
+use bigbytesdb_common_meta_types::raft_types;
 use tokio::sync::oneshot;
 
 pub enum CallbackData {

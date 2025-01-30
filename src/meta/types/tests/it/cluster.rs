@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::NodeInfo;
 
 #[test]
 fn test_node_info_ip_port() -> anyhow::Result<()> {

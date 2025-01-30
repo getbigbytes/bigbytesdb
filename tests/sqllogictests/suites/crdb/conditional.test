@@ -58,7 +58,7 @@ SELECT    CASE    WHEN 1 = 1 THEN 'one'    END,    CASE false    WHEN 0 = 1 THEN
 ----
 one one three four two
 
-# issue 13869: https://github.com/getbigbytes/bigbytes/issues/13869
+# issue 13869: https://github.com/getbigbytes/bigbytesdb/issues/13869
 statement ok
 DROP TABLE IF EXISTS tt1;
 

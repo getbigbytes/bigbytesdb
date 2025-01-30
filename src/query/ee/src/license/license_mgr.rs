@@ -15,15 +15,15 @@
 use std::sync::Arc;
 
 use dashmap::DashMap;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ToErrorCode;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license::LicenseInfo;
-use bigbytes_common_license::license::StorageQuota;
-use bigbytes_common_license::license_manager::LicenseManager;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ToErrorCode;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license::LicenseInfo;
+use bigbytesdb_common_license::license::StorageQuota;
+use bigbytesdb_common_license::license_manager::LicenseManager;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
 use jwt_simple::algorithms::ES256PublicKey;
 use jwt_simple::claims::JWTClaims;
 use jwt_simple::prelude::Clock;
@@ -76,7 +76,7 @@ impl LicenseManager for RealLicenseManager {
     fn check_enterprise_enabled(&self, license_key: String, feature: Feature) -> Result<()> {
         if license_key.is_empty() {
             return feature.verify_default(format!(
-                "The use of this feature requires a Bigbytes Enterprise Edition license. No license key found for tenant: {}. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/",
+                "The use of this feature requires a Bigbytesdb Enterprise Edition license. No license key found for tenant: {}. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/",
                 self.tenant
             ));
         }
@@ -199,7 +199,7 @@ impl RealLicenseManager {
     fn verify_if_expired(&self, feature: Feature) -> Result<()> {
         feature.verify_default("").map_err(|_|
             ErrorCode::LicenseKeyExpired(format!(
-                "The use of this feature requires a Bigbytes Enterprise Edition license. License key has expired for tenant: {}. To unlock enterprise features, please contact Bigbytes to obtain a license. Learn more at https://docs.bigbytes.com/guides/overview/editions/dee/",
+                "The use of this feature requires a Bigbytesdb Enterprise Edition license. License key has expired for tenant: {}. To unlock enterprise features, please contact Bigbytesdb to obtain a license. Learn more at https://docs.bigbytesdb.com/guides/overview/editions/dee/",
                 self.tenant
             ))
         )
@@ -207,7 +207,7 @@ impl RealLicenseManager {
 }
 
 fn embedded_public_keys() -> Result<String> {
-    let pub_key = env!("BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY").to_string();
+    let pub_key = env!("BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY").to_string();
 
     if pub_key.is_empty() {
         return Ok(pub_key);

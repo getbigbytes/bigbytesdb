@@ -12,38 +12,38 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::F32;
-use bigbytes_common_expression::types::string::StringColumnBuilder;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::DecimalSize;
-use bigbytes_common_expression::types::Float32Type;
-use bigbytes_common_expression::types::MutableBitmap;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::BlockMetaInfoPtr;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::Value;
-use bigbytes_common_expression::BASE_BLOCK_IDS_COLUMN_ID;
-use bigbytes_common_expression::BASE_ROW_ID_COLUMN_ID;
-use bigbytes_common_expression::BLOCK_NAME_COLUMN_ID;
-use bigbytes_common_expression::ROW_ID_COLUMN_ID;
-use bigbytes_common_expression::SEARCH_MATCHED_COLUMN_ID;
-use bigbytes_common_expression::SEARCH_SCORE_COLUMN_ID;
-use bigbytes_common_expression::SEGMENT_NAME_COLUMN_ID;
-use bigbytes_common_expression::SNAPSHOT_NAME_COLUMN_ID;
-use bigbytes_storages_common_table_meta::meta::try_extract_uuid_str_from_path;
-use bigbytes_storages_common_table_meta::meta::NUM_BLOCK_ID_BITS;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::F32;
+use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::DecimalSize;
+use bigbytesdb_common_expression::types::Float32Type;
+use bigbytesdb_common_expression::types::MutableBitmap;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_expression::BASE_BLOCK_IDS_COLUMN_ID;
+use bigbytesdb_common_expression::BASE_ROW_ID_COLUMN_ID;
+use bigbytesdb_common_expression::BLOCK_NAME_COLUMN_ID;
+use bigbytesdb_common_expression::ROW_ID_COLUMN_ID;
+use bigbytesdb_common_expression::SEARCH_MATCHED_COLUMN_ID;
+use bigbytesdb_common_expression::SEARCH_SCORE_COLUMN_ID;
+use bigbytesdb_common_expression::SEGMENT_NAME_COLUMN_ID;
+use bigbytesdb_common_expression::SNAPSHOT_NAME_COLUMN_ID;
+use bigbytesdb_storages_common_table_meta::meta::try_extract_uuid_str_from_path;
+use bigbytesdb_storages_common_table_meta::meta::NUM_BLOCK_ID_BITS;
 
 // Segment and Block id Bits when generate internal column `_row_id`
 // Assumes that the max block count of a segment is 2 ^ NUM_BLOCK_ID_BITS

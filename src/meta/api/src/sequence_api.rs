@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::schema::CreateSequenceReply;
-use bigbytes_common_meta_app::schema::CreateSequenceReq;
-use bigbytes_common_meta_app::schema::DropSequenceReply;
-use bigbytes_common_meta_app::schema::DropSequenceReq;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReply;
-use bigbytes_common_meta_app::schema::GetSequenceNextValueReq;
-use bigbytes_common_meta_app::schema::SequenceIdent;
-use bigbytes_common_meta_app::schema::SequenceMeta;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReply;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReq;
+use bigbytesdb_common_meta_app::schema::DropSequenceReply;
+use bigbytesdb_common_meta_app::schema::DropSequenceReq;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReply;
+use bigbytesdb_common_meta_app::schema::GetSequenceNextValueReq;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_meta_app::schema::SequenceMeta;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::SeqV;
 
 use crate::kv_app_error::KVAppError;
 

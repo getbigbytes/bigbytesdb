@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::InitializeMode;
-use bigbytes_common_ast::ast::RefreshMode;
-use bigbytes_common_ast::ast::TargetLag;
-use bigbytes_common_ast::ast::WarehouseOptions;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::InitializeMode;
+use bigbytesdb_common_ast::ast::RefreshMode;
+use bigbytesdb_common_ast::ast::TargetLag;
+use bigbytesdb_common_ast::ast::WarehouseOptions;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 use crate::plans::TableOptions;
 

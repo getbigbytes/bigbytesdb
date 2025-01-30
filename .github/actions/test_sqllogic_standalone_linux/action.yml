@@ -14,7 +14,7 @@ inputs:
     required: false
     default: ""
   storage-format:
-    description: "storage format for bigbytes query to test"
+    description: "storage format for bigbytesdb query to test"
     required: true
     default: all
   enable_table_meta_cache:

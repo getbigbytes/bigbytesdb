@@ -12,20 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::type_check::check_cast;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::principal::NullAs;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::type_check::check_cast;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::principal::NullAs;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
 
 use crate::read::cast::load_can_auto_cast_to;
 
@@ -41,7 +41,7 @@ pub fn project_columnar(
     location: &str,
     case_sensitive: bool,
     fmt: StageFileFormatType,
-) -> bigbytes_common_exception::Result<(Vec<Expr>, Vec<usize>)> {
+) -> bigbytesdb_common_exception::Result<(Vec<Expr>, Vec<usize>)> {
     let mut pushdown_columns = vec![];
     let mut output_projection = vec![];
 
@@ -219,7 +219,7 @@ fn project_tuple(
     from_fields_type: &[TableDataType],
     to_fields_name: &[String],
     to_fields_type: &[TableDataType],
-) -> bigbytes_common_exception::Result<Expr> {
+) -> bigbytesdb_common_exception::Result<Expr> {
     let mut inner_columns = Vec::with_capacity(to_fields_name.len());
 
     for (to_field_name, to_field_type) in to_fields_name.iter().zip(to_fields_type.iter()) {

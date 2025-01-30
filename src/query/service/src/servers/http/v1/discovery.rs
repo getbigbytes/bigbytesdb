@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_config::GlobalConfig;
+use bigbytesdb_common_config::GlobalConfig;
 use poem::error::InternalServerError;
 use poem::error::Result as PoemResult;
 use poem::web::Json;

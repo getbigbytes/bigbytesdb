@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_expression::filter::FilterExecutor;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::KeysState;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_hashtable::RowPtr;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_expression::filter::FilterExecutor;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::KeysState;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_hashtable::RowPtr;
 
 use super::desc::MARKER_KIND_FALSE;
 use crate::sql::plans::JoinType;

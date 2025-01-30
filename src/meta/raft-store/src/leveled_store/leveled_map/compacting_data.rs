@@ -15,8 +15,8 @@
 use std::fmt;
 use std::io;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use futures_util::future;
 use futures_util::StreamExt;
 use futures_util::TryStreamExt;

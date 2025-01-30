@@ -26,9 +26,9 @@ use crate::values::Scalar;
 use crate::ColumnBuilder;
 use crate::ScalarRef;
 
-pub type BinaryColumn = bigbytes_common_column::binary::BinaryColumn;
-pub type BinaryColumnBuilder = bigbytes_common_column::binary::BinaryColumnBuilder;
-pub type BinaryColumnIter<'a> = bigbytes_common_column::binary::BinaryColumnIter<'a>;
+pub type BinaryColumn = bigbytesdb_common_column::binary::BinaryColumn;
+pub type BinaryColumnBuilder = bigbytesdb_common_column::binary::BinaryColumnBuilder;
+pub type BinaryColumnIter<'a> = bigbytesdb_common_column::binary::BinaryColumnIter<'a>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BinaryType;

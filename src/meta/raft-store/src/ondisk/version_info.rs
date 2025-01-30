@@ -59,7 +59,7 @@ impl VersionInfo {
 
     pub(crate) fn download_url(&self) -> String {
         format!(
-            "https://github.com/getbigbytes/bigbytes/releases/tag/v{}-nightly",
+            "https://github.com/getbigbytes/bigbytesdb/releases/tag/v{}-nightly",
             self.build
         )
     }

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::ShowLimit;
-use bigbytes_common_ast::ast::ShowLocksStmt;
-use bigbytes_common_ast::ast::ShowOptions;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::ShowLimit;
+use bigbytesdb_common_ast::ast::ShowLocksStmt;
+use bigbytesdb_common_ast::ast::ShowOptions;
+use bigbytesdb_common_exception::Result;
 use log::debug;
 
 use crate::plans::Plan;

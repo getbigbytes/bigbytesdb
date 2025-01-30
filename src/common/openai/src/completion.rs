@@ -14,9 +14,9 @@
 
 use std::time::Duration;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_metrics::openai::*;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_metrics::openai::*;
 use log::trace;
 use openai_api_rust::chat::ChatApi;
 use openai_api_rust::chat::ChatBody;

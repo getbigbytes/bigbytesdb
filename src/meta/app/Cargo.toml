@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-app"
+name = "bigbytesdb-common-meta-app"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -18,13 +18,13 @@ anyerror = { workspace = true }
 chrono = { workspace = true }
 chrono-tz = { workspace = true }
 cron = { workspace = true }
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 derive_more = { workspace = true }
 enumflags2 = { workspace = true }
 hex = { workspace = true }

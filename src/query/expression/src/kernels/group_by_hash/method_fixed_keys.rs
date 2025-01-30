@@ -16,11 +16,11 @@ use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::ops::Not;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_hashtable::FastHash;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_hashtable::FastHash;
 use ethnum::i256;
 use ethnum::u256;
 use ethnum::U256;

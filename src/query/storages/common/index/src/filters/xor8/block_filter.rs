@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRef;
 
 use crate::filters::xor8::xor8_filter::Xor8Filter;
 

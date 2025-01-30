@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_formats::field_encoder::FieldEncoderValues;
-use bigbytes_common_io::prelude::FormatSettings;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_formats::field_encoder::FieldEncoderValues;
+use bigbytesdb_common_io::prelude::FormatSettings;
 
 #[derive(Debug, Clone, Default)]
 pub struct StringBlock {

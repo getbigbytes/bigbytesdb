@@ -14,7 +14,7 @@
 
 use std::iter::Iterator;
 
-use bigbytes_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
 use itertools::Itertools;
 
 use crate::types::decimal::*;

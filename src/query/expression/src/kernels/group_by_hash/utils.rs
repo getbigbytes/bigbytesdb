@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::vec_ext::VecExt;
-use bigbytes_common_base::vec_ext::VecU8Ext;
+use bigbytesdb_common_base::vec_ext::VecExt;
+use bigbytesdb_common_base::vec_ext::VecU8Ext;
 
 use crate::types::binary::BinaryColumnBuilder;
 use crate::types::decimal::DecimalColumn;

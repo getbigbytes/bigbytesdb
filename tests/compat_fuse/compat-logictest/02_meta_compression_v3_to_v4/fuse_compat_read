@@ -1,5 +1,5 @@
 # test fuse_snapshot
-# we have already inserted 3 rows in "fuse_compat_write" using the previous version of bigbytes-query.
+# we have already inserted 3 rows in "fuse_compat_write" using the previous version of bigbytesdb-query.
 # let us check them out.
 
 # 1. expect 3 snapshots

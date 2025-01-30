@@ -422,7 +422,7 @@ DECIMAL(41, 3) DECIMAL(41, 3) DECIMAL(76, 5) DECIMAL(48, 8)
 
 ## compare
 
-## issue: https://github.com/getbigbytes/bigbytes/issues/15568
+## issue: https://github.com/getbigbytes/bigbytesdb/issues/15568
 query IIII
 SELECT (0.123)>(-1.1), (0.1234)>(-1.1), (0.1234)>(-12.1), (0.1234)>(-123.1)
 ----
@@ -729,7 +729,7 @@ select * from t_decimal_76_2;
 
 ## overflow
 ## this will panic
-## because of https://github.com/getbigbytes/bigbytes/blob/389f520ac65911b0ce84c9502ee242924a2661eb/src/query/expression/src/types/decimal.rs#L492
+## because of https://github.com/getbigbytes/bigbytesdb/blob/389f520ac65911b0ce84c9502ee242924a2661eb/src/query/expression/src/types/decimal.rs#L492
 ## statement error 1104
 ## insert into t_decimal_76_2 values (1e76);
 ## query I
@@ -1102,7 +1102,7 @@ insert into test_decimal_insert values(10.9);
 statement ok
 drop table test_decimal_insert
 
-# for issue #13453 https://github.com/getbigbytes/bigbytes/issues/13453
+# for issue #13453 https://github.com/getbigbytes/bigbytesdb/issues/13453
 
 statement ok
 drop table if exists t

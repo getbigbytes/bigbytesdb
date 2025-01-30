@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::BinaryOperator;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::BinaryOperator;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Literal;
 use derive_visitor::VisitorMut;
 
 #[derive(Debug, Clone, Default, VisitorMut)]

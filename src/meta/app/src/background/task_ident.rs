@@ -21,7 +21,7 @@ pub use kvapi_impl::Resource;
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::background::BackgroundTaskIdent;
     use crate::background::BackgroundTaskInfo;
@@ -49,7 +49,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::BackgroundTaskIdent;
     use crate::tenant::Tenant;

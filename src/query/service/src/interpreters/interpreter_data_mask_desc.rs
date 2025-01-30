@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_sql::plans::DescDatamaskPolicyPlan;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_enterprise_data_mask_feature::get_datamask_handler;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_sql::plans::DescDatamaskPolicyPlan;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_enterprise_data_mask_feature::get_datamask_handler;
 use log::warn;
 
 use crate::interpreters::Interpreter;

@@ -20,14 +20,14 @@ use std::hash::Hasher;
 use std::io::Write;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::compute_row_id_prefix;
-use bigbytes_common_catalog::plan::split_prefix;
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_catalog::plan::PartInfoType;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_storages_common_table_meta::meta::NUM_BLOCK_ID_BITS;
+use bigbytesdb_common_catalog::plan::compute_row_id_prefix;
+use bigbytesdb_common_catalog::plan::split_prefix;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_catalog::plan::PartInfoType;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_storages_common_table_meta::meta::NUM_BLOCK_ID_BITS;
 use goldenfile::Mint;
 
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Eq)]

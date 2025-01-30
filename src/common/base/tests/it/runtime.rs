@@ -18,9 +18,9 @@ use std::sync::Mutex;
 use std::time::Duration;
 use std::time::Instant;
 
-use bigbytes_common_base::runtime::Runtime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::Runtime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_exception::Result;
 use rand::distributions::Distribution;
 use rand::distributions::Uniform;
 use tokio::sync::Semaphore;

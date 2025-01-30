@@ -15,13 +15,13 @@
 use std::sync::Arc;
 
 use async_channel::Receiver;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_sources::AsyncSource;
-use bigbytes_common_pipeline_sources::AsyncSourcer;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_sources::AsyncSource;
+use bigbytesdb_common_pipeline_sources::AsyncSourcer;
 
 use crate::pruning_pipeline::LazySegmentMeta;
 use crate::SegmentLocation;

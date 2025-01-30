@@ -14,19 +14,19 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::type_check::common_super_type;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::type_check::common_super_type;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::binder::wrap_cast;
 use crate::executor::explain::PlanStatsInfo;
@@ -226,7 +226,7 @@ impl PhysicalPlanBuilder {
                 let expr = type_check::check(&raw_expr, &BUILTIN_FUNCTIONS)?;
                 let (expr, _) =
                     ConstantFolder::fold(&expr, &FunctionContext::default(), &BUILTIN_FUNCTIONS);
-                if let bigbytes_common_expression::Expr::Constant {
+                if let bigbytesdb_common_expression::Expr::Constant {
                     scalar: new_scalar, ..
                 } = expr
                 {

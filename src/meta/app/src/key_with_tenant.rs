@@ -14,7 +14,7 @@
 
 //! Define behaviors of a `kvapi::Key` that contains a tenant.
 
-use bigbytes_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi;
 
 use crate::tenant::Tenant;
 

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::GroupBy;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::FunctionSignature;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::GroupBy;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::FunctionSignature;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use rand::Rng;
 
 #[derive(Clone, Debug)]

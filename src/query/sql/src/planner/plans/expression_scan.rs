@@ -15,9 +15,9 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataSchemaRef;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataSchemaRef;
 
 use crate::optimizer::ColumnSet;
 use crate::optimizer::RelExpr;

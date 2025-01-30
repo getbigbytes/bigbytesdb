@@ -18,32 +18,32 @@ use std::sync::Arc;
 use std::time::Duration;
 
 use anyerror::AnyError;
-use bigbytes_common_base::base::StopHandle;
-use bigbytes_common_base::base::Stoppable;
-use bigbytes_common_base::version::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_meta_raft_store::ondisk::OnDisk;
-use bigbytes_common_meta_raft_store::ondisk::DATA_VERSION;
-use bigbytes_common_meta_sled_store::openraft::MessageSummary;
-use bigbytes_common_meta_store::MetaStoreProvider;
-use bigbytes_common_meta_types::Cmd;
-use bigbytes_common_meta_types::LogEntry;
-use bigbytes_common_meta_types::MetaAPIError;
-use bigbytes_common_meta_types::Node;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::set_panic_hook;
-use bigbytes_meta::api::GrpcServer;
-use bigbytes_meta::api::HttpService;
-use bigbytes_meta::configs::Config;
-use bigbytes_meta::meta_service::MetaNode;
-use bigbytes_meta::metrics::server_metrics;
-use bigbytes_meta::version::raft_client_requires;
-use bigbytes_meta::version::raft_server_provides;
-use bigbytes_meta::version::METASRV_COMMIT_VERSION;
-use bigbytes_meta::version::METASRV_GIT_SEMVER;
-use bigbytes_meta::version::METASRV_GIT_SHA;
-use bigbytes_meta::version::METASRV_SEMVER;
-use bigbytes_meta::version::MIN_METACLI_SEMVER;
+use bigbytesdb_common_base::base::StopHandle;
+use bigbytesdb_common_base::base::Stoppable;
+use bigbytesdb_common_base::version::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_meta_raft_store::ondisk::OnDisk;
+use bigbytesdb_common_meta_raft_store::ondisk::DATA_VERSION;
+use bigbytesdb_common_meta_sled_store::openraft::MessageSummary;
+use bigbytesdb_common_meta_store::MetaStoreProvider;
+use bigbytesdb_common_meta_types::Cmd;
+use bigbytesdb_common_meta_types::LogEntry;
+use bigbytesdb_common_meta_types::MetaAPIError;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::set_panic_hook;
+use bigbytesdb_meta::api::GrpcServer;
+use bigbytesdb_meta::api::HttpService;
+use bigbytesdb_meta::configs::Config;
+use bigbytesdb_meta::meta_service::MetaNode;
+use bigbytesdb_meta::metrics::server_metrics;
+use bigbytesdb_meta::version::raft_client_requires;
+use bigbytesdb_meta::version::raft_server_provides;
+use bigbytesdb_meta::version::METASRV_COMMIT_VERSION;
+use bigbytesdb_meta::version::METASRV_GIT_SEMVER;
+use bigbytesdb_meta::version::METASRV_GIT_SHA;
+use bigbytesdb_meta::version::METASRV_SEMVER;
+use bigbytesdb_meta::version::MIN_METACLI_SEMVER;
 use log::info;
 use log::warn;
 use tokio::time::sleep;
@@ -57,13 +57,13 @@ pub async fn entry(conf: Config) -> anyhow::Result<()> {
     if run_cmd(&conf).await {
         return Ok(());
     }
-    let binary_version = BIGBYTES_COMMIT_VERSION.clone();
+    let binary_version = BIGBYTESDB_COMMIT_VERSION.clone();
 
     set_panic_hook(binary_version);
 
     // app name format: node_id@cluster_id
     let app_name_shuffle = format!(
-        "bigbytes-meta-{}@{}",
+        "bigbytesdb-meta-{}@{}",
         conf.raft_config.id, conf.raft_config.cluster_name
     );
     let mut log_labels = BTreeMap::new();
@@ -73,9 +73,9 @@ pub async fn entry(conf: Config) -> anyhow::Result<()> {
     );
     let _guards = init_logging(&app_name_shuffle, &conf.log, log_labels);
 
-    info!("Bigbytes Meta version: {}", METASRV_COMMIT_VERSION.as_str());
+    info!("Bigbytesdb Meta version: {}", METASRV_COMMIT_VERSION.as_str());
     info!(
-        "Bigbytes Meta start with config: {:?}",
+        "Bigbytesdb Meta start with config: {:?}",
         serde_json::to_string_pretty(&conf).unwrap()
     );
 
@@ -105,7 +105,7 @@ pub async fn entry(conf: Config) -> anyhow::Result<()> {
     let raft_advertise = conf.raft_config.raft_api_advertise_host_string();
 
     // Print information to users.
-    println!("Bigbytes Metasrv");
+    println!("Bigbytesdb Metasrv");
     println!();
     println!("Version: {}", METASRV_COMMIT_VERSION.as_str());
     println!("Working DataVersion: {:?}", DATA_VERSION);
@@ -172,10 +172,10 @@ pub async fn entry(conf: Config) -> anyhow::Result<()> {
     {
         let mut srv = GrpcServer::create(conf.clone(), meta_node.clone());
         info!(
-            "Bigbytes meta server listening on {}",
+            "Bigbytesdb meta server listening on {}",
             conf.grpc_api_address.clone()
         );
-        srv.start().await.expect("Bigbytes meta service error");
+        srv.start().await.expect("Bigbytesdb meta service error");
         stop_handler.push(Box::new(srv));
     }
 
@@ -188,12 +188,12 @@ pub async fn entry(conf: Config) -> anyhow::Result<()> {
 
     register_node(&meta_node, &conf).await?;
 
-    println!("Bigbytes Metasrv started");
+    println!("Bigbytesdb Metasrv started");
 
     stop_handler.wait_to_terminate(stop_tx).await;
-    info!("Bigbytes-meta is done shutting down");
+    info!("Bigbytesdb-meta is done shutting down");
 
-    println!("Bigbytes Metasrv shutdown");
+    println!("Bigbytesdb Metasrv shutdown");
 
     Ok(())
 }

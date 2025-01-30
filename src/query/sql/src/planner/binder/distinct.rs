@@ -15,8 +15,8 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::Binder;
 use crate::binder::ColumnBinding;

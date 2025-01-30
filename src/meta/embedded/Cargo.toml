@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-embedded"
+name = "bigbytesdb-common-meta-embedded"
 description = "distributed meta data service"
 version = { workspace = true }
 authors = { workspace = true }
@@ -12,15 +12,15 @@ doctest = false
 test = true
 
 [features]
-io-uring = ["bigbytes-common-meta-raft-store/io-uring"]
+io-uring = ["bigbytesdb-common-meta-raft-store/io-uring"]
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-meta-api = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-raft-store = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-meta-api = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-raft-store = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
 fastrace = { workspace = true }
 
 [dev-dependencies]

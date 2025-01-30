@@ -18,7 +18,7 @@
 use std::borrow::Cow;
 use std::mem;
 
-use bigbytes_common_hashtable::fast_memcmp;
+use bigbytesdb_common_hashtable::fast_memcmp;
 
 const HASH_SIZE: usize = 64 * 1024; // Size of the hash table
 

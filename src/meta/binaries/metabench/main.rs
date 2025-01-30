@@ -22,33 +22,33 @@ use std::time::Instant;
 
 use chrono::Utc;
 use clap::Parser;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::runtime;
-use bigbytes_common_meta_api::serialize_struct;
-use bigbytes_common_meta_api::txn_op_put;
-use bigbytes_common_meta_api::SchemaApi;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::CreateDatabaseReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::DropTableByIdReq;
-use bigbytes_common_meta_app::schema::GetTableReq;
-use bigbytes_common_meta_app::schema::TableCopiedFileInfo;
-use bigbytes_common_meta_app::schema::TableCopiedFileNameIdent;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_meta_app::schema::UpsertTableOptionReq;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_client::ClientHandle;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::FileConfig;
-use bigbytes_common_tracing::StderrConfig;
-use bigbytes_meta::version::METASRV_COMMIT_VERSION;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::runtime;
+use bigbytesdb_common_meta_api::serialize_struct;
+use bigbytesdb_common_meta_api::txn_op_put;
+use bigbytesdb_common_meta_api::SchemaApi;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::DropTableByIdReq;
+use bigbytesdb_common_meta_app::schema::GetTableReq;
+use bigbytesdb_common_meta_app::schema::TableCopiedFileInfo;
+use bigbytesdb_common_meta_app::schema::TableCopiedFileNameIdent;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_meta_app::schema::UpsertTableOptionReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_client::ClientHandle;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::FileConfig;
+use bigbytesdb_common_tracing::StderrConfig;
+use bigbytesdb_meta::version::METASRV_COMMIT_VERSION;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -85,14 +85,14 @@ struct Config {
 async fn main() {
     let config = Config::parse();
 
-    let log_config = bigbytes_common_tracing::Config {
+    let log_config = bigbytesdb_common_tracing::Config {
         file: FileConfig {
             on: true,
             level: config.log_level.clone(),
-            dir: "./.bigbytes/logs".to_string(),
+            dir: "./.bigbytesdb/logs".to_string(),
             format: "text".to_string(),
             limit: 48,
-            prefix_filter: "bigbytes_".to_string(),
+            prefix_filter: "bigbytesdb_".to_string(),
         },
         stderr: StderrConfig {
             on: true,
@@ -102,7 +102,7 @@ async fn main() {
         ..Default::default()
     };
 
-    let _guards = init_logging("bigbytes-metabench", &log_config, BTreeMap::new());
+    let _guards = init_logging("bigbytesdb-metabench", &log_config, BTreeMap::new());
 
     println!("config: {:?}", config);
     if config.grpc_api_address.is_empty() {

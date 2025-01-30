@@ -15,8 +15,8 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::plans::UDFField;
 use crate::plans::UDFType;
@@ -50,8 +50,8 @@ pub struct SortDesc {
 
 #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
 pub struct OnConflictField {
-    pub table_field: bigbytes_common_expression::TableField,
-    pub field_index: bigbytes_common_expression::FieldIndex,
+    pub table_field: bigbytesdb_common_expression::TableField,
+    pub field_index: bigbytesdb_common_expression::FieldIndex,
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, PartialEq, Eq)]

@@ -1,3 +1,3 @@
-echo "Stop Bigbytes instances"
-killall -9 bigbytes-meta
-killall -9 bigbytes-query
+echo "Stop Bigbytesdb instances"
+killall -9 bigbytesdb-meta
+killall -9 bigbytesdb-query

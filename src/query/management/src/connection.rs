@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_api::crud::CrudMgr;
-use bigbytes_common_meta_app::principal::connection_ident;
+use bigbytesdb_common_meta_api::crud::CrudMgr;
+use bigbytesdb_common_meta_app::principal::connection_ident;
 
 pub type ConnectionMgr = CrudMgr<connection_ident::Resource>;

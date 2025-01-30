@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::block_debug::box_render;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::block_debug::box_render;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
 use pyo3::prelude::*;
 
 use crate::dataframe::PyBoxSize;
 
-#[pyclass(name = "DataBlock", module = "bigbytes", subclass)]
+#[pyclass(name = "DataBlock", module = "bigbytesdb", subclass)]
 
 pub struct PyDataBlock {
     block: DataBlock,
@@ -56,7 +56,7 @@ impl PyDataBlock {
     }
 }
 
-#[pyclass(name = "DataBlocks", module = "bigbytes", subclass)]
+#[pyclass(name = "DataBlocks", module = "bigbytesdb", subclass)]
 pub struct PyDataBlocks {
     pub(crate) blocks: Vec<DataBlock>,
     pub(crate) schema: DataSchemaRef,

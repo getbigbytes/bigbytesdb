@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::principal::NullAs;
-use bigbytes_common_meta_app::principal::ParquetFileFormatParams;
+use bigbytesdb_common_meta_app::principal::NullAs;
+use bigbytesdb_common_meta_app::principal::ParquetFileFormatParams;
 use fastrace::func_name;
 
 use crate::common;

@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "bigbytes.com/cloudcontrol/proto";
+option go_package = "bigbytesdb.com/cloudcontrol/proto";
 
 package taskproto;
 

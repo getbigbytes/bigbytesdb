@@ -16,7 +16,7 @@ use std::fmt;
 use std::io;
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use futures::Stream;
 use futures_util::TryStreamExt;
 use log::debug;
@@ -149,7 +149,7 @@ impl WriterV003 {
         let (tx, rx) = mpsc::channel(64 * 1024);
 
         // Spawn another thread to write entries to disk.
-        let join_handle = bigbytes_common_base::runtime::spawn_blocking(move || {
+        let join_handle = bigbytesdb_common_base::runtime::spawn_blocking(move || {
             let with_context =
                 |e: io::Error| io::Error::new(e.kind(), format!("{} while {}", e, context));
 

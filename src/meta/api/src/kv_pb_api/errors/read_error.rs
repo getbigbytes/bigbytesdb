@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_types::anyerror::AnyError;
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MetaError;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MetaError;
 
 use crate::kv_pb_api::errors::PbDecodeError;
 

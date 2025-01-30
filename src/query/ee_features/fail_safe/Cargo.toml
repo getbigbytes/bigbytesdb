@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-fail-safe"
+name = "bigbytesdb-enterprise-fail-safe"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,9 +13,9 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
 
 [build-dependencies]
 

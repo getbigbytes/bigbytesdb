@@ -20,7 +20,7 @@ use std::fmt::Display;
 /// Defines [`Error`], representing all errors returned by this crate.
 use std::fmt::Formatter;
 
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 /// Enum with all errors in this crate.
 #[derive(Debug)]

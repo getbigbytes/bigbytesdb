@@ -17,7 +17,7 @@ use std::intrinsics::unlikely;
 use std::iter::TrustedLen;
 use std::mem::MaybeUninit;
 
-use bigbytes_common_base::mem_allocator::DefaultAllocator;
+use bigbytesdb_common_base::mem_allocator::DefaultAllocator;
 
 use super::container::HeapContainer;
 use super::table0::Entry;

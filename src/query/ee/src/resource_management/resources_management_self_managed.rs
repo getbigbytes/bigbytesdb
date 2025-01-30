@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::SelectedNode;
-use bigbytes_common_management::WarehouseInfo;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_common_meta_types::NodeType;
-use bigbytes_enterprise_resources_management::ResourcesManagement;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::SelectedNode;
+use bigbytesdb_common_management::WarehouseInfo;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::NodeType;
+use bigbytesdb_enterprise_resources_management::ResourcesManagement;
 
 pub struct SelfManagedResourcesManagement {}
 

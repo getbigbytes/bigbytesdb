@@ -15,18 +15,18 @@
 use std::collections::HashMap;
 use std::collections::HashSet;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::role_util::find_all_related_roles;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::role_util::find_all_related_roles;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
 
 pub const CATALOG_DEFAULT: &str = "default";
 
@@ -34,7 +34,7 @@ pub const CATALOG_DEFAULT: &str = "default";
 async fn test_role_cache_mgr() -> Result<()> {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {

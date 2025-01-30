@@ -19,12 +19,12 @@ use std::hash::Hasher;
 use std::mem;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::parquet_rs::ParquetRSRowGroupPart;
 

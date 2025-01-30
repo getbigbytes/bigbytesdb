@@ -14,10 +14,10 @@
 
 use std::net::SocketAddr;
 
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_meta_types::MetaStartupError;
-use bigbytes_common_meta_types::Node;
-use bigbytes_common_tracing::Config as LogConfig;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_meta_types::MetaStartupError;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_common_tracing::Config as LogConfig;
 
 use super::outer_v0::Config as OuterV0Config;
 
@@ -68,7 +68,7 @@ impl Default for Config {
 }
 
 impl Config {
-    /// As requires by [RFC: Config Backward Compatibility](https://github.com/getbigbytes/bigbytes/pull/5324), we will load user's config via wrapper [`OuterV0Config`] and then convert from [`OuterV0Config`] to [`Config`].
+    /// As requires by [RFC: Config Backward Compatibility](https://github.com/getbigbytes/bigbytesdb/pull/5324), we will load user's config via wrapper [`OuterV0Config`] and then convert from [`OuterV0Config`] to [`Config`].
     ///
     /// In the future, we could have `ConfigV1` and `ConfigV2`.
     pub fn load() -> Result<Self, MetaStartupError> {

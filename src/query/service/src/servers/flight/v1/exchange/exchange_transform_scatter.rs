@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_transforms::processors::Transform;
-use bigbytes_common_pipeline_transforms::processors::Transformer;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_transforms::processors::Transform;
+use bigbytesdb_common_pipeline_transforms::processors::Transformer;
 
 use super::exchange_transform_shuffle::ExchangeShuffleMeta;
 use crate::servers::flight::v1::scatter::FlightScatter;
@@ -43,7 +43,7 @@ impl ScatterTransform {
 impl Transform for ScatterTransform {
     const NAME: &'static str = "ScatterTransform";
 
-    fn transform(&mut self, data: DataBlock) -> bigbytes_common_exception::Result<DataBlock> {
+    fn transform(&mut self, data: DataBlock) -> bigbytesdb_common_exception::Result<DataBlock> {
         let blocks = self.scatter.execute(data)?;
 
         Ok(DataBlock::empty_with_meta(ExchangeShuffleMeta::create(

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::Pipeline;
 use opendal::Operator;
 
 use super::limit_file_size_processor::LimitFileSizeProcessor;

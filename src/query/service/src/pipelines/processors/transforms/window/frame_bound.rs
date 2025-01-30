@@ -14,11 +14,11 @@
 
 use std::cmp::Ordering;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_sql::plans::WindowFuncFrameBound;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_sql::plans::WindowFuncFrameBound;
 
 #[derive(Debug, PartialEq)]
 pub enum FrameBound<T: Number> {

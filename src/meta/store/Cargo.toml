@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-store"
+name = "bigbytesdb-common-meta-store"
 description = "MetaStore is impl with either a local embedded meta store, or a grpc-client of metasrv"
 version = { workspace = true }
 authors = { workspace = true }
@@ -16,11 +16,11 @@ io-uring = []
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-meta-client = { workspace = true }
-bigbytes-common-meta-embedded = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-meta-client = { workspace = true }
+bigbytesdb-common-meta-embedded = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 log = { workspace = true }
 tokio-stream = { workspace = true }
 

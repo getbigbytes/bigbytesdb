@@ -1,11 +1,11 @@
-name: "Test bigbytes-meta cluster"
+name: "Test bigbytesdb-meta cluster"
 description: "Download binaries, setup cluster by joining and leaving"
 runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/setup_test
 
-    - name: Test bigbytes-meta cluster
+    - name: Test bigbytesdb-meta cluster
       shell: bash
       run: |
         bash ./tests/meta-cluster/test-meta-cluster.sh

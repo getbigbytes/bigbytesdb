@@ -14,8 +14,8 @@
 
 use dashmap::mapref::entry::Entry;
 use dashmap::DashMap;
-use bigbytes_common_ast::ast::OnErrorMode;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_ast::ast::OnErrorMode;
+use bigbytesdb_common_exception::ErrorCode;
 use serde::Deserialize;
 use serde::Serialize;
 use thiserror::Error;

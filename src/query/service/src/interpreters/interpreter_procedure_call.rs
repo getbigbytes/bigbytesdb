@@ -14,24 +14,24 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::DeclareItem;
-use bigbytes_common_ast::ast::DeclareVar;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::ScriptStatement;
-use bigbytes_common_ast::parser::run_parser;
-use bigbytes_common_ast::parser::script::script_block;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::ParseMode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::block_debug::box_render;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_script::compile;
-use bigbytes_common_script::Executor;
-use bigbytes_common_script::ReturnValue;
-use bigbytes_common_sql::plans::CallProcedurePlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_ast::ast::DeclareItem;
+use bigbytesdb_common_ast::ast::DeclareVar;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::ScriptStatement;
+use bigbytesdb_common_ast::parser::run_parser;
+use bigbytesdb_common_ast::parser::script::script_block;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::ParseMode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::block_debug::box_render;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_script::compile;
+use bigbytesdb_common_script::Executor;
+use bigbytesdb_common_script::ReturnValue;
+use bigbytesdb_common_sql::plans::CallProcedurePlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::interpreters::util::ScriptClient;
 use crate::interpreters::Interpreter;

@@ -14,15 +14,15 @@
 
 use std::net::SocketAddr;
 
-use bigbytes_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio;
 #[cfg(target_os = "linux")]
-use bigbytes_common_base::runtime::metrics::dump_process_stat;
-use bigbytes_common_base::runtime::metrics::register_counter;
-use bigbytes_query::servers::metrics::MetricService;
-use bigbytes_query::servers::Server;
+use bigbytesdb_common_base::runtime::metrics::dump_process_stat;
+use bigbytesdb_common_base::runtime::metrics::register_counter;
+use bigbytesdb_query::servers::metrics::MetricService;
+use bigbytesdb_query::servers::Server;
 
 #[tokio::test(flavor = "multi_thread")]
-async fn test_metric_server() -> bigbytes_common_exception::Result<()> {
+async fn test_metric_server() -> bigbytesdb_common_exception::Result<()> {
     let mut service = MetricService::create();
     let listening = "127.0.0.1:0".parse::<SocketAddr>()?;
     let listening = service.start(listening).await?;

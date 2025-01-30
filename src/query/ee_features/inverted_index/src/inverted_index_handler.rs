@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateTableIndexReq;
-use bigbytes_common_meta_app::schema::DropTableIndexReq;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateTableIndexReq;
+use bigbytesdb_common_meta_app::schema::DropTableIndexReq;
 
 #[async_trait::async_trait]
 pub trait InvertedIndexHandler: Sync + Send {

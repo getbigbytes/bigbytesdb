@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_io::Interval;
+use bigbytesdb_common_io::Interval;
 
 #[test]
 fn test_interval_from_string() {

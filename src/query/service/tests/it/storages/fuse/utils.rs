@@ -15,10 +15,10 @@
 use std::str;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_query::test_kits::*;
 
 pub async fn do_insertions(fixture: &TestFixture) -> Result<()> {
     fixture.create_default_table().await?;

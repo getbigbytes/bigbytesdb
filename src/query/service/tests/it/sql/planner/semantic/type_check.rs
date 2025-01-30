@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::parse_exprs;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::parse_exprs;
+use bigbytesdb_query::test_kits::TestFixture;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_query_overflow() -> Result<()> {

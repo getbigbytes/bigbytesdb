@@ -18,27 +18,27 @@ use std::io::ErrorKind;
 use std::io::Result;
 
 use anyhow::anyhow;
-use bigbytes_common_ast::ast::Connection;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_app::storage::StorageAzblobConfig;
-use bigbytes_common_meta_app::storage::StorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig;
-use bigbytes_common_meta_app::storage::StorageHttpConfig;
-use bigbytes_common_meta_app::storage::StorageHuggingfaceConfig;
-use bigbytes_common_meta_app::storage::StorageIpfsConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
-use bigbytes_common_meta_app::storage::STORAGE_GCS_DEFAULT_ENDPOINT;
-use bigbytes_common_meta_app::storage::STORAGE_IPFS_DEFAULT_ENDPOINT;
-use bigbytes_common_meta_app::storage::STORAGE_S3_DEFAULT_ENDPOINT;
-use bigbytes_common_storage::STDIN_FD;
+use bigbytesdb_common_ast::ast::Connection;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_app::storage::StorageAzblobConfig;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig;
+use bigbytesdb_common_meta_app::storage::StorageHttpConfig;
+use bigbytesdb_common_meta_app::storage::StorageHuggingfaceConfig;
+use bigbytesdb_common_meta_app::storage::StorageIpfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_common_meta_app::storage::STORAGE_GCS_DEFAULT_ENDPOINT;
+use bigbytesdb_common_meta_app::storage::STORAGE_IPFS_DEFAULT_ENDPOINT;
+use bigbytesdb_common_meta_app::storage::STORAGE_S3_DEFAULT_ENDPOINT;
+use bigbytesdb_common_storage::STDIN_FD;
 use opendal::raw::normalize_path;
 use opendal::raw::normalize_root;
 use opendal::Scheme;
@@ -332,7 +332,7 @@ fn parse_cos_params(l: &mut UriLocation, root: String) -> Result<StorageParams> 
 
 /// Generally, the URI is in the pattern hdfs://<namenode>/<path>.
 /// If <namenode> is empty (i.e. `hdfs:///<path>`),  use <namenode> configured somewhere else, e.g. in XML config file.
-/// For bigbytes user can specify <namenode> in connection options.
+/// For bigbytesdb user can specify <namenode> in connection options.
 /// refer to https://www.vertica.com/docs/9.3.x/HTML/Content/Authoring/HadoopIntegrationGuide/libhdfs/HdfsURL.htm
 #[cfg(feature = "storage-hdfs")]
 fn parse_hdfs_params(l: &mut UriLocation, root: String) -> Result<StorageParams> {
@@ -366,7 +366,7 @@ fn parse_hdfs_params(l: &mut UriLocation, root: String) -> Result<StorageParams>
             ));
         }
     };
-    let sp = StorageParams::Hdfs(bigbytes_common_meta_app::storage::StorageHdfsConfig {
+    let sp = StorageParams::Hdfs(bigbytesdb_common_meta_app::storage::StorageHdfsConfig {
         name_node,
         root,
     });
@@ -601,7 +601,7 @@ pub async fn parse_uri_location(
 pub async fn get_storage_params_from_options(
     ctx: &dyn TableContext,
     options: &BTreeMap<String, String>,
-) -> bigbytes_common_exception::Result<StorageParams> {
+) -> bigbytesdb_common_exception::Result<StorageParams> {
     let location = options
         .get("location")
         .ok_or_else(|| ErrorCode::BadArguments("missing option 'location'".to_string()))?;

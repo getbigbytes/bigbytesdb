@@ -1,7 +1,7 @@
-# Data for testing bigbytes-meta kvapi commands
+# Data for testing bigbytesdb-meta kvapi commands
 
 
-In the bigbytes root dir:
+In the bigbytesdb root dir:
 
 ```
 sh ./tests/meta-kvapi/test-meta-kvapi.sh

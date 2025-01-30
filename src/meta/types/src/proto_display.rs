@@ -16,9 +16,9 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::time::Duration;
 
-use bigbytes_common_base::display::display_option::DisplayOptionExt;
-use bigbytes_common_base::display::display_slice::DisplaySliceExt;
-use bigbytes_common_base::display::display_unix_epoch::DisplayUnixTimeStampExt;
+use bigbytesdb_common_base::display::display_option::DisplayOptionExt;
+use bigbytesdb_common_base::display::display_slice::DisplaySliceExt;
+use bigbytesdb_common_base::display::display_unix_epoch::DisplayUnixTimeStampExt;
 use num_traits::FromPrimitive;
 
 use crate::protobuf::boolean_expression::CombiningOperator;

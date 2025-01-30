@@ -9,7 +9,7 @@ select '1e310'::double
 ----
 Infinity
 
-# TODO issue https://github.com/getbigbytes/bigbytes/issues/7295
+# TODO issue https://github.com/getbigbytes/bigbytesdb/issues/7295
 # query F
 # select '-1e308'::float
 

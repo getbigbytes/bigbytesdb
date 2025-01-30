@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_users::UserApiProvider;
 
 /// Checks if a duplicate label exists in the meta store.
 ///

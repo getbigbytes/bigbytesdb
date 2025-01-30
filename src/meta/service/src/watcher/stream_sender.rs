@@ -16,7 +16,7 @@ use std::cmp::Ordering;
 use std::fmt;
 use std::fmt::Formatter;
 
-use bigbytes_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
 use tokio::sync::mpsc;
 use tokio::sync::mpsc::error::SendError;
 use tonic::Status;

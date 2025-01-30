@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchema;
 
 use crate::plan::StageTableInfo;
 

@@ -14,8 +14,8 @@
 
 use std::io::Read;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
 
 use crate::meta::load_json;
 use crate::meta::CompactSegmentInfo;

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_query::servers::admin::v1::cluster::*;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_query::servers::admin::v1::cluster::*;
+use bigbytesdb_query::test_kits::*;
 use http::header;
 use http::Method;
 use http::StatusCode;

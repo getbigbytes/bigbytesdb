@@ -16,14 +16,14 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::ExplainKind;
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_ast::ast::ExplainKind;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
 
 use super::CreateDictionaryPlan;
 use super::DropDictionaryPlan;

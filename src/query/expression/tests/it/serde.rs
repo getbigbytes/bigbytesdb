@@ -16,19 +16,19 @@ use std::vec;
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::arrow::deserialize_column;
-use bigbytes_common_expression::arrow::serialize_column;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_io::prelude::bincode_deserialize_from_slice;
-use bigbytes_common_io::prelude::bincode_serialize_into_buf;
-use bigbytes_common_io::prelude::borsh_deserialize_from_slice;
-use bigbytes_common_io::prelude::borsh_serialize_into_buf;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::arrow::deserialize_column;
+use bigbytesdb_common_expression::arrow::serialize_column;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_io::prelude::bincode_deserialize_from_slice;
+use bigbytesdb_common_io::prelude::bincode_serialize_into_buf;
+use bigbytesdb_common_io::prelude::borsh_deserialize_from_slice;
+use bigbytesdb_common_io::prelude::borsh_serialize_into_buf;
 
 #[test]
 fn test_serde_column() -> Result<()> {

@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::execute_futures_in_parallel;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::execute_futures_in_parallel;
+use bigbytesdb_common_exception::Result;
 use opendal::Operator;
 use orc_rust::ArrowReaderBuilder;
 

@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_pipeline_core::PipeItem;
-use bigbytes_common_pipeline_transforms::processors::create_dummy_item;
-use bigbytes_common_sql::executor::physical_plans::RowFetch;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_storages_fuse::operations::row_fetch_processor;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_pipeline_core::PipeItem;
+use bigbytesdb_common_pipeline_transforms::processors::create_dummy_item;
+use bigbytesdb_common_sql::executor::physical_plans::RowFetch;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_storages_fuse::operations::row_fetch_processor;
 
 use crate::pipelines::PipelineBuilder;
 

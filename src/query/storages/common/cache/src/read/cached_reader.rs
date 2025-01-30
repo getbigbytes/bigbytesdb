@@ -15,8 +15,8 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_metrics::cache::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_metrics::cache::*;
 
 use super::loader::LoadParams;
 use crate::caches::CacheValue;

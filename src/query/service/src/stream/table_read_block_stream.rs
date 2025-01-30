@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_pipeline_core::Pipeline;
 
 use crate::pipelines::executor::ExecutorSettings;
 use crate::pipelines::executor::PipelinePullingExecutor;

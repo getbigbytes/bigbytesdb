@@ -16,7 +16,7 @@ use std::fmt;
 use std::io;
 
 use anyerror::AnyError;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 /// Storage level error that is raised by meta service.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]

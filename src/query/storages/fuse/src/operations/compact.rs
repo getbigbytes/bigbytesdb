@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::table::CompactionLimits;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::table::CompactionLimits;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::operations::mutation::BlockCompactMutator;
 use crate::operations::mutation::SegmentCompactMutator;

@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_query::sql::normalize_identifier;
-use bigbytes_query::sql::IdentifierNormalizer;
-use bigbytes_query::sql::NameResolutionContext;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_query::sql::normalize_identifier;
+use bigbytesdb_query::sql::IdentifierNormalizer;
+use bigbytesdb_query::sql::NameResolutionContext;
 use derive_visitor::DriveMut;
 
 #[test]

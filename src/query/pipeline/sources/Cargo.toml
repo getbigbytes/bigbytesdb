@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-pipeline-sources"
+name = "bigbytesdb-common-pipeline-sources"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,11 +13,11 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
 futures = { workspace = true }
 parking_lot = { workspace = true }
 

@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_cache::Cache;
-use bigbytes_common_cache::LruCache;
+use bigbytesdb_common_cache::Cache;
+use bigbytesdb_common_cache::LruCache;
 use parking_lot::RwLock;
 
 use crate::caches::CacheValue;
@@ -79,10 +79,10 @@ impl<V: Into<CacheValue<V>>> InMemoryLruCache<V> {
 mod impls {
     use std::sync::Arc;
 
-    use bigbytes_common_metrics::cache::metrics_inc_cache_access_count;
-    use bigbytes_common_metrics::cache::metrics_inc_cache_hit_count;
-    use bigbytes_common_metrics::cache::metrics_inc_cache_miss_bytes;
-    use bigbytes_common_metrics::cache::metrics_inc_cache_miss_count;
+    use bigbytesdb_common_metrics::cache::metrics_inc_cache_access_count;
+    use bigbytesdb_common_metrics::cache::metrics_inc_cache_hit_count;
+    use bigbytesdb_common_metrics::cache::metrics_inc_cache_miss_bytes;
+    use bigbytesdb_common_metrics::cache::metrics_inc_cache_miss_count;
 
     use super::*;
     use crate::cache::CacheAccessor;

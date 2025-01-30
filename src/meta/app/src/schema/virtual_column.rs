@@ -18,8 +18,8 @@ use std::fmt::Formatter;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_meta_types::MetaId;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_meta_types::MetaId;
 
 use super::CreateOption;
 use crate::schema::virtual_column_ident::VirtualColumnIdent;

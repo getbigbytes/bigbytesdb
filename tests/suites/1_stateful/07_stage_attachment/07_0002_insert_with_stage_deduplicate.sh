@@ -26,7 +26,7 @@ echo "list @s1" | $BENDSQL_CLIENT_CONNECT | awk '{print $1}'
 ## Insert with stage use http API
 curl -s -u root: -XPOST "http://localhost:${QUERY_HTTP_HANDLER_PORT}/v1/query" \
   --header 'Content-Type: application/json' \
-  --header 'X-BIGBYTES-DEDUPLICATE-LABEL: insert1' \
+  --header 'X-BIGBYTESDB-DEDUPLICATE-LABEL: insert1' \
   -d '{
     "sql": "insert into sample_table (Id, City, Score) values",
     "stage_attachment": {
@@ -42,7 +42,7 @@ echo "select * from sample_table" | $BENDSQL_CLIENT_CONNECT
 ## Insert again with the same deduplicate_label will have no effect
 curl -s -u root: -XPOST "http://localhost:${QUERY_HTTP_HANDLER_PORT}/v1/query" \
   --header 'Content-Type: application/json' \
-  --header 'X-BIGBYTES-DEDUPLICATE-LABEL: insert1' \
+  --header 'X-BIGBYTESDB-DEDUPLICATE-LABEL: insert1' \
   -d '{
     "sql": "insert into sample_table (Id, City, Score) values",
     "stage_attachment": {

@@ -20,8 +20,8 @@ use std::collections::HashSet;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_protos::pb;
 use enumflags2::BitFlags;
 use num::FromPrimitive;
 
@@ -257,7 +257,7 @@ impl FromToProto for mt::principal::GrantEntry {
     where Self: Sized {
         reader_check_msg(p.ver, p.min_reader_ver)?;
 
-        // Before https://github.com/getbigbytes/bigbytes/releases/tag/v1.2.321-nightly
+        // Before https://github.com/getbigbytes/bigbytesdb/releases/tag/v1.2.321-nightly
         // use from_bits deserialize privilege type, that maybe cause forward compat error.
         // Because old query may not contain new query's privilege type, so from_bits will return err, cause from_pb err.
         // https://docs.rs/enumflags2/0.7.7/enumflags2/struct.BitFlags.html#method.from_bits

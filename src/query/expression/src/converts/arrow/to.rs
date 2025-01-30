@@ -24,9 +24,9 @@ use arrow_schema::Field;
 use arrow_schema::Fields;
 use arrow_schema::Schema;
 use arrow_schema::TimeUnit;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::buffer_to_array_data;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::buffer_to_array_data;
+use bigbytesdb_common_exception::Result;
 
 use super::ARROW_EXT_TYPE_BITMAP;
 use super::ARROW_EXT_TYPE_EMPTY_ARRAY;

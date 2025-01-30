@@ -17,10 +17,10 @@ use std::fmt::Display;
 use std::io::Cursor;
 use std::ops::Range;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_io::cursor_ext::BufferReadDateTimeExt;
-use bigbytes_common_io::cursor_ext::ReadBytesExt;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_io::cursor_ext::BufferReadDateTimeExt;
+use bigbytesdb_common_io::cursor_ext::ReadBytesExt;
 use jiff::civil::Date;
 use jiff::fmt::strtime;
 use jiff::tz::TimeZone;
@@ -262,7 +262,7 @@ impl ArgType for DateType {
 pub fn string_to_date(
     date_str: impl AsRef<[u8]>,
     tz: &TimeZone,
-) -> bigbytes_common_exception::Result<Date> {
+) -> bigbytesdb_common_exception::Result<Date> {
     let mut reader = Cursor::new(std::str::from_utf8(date_str.as_ref()).unwrap().as_bytes());
     match reader.read_date_text(tz) {
         Ok(d) => match reader.must_eof() {

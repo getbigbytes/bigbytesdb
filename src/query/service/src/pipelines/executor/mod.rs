@@ -28,7 +28,7 @@ mod queries_executor_tasks;
 mod queries_pipeline_executor;
 mod query_executor_tasks;
 
-pub use bigbytes_common_base::base::WatchNotify;
+pub use bigbytesdb_common_base::base::WatchNotify;
 pub use executor_condvar::WorkersCondvar;
 pub use executor_condvar::WorkersWaitingStatus;
 pub use executor_graph::RunningGraph;

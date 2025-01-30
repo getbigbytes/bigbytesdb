@@ -15,10 +15,10 @@
 use std::cmp::Ordering;
 use std::collections::VecDeque;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
 
 use super::list_domain::Candidate;
 use super::list_domain::EndDomain;

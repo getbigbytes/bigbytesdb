@@ -22,10 +22,10 @@ use std::hash::Hash;
 use std::hash::Hasher;
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
 use parking_lot::RwLock;
 use rand::prelude::SliceRandom;
 use rand::thread_rng;

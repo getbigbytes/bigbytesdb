@@ -140,30 +140,30 @@ select get_path(parse_json('{"attr":[{"name": 1}, {"name": 2}]}'), 'attr[1]["nam
 2
 
 query T
-select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}'), 'customer["id"]')
+select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}'), 'customer["id"]')
 ----
 1
 
 query T
-select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}'), 'customer.name')
+select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}'), 'customer.name')
 ----
-"bigbytes"
+"bigbytesdb"
 
 query T
-select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}'), 'customer["extras"][0]')
+select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}'), 'customer["extras"][0]')
 ----
 "ext"
 
 query T
-select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}'), 'customer["extras"][2]')
+select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}'), 'customer["extras"][2]')
 ----
 NULL
 
 
 query T
-select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}'), '')
+select get_path(parse_json('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}'), '')
 ----
-{"customer":{"extras":["ext","test"],"id":1,"name":"bigbytes"}}
+{"customer":{"extras":["ext","test"],"id":1,"name":"bigbytesdb"}}
 
 
 query T
@@ -177,29 +177,29 @@ select json_extract_path_text('{"attr":[{"name": 1}, {"name": 2}]}', 'attr[1]["n
 2
 
 query T
-select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}', 'customer["id"]')
+select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}', 'customer["id"]')
 ----
 1
 
 query T
-select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}', 'customer.name')
+select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}', 'customer.name')
 ----
-bigbytes
+bigbytesdb
 
 query T
-select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}', 'customer["extras"][0]')
+select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}', 'customer["extras"][0]')
 ----
 ext
 
 query T
-select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}', 'customer["extras"][2]')
+select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}', 'customer["extras"][2]')
 ----
 NULL
 
 query T
-select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytes", "extras":["ext", "test"]}}', '')
+select json_extract_path_text('{"customer":{"id": 1, "name":"bigbytesdb", "extras":["ext", "test"]}}', '')
 ----
-{"customer":{"extras":["ext","test"],"id":1,"name":"bigbytes"}}
+{"customer":{"extras":["ext","test"],"id":1,"name":"bigbytesdb"}}
 
 
 query T

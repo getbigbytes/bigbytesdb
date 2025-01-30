@@ -16,16 +16,16 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 
 use anyerror::AnyError;
-use bigbytes_common_base::base::tokio::sync::broadcast;
-use bigbytes_common_base::base::Stoppable;
-use bigbytes_common_http::health_handler;
-use bigbytes_common_http::home::debug_home_handler;
+use bigbytesdb_common_base::base::tokio::sync::broadcast;
+use bigbytesdb_common_base::base::Stoppable;
+use bigbytesdb_common_http::health_handler;
+use bigbytesdb_common_http::home::debug_home_handler;
 #[cfg(feature = "memory-profiling")]
-use bigbytes_common_http::jeprof::debug_jeprof_dump_handler;
-use bigbytes_common_http::pprof::debug_pprof_handler;
-use bigbytes_common_http::HttpError;
-use bigbytes_common_http::HttpShutdownHandler;
-use bigbytes_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_http::jeprof::debug_jeprof_dump_handler;
+use bigbytesdb_common_http::pprof::debug_pprof_handler;
+use bigbytesdb_common_http::HttpError;
+use bigbytesdb_common_http::HttpShutdownHandler;
+use bigbytesdb_common_meta_types::MetaNetworkError;
 use log::info;
 use log::warn;
 use poem::get;
@@ -85,7 +85,7 @@ impl HttpService {
             route = route.at(
                 // to follow the conversions of jeprof, we arrange the path in
                 // this way, so that jeprof could be invoked like:
-                //   `jeprof ./target/debug/bigbytes-meta http://localhost:28002/debug/mem`
+                //   `jeprof ./target/debug/bigbytesdb-meta http://localhost:28002/debug/mem`
                 // and jeprof will translate the above url into sth like:
                 //    "http://localhost:28002/debug/mem/pprof/profile?seconds=30"
                 "/debug/mem/pprof/profile",

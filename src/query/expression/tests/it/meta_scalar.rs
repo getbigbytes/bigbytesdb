@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::converts::meta::IndexScalar;
-use bigbytes_common_expression::converts::meta::LegacyColumn;
-use bigbytes_common_expression::converts::meta::LegacyScalar;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_io::prelude::bincode_deserialize_from_slice;
-use bigbytes_common_io::prelude::bincode_serialize_into_buf;
+use bigbytesdb_common_expression::converts::meta::IndexScalar;
+use bigbytesdb_common_expression::converts::meta::LegacyColumn;
+use bigbytesdb_common_expression::converts::meta::LegacyScalar;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_io::prelude::bincode_deserialize_from_slice;
+use bigbytesdb_common_io::prelude::bincode_serialize_into_buf;
 
 use crate::rand_block_for_all_types;
 use crate::rand_block_for_simple_types;
 
 #[test]
-pub fn test_legacy_converts() -> bigbytes_common_exception::Result<()> {
+pub fn test_legacy_converts() -> bigbytesdb_common_exception::Result<()> {
     use rand::Rng;
 
     let mut rng = rand::thread_rng();
@@ -72,7 +72,7 @@ pub fn test_legacy_converts() -> bigbytes_common_exception::Result<()> {
 }
 
 #[test]
-pub fn test_simple_converts() -> bigbytes_common_exception::Result<()> {
+pub fn test_simple_converts() -> bigbytesdb_common_exception::Result<()> {
     use rand::Rng;
     let mut rng = rand::thread_rng();
     let test_times = rng.gen_range(5..30);

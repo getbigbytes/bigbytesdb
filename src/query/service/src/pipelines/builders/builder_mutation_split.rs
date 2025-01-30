@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_sql::executor::physical_plans::MutationSplit;
-use bigbytes_common_storages_fuse::operations::MutationSplitProcessor;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_sql::executor::physical_plans::MutationSplit;
+use bigbytesdb_common_storages_fuse::operations::MutationSplitProcessor;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::pipelines::PipelineBuilder;
 

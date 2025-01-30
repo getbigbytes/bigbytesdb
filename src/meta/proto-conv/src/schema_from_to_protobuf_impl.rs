@@ -15,13 +15,13 @@
 //! This mod is the key point about compatibility.
 //! Everytime update anything in this file, update the `VER` and let the tests pass.
 
-use bigbytes_common_expression as ex;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_protos::pb;
-use bigbytes_common_protos::pb::data_type::Dt;
-use bigbytes_common_protos::pb::data_type::Dt24;
-use bigbytes_common_protos::pb::number::Num;
+use bigbytesdb_common_expression as ex;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_protos::pb;
+use bigbytesdb_common_protos::pb::data_type::Dt;
+use bigbytesdb_common_protos::pb::data_type::Dt24;
+use bigbytesdb_common_protos::pb::number::Num;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

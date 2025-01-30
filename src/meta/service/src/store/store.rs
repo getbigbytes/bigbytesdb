@@ -15,8 +15,8 @@
 use std::ops::Deref;
 use std::sync::Arc;
 
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_meta_types::MetaStartupError;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_meta_types::MetaStartupError;
 
 use crate::store::RaftStoreInner;
 

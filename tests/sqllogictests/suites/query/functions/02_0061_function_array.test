@@ -213,7 +213,7 @@ select array_transform([1, 2, NULL, 3], x -> x + 1)
 query T
 select array_transform(['data', 'a', 'b'], data -> CONCAT(data, 'bend'))
 ----
-['bigbytes','abend','bbend']
+['bigbytesdb','abend','bbend']
 
 query T
 select array_apply(array_apply([5, NULL, 6], x -> COALESCE(x, 0) + 1), y -> y + 10)
@@ -383,7 +383,7 @@ NULL NULL NULL
 query T
 select json_array_transform(['data', 'a', 'b']::Variant, data -> CONCAT(data::String, 'bend') );
 ----
-["bigbytes","abend","bbend"]
+["bigbytesdb","abend","bbend"]
 
 query TT
 select json_array_transform(try_cast(col1 as Variant), a -> a::Int + col2), json_array_filter(try_cast(col1 as Variant), a -> a::Int = col2) from t3;

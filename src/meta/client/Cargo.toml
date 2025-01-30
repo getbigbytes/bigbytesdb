@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-client"
+name = "bigbytesdb-common-meta-client"
 description = "common meta grpc"
 version = { workspace = true }
 authors = { workspace = true }
@@ -17,13 +17,13 @@ test = true
 anyerror = { workspace = true }
 arrow-flight = { workspace = true }
 async-backtrace = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-meta-api = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-meta-api = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
 derive_more = { workspace = true }
 fastrace = { workspace = true }
 futures = { workspace = true }
@@ -40,11 +40,11 @@ tonic = { workspace = true }
 
 [dev-dependencies]
 anyhow = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 rand = { workspace = true }
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 
 [lints]
 workspace = true

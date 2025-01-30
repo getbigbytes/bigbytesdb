@@ -13,8 +13,8 @@
 // limitations under the License.
 
 use chrono_tz::Tz;
-use bigbytes_common_io::GeometryDataType;
-use bigbytes_common_meta_app::principal::BinaryFormat;
+use bigbytesdb_common_io::GeometryDataType;
+use bigbytesdb_common_meta_app::principal::BinaryFormat;
 use jiff::tz::TimeZone;
 
 #[derive(Clone)]

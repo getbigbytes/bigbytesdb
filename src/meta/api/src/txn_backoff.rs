@@ -15,7 +15,7 @@
 use std::fmt::Display;
 use std::time::Duration;
 
-use bigbytes_common_meta_app::app_error::TxnRetryMaxTimes;
+use bigbytesdb_common_meta_app::app_error::TxnRetryMaxTimes;
 use futures::future::BoxFuture;
 use log::info;
 use log::warn;

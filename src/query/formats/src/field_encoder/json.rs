@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::array::ArrayColumn;
-use bigbytes_common_expression::types::nullable::NullableColumn;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_io::constants::FALSE_BYTES_LOWER;
-use bigbytes_common_io::constants::NULL_BYTES_LOWER;
-use bigbytes_common_io::constants::TRUE_BYTES_LOWER;
+use bigbytesdb_common_expression::types::array::ArrayColumn;
+use bigbytesdb_common_expression::types::nullable::NullableColumn;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_io::constants::FALSE_BYTES_LOWER;
+use bigbytesdb_common_io::constants::NULL_BYTES_LOWER;
+use bigbytesdb_common_io::constants::TRUE_BYTES_LOWER;
 use geozero::wkb::Ewkb;
 use geozero::ToJson;
 

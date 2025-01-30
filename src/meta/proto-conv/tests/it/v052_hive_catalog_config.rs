@@ -14,9 +14,9 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::HiveCatalogOption;
-use bigbytes_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::HiveCatalogOption;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
 use fastrace::func_name;
 
 use crate::common;
@@ -44,16 +44,16 @@ fn test_decode_v52_hive_catalog() -> anyhow::Result<()> {
         58, 48, 57, 32, 85, 84, 67, 160, 6, 52, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::schema::CatalogMeta {
+    let want = || bigbytesdb_common_meta_app::schema::CatalogMeta {
         catalog_option: CatalogOption::Hive(HiveCatalogOption {
             address: "127.0.0.1:10000".to_string(),
             storage_params: Some(Box::new(
-                bigbytes_common_meta_app::storage::StorageParams::S3(StorageS3Config {
+                bigbytesdb_common_meta_app::storage::StorageParams::S3(StorageS3Config {
                     endpoint_url: "http://127.0.0.1:9900".to_string(),
                     region: "hello".to_string(),
                     bucket: "world".to_string(),
-                    access_key_id: "bigbytes_has_super_power".to_string(),
-                    secret_access_key: "bigbytes_has_super_power".to_string(),
+                    access_key_id: "bigbytesdb_has_super_power".to_string(),
+                    secret_access_key: "bigbytesdb_has_super_power".to_string(),
                     ..Default::default()
                 }),
             )),

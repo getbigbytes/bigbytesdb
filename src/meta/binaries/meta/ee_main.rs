@@ -17,8 +17,8 @@
 mod entry;
 mod kvapi;
 
-use bigbytes_common_base::mem_allocator::GlobalAllocator;
-use bigbytes_meta::configs::Config;
+use bigbytesdb_common_base::mem_allocator::GlobalAllocator;
+use bigbytesdb_meta::configs::Config;
 
 #[global_allocator]
 pub static GLOBAL_ALLOCATOR: GlobalAllocator = GlobalAllocator;

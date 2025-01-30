@@ -15,12 +15,12 @@
 use std::sync::LazyLock;
 use std::time::Duration;
 
-use bigbytes_common_base::runtime::metrics::register_counter;
-use bigbytes_common_base::runtime::metrics::register_gauge;
-use bigbytes_common_base::runtime::metrics::register_histogram_in_milliseconds;
-use bigbytes_common_base::runtime::metrics::Counter;
-use bigbytes_common_base::runtime::metrics::Gauge;
-use bigbytes_common_base::runtime::metrics::Histogram;
+use bigbytesdb_common_base::runtime::metrics::register_counter;
+use bigbytesdb_common_base::runtime::metrics::register_gauge;
+use bigbytesdb_common_base::runtime::metrics::register_histogram_in_milliseconds;
+use bigbytesdb_common_base::runtime::metrics::Counter;
+use bigbytesdb_common_base::runtime::metrics::Gauge;
+use bigbytesdb_common_base::runtime::metrics::Histogram;
 
 pub static SESSION_CONNECT_NUMBERS: LazyLock<Counter> =
     LazyLock::new(|| register_counter("session_connect_numbers"));

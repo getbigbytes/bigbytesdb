@@ -18,8 +18,8 @@ use std::sync::Arc;
 
 use backtrace::Backtrace;
 use backtrace::BacktraceFrame;
-use bigbytes_common_base::runtime::LimitMemGuard;
-use bigbytes_common_exception::USER_SET_ENABLE_BACKTRACE;
+use bigbytesdb_common_base::runtime::LimitMemGuard;
+use bigbytesdb_common_exception::USER_SET_ENABLE_BACKTRACE;
 use log::error;
 
 pub fn set_panic_hook(version: String) {

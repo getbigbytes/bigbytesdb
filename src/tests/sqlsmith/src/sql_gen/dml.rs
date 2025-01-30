@@ -15,43 +15,43 @@
 use std::sync::Arc;
 
 use chrono_tz::Tz;
-use bigbytes_common_ast::ast::AddColumnOption;
-use bigbytes_common_ast::ast::AlterTableAction;
-use bigbytes_common_ast::ast::AlterTableStmt;
-use bigbytes_common_ast::ast::ColumnDefinition;
-use bigbytes_common_ast::ast::DeleteStmt;
-use bigbytes_common_ast::ast::Hint;
-use bigbytes_common_ast::ast::HintItem;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::InsertOperation;
-use bigbytes_common_ast::ast::InsertSource;
-use bigbytes_common_ast::ast::InsertStmt;
-use bigbytes_common_ast::ast::MatchOperation;
-use bigbytes_common_ast::ast::MatchedClause;
-use bigbytes_common_ast::ast::MergeIntoStmt;
-use bigbytes_common_ast::ast::MergeOption;
-use bigbytes_common_ast::ast::MergeSource;
-use bigbytes_common_ast::ast::MergeUpdateExpr;
-use bigbytes_common_ast::ast::ReplaceStmt;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_ast::ast::UnmatchedClause;
-use bigbytes_common_ast::ast::UpdateExpr;
-use bigbytes_common_ast::ast::UpdateStmt;
-use bigbytes_common_ast::Span;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_formats::field_encoder::FieldEncoderValues;
-use bigbytes_common_formats::OutputCommonSettings;
-use bigbytes_common_io::constants::FALSE_BYTES_LOWER;
-use bigbytes_common_io::constants::INF_BYTES_LOWER;
-use bigbytes_common_io::constants::NAN_BYTES_LOWER;
-use bigbytes_common_io::constants::NULL_BYTES_UPPER;
-use bigbytes_common_io::constants::TRUE_BYTES_LOWER;
-use bigbytes_common_io::deserialize_bitmap;
-use bigbytes_common_sql::resolve_type_name;
+use bigbytesdb_common_ast::ast::AddColumnOption;
+use bigbytesdb_common_ast::ast::AlterTableAction;
+use bigbytesdb_common_ast::ast::AlterTableStmt;
+use bigbytesdb_common_ast::ast::ColumnDefinition;
+use bigbytesdb_common_ast::ast::DeleteStmt;
+use bigbytesdb_common_ast::ast::Hint;
+use bigbytesdb_common_ast::ast::HintItem;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::InsertOperation;
+use bigbytesdb_common_ast::ast::InsertSource;
+use bigbytesdb_common_ast::ast::InsertStmt;
+use bigbytesdb_common_ast::ast::MatchOperation;
+use bigbytesdb_common_ast::ast::MatchedClause;
+use bigbytesdb_common_ast::ast::MergeIntoStmt;
+use bigbytesdb_common_ast::ast::MergeOption;
+use bigbytesdb_common_ast::ast::MergeSource;
+use bigbytesdb_common_ast::ast::MergeUpdateExpr;
+use bigbytesdb_common_ast::ast::ReplaceStmt;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::ast::UnmatchedClause;
+use bigbytesdb_common_ast::ast::UpdateExpr;
+use bigbytesdb_common_ast::ast::UpdateStmt;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_formats::field_encoder::FieldEncoderValues;
+use bigbytesdb_common_formats::OutputCommonSettings;
+use bigbytesdb_common_io::constants::FALSE_BYTES_LOWER;
+use bigbytesdb_common_io::constants::INF_BYTES_LOWER;
+use bigbytesdb_common_io::constants::NAN_BYTES_LOWER;
+use bigbytesdb_common_io::constants::NULL_BYTES_UPPER;
+use bigbytesdb_common_io::constants::TRUE_BYTES_LOWER;
+use bigbytesdb_common_io::deserialize_bitmap;
+use bigbytesdb_common_sql::resolve_type_name;
 use itertools::join;
 use jiff::tz::TimeZone;
 use rand::Rng;
@@ -486,7 +486,7 @@ impl<'a, R: Rng + 'a> SqlGenerator<'a, R> {
                 };
                 (
                     AlterTableAction::ModifyColumn {
-                        action: bigbytes_common_ast::ast::ModifyColumnAction::SetDataType(vec![
+                        action: bigbytesdb_common_ast::ast::ModifyColumnAction::SetDataType(vec![
                             new_column.clone(),
                         ]),
                     },

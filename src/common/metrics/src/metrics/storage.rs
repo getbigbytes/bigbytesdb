@@ -15,14 +15,14 @@
 use std::sync::LazyLock;
 use std::time::Duration;
 
-use bigbytes_common_base::runtime::metrics::register_counter;
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::register_gauge;
-use bigbytes_common_base::runtime::metrics::register_histogram_in_milliseconds;
-use bigbytes_common_base::runtime::metrics::Counter;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
-use bigbytes_common_base::runtime::metrics::Gauge;
-use bigbytes_common_base::runtime::metrics::Histogram;
+use bigbytesdb_common_base::runtime::metrics::register_counter;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::register_gauge;
+use bigbytesdb_common_base::runtime::metrics::register_histogram_in_milliseconds;
+use bigbytesdb_common_base::runtime::metrics::Counter;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::Gauge;
+use bigbytesdb_common_base::runtime::metrics::Histogram;
 use prometheus_client::encoding::EncodeLabelSet;
 
 // Common metrics.

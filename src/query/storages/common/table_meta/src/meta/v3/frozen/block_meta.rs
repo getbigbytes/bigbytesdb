@@ -14,9 +14,9 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::converts::meta::LegacyScalar;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_expression::converts::meta::LegacyScalar;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -105,7 +105,7 @@ pub struct NativeColumnMeta {
     pub pages: Vec<PageMeta>,
 }
 
-impl From<NativeColumnMeta> for bigbytes_common_native::ColumnMeta {
+impl From<NativeColumnMeta> for bigbytesdb_common_native::ColumnMeta {
     fn from(value: NativeColumnMeta) -> Self {
         Self {
             offset: value.offset,
@@ -114,7 +114,7 @@ impl From<NativeColumnMeta> for bigbytes_common_native::ColumnMeta {
     }
 }
 
-impl From<PageMeta> for bigbytes_common_native::PageMeta {
+impl From<PageMeta> for bigbytesdb_common_native::PageMeta {
     fn from(value: PageMeta) -> Self {
         Self {
             length: value.length,

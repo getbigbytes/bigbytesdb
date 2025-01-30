@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::lock::Lock;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::LockKey;
-use bigbytes_common_meta_app::schema::LockType;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_pipeline_core::LockGuard;
+use bigbytesdb_common_catalog::lock::Lock;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::LockKey;
+use bigbytesdb_common_meta_app::schema::LockType;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_pipeline_core::LockGuard;
 
 use crate::locks::LockManager;
 

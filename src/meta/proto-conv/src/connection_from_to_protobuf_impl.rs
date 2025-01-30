@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::principal as mt;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app::principal as mt;
+use bigbytesdb_common_protos::pb;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_meta_types::NodeType;
-use bigbytes_common_sql::plans::InspectWarehousePlan;
-use bigbytes_enterprise_resources_management::ResourcesManagement;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_meta_types::NodeType;
+use bigbytesdb_common_sql::plans::InspectWarehousePlan;
+use bigbytesdb_enterprise_resources_management::ResourcesManagement;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

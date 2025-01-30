@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_transforms::processors::BlockMetaAccumulatingTransform;
-use bigbytes_common_pipeline_transforms::processors::BlockMetaAccumulatingTransformer;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CacheManager;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_transforms::processors::BlockMetaAccumulatingTransform;
+use bigbytesdb_common_pipeline_transforms::processors::BlockMetaAccumulatingTransformer;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CacheManager;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
 
 use crate::pruning_pipeline::block_metas_meta::BlockMetasMeta;
 use crate::pruning_pipeline::pruned_segment_meta::PrunedSegmentMeta;
@@ -37,7 +37,7 @@ impl ExtractSegmentTransform {
         input: Arc<InputPort>,
         output: Arc<OutputPort>,
         populate_cache: bool,
-    ) -> bigbytes_common_exception::Result<ProcessorPtr> {
+    ) -> bigbytesdb_common_exception::Result<ProcessorPtr> {
         Ok(ProcessorPtr::create(
             BlockMetaAccumulatingTransformer::create(input, output, ExtractSegmentTransform {
                 populate_cache,
@@ -52,7 +52,7 @@ impl BlockMetaAccumulatingTransform<PrunedSegmentMeta> for ExtractSegmentTransfo
     fn transform(
         &mut self,
         data: PrunedSegmentMeta,
-    ) -> bigbytes_common_exception::Result<Option<DataBlock>> {
+    ) -> bigbytesdb_common_exception::Result<Option<DataBlock>> {
         let (segment_location, info) = data.segments;
 
         let block_metas =
@@ -74,7 +74,7 @@ impl ExtractSegmentTransform {
         segment_path: &str,
         segment: &CompactSegmentInfo,
         populate_cache: bool,
-    ) -> bigbytes_common_exception::Result<Arc<Vec<Arc<BlockMeta>>>> {
+    ) -> bigbytesdb_common_exception::Result<Arc<Vec<Arc<BlockMeta>>>> {
         if let Some(cache) = CacheManager::instance().get_segment_block_metas_cache() {
             if let Some(metas) = cache.get(segment_path) {
                 Ok(metas)

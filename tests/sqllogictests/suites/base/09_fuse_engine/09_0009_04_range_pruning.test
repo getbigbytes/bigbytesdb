@@ -1,4 +1,4 @@
-# for issue which addressed in PR #10070 (https://github.com/getbigbytes/bigbytes/pull/10070)
+# for issue which addressed in PR #10070 (https://github.com/getbigbytes/bigbytesdb/pull/10070)
 statement ok
 DROP DATABASE IF EXISTS db_09_0009_04
 
@@ -44,7 +44,7 @@ select max(a) from range_test_t where a >= 4000 and a <= 5000;
 ----
 5000
 
-## issue:https://github.com/getbigbytes/bigbytes/issues/15170
+## issue:https://github.com/getbigbytes/bigbytesdb/issues/15170
 
 statement ok
 create or replace table test_range_array(doc varchar, embedding ARRAY(FLOAT32 not null));

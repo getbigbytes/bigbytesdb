@@ -20,7 +20,7 @@ on:
         required: true
         type: string
       version:
-        description: The version of bigbytes to run
+        description: The version of bigbytesdb to run
         required: true
         type: string
       runner_provider:
@@ -72,12 +72,12 @@ jobs:
           target: x86_64-unknown-linux-gnu
           category: udf
           artifacts: meta,query
-      - name: Setup Bigbytes Binary
+      - name: Setup Bigbytesdb Binary
         shell: bash
         run: |
-          sudo cp ./target/release/bigbytes-* /usr/local/bin/
-          bigbytes-query --version
-          bigbytes-meta --version
+          sudo cp ./target/release/bigbytesdb-* /usr/local/bin/
+          bigbytesdb-query --version
+          bigbytesdb-meta --version
       - uses: ./.github/actions/benchmark_local
         if: inputs.target == 'local' || inputs.target == 'all'
         timeout-minutes: 30
@@ -120,7 +120,7 @@ jobs:
         if: always()
         continue-on-error: true
         env:
-          BENDSQL_DSN: "bigbytes://${{ secrets.BENCHMARK_CLOUD_USER }}:${{ secrets.BENCHMARK_CLOUD_PASSWORD }}@${{ secrets.BENCHMARK_CLOUD_GATEWAY }}:443/?warehouse=default"
+          BENDSQL_DSN: "bigbytesdb://${{ secrets.BENCHMARK_CLOUD_USER }}:${{ secrets.BENCHMARK_CLOUD_PASSWORD }}@${{ secrets.BENCHMARK_CLOUD_GATEWAY }}:443/?warehouse=default"
         run: |
           echo "DROP DATABASE IF EXISTS load_test_${{ inputs.run_id }};" | bendsql
           echo "DROP WAREHOUSE IF EXISTS 'benchmark-${{ inputs.run_id }}';" | bendsql
@@ -166,7 +166,7 @@ jobs:
         if: always()
         continue-on-error: true
         env:
-          BENDSQL_DSN: "bigbytes://${{ secrets.BENCHMARK_CLOUD_USER }}:${{ secrets.BENCHMARK_CLOUD_PASSWORD }}@${{ secrets.BENCHMARK_CLOUD_GATEWAY }}:443/?warehouse=default"
+          BENDSQL_DSN: "bigbytesdb://${{ secrets.BENCHMARK_CLOUD_USER }}:${{ secrets.BENCHMARK_CLOUD_PASSWORD }}@${{ secrets.BENCHMARK_CLOUD_GATEWAY }}:443/?warehouse=default"
         run: |
           echo "DROP WAREHOUSE IF EXISTS 'benchmark-${{ inputs.run_id }}';" | bendsql
 
@@ -209,7 +209,7 @@ jobs:
             aws s3 sync "s3://benchmark/clickbench/release/${dataset}/latest/" ./results/${dataset}/ --exclude "*" --include "*.json"
             ./update_results.py --dataset $dataset --pr ${{ inputs.source_id }}
             aws s3 cp ./results/${dataset}.html ${REPORT_S3_PREFIX}/${dataset}.html
-            echo "* **${dataset}**: https://benchmark.bigbytes.com/clickbench/pr/${{ inputs.source_id }}/${{ inputs.run_id }}/${dataset}.html" >> /tmp/body
+            echo "* **${dataset}**: https://benchmark.bigbytesdb.com/clickbench/pr/${{ inputs.source_id }}/${{ inputs.run_id }}/${dataset}.html" >> /tmp/body
           done
       - name: Comment on PR
         uses: everpcpc/comment-on-pr-action@v1

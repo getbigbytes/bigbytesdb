@@ -14,7 +14,7 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_meta_types::NonEmptyString;
+use bigbytesdb_common_meta_types::NonEmptyString;
 
 use crate::app_error::TenantIsEmpty;
 use crate::tenant::Tenant;

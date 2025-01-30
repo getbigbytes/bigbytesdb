@@ -15414,7 +15414,7 @@ CopyIntoTable(
 
 
 ---------- Input ----------
-COPY INTO books FROM 's3://bigbytes/books.csv'
+COPY INTO books FROM 's3://bigbytesdb/books.csv'
     CONNECTION = (
         ENDPOINT_URL = 'http://localhost:9000/',
         ACCESS_KEY_ID = 'ROOTUSER',
@@ -15423,7 +15423,7 @@ COPY INTO books FROM 's3://bigbytes/books.csv'
     )
     FILE_FORMAT = (type = CSV);
 ---------- Output ---------
-COPY INTO books FROM 's3://bigbytes/books.csv' CONNECTION = ( access_key_id = 'ROOTUSER', endpoint_url = 'http://localhost:9000/', region = 'us-west-2', secret_access_key = 'CHANGEME123' ) FILE_FORMAT = (type = CSV)  PURGE = false FORCE = false DISABLE_VARIANT_CHECK = false ON_ERROR = abort RETURN_FAILED_ONLY = false
+COPY INTO books FROM 's3://bigbytesdb/books.csv' CONNECTION = ( access_key_id = 'ROOTUSER', endpoint_url = 'http://localhost:9000/', region = 'us-west-2', secret_access_key = 'CHANGEME123' ) FILE_FORMAT = (type = CSV)  PURGE = false FORCE = false DISABLE_VARIANT_CHECK = false ON_ERROR = abort RETURN_FAILED_ONLY = false
 ---------- AST ------------
 CopyIntoTable(
     CopyIntoTableStmt {
@@ -15432,7 +15432,7 @@ CopyIntoTable(
             Uri(
                 UriLocation {
                     protocol: "s3",
-                    name: "bigbytes",
+                    name: "bigbytesdb",
                     path: "/books.csv",
                     connection: Connection {
                         visited_keys: {},

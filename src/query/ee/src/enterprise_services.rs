@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license_manager::LicenseManager;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license_manager::LicenseManager;
 
 use crate::aggregating_index::RealAggregatingIndexHandler;
 use crate::attach_table::RealAttachTableHandler;

@@ -14,9 +14,9 @@
 
 use std::marker::PhantomData;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_storages_common_table_meta::meta::testify_version;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_storages_common_table_meta::meta::testify_version;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 
 use crate::filters::BlockFilter;
 

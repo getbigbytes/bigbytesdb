@@ -16,17 +16,17 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::SampleConfig;
-use bigbytes_common_catalog::plan::InvertedIndexInfo;
-use bigbytes_common_catalog::statistics::BasicColumnStatistics;
-use bigbytes_common_catalog::table::TableStatistics;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_storage::Histogram;
-use bigbytes_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
-use bigbytes_storages_common_table_meta::table::ChangeType;
+use bigbytesdb_common_ast::ast::SampleConfig;
+use bigbytesdb_common_catalog::plan::InvertedIndexInfo;
+use bigbytesdb_common_catalog::statistics::BasicColumnStatistics;
+use bigbytesdb_common_catalog::table::TableStatistics;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_storage::Histogram;
+use bigbytesdb_common_storage::DEFAULT_HISTOGRAM_BUCKETS;
+use bigbytesdb_storages_common_table_meta::table::ChangeType;
 use itertools::Itertools;
 
 use super::ScalarItem;

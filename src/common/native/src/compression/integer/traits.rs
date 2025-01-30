@@ -15,9 +15,9 @@
 use std::cmp::Ordering;
 use std::hash::Hash;
 
-use bigbytes_common_column::types::i256;
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_column::types::NativeType;
+use bigbytesdb_common_column::types::i256;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_column::types::NativeType;
 
 pub trait IntegerType: NativeType + PartialOrd + Hash + Eq {
     fn compare_i64(&self, i: i64) -> Ordering;

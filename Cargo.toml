@@ -1,6 +1,6 @@
 [workspace.package]
 version = "0.1.0"
-authors = ["Bigbytes Authors <opensource@getbigbytes.com>"]
+authors = ["Bigbytesdb Authors <opensource@getbigbytes.com>"]
 license = "Apache-2.0"
 publish = false
 edition = "2021"
@@ -111,107 +111,107 @@ members = [
 
 # Workspace dependencies
 [workspace.dependencies]
-bigbytes-common-ast = { path = "src/query/ast" }
-bigbytes-common-async-functions = { path = "src/query/async_functions" }
-bigbytes-common-auth = { path = "src/common/auth" }
-bigbytes-common-base = { path = "src/common/base" }
-bigbytes-common-binaries = { path = "src/binaries" }
-bigbytes-common-building = { path = "src/common/building" }
-bigbytes-common-cache = { path = "src/common/cache" }
-bigbytes-common-catalog = { path = "src/query/catalog" }
-bigbytes-common-cloud-control = { path = "src/common/cloud_control" }
-bigbytes-common-codegen = { path = "src/query/codegen" }
-bigbytes-common-column = { path = "src/common/column" }
-bigbytes-common-compress = { path = "src/common/compress" }
-bigbytes-common-config = { path = "src/query/config" }
-bigbytes-common-datavalues = { path = "src/query/datavalues" }
-bigbytes-common-exception = { path = "src/common/exception" }
-bigbytes-common-expression = { path = "src/query/expression" }
-bigbytes-common-formats = { path = "src/query/formats" }
-bigbytes-common-functions = { path = "src/query/functions" }
-bigbytes-common-grpc = { path = "src/common/grpc" }
-bigbytes-common-hashtable = { path = "src/common/hashtable" }
-bigbytes-common-http = { path = "src/common/http" }
-bigbytes-common-io = { path = "src/common/io" }
-bigbytes-common-license = { path = "src/common/license" }
-bigbytes-common-management = { path = "src/query/management" }
-bigbytes-common-meta-api = { path = "src/meta/api" }
-bigbytes-common-meta-app = { path = "src/meta/app" }
-bigbytes-common-meta-client = { path = "src/meta/client" }
-bigbytes-common-meta-embedded = { path = "src/meta/embedded" }
-bigbytes-common-meta-kvapi = { path = "src/meta/kvapi" }
-bigbytes-common-meta-process = { path = "src/meta/process" }
-bigbytes-common-meta-raft-store = { path = "src/meta/raft-store" }
-bigbytes-common-meta-sled-store = { path = "src/meta/sled-store" }
-bigbytes-common-meta-stoerr = { path = "src/meta/stoerr" }
-bigbytes-common-meta-store = { path = "src/meta/store" }
-bigbytes-common-meta-types = { path = "src/meta/types" }
-bigbytes-common-metrics = { path = "src/common/metrics" }
-bigbytes-common-native = { path = "src/common/native" }
-bigbytes-common-openai = { path = "src/common/openai" }
-bigbytes-common-pipeline-core = { path = "src/query/pipeline/core" }
-bigbytes-common-pipeline-sinks = { path = "src/query/pipeline/sinks" }
-bigbytes-common-pipeline-sources = { path = "src/query/pipeline/sources" }
-bigbytes-common-pipeline-transforms = { path = "src/query/pipeline/transforms" }
-bigbytes-common-proto-conv = { path = "src/meta/proto-conv" }
-bigbytes-common-protos = { path = "src/meta/protos" }
-bigbytes-common-script = { path = "src/query/script" }
-bigbytes-common-settings = { path = "src/query/settings" }
-bigbytes-common-sql = { path = "src/query/sql" }
-bigbytes-common-sqlsmith = { path = "src/tests/sqlsmith" }
-bigbytes-common-storage = { path = "src/common/storage" }
-bigbytes-common-storages-delta = { path = "src/query/storages/delta" }
-bigbytes-common-storages-factory = { path = "src/query/storages/factory" }
-bigbytes-common-storages-fuse = { path = "src/query/storages/fuse" }
-bigbytes-common-storages-hive = { path = "src/query/storages/hive/hive" }
-bigbytes-common-storages-iceberg = { path = "src/query/storages/iceberg" }
-bigbytes-common-storages-information-schema = { path = "src/query/storages/information_schema" }
-bigbytes-common-storages-memory = { path = "src/query/storages/memory" }
-bigbytes-common-storages-null = { path = "src/query/storages/null" }
-bigbytes-common-storages-orc = { path = "src/query/storages/orc" }
-bigbytes-common-storages-parquet = { path = "src/query/storages/parquet" }
-bigbytes-common-storages-random = { path = "src/query/storages/random" }
-bigbytes-common-storages-result-cache = { path = "src/query/storages/result_cache" }
-bigbytes-common-storages-stage = { path = "src/query/storages/stage" }
-bigbytes-common-storages-stream = { path = "src/query/storages/stream" }
-bigbytes-common-storages-system = { path = "src/query/storages/system" }
-bigbytes-common-storages-view = { path = "src/query/storages/view" }
-bigbytes-common-tracing = { path = "src/common/tracing" }
-bigbytes-common-users = { path = "src/query/users" }
-bigbytes-common-vector = { path = "src/common/vector" }
-bigbytes-enterprise-aggregating-index = { path = "src/query/ee_features/aggregating_index" }
-bigbytes-enterprise-attach-table = { path = "src/query/ee_features/attach_table" }
-bigbytes-enterprise-background-service = { path = "src/query/ee_features/background_service" }
-bigbytes-enterprise-data-mask-feature = { path = "src/query/ee_features/data_mask" }
-bigbytes-enterprise-fail-safe = { path = "src/query/ee_features/fail_safe" }
-bigbytes-enterprise-hilbert-clustering = { path = "src/query/ee_features/hilbert_clustering" }
-bigbytes-enterprise-inverted-index = { path = "src/query/ee_features/inverted_index" }
-bigbytes-enterprise-meta = { path = "src/meta/ee" }
-bigbytes-enterprise-query = { path = "src/query/ee" }
-bigbytes-enterprise-resources-management = { path = "src/query/ee_features/resources_management" }
-bigbytes-enterprise-storage-encryption = { path = "src/query/ee_features/storage_encryption" }
-bigbytes-enterprise-storage-quota = { path = "src/query/ee_features/storage_quota" }
-bigbytes-enterprise-stream-handler = { path = "src/query/ee_features/stream_handler" }
-bigbytes-enterprise-vacuum-handler = { path = "src/query/ee_features/vacuum_handler" }
-bigbytes-enterprise-virtual-column = { path = "src/query/ee_features/virtual_column" }
-bigbytes-functions-scalar-arithmetic = { path = "src/query/functions/src/scalars/arithmetic" }
-bigbytes-functions-scalar-datetime = { path = "src/query/functions/src/scalars/timestamp" }
-bigbytes-functions-scalar-decimal = { path = "src/query/functions/src/scalars/decimal" }
-bigbytes-functions-scalar-geo = { path = "src/query/functions/src/scalars/geographic" }
-bigbytes-functions-scalar-integer-basic-arithmetic = { path = "src/query/functions/src/scalars/integer_arithmetic" }
-bigbytes-functions-scalar-math = { path = "src/query/functions/src/scalars/mathematics" }
-bigbytes-functions-scalar-numeric-basic-arithmetic = { path = "src/query/functions/src/scalars/numeric_basic_arithmetic" }
-bigbytes-meta = { path = "src/meta/service" }
-bigbytes-query = { path = "src/query/service" }
-bigbytes-sqllogictests = { path = "tests/sqllogictests" }
-bigbytes-storages-common-blocks = { path = "src/query/storages/common/blocks" }
-bigbytes-storages-common-cache = { path = "src/query/storages/common/cache" }
-bigbytes-storages-common-index = { path = "src/query/storages/common/index" }
-bigbytes-storages-common-io = { path = "src/query/storages/common/io" }
-bigbytes-storages-common-pruner = { path = "src/query/storages/common/pruner" }
-bigbytes-storages-common-session = { path = "src/query/storages/common/session" }
-bigbytes-storages-common-stage = { path = "src/query/storages/common/stage" }
-bigbytes-storages-common-table-meta = { path = "src/query/storages/common/table_meta" }
+bigbytesdb-common-ast = { path = "src/query/ast" }
+bigbytesdb-common-async-functions = { path = "src/query/async_functions" }
+bigbytesdb-common-auth = { path = "src/common/auth" }
+bigbytesdb-common-base = { path = "src/common/base" }
+bigbytesdb-common-binaries = { path = "src/binaries" }
+bigbytesdb-common-building = { path = "src/common/building" }
+bigbytesdb-common-cache = { path = "src/common/cache" }
+bigbytesdb-common-catalog = { path = "src/query/catalog" }
+bigbytesdb-common-cloud-control = { path = "src/common/cloud_control" }
+bigbytesdb-common-codegen = { path = "src/query/codegen" }
+bigbytesdb-common-column = { path = "src/common/column" }
+bigbytesdb-common-compress = { path = "src/common/compress" }
+bigbytesdb-common-config = { path = "src/query/config" }
+bigbytesdb-common-datavalues = { path = "src/query/datavalues" }
+bigbytesdb-common-exception = { path = "src/common/exception" }
+bigbytesdb-common-expression = { path = "src/query/expression" }
+bigbytesdb-common-formats = { path = "src/query/formats" }
+bigbytesdb-common-functions = { path = "src/query/functions" }
+bigbytesdb-common-grpc = { path = "src/common/grpc" }
+bigbytesdb-common-hashtable = { path = "src/common/hashtable" }
+bigbytesdb-common-http = { path = "src/common/http" }
+bigbytesdb-common-io = { path = "src/common/io" }
+bigbytesdb-common-license = { path = "src/common/license" }
+bigbytesdb-common-management = { path = "src/query/management" }
+bigbytesdb-common-meta-api = { path = "src/meta/api" }
+bigbytesdb-common-meta-app = { path = "src/meta/app" }
+bigbytesdb-common-meta-client = { path = "src/meta/client" }
+bigbytesdb-common-meta-embedded = { path = "src/meta/embedded" }
+bigbytesdb-common-meta-kvapi = { path = "src/meta/kvapi" }
+bigbytesdb-common-meta-process = { path = "src/meta/process" }
+bigbytesdb-common-meta-raft-store = { path = "src/meta/raft-store" }
+bigbytesdb-common-meta-sled-store = { path = "src/meta/sled-store" }
+bigbytesdb-common-meta-stoerr = { path = "src/meta/stoerr" }
+bigbytesdb-common-meta-store = { path = "src/meta/store" }
+bigbytesdb-common-meta-types = { path = "src/meta/types" }
+bigbytesdb-common-metrics = { path = "src/common/metrics" }
+bigbytesdb-common-native = { path = "src/common/native" }
+bigbytesdb-common-openai = { path = "src/common/openai" }
+bigbytesdb-common-pipeline-core = { path = "src/query/pipeline/core" }
+bigbytesdb-common-pipeline-sinks = { path = "src/query/pipeline/sinks" }
+bigbytesdb-common-pipeline-sources = { path = "src/query/pipeline/sources" }
+bigbytesdb-common-pipeline-transforms = { path = "src/query/pipeline/transforms" }
+bigbytesdb-common-proto-conv = { path = "src/meta/proto-conv" }
+bigbytesdb-common-protos = { path = "src/meta/protos" }
+bigbytesdb-common-script = { path = "src/query/script" }
+bigbytesdb-common-settings = { path = "src/query/settings" }
+bigbytesdb-common-sql = { path = "src/query/sql" }
+bigbytesdb-common-sqlsmith = { path = "src/tests/sqlsmith" }
+bigbytesdb-common-storage = { path = "src/common/storage" }
+bigbytesdb-common-storages-delta = { path = "src/query/storages/delta" }
+bigbytesdb-common-storages-factory = { path = "src/query/storages/factory" }
+bigbytesdb-common-storages-fuse = { path = "src/query/storages/fuse" }
+bigbytesdb-common-storages-hive = { path = "src/query/storages/hive/hive" }
+bigbytesdb-common-storages-iceberg = { path = "src/query/storages/iceberg" }
+bigbytesdb-common-storages-information-schema = { path = "src/query/storages/information_schema" }
+bigbytesdb-common-storages-memory = { path = "src/query/storages/memory" }
+bigbytesdb-common-storages-null = { path = "src/query/storages/null" }
+bigbytesdb-common-storages-orc = { path = "src/query/storages/orc" }
+bigbytesdb-common-storages-parquet = { path = "src/query/storages/parquet" }
+bigbytesdb-common-storages-random = { path = "src/query/storages/random" }
+bigbytesdb-common-storages-result-cache = { path = "src/query/storages/result_cache" }
+bigbytesdb-common-storages-stage = { path = "src/query/storages/stage" }
+bigbytesdb-common-storages-stream = { path = "src/query/storages/stream" }
+bigbytesdb-common-storages-system = { path = "src/query/storages/system" }
+bigbytesdb-common-storages-view = { path = "src/query/storages/view" }
+bigbytesdb-common-tracing = { path = "src/common/tracing" }
+bigbytesdb-common-users = { path = "src/query/users" }
+bigbytesdb-common-vector = { path = "src/common/vector" }
+bigbytesdb-enterprise-aggregating-index = { path = "src/query/ee_features/aggregating_index" }
+bigbytesdb-enterprise-attach-table = { path = "src/query/ee_features/attach_table" }
+bigbytesdb-enterprise-background-service = { path = "src/query/ee_features/background_service" }
+bigbytesdb-enterprise-data-mask-feature = { path = "src/query/ee_features/data_mask" }
+bigbytesdb-enterprise-fail-safe = { path = "src/query/ee_features/fail_safe" }
+bigbytesdb-enterprise-hilbert-clustering = { path = "src/query/ee_features/hilbert_clustering" }
+bigbytesdb-enterprise-inverted-index = { path = "src/query/ee_features/inverted_index" }
+bigbytesdb-enterprise-meta = { path = "src/meta/ee" }
+bigbytesdb-enterprise-query = { path = "src/query/ee" }
+bigbytesdb-enterprise-resources-management = { path = "src/query/ee_features/resources_management" }
+bigbytesdb-enterprise-storage-encryption = { path = "src/query/ee_features/storage_encryption" }
+bigbytesdb-enterprise-storage-quota = { path = "src/query/ee_features/storage_quota" }
+bigbytesdb-enterprise-stream-handler = { path = "src/query/ee_features/stream_handler" }
+bigbytesdb-enterprise-vacuum-handler = { path = "src/query/ee_features/vacuum_handler" }
+bigbytesdb-enterprise-virtual-column = { path = "src/query/ee_features/virtual_column" }
+bigbytesdb-functions-scalar-arithmetic = { path = "src/query/functions/src/scalars/arithmetic" }
+bigbytesdb-functions-scalar-datetime = { path = "src/query/functions/src/scalars/timestamp" }
+bigbytesdb-functions-scalar-decimal = { path = "src/query/functions/src/scalars/decimal" }
+bigbytesdb-functions-scalar-geo = { path = "src/query/functions/src/scalars/geographic" }
+bigbytesdb-functions-scalar-integer-basic-arithmetic = { path = "src/query/functions/src/scalars/integer_arithmetic" }
+bigbytesdb-functions-scalar-math = { path = "src/query/functions/src/scalars/mathematics" }
+bigbytesdb-functions-scalar-numeric-basic-arithmetic = { path = "src/query/functions/src/scalars/numeric_basic_arithmetic" }
+bigbytesdb-meta = { path = "src/meta/service" }
+bigbytesdb-query = { path = "src/query/service" }
+bigbytesdb-sqllogictests = { path = "tests/sqllogictests" }
+bigbytesdb-storages-common-blocks = { path = "src/query/storages/common/blocks" }
+bigbytesdb-storages-common-cache = { path = "src/query/storages/common/cache" }
+bigbytesdb-storages-common-index = { path = "src/query/storages/common/index" }
+bigbytesdb-storages-common-io = { path = "src/query/storages/common/io" }
+bigbytesdb-storages-common-pruner = { path = "src/query/storages/common/pruner" }
+bigbytesdb-storages-common-session = { path = "src/query/storages/common/session" }
+bigbytesdb-storages-common-stage = { path = "src/query/storages/common/stage" }
+bigbytesdb-storages-common-table-meta = { path = "src/query/storages/common/table_meta" }
 
 # Crates.io dependencies
 ahash = "0.8"
@@ -545,7 +545,7 @@ prometheus-parse = "0.2.3"
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json", "valuable"] }
 
-# Bigbytes Integration Test
+# Bigbytesdb Integration Test
 quickcheck = "1.0"
 sqllogictest = "0.21.0"
 
@@ -582,8 +582,8 @@ incremental = false
 debug-assertions = true
 
 # [profile.release.package]
-# bigbytes-query = { codegen-units = 4 }
-# bigbytes-binaries = { codegen-units = 4 }
+# bigbytesdb-query = { codegen-units = 4 }
+# bigbytesdb-binaries = { codegen-units = 4 }
 
 [profile.dev]
 split-debuginfo = "unpacked"
@@ -598,7 +598,7 @@ gimli = { opt-level = 3 }
 miniz_oxide = { opt-level = 3 }
 object = { opt-level = 3 }
 rustc-demangle = { opt-level = 3 }
-bigbytes-common-exception = { opt-level = 3 }
+bigbytesdb-common-exception = { opt-level = 3 }
 
 [profile.bench]
 debug = true
@@ -631,4 +631,4 @@ sled = { git = "https://github.com/datafuse-extras/sled", tag = "v0.34.7-datafus
 tantivy = { git = "https://github.com/datafuse-extras/tantivy", rev = "7502370" }
 tantivy-common = { git = "https://github.com/datafuse-extras/tantivy", rev = "7502370", package = "tantivy-common" }
 tantivy-jieba = { git = "https://github.com/datafuse-extras/tantivy-jieba", rev = "0e300e9" }
-xorfilter-rs = { git = "https://github.com/datafuse-extras/xorfilter", tag = "bigbytes-alpha.4" }
+xorfilter-rs = { git = "https://github.com/datafuse-extras/xorfilter", tag = "bigbytesdb-alpha.4" }

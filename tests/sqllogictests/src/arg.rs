@@ -125,7 +125,7 @@ pub struct SqlLogicTestArgs {
     #[arg(
         long = "port",
         default_value = "8000",
-        help = "The bigbytes server http port"
+        help = "The bigbytesdb server http port"
     )]
     pub port: u16,
 }

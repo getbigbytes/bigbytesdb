@@ -15,28 +15,28 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FunctionCall as ASTFunctionCall;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::SampleConfig;
-use bigbytes_common_ast::ast::SelectStmt;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::catalog_kind::CATALOG_DEFAULT;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_catalog::table_function::TableFunction;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::FunctionKind;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_storages_result_cache::ResultCacheMetaManager;
-use bigbytes_common_storages_result_cache::ResultScan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FunctionCall as ASTFunctionCall;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::SampleConfig;
+use bigbytesdb_common_ast::ast::SelectStmt;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::catalog_kind::CATALOG_DEFAULT;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_catalog::table_function::TableFunction;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::FunctionKind;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_storages_result_cache::ResultCacheMetaManager;
+use bigbytesdb_common_storages_result_cache::ResultScan;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::binder::scalar::ScalarBinder;
 use crate::binder::table_args::bind_table_args;
@@ -80,11 +80,11 @@ impl Binder {
                 distinct: false,
                 top_n: None,
                 select_list: vec![SelectTarget::AliasedExpr {
-                    expr: Box::new(bigbytes_common_ast::ast::Expr::FunctionCall {
+                    expr: Box::new(bigbytesdb_common_ast::ast::Expr::FunctionCall {
                         span: *span,
                         func: ASTFunctionCall {
                             distinct: false,
-                            name: bigbytes_common_ast::ast::Identifier::from_name(
+                            name: bigbytesdb_common_ast::ast::Identifier::from_name(
                                 *span,
                                 &func_name.name,
                             ),
@@ -180,7 +180,7 @@ impl Binder {
             .set_span(*span));
         }
 
-        bigbytes_common_base::runtime::block_on(async move {
+        bigbytesdb_common_base::runtime::block_on(async move {
             let result_cache_mgr = ResultCacheMetaManager::create(kv_store, 0);
             let meta_key = meta_key.unwrap();
             let location = match result_cache_mgr.get(meta_key.clone()).await? {

@@ -25,9 +25,9 @@ pub mod udf_client;
 pub mod variant_transform;
 pub mod visitor;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_exception::Result;
 use ethnum::i256;
 
 pub use self::column_from::*;

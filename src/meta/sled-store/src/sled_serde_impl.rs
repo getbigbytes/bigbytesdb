@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::raft_types::Entry;
-use bigbytes_common_meta_types::raft_types::EntryPayload;
-use bigbytes_common_meta_types::raft_types::LogId;
-use bigbytes_common_meta_types::raft_types::Membership;
-use bigbytes_common_meta_types::raft_types::SnapshotMeta;
-use bigbytes_common_meta_types::raft_types::StoredMembership;
-use bigbytes_common_meta_types::raft_types::Vote;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Node;
-use bigbytes_common_meta_types::SeqNum;
+use bigbytesdb_common_meta_types::raft_types::Entry;
+use bigbytesdb_common_meta_types::raft_types::EntryPayload;
+use bigbytesdb_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::Membership;
+use bigbytesdb_common_meta_types::raft_types::SnapshotMeta;
+use bigbytesdb_common_meta_types::raft_types::StoredMembership;
+use bigbytesdb_common_meta_types::raft_types::Vote;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_common_meta_types::SeqNum;
 
 use crate::SledBytesError;
 use crate::SledSerde;

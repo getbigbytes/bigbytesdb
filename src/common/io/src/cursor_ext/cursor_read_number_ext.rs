@@ -15,8 +15,8 @@
 use std::io::BufRead;
 use std::io::Cursor;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use lexical_core::FromLexical;
 
 pub trait ReadNumberExt {

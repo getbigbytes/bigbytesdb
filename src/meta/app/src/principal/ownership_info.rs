@@ -16,7 +16,7 @@ use std::fmt;
 use std::fmt::Display;
 
 use anyerror::AnyError;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 use crate::principal::OwnershipObject;
 

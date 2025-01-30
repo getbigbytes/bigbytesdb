@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_sql::plans::RefreshTableIndexPlan;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_sql::plans::RefreshTableIndexPlan;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KVStream;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReq;
-use bigbytes_common_meta_kvapi::kvapi::MGetKVReq;
-use bigbytes_common_meta_kvapi::kvapi::UpsertKVReply;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KVStream;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReq;
+use bigbytesdb_common_meta_kvapi::kvapi::MGetKVReq;
+use bigbytesdb_common_meta_kvapi::kvapi::UpsertKVReply;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures::StreamExt;
 use futures::TryStreamExt;
 

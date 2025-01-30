@@ -34,8 +34,8 @@ fn test_decode_v87_user_iption() -> anyhow::Result<()> {
     ];
 
     let want = || {
-        bigbytes_common_meta_app::principal::UserOption::default()
-            .with_set_flag(bigbytes_common_meta_app::principal::UserOptionFlag::TenantSetting)
+        bigbytesdb_common_meta_app::principal::UserOption::default()
+            .with_set_flag(bigbytesdb_common_meta_app::principal::UserOptionFlag::TenantSetting)
             .with_default_role(Some("role1".into()))
             .with_network_policy(Some("mypolicy".to_string()))
             .with_disabled(Some(true))

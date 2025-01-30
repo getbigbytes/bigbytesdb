@@ -16,11 +16,11 @@ use std::collections::BTreeSet;
 use std::io;
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::protobuf::watch_request::FilterType;
-use bigbytes_common_meta_types::protobuf::WatchRequest;
-use bigbytes_common_meta_types::protobuf::WatchResponse;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::protobuf::watch_request::FilterType;
+use bigbytesdb_common_meta_types::protobuf::WatchRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::SeqV;
 use futures::future::BoxFuture;
 use futures::stream::BoxStream;
 use futures::StreamExt;
@@ -60,7 +60,7 @@ impl EventSubscriber {
             current_watcher_id: 1,
         };
 
-        let _h = bigbytes_common_base::runtime::spawn(subscriber.main());
+        let _h = bigbytesdb_common_base::runtime::spawn(subscriber.main());
 
         SubscriberHandle::new(tx)
     }

@@ -14,8 +14,8 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use enumflags2::bitflags;
 use enumflags2::BitFlags;
 

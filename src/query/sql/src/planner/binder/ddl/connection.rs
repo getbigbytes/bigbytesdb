@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::CreateConnectionStmt;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::CreateConnectionStmt;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::parse_storage_params_from_uri;
 use crate::plans::CreateConnectionPlan;

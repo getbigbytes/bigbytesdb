@@ -15,9 +15,9 @@
 use std::io::Write;
 use std::mem::size_of;
 
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::types::F64;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::types::F64;
 
 use crate::error::Error;
 use crate::error::Result;

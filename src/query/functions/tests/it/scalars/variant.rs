@@ -14,8 +14,8 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;
@@ -96,7 +96,7 @@ fn test_parse_json(file: &mut impl Write) {
             r#"1234.5678"#,
             r#"1.912e2"#,
             r#""\\\"abc\\\"""#,
-            r#""bigbytes""#,
+            r#""bigbytesdb""#,
             r#"{"k":"v","a":"b"}"#,
             r#"[1,2,3,["a","b","c"]]"#,
         ]),
@@ -131,7 +131,7 @@ fn test_try_parse_json(file: &mut impl Write) {
             r#"1234.5678"#,
             r#"1.912e2"#,
             r#""\\\"abc\\\"""#,
-            r#""bigbytes""#,
+            r#""bigbytesdb""#,
             r#"{"k":"v","a":"b"}"#,
             r#"[1,2,3,["a","b","c"]]"#,
         ]),

@@ -17,10 +17,10 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema as mt;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::NonEmptyString;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app::schema as mt;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::NonEmptyString;
+use bigbytesdb_common_protos::pb;
 use num::FromPrimitive;
 
 use crate::reader_check_msg;

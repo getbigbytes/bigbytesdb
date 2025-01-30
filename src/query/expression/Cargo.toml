@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-expression"
+name = "bigbytesdb-common-expression"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -23,14 +23,14 @@ base64 = { workspace = true }
 borsh = { workspace = true, features = ["derive"] }
 bumpalo = { workspace = true }
 comfy-table = { workspace = true }
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-column = { workspace = true }
-bigbytes-common-datavalues = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-hashtable = { workspace = true }
-bigbytes-common-io = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-column = { workspace = true }
+bigbytesdb-common-datavalues = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-hashtable = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
 educe = { workspace = true }
 either = { workspace = true }
 enum-as-inner = { workspace = true }

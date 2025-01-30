@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copyright (c) The Diem Core Contributors.
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -569,7 +569,7 @@ if [[ "$INSTALL_BUILD_TOOLS" == "false" ]] &&
 fi
 
 if [ ! -f rust-toolchain.toml ]; then
-	echo "Unknown location. Please run this from the bigbytes repository. Abort."
+	echo "Unknown location. Please run this from the bigbytesdb repository. Abort."
 	exit 1
 fi
 RUST_TOOLCHAIN="$(awk -F'[ ="]+' '$1 == "channel" { print $2 }' rust-toolchain.toml)"
@@ -702,9 +702,9 @@ fi
 if [[ "$INSTALL_TPCH_DATA" == "true" ]]; then
 	# Construct a docker imagine to generate tpch-data
 	if [[ -z ${TPCH_SCALE_FACTOR} ]]; then
-		docker build -f scripts/setup/tpchdata.dockerfile -t bigbytes:latest .
+		docker build -f scripts/setup/tpchdata.dockerfile -t bigbytesdb:latest .
 	else
-		docker build -f scripts/setup/tpchdata.dockerfile -t bigbytes:latest \
+		docker build -f scripts/setup/tpchdata.dockerfile -t bigbytesdb:latest \
 			--build-arg scale_factor="${TPCH_SCALE_FACTOR}" .
 	fi
 	# Generate data into the ./data directory if it does not already exist
@@ -713,7 +713,7 @@ if [[ "$INSTALL_TPCH_DATA" == "true" ]]; then
 		echo "$FILE exists."
 	else
 		mkdir "$(pwd)/benchmark/tpch/data" 2>/dev/null
-		docker run -v "$(pwd)/benchmark/tpch/data:/data" --rm bigbytes:latest
+		docker run -v "$(pwd)/benchmark/tpch/data:/data" --rm bigbytesdb:latest
 	fi
 fi
 

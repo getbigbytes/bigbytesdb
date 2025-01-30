@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::CreateDatabaseReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::DropDatabaseReq;
-use bigbytes_common_meta_app::schema::RenameDatabaseReq;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_query::catalogs::default::ImmutableCatalog;
-use bigbytes_query::catalogs::Catalog;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::DropDatabaseReq;
+use bigbytesdb_common_meta_app::schema::RenameDatabaseReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_query::catalogs::default::ImmutableCatalog;
+use bigbytesdb_query::catalogs::Catalog;
 
 use crate::tests::create_catalog;
 
@@ -30,7 +30,7 @@ async fn test_immutable_catalogs_database() -> Result<()> {
     let tenant_name = "test";
     let tenant = Tenant::new_literal(tenant_name);
 
-    let conf = bigbytes_query::test_kits::ConfigBuilder::create().config();
+    let conf = bigbytesdb_query::test_kits::ConfigBuilder::create().config();
     let catalog = ImmutableCatalog::try_create_with_config(&conf).await?;
 
     // get system database

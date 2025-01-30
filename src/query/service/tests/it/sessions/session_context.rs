@@ -12,13 +12,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
-use bigbytes_query::sessions::SessionContext;
-use bigbytes_query::sessions::SessionType;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
+use bigbytesdb_query::sessions::SessionContext;
+use bigbytesdb_query::sessions::SessionType;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_session_context() -> Result<()> {

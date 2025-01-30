@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-raft-store"
+name = "bigbytesdb-common-meta-raft-store"
 description = "Raft state machine"
 version = { workspace = true }
 authors = { workspace = true }
@@ -12,7 +12,7 @@ doctest = false
 test = true
 
 [features]
-io-uring = ["bigbytes-common-meta-sled-store/io-uring"]
+io-uring = ["bigbytesdb-common-meta-sled-store/io-uring"]
 
 [dependencies]
 anyhow = { workspace = true }
@@ -20,13 +20,13 @@ async-trait = { workspace = true }
 bincode = { workspace = true }
 byteorder = { workspace = true }
 chrono = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-sled-store = { workspace = true }
-bigbytes-common-meta-stoerr = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-sled-store = { workspace = true }
+bigbytesdb-common-meta-stoerr = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
 deepsize = { workspace = true }
 derive_more = { workspace = true }
 fastrace = { workspace = true }
@@ -53,7 +53,7 @@ tokio = { workspace = true }
 tonic = { workspace = true }
 
 [dev-dependencies]
-bigbytes-common-base = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
 pretty_assertions = { workspace = true }
 tempfile = { workspace = true }
 tokio = { workspace = true }

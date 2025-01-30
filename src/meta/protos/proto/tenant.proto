@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package bigbytes_proto;
+package bigbytesdb_proto;
 
 // `[T]enant[Ident]` is a common meta-service key structure in form of `<PREFIX>/<TENANT>/<NAME>`.
 message TIdent {

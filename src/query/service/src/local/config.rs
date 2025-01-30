@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Loading from `$HOME/.config/bigbytes/config.toml`
+// Loading from `$HOME/.config/bigbytesdb/config.toml`
 
 use std::path::Path;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use serde::Deserialize;
 
 #[derive(Clone, Debug, Default, Deserialize)]
@@ -146,7 +146,7 @@ impl Settings {
 impl Config {
     pub fn load() -> Self {
         let path = format!(
-            "{}/.config/bigbytes/config.toml",
+            "{}/.config/bigbytesdb/config.toml",
             std::env::var("HOME").unwrap_or_else(|_| ".".to_string())
         );
 
@@ -170,7 +170,7 @@ impl Default for Settings {
         Settings {
             display_pretty_sql: true,
             progress_color: "cyan".to_string(),
-            prompt: "bigbytes-local:) ".to_string(),
+            prompt: "bigbytesdb-local:) ".to_string(),
             output_format: OutputFormat::Table,
             show_progress: true,
             max_display_rows: 40,

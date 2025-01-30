@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::executor::PhysicalPlanBuilder;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::Planner;
-use bigbytes_query::test_kits::ConfigBuilder;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::executor::PhysicalPlanBuilder;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_query::test_kits::ConfigBuilder;
+use bigbytesdb_query::test_kits::TestFixture;
 
 pub async fn create_parquet_test_fixture() -> TestFixture {
     let mut conf = ConfigBuilder::create().config();

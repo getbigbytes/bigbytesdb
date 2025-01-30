@@ -25,7 +25,7 @@ impl MarkedDeletedIndexId {
 }
 
 mod kvapi_key_impl {
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use super::MarkedDeletedIndexId;
 

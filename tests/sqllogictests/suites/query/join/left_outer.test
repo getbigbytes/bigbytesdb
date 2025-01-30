@@ -311,7 +311,7 @@ select * from (
    select 'SN0LL' as k  from t1
 ) as a1  left  join (select * from t2) as a2 on a1.k = a2.a;
 
-# https://github.com/getbigbytes/bigbytes/issues/17067
+# https://github.com/getbigbytes/bigbytesdb/issues/17067
 statement ok
 drop table if exists t3;
 

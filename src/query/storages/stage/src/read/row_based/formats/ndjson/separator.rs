@@ -14,8 +14,8 @@
 
 use std::default::Default;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::FileStatus;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::FileStatus;
 
 use crate::read::row_based::batch::BytesBatch;
 use crate::read::row_based::batch::NdjsonRowBatch;

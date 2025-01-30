@@ -16,7 +16,7 @@ use core::cmp::Ordering;
 use std::collections::BTreeMap;
 use std::ops::Range;
 
-use bigbytes_common_io::deserialize_bitmap;
+use bigbytesdb_common_io::deserialize_bitmap;
 use geozero::wkb::Ewkb;
 use geozero::ToJson;
 use jiff::tz::TimeZone;

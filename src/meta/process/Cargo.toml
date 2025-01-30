@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-process"
+name = "bigbytesdb-common-meta-process"
 description = "process meta-service data"
 version = { workspace = true }
 authors = { workspace = true }
@@ -10,14 +10,14 @@ edition = { workspace = true }
 [dependencies]
 anyhow = { workspace = true }
 clap = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-raft-store = { workspace = true }
-bigbytes-common-meta-sled-store = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-proto-conv = { workspace = true }
-bigbytes-common-protos = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-raft-store = { workspace = true }
+bigbytesdb-common-meta-sled-store = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-proto-conv = { workspace = true }
+bigbytesdb-common-protos = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
 openraft = { workspace = true }
 prost = { workspace = true }
 serde = { workspace = true }

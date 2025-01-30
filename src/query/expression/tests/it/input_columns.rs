@@ -1,6 +1,6 @@
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::InputColumns;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::InputColumns;
 
 use crate::common::new_block;
 

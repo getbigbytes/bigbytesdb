@@ -15,13 +15,13 @@
 use std::any::Any;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_metrics::storage::*;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::readers::snapshot_reader::TableSnapshotAccessor;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_metrics::storage::*;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::readers::snapshot_reader::TableSnapshotAccessor;
 use log::info;
 use uuid::Uuid;
 

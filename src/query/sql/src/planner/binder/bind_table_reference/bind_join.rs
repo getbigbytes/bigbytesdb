@@ -15,15 +15,15 @@
 use std::sync::Arc;
 
 use async_recursion::async_recursion;
-use bigbytes_common_ast::ast::split_conjunctions_expr;
-use bigbytes_common_ast::ast::split_equivalent_predicate_expr;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::JoinCondition;
-use bigbytes_common_ast::ast::JoinOperator;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::split_conjunctions_expr;
+use bigbytesdb_common_ast::ast::split_equivalent_predicate_expr;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::JoinCondition;
+use bigbytesdb_common_ast::ast::JoinOperator;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::wrap_nullable;
 use crate::binder::Finder;
@@ -63,7 +63,7 @@ impl Binder {
     pub(crate) fn bind_join(
         &mut self,
         bind_context: &mut BindContext,
-        join: &bigbytes_common_ast::ast::Join,
+        join: &bigbytesdb_common_ast::ast::Join,
     ) -> Result<(SExpr, BindContext)> {
         let (left_child, mut left_context) = self.bind_table_reference(bind_context, &join.left)?;
         let mut left_column_bindings = left_context.columns.clone();

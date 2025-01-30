@@ -15,11 +15,11 @@
 use std::collections::HashMap;
 use std::str::FromStr;
 
-use bigbytes_common_config::UserConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::AuthType;
+use bigbytesdb_common_config::UserConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::AuthType;
 use log::error;
 
 pub struct BuiltinUsers {
@@ -93,8 +93,8 @@ impl BuiltinUsers {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_config::UserAuthConfig;
-    use bigbytes_common_meta_app::principal::PasswordHashMethod;
+    use bigbytesdb_common_config::UserAuthConfig;
+    use bigbytesdb_common_meta_app::principal::PasswordHashMethod;
 
     use super::*;
 

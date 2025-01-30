@@ -16,27 +16,27 @@ use std::pin::Pin;
 use std::thread::sleep;
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::sync::oneshot;
-use bigbytes_common_base::base::tokio::task::JoinHandle;
-use bigbytes_common_meta_client::to_digit_ver;
-use bigbytes_common_meta_client::MIN_METASRV_SEMVER;
-use bigbytes_common_meta_types::protobuf::meta_service_server::MetaService;
-use bigbytes_common_meta_types::protobuf::meta_service_server::MetaServiceServer;
-use bigbytes_common_meta_types::protobuf::ClientInfo;
-use bigbytes_common_meta_types::protobuf::ClusterStatus;
-use bigbytes_common_meta_types::protobuf::Empty;
-use bigbytes_common_meta_types::protobuf::ExportedChunk;
-use bigbytes_common_meta_types::protobuf::HandshakeResponse;
-use bigbytes_common_meta_types::protobuf::MemberListReply;
-use bigbytes_common_meta_types::protobuf::MemberListRequest;
-use bigbytes_common_meta_types::protobuf::RaftReply;
-use bigbytes_common_meta_types::protobuf::RaftRequest;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::protobuf::TxnReply;
-use bigbytes_common_meta_types::protobuf::TxnRequest;
-use bigbytes_common_meta_types::protobuf::WatchRequest;
-use bigbytes_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::sync::oneshot;
+use bigbytesdb_common_base::base::tokio::task::JoinHandle;
+use bigbytesdb_common_meta_client::to_digit_ver;
+use bigbytesdb_common_meta_client::MIN_METASRV_SEMVER;
+use bigbytesdb_common_meta_types::protobuf::meta_service_server::MetaService;
+use bigbytesdb_common_meta_types::protobuf::meta_service_server::MetaServiceServer;
+use bigbytesdb_common_meta_types::protobuf::ClientInfo;
+use bigbytesdb_common_meta_types::protobuf::ClusterStatus;
+use bigbytesdb_common_meta_types::protobuf::Empty;
+use bigbytesdb_common_meta_types::protobuf::ExportedChunk;
+use bigbytesdb_common_meta_types::protobuf::HandshakeResponse;
+use bigbytesdb_common_meta_types::protobuf::MemberListReply;
+use bigbytesdb_common_meta_types::protobuf::MemberListRequest;
+use bigbytesdb_common_meta_types::protobuf::RaftReply;
+use bigbytesdb_common_meta_types::protobuf::RaftRequest;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::protobuf::TxnReply;
+use bigbytesdb_common_meta_types::protobuf::TxnRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
 use futures::Stream;
 use rand::Rng;
 use tonic::codegen::BoxStream;
@@ -56,7 +56,7 @@ impl MetaService for GrpcServiceForTestImpl {
 
     async fn handshake(
         &self,
-        _request: Request<Streaming<bigbytes_common_meta_types::protobuf::HandshakeRequest>>,
+        _request: Request<Streaming<bigbytesdb_common_meta_types::protobuf::HandshakeRequest>>,
     ) -> Result<Response<Self::HandshakeStream>, Status> {
         tokio::time::sleep(Duration::from_secs(2)).await;
         let output = futures::stream::once(async {
@@ -90,7 +90,7 @@ impl MetaService for GrpcServiceForTestImpl {
 
     async fn export(
         &self,
-        _request: Request<bigbytes_common_meta_types::protobuf::Empty>,
+        _request: Request<bigbytesdb_common_meta_types::protobuf::Empty>,
     ) -> Result<Response<Self::ExportStream>, Status> {
         unimplemented!()
     }
@@ -100,7 +100,7 @@ impl MetaService for GrpcServiceForTestImpl {
 
     async fn export_v1(
         &self,
-        _request: Request<bigbytes_common_meta_types::protobuf::ExportRequest>,
+        _request: Request<bigbytesdb_common_meta_types::protobuf::ExportRequest>,
     ) -> Result<Response<Self::ExportStream>, Status> {
         unimplemented!()
     }
@@ -160,7 +160,7 @@ pub fn start_grpc_server_addr(addr: impl ToString) -> (oneshot::Sender<()>, Join
 
     let (tx, rx) = oneshot::channel::<()>();
 
-    let h = bigbytes_common_base::runtime::spawn(async move {
+    let h = bigbytesdb_common_base::runtime::spawn(async move {
         Server::builder()
             .add_service(svc)
             .serve_with_shutdown(addr, async move {

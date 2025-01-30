@@ -3,9 +3,9 @@ requires = ["maturin>1.1.0"]
 build-backend = "maturin"
 
 [project]
-name = "bigbytes"
+name = "bigbytesdb"
 requires-python = ">=3.12"
-description = "Bigbytes Python Binding"
+description = "Bigbytesdb Python Binding"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
@@ -18,10 +18,10 @@ docs = ["pdoc"]
 test = ["pytest", "pandas", "polars"]
 
 [project.urls]
-Documentation = "https://bigbytes.com"
-Homepage =  "https://bigbytes.com"
-"Home-page" =  "https://bigbytes.com"
-Repository = "https://github.com/getbigbytes/bigbytes"
+Documentation = "https://bigbytesdb.com"
+Homepage =  "https://bigbytesdb.com"
+"Home-page" =  "https://bigbytesdb.com"
+Repository = "https://github.com/getbigbytes/bigbytesdb"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]

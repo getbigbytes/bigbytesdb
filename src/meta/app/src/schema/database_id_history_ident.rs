@@ -36,8 +36,8 @@ impl DatabaseIdHistoryIdentRaw {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::schema::DatabaseId;
     use crate::schema::DatabaseIdHistoryIdent;
@@ -68,7 +68,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::DatabaseIdHistoryIdent;
     use crate::tenant::Tenant;

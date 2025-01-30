@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::error::Result;
 use crate::nested::create_map;

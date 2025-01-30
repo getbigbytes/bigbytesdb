@@ -14,9 +14,9 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::number::Int64Type;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::number::Int64Type;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;

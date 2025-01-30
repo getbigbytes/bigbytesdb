@@ -19,7 +19,7 @@ use std::path::Path;
 use std::path::PathBuf;
 
 fn main() {
-    bigbytes_common_building::setup();
+    bigbytesdb_common_building::setup();
     build_proto();
 }
 

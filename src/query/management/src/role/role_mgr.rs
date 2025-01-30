@@ -14,35 +14,35 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_api::reply::txn_reply_to_api_result;
-use bigbytes_common_meta_api::txn_backoff::txn_backoff;
-use bigbytes_common_meta_api::txn_cond_seq;
-use bigbytes_common_meta_api::txn_op_del;
-use bigbytes_common_meta_api::txn_op_put;
-use bigbytes_common_meta_app::app_error::AppError;
-use bigbytes_common_meta_app::app_error::TxnRetryMaxTimes;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipInfo;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::RoleIdent;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::TenantOwnershipObjectIdent;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::KeyWithTenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReply;
-use bigbytes_common_meta_kvapi::kvapi::UpsertKVReply;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::ConditionResult::Eq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MatchSeqExt;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_api::reply::txn_reply_to_api_result;
+use bigbytesdb_common_meta_api::txn_backoff::txn_backoff;
+use bigbytesdb_common_meta_api::txn_cond_seq;
+use bigbytesdb_common_meta_api::txn_op_del;
+use bigbytesdb_common_meta_api::txn_op_put;
+use bigbytesdb_common_meta_app::app_error::AppError;
+use bigbytesdb_common_meta_app::app_error::TxnRetryMaxTimes;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipInfo;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::RoleIdent;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::TenantOwnershipObjectIdent;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::KeyWithTenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::UpsertKVReply;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::ConditionResult::Eq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MatchSeqExt;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
 use enumflags2::make_bitflags;
 use fastrace::func_name;
 use log::debug;
@@ -140,7 +140,7 @@ impl RoleMgr {
 impl RoleApi for RoleMgr {
     #[async_backtrace::framed]
     #[fastrace::trace]
-    async fn add_role(&self, role_info: RoleInfo) -> bigbytes_common_exception::Result<u64> {
+    async fn add_role(&self, role_info: RoleInfo) -> bigbytesdb_common_exception::Result<u64> {
         let match_seq = MatchSeq::Exact(0);
         let key = self.role_ident(role_info.identity()).to_string_key();
         let value = serialize_struct(&role_info, ErrorCode::IllegalUserInfoFormat, || "")?;
@@ -281,7 +281,7 @@ impl RoleApi for RoleMgr {
     async fn transfer_ownership_to_admin(
         &self,
         role: &str,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let mut trials = txn_backoff(None, func_name!());
         loop {
             trials.next().unwrap().map_err(AppError::from)?.await;
@@ -335,7 +335,7 @@ impl RoleApi for RoleMgr {
         &self,
         object: &OwnershipObject,
         new_role: &str,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let mut retry = 0;
         while retry < TXN_MAX_RETRY_TIMES {
             retry += 1;
@@ -394,7 +394,7 @@ impl RoleApi for RoleMgr {
     async fn get_ownership(
         &self,
         object: &OwnershipObject,
-    ) -> bigbytes_common_exception::Result<Option<OwnershipInfo>> {
+    ) -> bigbytesdb_common_exception::Result<Option<OwnershipInfo>> {
         let key = self.ownership_object_ident(object);
         let key = key.to_string_key();
 
@@ -418,7 +418,7 @@ impl RoleApi for RoleMgr {
     async fn revoke_ownership(
         &self,
         object: &OwnershipObject,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let mut retry = 0;
         while retry < TXN_MAX_RETRY_TIMES {
             retry += 1;

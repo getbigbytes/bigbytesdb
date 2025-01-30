@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-grpc"
+name = "bigbytesdb-common-grpc"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,8 +11,8 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 
 anyerror = { workspace = true }
 hickory-resolver = { workspace = true }

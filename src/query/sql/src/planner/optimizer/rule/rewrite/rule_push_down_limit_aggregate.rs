@@ -84,7 +84,7 @@ impl RulePushDownRankLimitAggregate {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let limit: Limit = s_expr.plan().clone().try_into()?;
         let Some(mut count) = limit.limit else {
             return Ok(());
@@ -131,7 +131,7 @@ impl RulePushDownRankLimitAggregate {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let sort: Sort = s_expr.plan().clone().try_into()?;
         let mut has_eval_scalar = false;
         let agg_limit_expr = match s_expr.child(0)?.plan().rel_op() {
@@ -205,7 +205,7 @@ impl Rule for RulePushDownRankLimitAggregate {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         match s_expr.plan().rel_op() {
             RelOp::Limit => self.apply_limit(s_expr, state),
             RelOp::Sort | RelOp::EvalScalar => self.apply_sort(s_expr, state),

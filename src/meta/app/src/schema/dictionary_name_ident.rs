@@ -43,7 +43,7 @@ impl DictionaryNameIdent {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::dictionary_id_ident::DictionaryId;
     use crate::tenant_key::resource::TenantResource;

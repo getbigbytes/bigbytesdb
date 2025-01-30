@@ -15,12 +15,12 @@
 //! Test arrow-grpc API of metasrv
 use std::collections::HashSet;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::Stoppable;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_kvapi::kvapi::UpsertKVReply;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::Stoppable;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_kvapi::kvapi::UpsertKVReply;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::UpsertKV;
 use log::debug;
 use log::info;
 use pretty_assertions::assert_eq;
@@ -34,7 +34,7 @@ use crate::tests::start_metasrv_with_context;
 #[test(harness = meta_service_test_harness)]
 #[fastrace::trace]
 async fn test_restart() -> anyhow::Result<()> {
-    // Fix: Issue 1134  https://github.com/getbigbytes/bigbytes/issues/1134
+    // Fix: Issue 1134  https://github.com/getbigbytes/bigbytesdb/issues/1134
     // - Start a metasrv server.
     // - create db and create table
     // - restart

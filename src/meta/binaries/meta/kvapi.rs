@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaSpec;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_meta_types::With;
-use bigbytes_meta::configs::Config;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaSpec;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::With;
+use bigbytesdb_meta::configs::Config;
 
 pub enum KvApiCommand {
     Get(String),

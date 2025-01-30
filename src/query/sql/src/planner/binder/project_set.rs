@@ -17,9 +17,9 @@ use std::collections::HashSet;
 use std::mem;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::FunctionKind;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::FunctionKind;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::binder::aggregate::AggregateRewriter;
 use crate::binder::select::SelectList;

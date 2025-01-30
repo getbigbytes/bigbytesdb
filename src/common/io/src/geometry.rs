@@ -15,8 +15,8 @@
 use std::fmt::Display;
 use std::str::FromStr;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use geo::Geometry;
 use geozero::geo_types::GeoWriter;
 use geozero::geojson::GeoJson;

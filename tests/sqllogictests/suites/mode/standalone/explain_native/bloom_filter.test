@@ -33,7 +33,7 @@ select * from bloom_test_t where c1 = 5
 ----
 5 6
 
-# for issue which addressed in PR #9706 (https://github.com/getbigbytes/bigbytes/pull/9706)
+# for issue which addressed in PR #9706 (https://github.com/getbigbytes/bigbytesdb/pull/9706)
 #
 # if cached filters are populated incorrectly by using the wrong cache key:
 # - instead of the correct one ${block_id}-${column_id}
@@ -79,7 +79,7 @@ select count(*) from bloom_test_t where c1 = 5
 ----
 1
 
-# for issue which addressed in PR #10022 (https://github.com/getbigbytes/bigbytes/pull/10022)
+# for issue which addressed in PR #10022 (https://github.com/getbigbytes/bigbytesdb/pull/10022)
 statement ok
 alter table bloom_test_t drop column c2
 
@@ -146,8 +146,8 @@ TableScan
 ├── push downs: [filters: [and_filters(bloom_test_nullable_t.c1 (#0) = 5, bloom_test_nullable_t.c2 (#1) > 1)], limit: NONE]
 └── estimated rows: 1.00
 
-# fix https://github.com/getbigbytes/bigbytes/issues/15570
-# fix https://github.com/getbigbytes/bigbytes/issues/15572
+# fix https://github.com/getbigbytes/bigbytesdb/issues/15570
+# fix https://github.com/getbigbytes/bigbytesdb/issues/15572
 
 statement ok
 drop table if exists bloom_test_nullable_t2

@@ -14,10 +14,10 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_exception::exception::Result;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::PasswordHashMethod;
-use bigbytes_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_exception::exception::Result;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::PasswordHashMethod;
+use bigbytesdb_common_meta_app::principal::UserInfo;
 
 #[test]
 fn test_user_info() -> Result<()> {

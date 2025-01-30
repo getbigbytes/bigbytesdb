@@ -15,23 +15,23 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::headers::HEADER_DEDUPLICATE_LABEL;
-use bigbytes_common_base::headers::HEADER_NODE_ID;
-use bigbytes_common_base::headers::HEADER_QUERY_ID;
-use bigbytes_common_base::headers::HEADER_STICKY;
-use bigbytes_common_base::headers::HEADER_TENANT;
-use bigbytes_common_base::headers::HEADER_VERSION;
-use bigbytes_common_base::headers::HEADER_WAREHOUSE;
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::BIGBYTES_SEMVER;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::user_token::TokenType;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_enterprise_resources_management::ResourcesManagement;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::headers::HEADER_DEDUPLICATE_LABEL;
+use bigbytesdb_common_base::headers::HEADER_NODE_ID;
+use bigbytesdb_common_base::headers::HEADER_QUERY_ID;
+use bigbytesdb_common_base::headers::HEADER_STICKY;
+use bigbytesdb_common_base::headers::HEADER_TENANT;
+use bigbytesdb_common_base::headers::HEADER_VERSION;
+use bigbytesdb_common_base::headers::HEADER_WAREHOUSE;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::user_token::TokenType;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_enterprise_resources_management::ResourcesManagement;
 use fastrace::func_name;
 use headers::authorization::Basic;
 use headers::authorization::Bearer;
@@ -107,7 +107,7 @@ impl EndpointKind {
                 | EndpointKind::HeartBeat
         )
     }
-    pub fn require_bigbytes_token_type(&self) -> Result<Option<TokenType>> {
+    pub fn require_bigbytesdb_token_type(&self) -> Result<Option<TokenType>> {
         match self {
             EndpointKind::Verify | EndpointKind::NoAuth => Ok(None),
             EndpointKind::Refresh => Ok(Some(TokenType::Refresh)),
@@ -124,7 +124,7 @@ impl EndpointKind {
                 }
             }
             EndpointKind::Login | EndpointKind::Clickhouse => Err(ErrorCode::AuthenticateFailure(
-                format!("should not use bigbytes token for {self:?}",),
+                format!("should not use bigbytesdb token for {self:?}",),
             )),
         }
     }
@@ -257,8 +257,8 @@ fn get_credential_from_header(
         match Bearer::decode(value) {
             Some(bearer) => {
                 let token = bearer.token().to_string();
-                if SessionClaim::is_bigbytes_token(&token) {
-                    if let Some(t) = endpoint_kind.require_bigbytes_token_type()? {
+                if SessionClaim::is_bigbytesdb_token(&token) {
+                    if let Some(t) = endpoint_kind.require_bigbytesdb_token_type()? {
                         if t != SessionClaim::get_type(&token)? {
                             return Err(ErrorCode::AuthenticateFailure("wrong data token type"));
                         }
@@ -663,7 +663,7 @@ pub async fn json_response<E: Endpoint>(next: E, req: Request) -> PoemResult<Res
             .into_response(),
     };
     resp.headers_mut()
-        .insert(HEADER_VERSION, BIGBYTES_SEMVER.to_string().parse().unwrap());
+        .insert(HEADER_VERSION, BIGBYTESDB_SEMVER.to_string().parse().unwrap());
     Ok(resp)
 }
 

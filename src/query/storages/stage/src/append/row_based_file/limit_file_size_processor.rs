@@ -16,14 +16,14 @@ use std::any::Any;
 use std::mem;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::Event;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::Event;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
 
 use crate::append::row_based_file::buffers::FileOutputBuffer;
 use crate::append::row_based_file::buffers::FileOutputBuffers;
@@ -69,7 +69,7 @@ impl Processor for LimitFileSizeProcessor {
         self
     }
 
-    fn event(&mut self) -> bigbytes_common_exception::Result<Event> {
+    fn event(&mut self) -> bigbytesdb_common_exception::Result<Event> {
         if self.output.is_finished() {
             self.input.finish();
             Ok(Event::Finished)

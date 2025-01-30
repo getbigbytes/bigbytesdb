@@ -16,32 +16,32 @@ use std::collections::hash_map::Entry;
 use std::collections::HashMap;
 use std::time::Duration;
 
-use bigbytes_common_base::base::escape_for_key;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::unescape_for_key;
-use bigbytes_common_base::base::GlobalUniqName;
-use bigbytes_common_base::vec_ext::VecExt;
-use bigbytes_common_base::version::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_store::MetaStore;
-use bigbytes_common_meta_types::anyerror::AnyError;
-use bigbytes_common_meta_types::txn_op_response::Response;
-use bigbytes_common_meta_types::ConditionResult;
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MatchSeqExt;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_common_meta_types::NodeType;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::TxnCondition;
-use bigbytes_common_meta_types::TxnGetResponse;
-use bigbytes_common_meta_types::TxnOp;
-use bigbytes_common_meta_types::TxnOpResponse;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
+use bigbytesdb_common_base::base::escape_for_key;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::unescape_for_key;
+use bigbytesdb_common_base::base::GlobalUniqName;
+use bigbytesdb_common_base::vec_ext::VecExt;
+use bigbytesdb_common_base::version::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_store::MetaStore;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_meta_types::txn_op_response::Response;
+use bigbytesdb_common_meta_types::ConditionResult;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MatchSeqExt;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::NodeType;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::TxnCondition;
+use bigbytesdb_common_meta_types::TxnGetResponse;
+use bigbytesdb_common_meta_types::TxnOp;
+use bigbytesdb_common_meta_types::TxnOpResponse;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
 use log::error;
 use log::info;
 
@@ -2166,7 +2166,7 @@ impl WarehouseApi for WarehouseMgr {
             return Ok(vec![node]);
         }
 
-        let expect_version = BIGBYTES_COMMIT_VERSION.to_string();
+        let expect_version = BIGBYTESDB_COMMIT_VERSION.to_string();
 
         Ok(self
             .list_warehouse_cluster_nodes(&node.warehouse_id, &node.cluster_id)
@@ -2192,7 +2192,7 @@ impl WarehouseApi for WarehouseMgr {
             return Ok(vec![node]);
         }
 
-        let expect_version = BIGBYTES_COMMIT_VERSION.to_string();
+        let expect_version = BIGBYTESDB_COMMIT_VERSION.to_string();
 
         Ok(self
             .list_warehouse_nodes(node.warehouse_id.clone())
@@ -2211,7 +2211,7 @@ impl WarehouseApi for WarehouseMgr {
     }
 }
 
-/// Build an error indicating that bigbytes-meta responded with an unexpected response,
+/// Build an error indicating that bigbytesdb-meta responded with an unexpected response,
 /// while expecting a TxnGetResponse.
 fn invalid_get_resp(resp: Option<&TxnOpResponse>) -> MetaError {
     let invalid = InvalidReply::new(

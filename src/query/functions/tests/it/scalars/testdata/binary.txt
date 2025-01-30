@@ -106,13 +106,13 @@ evaluation:
 | Domain | {"abc"..="def"} | {""..}             |
 | Row 0  | 'abc'           | '616263'           |
 | Row 1  | 'def'           | '646566'           |
-| Row 2  | 'bigbytes'      | '6461746162656e64' |
+| Row 2  | 'bigbytesdb'      | '6461746162656e64' |
 +--------+-----------------+--------------------+
 evaluation (internal):
 +--------+------------------------------------------------+
 | Column | Data                                           |
 +--------+------------------------------------------------+
-| a      | StringColumn[abc, def, bigbytes]               |
+| a      | StringColumn[abc, def, bigbytesdb]               |
 | Output | StringColumn[616263, 646566, 6461746162656e64] |
 +--------+------------------------------------------------+
 
@@ -167,10 +167,10 @@ error:
 ast            : from_hex('6461746162656e64')::String
 raw expr       : CAST(from_hex('6461746162656e64') AS String)
 checked expr   : to_string<Binary>(from_hex<String>("6461746162656e64"))
-optimized expr : "bigbytes"
+optimized expr : "bigbytesdb"
 output type    : String
-output domain  : {"bigbytes"..="bigbytes"}
-output         : 'bigbytes'
+output domain  : {"bigbytesdb"..="bigbytesdb"}
+output         : 'bigbytesdb'
 
 
 error:
@@ -192,14 +192,14 @@ evaluation:
 | Domain | {"616263"..="646566"} | Unknown    |
 | Row 0  | '616263'              | 'abc'      |
 | Row 1  | '646566'              | 'def'      |
-| Row 2  | '6461746162656e64'    | 'bigbytes' |
+| Row 2  | '6461746162656e64'    | 'bigbytesdb' |
 +--------+-----------------------+------------+
 evaluation (internal):
 +--------+------------------------------------------------+
 | Column | Data                                           |
 +--------+------------------------------------------------+
 | s      | StringColumn[616263, 646566, 6461746162656e64] |
-| Output | StringColumn[abc, def, bigbytes]               |
+| Output | StringColumn[abc, def, bigbytesdb]               |
 +--------+------------------------------------------------+
 
 
@@ -335,10 +335,10 @@ output         : NULL
 ast            : TRY_from_hex('6461746162656e64')::String
 raw expr       : CAST(TRY_from_hex('6461746162656e64') AS String)
 checked expr   : CAST(try_from_hex<String>("6461746162656e64") AS String)
-optimized expr : "bigbytes"
+optimized expr : "bigbytesdb"
 output type    : String
-output domain  : {"bigbytes"..="bigbytes"}
-output         : 'bigbytes'
+output domain  : {"bigbytesdb"..="bigbytesdb"}
+output         : 'bigbytesdb'
 
 
 ast            : TRY_from_hex('6461746162656e6')
@@ -361,14 +361,14 @@ evaluation:
 | Domain | {"616263"..="646566"} | Unknown    |
 | Row 0  | '616263'              | 'abc'      |
 | Row 1  | '646566'              | 'def'      |
-| Row 2  | '6461746162656e64'    | 'bigbytes' |
+| Row 2  | '6461746162656e64'    | 'bigbytesdb' |
 +--------+-----------------------+------------+
 evaluation (internal):
 +--------+------------------------------------------------+
 | Column | Data                                           |
 +--------+------------------------------------------------+
 | s      | StringColumn[616263, 646566, 6461746162656e64] |
-| Output | StringColumn[abc, def, bigbytes]               |
+| Output | StringColumn[abc, def, bigbytesdb]               |
 +--------+------------------------------------------------+
 
 

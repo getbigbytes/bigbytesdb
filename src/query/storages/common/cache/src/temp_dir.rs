@@ -27,12 +27,12 @@ use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::Once;
 
-use bigbytes_common_base::base::Alignment;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::base::GlobalUniqName;
-use bigbytes_common_config::SpillConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::Alignment;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::base::GlobalUniqName;
+use bigbytesdb_common_config::SpillConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use rustix::fs::statvfs;
 
 pub struct TempDirManager {

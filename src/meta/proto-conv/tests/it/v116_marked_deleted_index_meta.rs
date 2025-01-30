@@ -14,8 +14,8 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::MarkedDeletedIndexMeta;
-use bigbytes_common_meta_app::schema::MarkedDeletedIndexType;
+use bigbytesdb_common_meta_app::schema::MarkedDeletedIndexMeta;
+use bigbytesdb_common_meta_app::schema::MarkedDeletedIndexType;
 use fastrace::func_name;
 
 use crate::common;

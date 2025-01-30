@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_raft_store::key_spaces::RaftStoreEntry;
-use bigbytes_common_meta_sled_store::init_get_sled_db;
+use bigbytesdb_common_meta_raft_store::key_spaces::RaftStoreEntry;
+use bigbytesdb_common_meta_sled_store::init_get_sled_db;
 
 use crate::examples::Config;
 

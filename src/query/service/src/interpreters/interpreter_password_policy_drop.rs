@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::DropPasswordPolicyPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::DropPasswordPolicyPlan;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_query::catalogs::InMemoryMetas;
-use bigbytes_query::databases::SystemDatabase;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::table_id_ranges::SYS_DB_ID_BEGIN;
-use bigbytes_storages_common_table_meta::table_id_ranges::SYS_TBL_ID_BEGIN;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::catalogs::InMemoryMetas;
+use bigbytesdb_query::databases::SystemDatabase;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::table_id_ranges::SYS_DB_ID_BEGIN;
+use bigbytesdb_storages_common_table_meta::table_id_ranges::SYS_TBL_ID_BEGIN;
 
 #[test]
 fn test_disable_system_table() -> Result<()> {

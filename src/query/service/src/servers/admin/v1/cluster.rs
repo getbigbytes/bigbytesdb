@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_types::NodeInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_types::NodeInfo;
 use http::StatusCode;
 use poem::web::IntoResponse;
 use poem::web::Json;
@@ -26,7 +26,7 @@ use crate::sessions::SessionType;
 use crate::sessions::TableContext;
 
 // GET /v1/cluster/list
-// list all nodes in current bigbytes-query cluster
+// list all nodes in current bigbytesdb-query cluster
 // request: None
 // cluster_state: the shared in memory state which store all nodes known to current node
 // return: return a list of cluster node information

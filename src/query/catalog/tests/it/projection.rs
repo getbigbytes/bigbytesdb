@@ -14,12 +14,12 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_catalog::plan::Projection;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_catalog::plan::Projection;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
 use parquet::arrow::arrow_to_parquet_schema;
 
 #[test]

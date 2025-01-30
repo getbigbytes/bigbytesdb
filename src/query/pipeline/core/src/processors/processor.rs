@@ -17,8 +17,8 @@ use std::cell::UnsafeCell;
 use std::ops::Deref;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use fastrace::prelude::*;
 use futures::future::BoxFuture;
 use futures::FutureExt;

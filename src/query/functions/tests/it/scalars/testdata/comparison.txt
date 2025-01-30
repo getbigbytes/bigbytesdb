@@ -399,9 +399,9 @@ output domain  : {TRUE}
 output         : true
 
 
-ast            : parse_json('"bigbytes"') != parse_json('"bigbytes"')
-raw expr       : noteq(parse_json('"bigbytes"'), parse_json('"bigbytes"'))
-checked expr   : noteq<Variant, Variant>(parse_json<String>("\"bigbytes\""), parse_json<String>("\"bigbytes\""))
+ast            : parse_json('"bigbytesdb"') != parse_json('"bigbytesdb"')
+raw expr       : noteq(parse_json('"bigbytesdb"'), parse_json('"bigbytesdb"'))
+checked expr   : noteq<Variant, Variant>(parse_json<String>("\"bigbytesdb\""), parse_json<String>("\"bigbytesdb\""))
 optimized expr : false
 output type    : Boolean
 output domain  : {FALSE}
@@ -779,8 +779,8 @@ evaluation:
 |        | lhs                                            | rhs                                            | Output  |
 +--------+------------------------------------------------+------------------------------------------------+---------+
 | Type   | String                                         | String                                         | Boolean |
-| Domain | {"\"bigbytes\""..="{\"k\":\"v\",\"a\":\"b\"}"} | {"\"bigbytes\""..="{\"k\":\"a\",\"a\":\"d\"}"} | Unknown |
-| Row 0  | '"bigbytes"'                                   | '"bigbytes"'                                   | true    |
+| Domain | {"\"bigbytesdb\""..="{\"k\":\"v\",\"a\":\"b\"}"} | {"\"bigbytesdb\""..="{\"k\":\"a\",\"a\":\"d\"}"} | Unknown |
+| Row 0  | '"bigbytesdb"'                                   | '"bigbytesdb"'                                   | true    |
 | Row 1  | '{"k":"v","a":"b"}'                            | '{"k":"a","a":"d"}'                            | true    |
 | Row 2  | '[1,2,3,["a","b","c"]]'                        | '[0,2,3,["a","b","c"]]'                        | false   |
 +--------+------------------------------------------------+------------------------------------------------+---------+
@@ -788,8 +788,8 @@ evaluation (internal):
 +--------+--------------------------------------------------------------------+
 | Column | Data                                                               |
 +--------+--------------------------------------------------------------------+
-| lhs    | StringColumn["bigbytes", {"k":"v","a":"b"}, [1,2,3,["a","b","c"]]] |
-| rhs    | StringColumn["bigbytes", {"k":"a","a":"d"}, [0,2,3,["a","b","c"]]] |
+| lhs    | StringColumn["bigbytesdb", {"k":"v","a":"b"}, [1,2,3,["a","b","c"]]] |
+| rhs    | StringColumn["bigbytesdb", {"k":"a","a":"d"}, [0,2,3,["a","b","c"]]] |
 | Output | Boolean([0b_____011])                                              |
 +--------+--------------------------------------------------------------------+
 
@@ -802,8 +802,8 @@ evaluation:
 |        | lhs                                            | rhs                                            | Output        |
 +--------+------------------------------------------------+------------------------------------------------+---------------+
 | Type   | String                                         | String                                         | Boolean       |
-| Domain | {"\"bigbytes\""..="{\"k\":\"v\",\"a\":\"b\"}"} | {"\"bigbytes\""..="{\"k\":\"a\",\"a\":\"d\"}"} | {FALSE, TRUE} |
-| Row 0  | '"bigbytes"'                                   | '"bigbytes"'                                   | true          |
+| Domain | {"\"bigbytesdb\""..="{\"k\":\"v\",\"a\":\"b\"}"} | {"\"bigbytesdb\""..="{\"k\":\"a\",\"a\":\"d\"}"} | {FALSE, TRUE} |
+| Row 0  | '"bigbytesdb"'                                   | '"bigbytesdb"'                                   | true          |
 | Row 1  | '{"k":"v","a":"b"}'                            | '{"k":"a","a":"d"}'                            | false         |
 | Row 2  | '[1,2,3,["a","b","c"]]'                        | '[0,2,3,["a","b","c"]]'                        | false         |
 +--------+------------------------------------------------+------------------------------------------------+---------------+
@@ -811,8 +811,8 @@ evaluation (internal):
 +--------+--------------------------------------------------------------------+
 | Column | Data                                                               |
 +--------+--------------------------------------------------------------------+
-| lhs    | StringColumn["bigbytes", {"k":"v","a":"b"}, [1,2,3,["a","b","c"]]] |
-| rhs    | StringColumn["bigbytes", {"k":"a","a":"d"}, [0,2,3,["a","b","c"]]] |
+| lhs    | StringColumn["bigbytesdb", {"k":"v","a":"b"}, [1,2,3,["a","b","c"]]] |
+| rhs    | StringColumn["bigbytesdb", {"k":"a","a":"d"}, [0,2,3,["a","b","c"]]] |
 | Output | Boolean([0b_____001])                                              |
 +--------+--------------------------------------------------------------------+
 

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::PresignAction as AstPresignAction;
-use bigbytes_common_ast::ast::PresignLocation;
-use bigbytes_common_ast::ast::PresignStmt;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::PresignAction as AstPresignAction;
+use bigbytesdb_common_ast::ast::PresignLocation;
+use bigbytesdb_common_ast::ast::PresignStmt;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::resolve_stage_location;
 use crate::binder::Binder;

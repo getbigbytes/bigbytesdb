@@ -15,10 +15,10 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::NetworkPolicy;
-use bigbytes_common_sql::plans::CreateNetworkPolicyPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::NetworkPolicy;
+use bigbytesdb_common_sql::plans::CreateNetworkPolicyPlan;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;

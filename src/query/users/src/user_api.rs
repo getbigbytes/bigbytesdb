@@ -15,36 +15,36 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_management::udf::UdfMgr;
-use bigbytes_common_management::ClientSessionMgr;
-use bigbytes_common_management::ConnectionMgr;
-use bigbytes_common_management::FileFormatMgr;
-use bigbytes_common_management::NetworkPolicyMgr;
-use bigbytes_common_management::PasswordPolicyMgr;
-use bigbytes_common_management::ProcedureMgr;
-use bigbytes_common_management::QuotaApi;
-use bigbytes_common_management::QuotaMgr;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_management::RoleMgr;
-use bigbytes_common_management::SettingMgr;
-use bigbytes_common_management::StageApi;
-use bigbytes_common_management::StageMgr;
-use bigbytes_common_management::UserApi;
-use bigbytes_common_management::UserMgr;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserDefinedFunction;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_store::MetaStore;
-use bigbytes_common_meta_store::MetaStoreProvider;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_management::udf::UdfMgr;
+use bigbytesdb_common_management::ClientSessionMgr;
+use bigbytesdb_common_management::ConnectionMgr;
+use bigbytesdb_common_management::FileFormatMgr;
+use bigbytesdb_common_management::NetworkPolicyMgr;
+use bigbytesdb_common_management::PasswordPolicyMgr;
+use bigbytesdb_common_management::ProcedureMgr;
+use bigbytesdb_common_management::QuotaApi;
+use bigbytesdb_common_management::QuotaMgr;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_management::RoleMgr;
+use bigbytesdb_common_management::SettingMgr;
+use bigbytesdb_common_management::StageApi;
+use bigbytesdb_common_management::StageMgr;
+use bigbytesdb_common_management::UserApi;
+use bigbytesdb_common_management::UserMgr;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserDefinedFunction;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_store::MetaStore;
+use bigbytesdb_common_meta_store::MetaStoreProvider;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
 
 use crate::builtin::BuiltIn;
 use crate::BUILTIN_ROLE_PUBLIC;
@@ -94,7 +94,7 @@ impl UserApiProvider {
         //    contains the PUBLIC role. The data objects which owned by PUBLIC can be accessed by any role.
         // But we only can set PUBLIC role into meta.
         // Because the previous deserialization using from_bits caused forward compatibility issues after adding new privilege type
-        // Until we can confirm all product use https://github.com/getbigbytes/bigbytes/releases/tag/v1.2.321-nightly or later,
+        // Until we can confirm all product use https://github.com/getbigbytes/bigbytesdb/releases/tag/v1.2.321-nightly or later,
         // We can add account_admin into meta.
         {
             let public = RoleInfo::new(BUILTIN_ROLE_PUBLIC);

@@ -13,24 +13,24 @@
 // limitations under the License.
 
 use chrono::Utc;
-use bigbytes_common_ast::ast::AccountMgrLevel;
-use bigbytes_common_ast::ast::AccountMgrSource;
-use bigbytes_common_ast::ast::AlterUserStmt;
-use bigbytes_common_ast::ast::CreateUserStmt;
-use bigbytes_common_ast::ast::GrantObjectName;
-use bigbytes_common_ast::ast::GrantStmt;
-use bigbytes_common_ast::ast::PrincipalIdentity as AstPrincipalIdentity;
-use bigbytes_common_ast::ast::RevokeStmt;
-use bigbytes_common_ast::ast::ShowObjectPrivilegesStmt;
-use bigbytes_common_ast::ast::ShowOptions;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::PrincipalIdentity;
-use bigbytes_common_meta_app::principal::UserOption;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::AccountMgrLevel;
+use bigbytesdb_common_ast::ast::AccountMgrSource;
+use bigbytesdb_common_ast::ast::AlterUserStmt;
+use bigbytesdb_common_ast::ast::CreateUserStmt;
+use bigbytesdb_common_ast::ast::GrantObjectName;
+use bigbytesdb_common_ast::ast::GrantStmt;
+use bigbytesdb_common_ast::ast::PrincipalIdentity as AstPrincipalIdentity;
+use bigbytesdb_common_ast::ast::RevokeStmt;
+use bigbytesdb_common_ast::ast::ShowObjectPrivilegesStmt;
+use bigbytesdb_common_ast::ast::ShowOptions;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::PrincipalIdentity;
+use bigbytesdb_common_meta_app::principal::UserOption;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::binder::show::get_show_options;
 use crate::binder::util::illegal_ident_name;

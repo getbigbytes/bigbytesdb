@@ -14,11 +14,11 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 use crate::binder::MutationStrategy;
 use crate::executor::physical_plan::PhysicalPlan;

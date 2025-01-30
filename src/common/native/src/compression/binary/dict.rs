@@ -16,8 +16,8 @@ use std::io::BufRead;
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::binary::BinaryColumn;
-use bigbytes_common_column::types::Index;
+use bigbytesdb_common_column::binary::BinaryColumn;
+use bigbytesdb_common_column::types::Index;
 
 use super::BinaryCompression;
 use super::BinaryStats;

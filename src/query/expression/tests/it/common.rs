@@ -14,11 +14,11 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::BlockRowIndex;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::BlockRowIndex;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Value;
 
 type MergeSlice = (usize, usize, usize);
 

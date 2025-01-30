@@ -16,7 +16,7 @@ use std::collections::HashSet;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 use enumflags2::make_bitflags;
 use fastrace::func_name;
 
@@ -43,31 +43,31 @@ fn test_decode_v50_user_info() -> anyhow::Result<()> {
         6, 49, 168, 6, 24, 160, 6, 50, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::principal::UserInfo {
+    let want = || bigbytesdb_common_meta_app::principal::UserInfo {
         name: "test_user".to_string(),
         hostname: "%".to_string(),
-        auth_info: bigbytes_common_meta_app::principal::AuthInfo::Password {
+        auth_info: bigbytesdb_common_meta_app::principal::AuthInfo::Password {
             hash_value: [
                 116, 101, 115, 116, 95, 112, 97, 115, 115, 119, 111, 114, 100,
             ]
             .to_vec(),
-            hash_method: bigbytes_common_meta_app::principal::PasswordHashMethod::DoubleSha1,
+            hash_method: bigbytesdb_common_meta_app::principal::PasswordHashMethod::DoubleSha1,
             need_change: false,
         },
-        grants: bigbytes_common_meta_app::principal::UserGrantSet::new(
-            vec![bigbytes_common_meta_app::principal::GrantEntry::new(
-                bigbytes_common_meta_app::principal::GrantObject::Global,
+        grants: bigbytesdb_common_meta_app::principal::UserGrantSet::new(
+            vec![bigbytesdb_common_meta_app::principal::GrantEntry::new(
+                bigbytesdb_common_meta_app::principal::GrantObject::Global,
                 make_bitflags!(UserPrivilegeType::{Create}),
             )],
             HashSet::new(),
         ),
-        quota: bigbytes_common_meta_app::principal::UserQuota {
+        quota: bigbytesdb_common_meta_app::principal::UserQuota {
             max_cpu: 10,
             max_memory_in_bytes: 10240,
             max_storage_in_bytes: 20480,
         },
-        option: bigbytes_common_meta_app::principal::UserOption::default()
-            .with_set_flag(bigbytes_common_meta_app::principal::UserOptionFlag::TenantSetting)
+        option: bigbytesdb_common_meta_app::principal::UserOption::default()
+            .with_set_flag(bigbytesdb_common_meta_app::principal::UserOptionFlag::TenantSetting)
             .with_default_role(Some("role1".into()))
             .with_network_policy(Some("mypolicy".to_string())),
         history_auth_infos: vec![],

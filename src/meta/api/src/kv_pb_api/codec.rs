@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::NonEmptyItem;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_proto_conv::FromToProto;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::NonEmptyItem;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_proto_conv::FromToProto;
 
 use crate::kv_pb_api::errors::NoneValue;
 use crate::kv_pb_api::errors::PbApiReadError;

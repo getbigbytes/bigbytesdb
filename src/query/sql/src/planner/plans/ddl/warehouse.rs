@@ -15,10 +15,10 @@
 use std::collections::BTreeMap;
 use std::collections::HashMap;
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
 
 #[derive(Clone, Debug, PartialEq, Eq, serde::Serialize)]
 pub struct UseWarehousePlan {

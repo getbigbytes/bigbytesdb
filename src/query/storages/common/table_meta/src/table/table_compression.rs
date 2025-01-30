@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_native;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_native;
 use parquet::basic::Compression as ParquetCompression;
 use parquet::basic::GzipLevel;
 use parquet::basic::ZstdLevel;
@@ -49,13 +49,13 @@ impl TryFrom<&str> for TableCompression {
 }
 
 /// Convert to native Compression.
-impl From<TableCompression> for bigbytes_common_native::CommonCompression {
+impl From<TableCompression> for bigbytesdb_common_native::CommonCompression {
     fn from(value: TableCompression) -> Self {
         match value {
-            TableCompression::None => bigbytes_common_native::CommonCompression::None,
-            TableCompression::LZ4 => bigbytes_common_native::CommonCompression::Lz4,
-            TableCompression::Snappy => bigbytes_common_native::CommonCompression::Snappy,
-            TableCompression::Zstd => bigbytes_common_native::CommonCompression::Zstd,
+            TableCompression::None => bigbytesdb_common_native::CommonCompression::None,
+            TableCompression::LZ4 => bigbytesdb_common_native::CommonCompression::Lz4,
+            TableCompression::Snappy => bigbytesdb_common_native::CommonCompression::Snappy,
+            TableCompression::Zstd => bigbytesdb_common_native::CommonCompression::Zstd,
         }
     }
 }

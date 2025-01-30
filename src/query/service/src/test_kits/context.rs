@@ -15,10 +15,10 @@
 use std::str;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::SendableDataBlockStream;
 use futures::TryStreamExt;
 
 use crate::interpreters::InterpreterFactory;

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_transforms::processors::AccumulatingTransform;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_transforms::processors::AccumulatingTransform;
 
 use crate::operations::CommitMeta;
 use crate::operations::ConflictResolveContext;
@@ -107,8 +107,8 @@ impl AccumulatingTransform for TransformMergeCommitMeta {
 
     fn transform(
         &mut self,
-        data: bigbytes_common_expression::DataBlock,
-    ) -> bigbytes_common_exception::Result<Vec<bigbytes_common_expression::DataBlock>> {
+        data: bigbytesdb_common_expression::DataBlock,
+    ) -> bigbytesdb_common_exception::Result<Vec<bigbytesdb_common_expression::DataBlock>> {
         let commit_meta = CommitMeta::try_from(data)?;
         self.to_merged.push(commit_meta);
         Ok(vec![])

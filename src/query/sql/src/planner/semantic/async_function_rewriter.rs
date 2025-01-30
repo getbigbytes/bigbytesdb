@@ -16,8 +16,8 @@ use std::collections::HashMap;
 use std::mem;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::SExpr;
 use crate::plans::walk_expr_mut;

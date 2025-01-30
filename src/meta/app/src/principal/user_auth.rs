@@ -14,8 +14,8 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use sha2::Digest;
 use sha2::Sha256;
 
@@ -80,13 +80,13 @@ impl AuthType {
     }
 }
 
-impl From<bigbytes_common_ast::ast::AuthType> for AuthType {
-    fn from(t: bigbytes_common_ast::ast::AuthType) -> Self {
+impl From<bigbytesdb_common_ast::ast::AuthType> for AuthType {
+    fn from(t: bigbytesdb_common_ast::ast::AuthType) -> Self {
         match t {
-            bigbytes_common_ast::ast::AuthType::NoPassword => AuthType::NoPassword,
-            bigbytes_common_ast::ast::AuthType::Sha256Password => AuthType::Sha256Password,
-            bigbytes_common_ast::ast::AuthType::DoubleSha1Password => AuthType::DoubleSha1Password,
-            bigbytes_common_ast::ast::AuthType::JWT => AuthType::JWT,
+            bigbytesdb_common_ast::ast::AuthType::NoPassword => AuthType::NoPassword,
+            bigbytesdb_common_ast::ast::AuthType::Sha256Password => AuthType::Sha256Password,
+            bigbytesdb_common_ast::ast::AuthType::DoubleSha1Password => AuthType::DoubleSha1Password,
+            bigbytesdb_common_ast::ast::AuthType::JWT => AuthType::JWT,
         }
     }
 }

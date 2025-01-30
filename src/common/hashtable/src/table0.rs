@@ -16,7 +16,7 @@ use std::alloc::Allocator;
 use std::intrinsics::assume;
 use std::mem::MaybeUninit;
 
-use bigbytes_common_base::runtime::drop_guard;
+use bigbytesdb_common_base::runtime::drop_guard;
 
 use super::container::Container;
 use super::traits::EntryMutRefLike;

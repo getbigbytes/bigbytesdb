@@ -90,7 +90,7 @@ pub enum PrimitiveType {
 }
 
 mod private {
-    use bigbytes_common_base::base::OrderedFloat;
+    use bigbytesdb_common_base::base::OrderedFloat;
 
     use crate::binview::View;
 

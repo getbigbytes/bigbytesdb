@@ -14,8 +14,8 @@
 
 use std::io;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 use rotbl::v001::SeqMarked;
 
 use crate::leveled_store::immutable_levels::ImmutableLevels;

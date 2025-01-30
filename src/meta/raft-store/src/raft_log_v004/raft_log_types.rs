@@ -14,7 +14,7 @@
 
 use std::ops::Deref;
 
-use bigbytes_common_meta_types::raft_types;
+use bigbytesdb_common_meta_types::raft_types;
 use deepsize::DeepSizeOf;
 
 use crate::raft_log_v004::callback::Callback;

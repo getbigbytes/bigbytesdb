@@ -17,10 +17,10 @@ use std::io::Read;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_base::base::uuid::Uuid;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_io::prelude::BinaryRead;
+use bigbytesdb_common_base::base::uuid::Uuid;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_io::prelude::BinaryRead;
 use serde::Deserialize;
 use serde::Serialize;
 

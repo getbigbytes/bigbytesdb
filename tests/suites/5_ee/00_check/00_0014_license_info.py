@@ -22,7 +22,7 @@ mydb = mysql.connector.connect(
 
 
 def get_license():
-    return os.getenv("QUERY_BIGBYTES_ENTERPRISE_LICENSE")
+    return os.getenv("QUERY_BIGBYTESDB_ENTERPRISE_LICENSE")
 
 
 if __name__ == "__main__":

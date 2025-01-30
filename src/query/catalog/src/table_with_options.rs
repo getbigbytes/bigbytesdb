@@ -15,9 +15,9 @@
 use std::collections::HashSet;
 use std::sync::LazyLock;
 
-use bigbytes_common_ast::ast::WithOptions;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::WithOptions;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 pub const WITH_OPT_KEY_CONSUME: &str = "consume";
 pub const WITH_OPT_KEY_MAX_BATCH_SIZE: &str = "max_batch_size";

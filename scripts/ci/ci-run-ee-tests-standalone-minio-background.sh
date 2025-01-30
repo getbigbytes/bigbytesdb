@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -27,10 +27,10 @@ python3 -m pip install --quiet mysql-connector-python
 
 echo "calling test suite"
 echo "Starting standalone BigbytesQuery(debug)"
-./scripts/ci/deploy/bigbytes-query-standalone.sh
+./scripts/ci/deploy/bigbytesdb-query-standalone.sh
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
 cd "$SCRIPT_PATH/../../tests" || exit
 
-echo "Starting bigbytes-test"
-./bigbytes-test $1 --mode 'standalone' --run-dir background
+echo "Starting bigbytesdb-test"
+./bigbytesdb-test $1 --mode 'standalone' --run-dir background

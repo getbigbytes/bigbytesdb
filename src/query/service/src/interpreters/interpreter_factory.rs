@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::ExplainKind;
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::binder::ExplainConfig;
-use bigbytes_common_sql::plans::Mutation;
+use bigbytesdb_common_ast::ast::ExplainKind;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::binder::ExplainConfig;
+use bigbytesdb_common_sql::plans::Mutation;
 use log::error;
 
 use super::interpreter_catalog_create::CreateCatalogInterpreter;

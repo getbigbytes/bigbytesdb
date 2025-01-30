@@ -24,9 +24,9 @@ mod truncate_table;
 
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_settings::Settings;
 pub use flight_actions::flight_actions;
 pub use flight_actions::FlightActions;
 pub use get_profile::GET_PROFILE;

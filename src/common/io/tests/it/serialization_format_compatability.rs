@@ -15,8 +15,8 @@
 use std::assert_matches::assert_matches;
 use std::io::Cursor;
 
-use bigbytes_common_io::prelude::bincode_deserialize_from_slice;
-use bigbytes_common_io::prelude::bincode_serialize_into_buf;
+use bigbytesdb_common_io::prelude::bincode_deserialize_from_slice;
+use bigbytesdb_common_io::prelude::bincode_serialize_into_buf;
 use serde::Deserialize;
 use serde::Serialize;
 

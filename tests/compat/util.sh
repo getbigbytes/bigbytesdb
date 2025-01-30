@@ -2,14 +2,14 @@
 
 # Supporting utilities for compatiblity test.
 
-query_config_path="scripts/ci/deploy/config/bigbytes-query-node-1.toml"
-bend_repo_url="https://github.com/getbigbytes/bigbytes"
+query_config_path="scripts/ci/deploy/config/bigbytesdb-query-node-1.toml"
+bend_repo_url="https://github.com/getbigbytes/bigbytesdb"
 
 
-# Build the url to download specified version of bigbytes binaries.
+# Build the url to download specified version of bigbytesdb binaries.
 binary_url() {
     local ver="$1"
-    echo "https://github.com/getbigbytes/bigbytes/releases/download/v${ver}-nightly/bigbytes-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
+    echo "https://github.com/getbigbytes/bigbytesdb/releases/download/v${ver}-nightly/bigbytesdb-v${ver}-nightly-x86_64-unknown-linux-gnu.tar.gz"
 }
 
 # Clone only specified dir or file in the specified commit
@@ -56,14 +56,14 @@ download_query_config() {
 
 
 
-# Download a specific version of bigbytes, untar it to folder `./bins/$ver`
+# Download a specific version of bigbytesdb, untar it to folder `./bins/$ver`
 # `ver` is semver without prefix `v` or `-nightly`
 download_binary() {
     local ver="$1"
-    local required_fn="${2-bigbytes-query}"
+    local required_fn="${2-bigbytesdb-query}"
 
     local url="$(binary_url $ver)"
-    local fn="bigbytes-$ver.tar.gz"
+    local fn="bigbytesdb-$ver.tar.gz"
 
     echo " === Start to download $fn from $url"
 

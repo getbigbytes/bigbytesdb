@@ -13,8 +13,8 @@
 // limitations under the License.
 
 use clap::Parser;
-use bigbytes_common_exception::Result;
-use bigbytes_sqlsmith::Runner;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_sqlsmith::Runner;
 use tracing::metadata::LevelFilter;
 use tracing_subscriber::EnvFilter;
 
@@ -54,7 +54,7 @@ pub struct Args {
     fuzz_path: String,
 
     /// The log path to write executed SQLs..
-    #[clap(long, default_value = ".bigbytes/sqlsmithlog")]
+    #[clap(long, default_value = ".bigbytesdb/sqlsmithlog")]
     log_path: String,
 }
 

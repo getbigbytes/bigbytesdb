@@ -14,8 +14,8 @@
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
 
 use super::compress_sample_ratio;
 use super::BooleanCompression;

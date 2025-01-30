@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_storage::FileStatus;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_storage::FileStatus;
 
 use super::batch::BytesBatch;
 use super::batch::RowBatchWithPosition;

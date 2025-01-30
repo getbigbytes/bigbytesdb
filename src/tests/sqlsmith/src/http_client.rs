@@ -19,8 +19,8 @@ use std::sync::RwLock;
 use std::time::Duration;
 
 use cookie::Cookie;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use reqwest::cookie::CookieStore;
 use reqwest::header::HeaderMap;
 use reqwest::header::HeaderValue;

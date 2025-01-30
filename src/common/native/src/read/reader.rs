@@ -16,7 +16,7 @@ use std::io::Read;
 use std::io::Seek;
 use std::io::SeekFrom;
 
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchema;
 use opendal::Reader;
 
 use super::read_basic::read_u32;

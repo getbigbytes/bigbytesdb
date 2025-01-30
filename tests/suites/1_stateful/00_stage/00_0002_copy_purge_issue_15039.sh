@@ -3,7 +3,7 @@
 CURDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 . "$CURDIR"/../../../shell_env.sh
 
-# https://github.com/getbigbytes/bigbytes/issues/15039
+# https://github.com/getbigbytes/bigbytesdb/issues/15039
 
 rm -rf /tmp/00_0002_issue_15039
 mkdir -p /tmp/00_0002_issue_15039

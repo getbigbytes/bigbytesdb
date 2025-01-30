@@ -16,10 +16,10 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::ops::Range;
 
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 #[allow(clippy::large_enum_variant)]
 #[derive(Clone, serde::Serialize, serde::Deserialize, Debug, PartialEq)]

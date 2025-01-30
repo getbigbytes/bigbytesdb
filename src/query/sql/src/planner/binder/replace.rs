@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::InsertSource;
-use bigbytes_common_ast::ast::ReplaceStmt;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::InsertSource;
+use bigbytesdb_common_ast::ast::ReplaceStmt;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_exception::Result;
 
 use crate::binder::Binder;
 use crate::normalize_identifier;

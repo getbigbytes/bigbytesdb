@@ -16,7 +16,7 @@ use std::mem::MaybeUninit;
 use std::sync::Arc;
 
 use bumpalo::Bump;
-use bigbytes_common_base::runtime::drop_guard;
+use bigbytesdb_common_base::runtime::drop_guard;
 use itertools::Itertools;
 use log::info;
 use strength_reduce::StrengthReducedU64;

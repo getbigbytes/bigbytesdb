@@ -28,13 +28,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::data_mask::CreateDatamaskReq;
-use bigbytes_common_meta_app::data_mask::DatamaskMeta;
-use bigbytes_common_meta_app::data_mask::DropDatamaskReq;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_store::MetaStore;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::data_mask::CreateDatamaskReq;
+use bigbytesdb_common_meta_app::data_mask::DatamaskMeta;
+use bigbytesdb_common_meta_app::data_mask::DropDatamaskReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_store::MetaStore;
 
 #[async_trait::async_trait]
 pub trait DatamaskHandler: Sync + Send {

@@ -17,8 +17,8 @@
 use std::fs;
 use std::io;
 
-use bigbytes_common_meta_stoerr::MetaStorageError;
-use bigbytes_common_meta_types::SnapshotData;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_types::SnapshotData;
 use openraft::AnyError;
 
 use crate::ondisk::DataVersion;

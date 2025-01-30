@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-sql"
+name = "bigbytesdb-common-sql"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,34 +12,34 @@ test = true
 
 [features]
 default = []
-storage-hdfs = ["bigbytes-common-config/storage-hdfs"]
+storage-hdfs = ["bigbytesdb-common-config/storage-hdfs"]
 
 [dependencies]
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-compress = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-license = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
-bigbytes-common-pipeline-transforms = { workspace = true }
-bigbytes-common-settings = { workspace = true }
-bigbytes-common-storage = { workspace = true }
-bigbytes-common-storages-result-cache = { workspace = true }
-bigbytes-common-storages-view = { workspace = true }
-bigbytes-common-users = { workspace = true }
-bigbytes-enterprise-data-mask-feature = { workspace = true }
-bigbytes-enterprise-hilbert-clustering = { workspace = true }
-bigbytes-storages-common-cache = { workspace = true }
-bigbytes-storages-common-io = { workspace = true }
-bigbytes-storages-common-session = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-compress = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-license = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
+bigbytesdb-common-pipeline-transforms = { workspace = true }
+bigbytesdb-common-settings = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
+bigbytesdb-common-storages-result-cache = { workspace = true }
+bigbytesdb-common-storages-view = { workspace = true }
+bigbytesdb-common-users = { workspace = true }
+bigbytesdb-enterprise-data-mask-feature = { workspace = true }
+bigbytesdb-enterprise-hilbert-clustering = { workspace = true }
+bigbytesdb-storages-common-cache = { workspace = true }
+bigbytesdb-storages-common-io = { workspace = true }
+bigbytesdb-storages-common-session = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 
 ahash = { workspace = true, features = ["no-rng"] }
 anyhow = { workspace = true }

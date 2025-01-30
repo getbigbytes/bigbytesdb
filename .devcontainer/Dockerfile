@@ -12,6 +12,6 @@ RUN apt-get update && apt-get install -y git ripgrep && \
 RUN useradd -u 1000 builder
 RUN mkdir /home/builder && chown -R builder /home/builder && \
     usermod --shell /bin/bash builder
-RUN printf "builder ALL=(ALL:ALL) NOPASSWD:ALL\n" > /etc/sudoers.d/bigbytes
+RUN printf "builder ALL=(ALL:ALL) NOPASSWD:ALL\n" > /etc/sudoers.d/bigbytesdb
 
 USER builder

@@ -14,14 +14,14 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_catalog::plan::InternalColumn;
-use bigbytes_common_catalog::plan::InternalColumnMeta;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_pipeline_transforms::processors::Transform;
+use bigbytesdb_common_catalog::plan::InternalColumn;
+use bigbytesdb_common_catalog::plan::InternalColumnMeta;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_pipeline_transforms::processors::Transform;
 
 pub struct TransformAddInternalColumns {
     internal_columns: BTreeMap<FieldIndex, InternalColumn>,

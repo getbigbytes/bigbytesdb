@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_query::sessions::TableContext;
-use bigbytes_query::test_kits::ConfigBuilder;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_query::sessions::TableContext;
+use bigbytesdb_query::test_kits::ConfigBuilder;
+use bigbytesdb_query::test_kits::TestFixture;
 use wiremock::matchers::method;
 use wiremock::matchers::path;
 use wiremock::Mock;

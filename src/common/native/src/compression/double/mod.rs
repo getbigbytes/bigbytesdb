@@ -21,9 +21,9 @@ mod traits;
 
 use std::collections::HashMap;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_column::buffer::Buffer;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::buffer::Buffer;
 use rand::thread_rng;
 use rand::Rng;
 

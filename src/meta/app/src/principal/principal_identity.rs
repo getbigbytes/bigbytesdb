@@ -30,13 +30,13 @@ impl PrincipalIdentity {
     }
 }
 
-impl From<bigbytes_common_ast::ast::PrincipalIdentity> for PrincipalIdentity {
-    fn from(p: bigbytes_common_ast::ast::PrincipalIdentity) -> Self {
+impl From<bigbytesdb_common_ast::ast::PrincipalIdentity> for PrincipalIdentity {
+    fn from(p: bigbytesdb_common_ast::ast::PrincipalIdentity) -> Self {
         match p {
-            bigbytes_common_ast::ast::PrincipalIdentity::User(user) => {
+            bigbytesdb_common_ast::ast::PrincipalIdentity::User(user) => {
                 PrincipalIdentity::User(user.into())
             }
-            bigbytes_common_ast::ast::PrincipalIdentity::Role(name) => {
+            bigbytesdb_common_ast::ast::PrincipalIdentity::Role(name) => {
                 PrincipalIdentity::Role(name)
             }
         }

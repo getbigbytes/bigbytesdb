@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_formats::FileFormatOptionsExt;
-use bigbytes_common_meta_app::principal::StageFileCompression;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_formats::FileFormatOptionsExt;
+use bigbytesdb_common_meta_app::principal::StageFileCompression;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
 use opendal::Operator;
 
 use super::limit_file_size_processor::LimitFileSizeProcessor;

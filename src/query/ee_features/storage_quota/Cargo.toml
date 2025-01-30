@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-storage-quota"
+name = "bigbytesdb-enterprise-storage-quota"
 
 authors = { workspace = true }
 edition = { workspace = true }
@@ -13,9 +13,9 @@ test = true
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-license = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-license = { workspace = true }
 
 [build-dependencies]
 

@@ -15,14 +15,14 @@
 use std::error::Error;
 use std::sync::LazyLock;
 
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::register_gauge;
-use bigbytes_common_base::runtime::metrics::register_histogram_family_in_milliseconds;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
-use bigbytes_common_base::runtime::metrics::FamilyHistogram;
-use bigbytes_common_base::runtime::metrics::Gauge;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_metrics::VecLabels;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::register_gauge;
+use bigbytesdb_common_base::runtime::metrics::register_histogram_family_in_milliseconds;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::FamilyHistogram;
+use bigbytesdb_common_base::runtime::metrics::Gauge;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_metrics::VecLabels;
 
 pub static META_GRPC_CLIENT_REQUEST_DURATION_MS: LazyLock<FamilyHistogram<VecLabels>> =
     LazyLock::new(|| {

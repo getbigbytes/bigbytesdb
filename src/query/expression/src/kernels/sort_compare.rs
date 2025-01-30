@@ -15,9 +15,9 @@
 use std::cmp::Ordering;
 use std::ops::Range;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::Result;
 use memchr::memchr;
 
 use crate::types::AnyType;

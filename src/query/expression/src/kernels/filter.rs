@@ -13,12 +13,12 @@
 // limitations under the License.
 
 use binary::BinaryColumnBuilder;
-use bigbytes_common_column::bitmap::utils::SlicesIterator;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_column::bitmap::TrueIdxIter;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::utils::SlicesIterator;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::TrueIdxIter;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::Result;
 use string::StringColumnBuilder;
 
 use crate::types::binary::BinaryColumn;

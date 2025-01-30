@@ -13,11 +13,11 @@ else
   curl --proto '=https' --tlsv1.2 -sSfL https://sh.vector.dev | sudo bash -s -- -y --prefix /usr/local
 fi
 
-echo "Starting standalone Bigbytes Query with logging"
-./scripts/ci/deploy/bigbytes-query-standalone-logging.sh
+echo "Starting standalone Bigbytesdb Query with logging"
+./scripts/ci/deploy/bigbytesdb-query-standalone-logging.sh
 
 echo "Clean previous logs"
-rm -rf .bigbytes/vector/*
+rm -rf .bigbytesdb/vector/*
 
 echo "Starting Vector"
 killall vector || true
@@ -30,7 +30,7 @@ echo "SELECT ${NOW}" | bendsql
 
 sleep 1
 echo "Exiting..."
-killall bigbytes-query || true
+killall bigbytesdb-query || true
 killall vector || true
 sleep 1
 

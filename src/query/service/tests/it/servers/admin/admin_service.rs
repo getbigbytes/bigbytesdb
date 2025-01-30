@@ -15,12 +15,12 @@
 use std::fs::File;
 use std::io::Read;
 
-use bigbytes_common_base::base::get_free_tcp_port;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_query::servers::admin::AdminService;
-use bigbytes_query::servers::Server;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::get_free_tcp_port;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::servers::admin::AdminService;
+use bigbytesdb_query::servers::Server;
+use bigbytesdb_query::test_kits::*;
 
 use crate::tests::tls_constants::*;
 

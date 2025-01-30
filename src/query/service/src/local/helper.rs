@@ -15,9 +15,9 @@
 use std::borrow::Cow;
 use std::sync::Arc;
 
-use bigbytes_common_ast::parser::all_reserved_keywords;
-use bigbytes_common_ast::parser::token::TokenKind;
-use bigbytes_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::all_reserved_keywords;
+use bigbytesdb_common_ast::parser::token::TokenKind;
+use bigbytesdb_common_ast::parser::tokenize_sql;
 use rustyline::completion::Completer;
 use rustyline::completion::FilenameCompleter;
 use rustyline::completion::Pair;

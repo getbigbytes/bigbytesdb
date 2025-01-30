@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_storages_system::UserFunctionsTable;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_storages_system::UserFunctionsTable;
 use http::StatusCode;
 use poem::web::Json;
 use poem::web::Path;

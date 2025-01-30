@@ -1274,21 +1274,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3a8241f3ebb85c056b509d4327ad0358fbbba6ffb340bf388f26350aeda225b1"
 
 [[package]]
-name = "bigbytes-binaries"
+name = "bigbytesdb-binaries"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-license",
- "bigbytes-common-meta-client",
- "bigbytes-common-metrics",
- "bigbytes-common-storage",
- "bigbytes-common-tracing",
- "bigbytes-enterprise-background-service",
- "bigbytes-enterprise-query",
- "bigbytes-query",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-license",
+ "bigbytesdb-common-meta-client",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-tracing",
+ "bigbytesdb-enterprise-background-service",
+ "bigbytesdb-enterprise-query",
+ "bigbytesdb-query",
+ "bigbytesdb-storages-common-table-meta",
  "clap",
  "limits-rs",
  "log",
@@ -1300,15 +1300,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-codegen"
+name = "bigbytesdb-codegen"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-expression",
+ "bigbytesdb-common-expression",
  "itertools 0.13.0",
 ]
 
 [[package]]
-name = "bigbytes-common-ast"
+name = "bigbytesdb-common-ast"
 version = "0.1.3"
 dependencies = [
  "criterion",
@@ -1339,26 +1339,26 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-auth"
+name = "bigbytesdb-common-auth"
 version = "0.1.0"
 dependencies = [
  "base64 0.22.1",
- "bigbytes-common-base",
+ "bigbytesdb-common-base",
  "chrono",
  "http 1.1.0",
  "tempfile",
 ]
 
 [[package]]
-name = "bigbytes-common-base"
+name = "bigbytesdb-common-base"
 version = "0.1.0"
 dependencies = [
  "anyerror",
  "anyhow",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-building",
- "bigbytes-common-exception",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-exception",
  "borsh",
  "bytemuck",
  "bytes",
@@ -1401,7 +1401,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-building"
+name = "bigbytesdb-common-building"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1414,7 +1414,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-cache"
+name = "bigbytesdb-common-cache"
 version = "0.1.0"
 dependencies = [
  "hashbrown 0.15.2",
@@ -1422,28 +1422,28 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-catalog"
+name = "bigbytesdb-common-catalog"
 version = "0.1.0"
 dependencies = [
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-io",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-settings",
- "bigbytes-common-storage",
- "bigbytes-common-users",
- "bigbytes-storages-common-session",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-users",
+ "bigbytesdb-storages-common-session",
+ "bigbytesdb-storages-common-table-meta",
  "chrono",
  "dashmap 6.1.0",
  "dyn-clone",
@@ -1462,12 +1462,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-cloud-control"
+name = "bigbytesdb-common-cloud-control"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "chrono",
  "hyper-util",
  "lenient_semver",
@@ -1481,14 +1481,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-column"
+name = "bigbytesdb-common-column"
 version = "0.1.0"
 dependencies = [
  "arrow-buffer",
  "arrow-data",
  "arrow-schema",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "borsh",
  "bytemuck",
  "either",
@@ -1506,11 +1506,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-compress"
+name = "bigbytesdb-common-compress"
 version = "0.1.0"
 dependencies = [
  "async-compression 0.4.3",
- "bigbytes-common-exception",
+ "bigbytesdb-common-exception",
  "brotli 3.5.0",
  "bytes",
  "env_logger 0.11.5",
@@ -1523,16 +1523,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-config"
+name = "bigbytesdb-common-config"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-exception",
- "bigbytes-common-grpc",
- "bigbytes-common-meta-app",
- "bigbytes-common-storage",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-tracing",
  "chrono-tz 0.8.6",
  "clap",
  "log",
@@ -1543,7 +1543,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-datavalues"
+name = "bigbytesdb-common-datavalues"
 version = "0.1.0"
 dependencies = [
  "enum-as-inner",
@@ -1553,14 +1553,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-exception"
+name = "bigbytesdb-common-exception"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "arrow-flight",
  "arrow-schema",
  "backtrace",
- "bigbytes-common-ast",
+ "bigbytesdb-common-ast",
  "bincode 2.0.0-rc.3",
  "cidr",
  "geozero",
@@ -1586,7 +1586,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-expression"
+name = "bigbytesdb-common-expression"
 version = "0.1.0"
 dependencies = [
  "arrow-array",
@@ -1600,14 +1600,14 @@ dependencies = [
  "arrow-select",
  "async-backtrace",
  "base64 0.22.1",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-column",
- "bigbytes-common-datavalues",
- "bigbytes-common-exception",
- "bigbytes-common-grpc",
- "bigbytes-common-hashtable",
- "bigbytes-common-io",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-datavalues",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-hashtable",
+ "bigbytesdb-common-io",
  "borsh",
  "bumpalo",
  "comfy-table",
@@ -1649,22 +1649,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-formats"
+name = "bigbytesdb-common-formats"
 version = "0.1.0"
 dependencies = [
  "aho-corasick",
  "async-trait",
  "base64 0.22.1",
- "bigbytes-common-base",
- "bigbytes-common-column",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-io",
- "bigbytes-common-meta-app",
- "bigbytes-common-settings",
- "bigbytes-functions-scalar-datetime",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-functions-scalar-datetime",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-table-meta",
  "bstr",
  "chrono-tz 0.8.6",
  "geozero",
@@ -1684,26 +1684,26 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-functions"
+name = "bigbytesdb-common-functions"
 version = "0.1.0"
 dependencies = [
  "base64 0.22.1",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-column",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-hashtable",
- "bigbytes-common-io",
- "bigbytes-common-openai",
- "bigbytes-common-vector",
- "bigbytes-functions-scalar-arithmetic",
- "bigbytes-functions-scalar-datetime",
- "bigbytes-functions-scalar-decimal",
- "bigbytes-functions-scalar-geo",
- "bigbytes-functions-scalar-integer-basic-arithmetic",
- "bigbytes-functions-scalar-math",
- "bigbytes-functions-scalar-numeric-basic-arithmetic",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-hashtable",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-openai",
+ "bigbytesdb-common-vector",
+ "bigbytesdb-functions-scalar-arithmetic",
+ "bigbytesdb-functions-scalar-datetime",
+ "bigbytesdb-functions-scalar-decimal",
+ "bigbytesdb-functions-scalar-geo",
+ "bigbytesdb-functions-scalar-integer-basic-arithmetic",
+ "bigbytesdb-functions-scalar-math",
+ "bigbytesdb-functions-scalar-numeric-basic-arithmetic",
  "blake3",
  "borsh",
  "bstr",
@@ -1751,12 +1751,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-grpc"
+name = "bigbytesdb-common-grpc"
 version = "0.1.0"
 dependencies = [
  "anyerror",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "hickory-resolver",
  "hyper 1.4.1",
  "hyper-util",
@@ -1769,12 +1769,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-hashtable"
+name = "bigbytesdb-common-hashtable"
 version = "0.1.0"
 dependencies = [
  "ahash 0.8.11",
- "bigbytes-common-base",
- "bigbytes-common-column",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-column",
  "bumpalo",
  "cfg-if",
  "ethnum",
@@ -1782,12 +1782,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-http"
+name = "bigbytesdb-common-http"
 version = "0.1.0"
 dependencies = [
  "anyerror",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "futures",
  "http 1.1.0",
  "log",
@@ -1799,12 +1799,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-io"
+name = "bigbytesdb-common-io"
 version = "0.1.0"
 dependencies = [
  "aho-corasick",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "bincode 2.0.0-rc.3",
  "borsh",
  "bytes",
@@ -1827,33 +1827,33 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-license"
+name = "bigbytesdb-common-license"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "jwt-simple",
  "serde",
  "serde_json",
 ]
 
 [[package]]
-name = "bigbytes-common-management"
+name = "bigbytesdb-common-management"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-embedded",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-proto-conv",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-embedded",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-proto-conv",
  "enumflags2",
  "fastrace",
  "futures",
@@ -1866,20 +1866,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-api"
+name = "bigbytesdb-common-meta-api"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-stoerr",
- "bigbytes-common-meta-types",
- "bigbytes-common-proto-conv",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-stoerr",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-proto-conv",
  "chrono",
  "fastrace",
  "futures",
@@ -1897,18 +1897,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-app"
+name = "bigbytesdb-common-meta-app"
 version = "0.1.0"
 dependencies = [
  "anyerror",
  "anyhow",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-io",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-types",
  "chrono",
  "chrono-tz 0.8.6",
  "cron",
@@ -1930,22 +1930,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-client"
+name = "bigbytesdb-common-meta-client"
 version = "0.1.0"
 dependencies = [
  "anyerror",
  "anyhow",
  "arrow-flight",
  "async-backtrace",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-exception",
- "bigbytes-common-grpc",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-tracing",
  "derive_more",
  "fastrace",
  "futures",
@@ -1963,28 +1963,28 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-embedded"
+name = "bigbytesdb-common-meta-embedded"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-raft-store",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-raft-store",
+ "bigbytesdb-common-tracing",
  "fastrace",
  "test-harness",
 ]
 
 [[package]]
-name = "bigbytes-common-meta-kvapi"
+name = "bigbytesdb-common-meta-kvapi"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-meta-types",
  "fastrace",
  "futures-util",
  "log",
@@ -1994,18 +1994,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-process"
+name = "bigbytesdb-common-meta-process"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-raft-store",
- "bigbytes-common-meta-sled-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-proto-conv",
- "bigbytes-common-protos",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-raft-store",
+ "bigbytesdb-common-meta-sled-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-proto-conv",
+ "bigbytesdb-common-protos",
+ "bigbytesdb-common-tracing",
  "clap",
  "openraft",
  "prost",
@@ -2014,18 +2014,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-raft-store"
+name = "bigbytesdb-common-meta-raft-store"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-grpc",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-sled-store",
- "bigbytes-common-meta-stoerr",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-sled-store",
+ "bigbytesdb-common-meta-stoerr",
+ "bigbytesdb-common-meta-types",
  "bincode 2.0.0-rc.3",
  "byteorder",
  "chrono",
@@ -2058,12 +2058,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-sled-store"
+name = "bigbytesdb-common-meta-sled-store"
 version = "0.1.0"
 dependencies = [
  "anyerror",
- "bigbytes-common-meta-stoerr",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-meta-stoerr",
+ "bigbytesdb-common-meta-types",
  "byteorder",
  "fastrace",
  "log",
@@ -2076,41 +2076,41 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-meta-stoerr"
+name = "bigbytesdb-common-meta-stoerr"
 version = "0.1.0"
 dependencies = [
  "anyerror",
- "bigbytes-common-exception",
+ "bigbytesdb-common-exception",
  "serde_json",
  "sled",
  "thiserror",
 ]
 
 [[package]]
-name = "bigbytes-common-meta-store"
+name = "bigbytesdb-common-meta-store"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-grpc",
- "bigbytes-common-meta-client",
- "bigbytes-common-meta-embedded",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-meta-client",
+ "bigbytesdb-common-meta-embedded",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-types",
  "log",
  "tokio-stream",
 ]
 
 [[package]]
-name = "bigbytes-common-meta-types"
+name = "bigbytesdb-common-meta-types"
 version = "0.1.0"
 dependencies = [
  "anyerror",
  "anyhow",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-exception",
- "bigbytes-common-meta-stoerr",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-stoerr",
+ "bigbytesdb-common-tracing",
  "deepsize",
  "derive_more",
  "futures-util",
@@ -2130,22 +2130,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-metrics"
+name = "bigbytesdb-common-metrics"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "bigbytes-common-base",
+ "bigbytesdb-common-base",
  "procfs",
  "prometheus-client",
 ]
 
 [[package]]
-name = "bigbytes-common-native"
+name = "bigbytesdb-common-native"
 version = "0.1.0"
 dependencies = [
  "ahash 0.8.11",
- "bigbytes-common-column",
- "bigbytes-common-expression",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-expression",
  "bitpacking 0.8.4",
  "bytemuck",
  "byteorder",
@@ -2168,24 +2168,24 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-openai"
+name = "bigbytesdb-common-openai"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-exception",
- "bigbytes-common-metrics",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-metrics",
  "log",
  "openai_api_rust",
 ]
 
 [[package]]
-name = "bigbytes-common-pipeline-core"
+name = "bigbytesdb-common-pipeline-core"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
  "fastrace",
  "futures",
  "log",
@@ -2196,44 +2196,44 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-pipeline-sinks"
+name = "bigbytesdb-common-pipeline-sinks"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-channel 1.9.0",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-pipeline-core",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-pipeline-core",
  "tokio",
 ]
 
 [[package]]
-name = "bigbytes-common-pipeline-sources"
+name = "bigbytesdb-common-pipeline-sources"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-pipeline-core",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-pipeline-core",
  "futures",
  "parking_lot 0.12.3",
 ]
 
 [[package]]
-name = "bigbytes-common-pipeline-transforms"
+name = "bigbytesdb-common-pipeline-transforms"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-pipeline-core",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-pipeline-core",
  "itertools 0.13.0",
  "jsonb",
  "log",
@@ -2245,15 +2245,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-proto-conv"
+name = "bigbytesdb-common-proto-conv"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "bigbytes-common-expression",
- "bigbytes-common-io",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-types",
- "bigbytes-common-protos",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-protos",
  "chrono",
  "chrono-tz 0.8.6",
  "convert_case 0.6.0",
@@ -2267,7 +2267,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-protos"
+name = "bigbytesdb-common-protos"
 version = "0.1.0"
 dependencies = [
  "lenient_semver",
@@ -2281,11 +2281,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-script"
+name = "bigbytesdb-common-script"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-ast",
- "bigbytes-common-exception",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-exception",
  "derive-visitor",
  "fastrace",
  "goldenfile",
@@ -2294,17 +2294,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-settings"
+name = "bigbytesdb-common-settings"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-io",
- "bigbytes-common-meta-app",
- "bigbytes-common-users",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-users",
  "chrono-tz 0.8.6",
  "dashmap 6.1.0",
  "itertools 0.13.0",
@@ -2318,7 +2318,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-sql"
+name = "bigbytesdb-common-sql"
 version = "0.1.0"
 dependencies = [
  "ahash 0.8.11",
@@ -2326,31 +2326,31 @@ dependencies = [
  "async-backtrace",
  "async-recursion",
  "async-trait",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-compress",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-license",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-settings",
- "bigbytes-common-storage",
- "bigbytes-common-storages-result-cache",
- "bigbytes-common-storages-view",
- "bigbytes-common-users",
- "bigbytes-enterprise-data-mask-feature",
- "bigbytes-enterprise-hilbert-clustering",
- "bigbytes-storages-common-cache",
- "bigbytes-storages-common-io",
- "bigbytes-storages-common-session",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-compress",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-license",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-result-cache",
+ "bigbytesdb-common-storages-view",
+ "bigbytesdb-common-users",
+ "bigbytesdb-enterprise-data-mask-feature",
+ "bigbytesdb-enterprise-hilbert-clustering",
+ "bigbytesdb-storages-common-cache",
+ "bigbytesdb-storages-common-io",
+ "bigbytesdb-storages-common-session",
+ "bigbytesdb-storages-common-table-meta",
  "chrono",
  "chrono-tz 0.8.6",
  "cidr",
@@ -2384,21 +2384,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storage"
+name = "bigbytesdb-common-storage"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "arrow-schema",
  "async-backtrace",
- "bigbytes-common-ast",
- "bigbytes-common-auth",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-metrics",
- "bigbytes-common-native",
- "bigbytes-enterprise-storage-encryption",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-auth",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-native",
+ "bigbytesdb-enterprise-storage-encryption",
  "chrono",
  "dashmap 6.1.0",
  "futures",
@@ -2415,23 +2415,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-delta"
+name = "bigbytesdb-common-storages-delta"
 version = "0.1.0"
 dependencies = [
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-storage",
- "bigbytes-common-storages-parquet",
- "bigbytes-storages-common-pruner",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-storages-common-pruner",
+ "bigbytesdb-storages-common-table-meta",
  "deltalake",
  "fastrace",
  "object_store_opendal",
@@ -2444,27 +2444,27 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-factory"
+name = "bigbytesdb-common-storages-factory"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-catalog",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-storages-delta",
- "bigbytes-common-storages-fuse",
- "bigbytes-common-storages-iceberg",
- "bigbytes-common-storages-memory",
- "bigbytes-common-storages-null",
- "bigbytes-common-storages-random",
- "bigbytes-common-storages-stream",
- "bigbytes-common-storages-view",
- "bigbytes-storages-common-index",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-storages-delta",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-common-storages-iceberg",
+ "bigbytesdb-common-storages-memory",
+ "bigbytesdb-common-storages-null",
+ "bigbytesdb-common-storages-random",
+ "bigbytesdb-common-storages-stream",
+ "bigbytesdb-common-storages-view",
+ "bigbytesdb-storages-common-index",
  "dashmap 6.1.0",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-fuse"
+name = "bigbytesdb-common-storages-fuse"
 version = "0.1.0"
 dependencies = [
  "ahash 0.8.11",
@@ -2476,33 +2476,33 @@ dependencies = [
  "async-channel 1.9.0",
  "async-trait",
  "backoff",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-hashtable",
- "bigbytes-common-io",
- "bigbytes-common-license",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-native",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-sql",
- "bigbytes-common-storage",
- "bigbytes-common-users",
- "bigbytes-enterprise-fail-safe",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-cache",
- "bigbytes-storages-common-index",
- "bigbytes-storages-common-io",
- "bigbytes-storages-common-pruner",
- "bigbytes-storages-common-session",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-hashtable",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-license",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-native",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-users",
+ "bigbytesdb-enterprise-fail-safe",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-cache",
+ "bigbytesdb-storages-common-index",
+ "bigbytesdb-storages-common-io",
+ "bigbytesdb-storages-common-pruner",
+ "bigbytesdb-storages-common-session",
+ "bigbytesdb-storages-common-table-meta",
  "bytes",
  "chrono",
  "enum-as-inner",
@@ -2532,28 +2532,28 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-hive"
+name = "bigbytesdb-common-storages-hive"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-recursion",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-sql",
- "bigbytes-common-storage",
- "bigbytes-common-storages-parquet",
- "bigbytes-storages-common-pruner",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-storages-common-pruner",
+ "bigbytesdb-storages-common-table-meta",
  "chrono",
  "fastrace",
  "faststr",
@@ -2569,23 +2569,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-iceberg"
+name = "bigbytesdb-common-storages-iceberg"
 version = "0.1.0"
 dependencies = [
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-storages-parquet",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-storages-common-table-meta",
  "chrono",
  "fastrace",
  "futures",
@@ -2599,72 +2599,72 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-information-schema"
+name = "bigbytesdb-common-storages-information-schema"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-ast",
- "bigbytes-common-catalog",
- "bigbytes-common-meta-app",
- "bigbytes-common-storages-view",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-storages-view",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-memory"
+name = "bigbytesdb-common-storages-memory"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-storage",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-table-meta",
  "parking_lot 0.12.3",
  "serde",
  "typetag",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-null"
+name = "bigbytesdb-common-storages-null"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-pipeline-sources",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-pipeline-sources",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-orc"
+name = "bigbytesdb-common-storages-orc"
 version = "0.1.0"
 dependencies = [
  "arrow-array",
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-storage",
- "bigbytes-storages-common-stage",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-storages-common-stage",
+ "bigbytesdb-storages-common-table-meta",
  "bytes",
  "chrono",
  "dashmap 6.1.0",
@@ -2678,7 +2678,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-parquet"
+name = "bigbytesdb-common-storages-parquet"
 version = "0.1.0"
 dependencies = [
  "arrow-array",
@@ -2686,21 +2686,21 @@ dependencies = [
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-app",
- "bigbytes-common-metrics",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-settings",
- "bigbytes-common-storage",
- "bigbytes-storages-common-cache",
- "bigbytes-storages-common-pruner",
- "bigbytes-storages-common-stage",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-storages-common-cache",
+ "bigbytesdb-storages-common-pruner",
+ "bigbytesdb-storages-common-stage",
+ "bigbytesdb-storages-common-table-meta",
  "bytes",
  "chrono",
  "ethnum",
@@ -2715,42 +2715,42 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-random"
+name = "bigbytesdb-common-storages-random"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-storages-common-table-meta",
  "serde",
  "typetag",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-result-cache"
+name = "bigbytesdb-common-storages-result-cache"
 version = "0.1.0"
 dependencies = [
  "arrow",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-storage",
- "bigbytes-common-storages-parquet",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-table-meta",
  "opendal 0.51.1",
  "parquet",
  "serde",
@@ -2761,32 +2761,32 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-stage"
+name = "bigbytesdb-common-storages-stage"
 version = "0.1.0"
 dependencies = [
  "arrow-schema",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-compress",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-formats",
- "bigbytes-common-functions",
- "bigbytes-common-io",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-settings",
- "bigbytes-common-storage",
- "bigbytes-common-storages-orc",
- "bigbytes-common-storages-parquet",
- "bigbytes-storages-common-stage",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-compress",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-formats",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-orc",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-storages-common-stage",
+ "bigbytesdb-storages-common-table-meta",
  "bstr",
  "csv-core",
  "enum-as-inner",
@@ -2800,56 +2800,56 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-stream"
+name = "bigbytesdb-common-storages-stream"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-sql",
- "bigbytes-common-storages-fuse",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-storages-common-table-meta",
  "fastrace",
  "futures",
  "log",
 ]
 
 [[package]]
-name = "bigbytes-common-storages-system"
+name = "bigbytesdb-common-storages-system"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-catalog",
- "bigbytes-common-cloud-control",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-management",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-sql",
- "bigbytes-common-storage",
- "bigbytes-common-storages-fuse",
- "bigbytes-common-storages-result-cache",
- "bigbytes-common-storages-stream",
- "bigbytes-common-storages-view",
- "bigbytes-common-users",
- "bigbytes-storages-common-cache",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-cloud-control",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-management",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-common-storages-result-cache",
+ "bigbytesdb-common-storages-stream",
+ "bigbytesdb-common-storages-view",
+ "bigbytesdb-common-users",
+ "bigbytesdb-storages-common-cache",
  "chrono",
  "futures",
  "itertools 0.13.0",
@@ -2869,22 +2869,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-storages-view"
+name = "bigbytesdb-common-storages-view"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
 ]
 
 [[package]]
-name = "bigbytes-common-tracing"
+name = "bigbytesdb-common-tracing"
 version = "0.1.0"
 dependencies = [
  "backtrace",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
  "chrono",
  "defer",
  "fastrace",
@@ -2902,23 +2902,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-users"
+name = "bigbytesdb-common-users"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "base64 0.22.1",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-grpc",
- "bigbytes-common-management",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-management",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
  "chrono",
  "cidr",
  "enumflags2",
@@ -2936,155 +2936,155 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-common-vector"
+name = "bigbytesdb-common-vector"
 version = "0.1.0"
 dependencies = [
  "approx",
- "bigbytes-common-exception",
+ "bigbytesdb-common-exception",
  "ndarray",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-aggregating-index"
+name = "bigbytesdb-enterprise-aggregating-index"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-attach-table"
+name = "bigbytesdb-enterprise-attach-table"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-sql",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-sql",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-background-service"
+name = "bigbytesdb-enterprise-background-service"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-meta-app",
  "serde",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-data-mask-feature"
+name = "bigbytesdb-enterprise-data-mask-feature"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-store",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-store",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-fail-safe"
+name = "bigbytesdb-enterprise-fail-safe"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-hilbert-clustering"
+name = "bigbytesdb-enterprise-hilbert-clustering"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-storages-common-table-meta",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-inverted-index"
+name = "bigbytesdb-enterprise-inverted-index"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-meta"
+name = "bigbytesdb-enterprise-meta"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-building",
+ "bigbytesdb-common-building",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-query"
+name = "bigbytesdb-enterprise-query"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
  "base64 0.22.1",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-catalog",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-io",
- "bigbytes-common-license",
- "bigbytes-common-management",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-sql",
- "bigbytes-common-storage",
- "bigbytes-common-storages-fuse",
- "bigbytes-common-storages-stream",
- "bigbytes-common-tracing",
- "bigbytes-common-users",
- "bigbytes-enterprise-aggregating-index",
- "bigbytes-enterprise-attach-table",
- "bigbytes-enterprise-background-service",
- "bigbytes-enterprise-data-mask-feature",
- "bigbytes-enterprise-fail-safe",
- "bigbytes-enterprise-hilbert-clustering",
- "bigbytes-enterprise-inverted-index",
- "bigbytes-enterprise-resources-management",
- "bigbytes-enterprise-storage-encryption",
- "bigbytes-enterprise-storage-quota",
- "bigbytes-enterprise-stream-handler",
- "bigbytes-enterprise-vacuum-handler",
- "bigbytes-enterprise-virtual-column",
- "bigbytes-query",
- "bigbytes-storages-common-cache",
- "bigbytes-storages-common-io",
- "bigbytes-storages-common-pruner",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-license",
+ "bigbytesdb-common-management",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-common-storages-stream",
+ "bigbytesdb-common-tracing",
+ "bigbytesdb-common-users",
+ "bigbytesdb-enterprise-aggregating-index",
+ "bigbytesdb-enterprise-attach-table",
+ "bigbytesdb-enterprise-background-service",
+ "bigbytesdb-enterprise-data-mask-feature",
+ "bigbytesdb-enterprise-fail-safe",
+ "bigbytesdb-enterprise-hilbert-clustering",
+ "bigbytesdb-enterprise-inverted-index",
+ "bigbytesdb-enterprise-resources-management",
+ "bigbytesdb-enterprise-storage-encryption",
+ "bigbytesdb-enterprise-storage-quota",
+ "bigbytesdb-enterprise-stream-handler",
+ "bigbytesdb-enterprise-vacuum-handler",
+ "bigbytesdb-enterprise-virtual-column",
+ "bigbytesdb-query",
+ "bigbytesdb-storages-common-cache",
+ "bigbytesdb-storages-common-io",
+ "bigbytesdb-storages-common-pruner",
+ "bigbytesdb-storages-common-table-meta",
  "chrono",
  "chrono-tz 0.8.6",
  "dashmap 6.1.0",
@@ -3100,83 +3100,83 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-enterprise-resources-management"
+name = "bigbytesdb-enterprise-resources-management"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-management",
- "bigbytes-common-meta-types",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-management",
+ "bigbytesdb-common-meta-types",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-storage-encryption"
+name = "bigbytesdb-enterprise-storage-encryption"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-storage-quota"
+name = "bigbytesdb-enterprise-storage-quota"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-license",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-license",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-stream-handler"
+name = "bigbytesdb-enterprise-stream-handler"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-sql",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-sql",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-vacuum-handler"
+name = "bigbytesdb-enterprise-vacuum-handler"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-storages-fuse",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-storages-fuse",
  "chrono",
 ]
 
 [[package]]
-name = "bigbytes-enterprise-virtual-column"
+name = "bigbytesdb-enterprise-virtual-column"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-storages-fuse",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-storages-common-table-meta",
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-arithmetic"
+name = "bigbytesdb-functions-scalar-arithmetic"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-expression",
- "bigbytes-functions-scalar-decimal",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-functions-scalar-decimal",
  "ethnum",
  "lexical-core",
  "match-template",
@@ -3184,35 +3184,35 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-datetime"
+name = "bigbytesdb-functions-scalar-datetime"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-column",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
  "dtparse",
  "jiff",
  "num-traits",
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-decimal"
+name = "bigbytesdb-functions-scalar-decimal"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-expression",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-expression",
  "ethnum",
  "match-template",
  "num-traits",
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-geo"
+name = "bigbytesdb-functions-scalar-geo"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-io",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
  "geo",
  "geohash",
  "geozero",
@@ -3225,39 +3225,39 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-integer-basic-arithmetic"
+name = "bigbytesdb-functions-scalar-integer-basic-arithmetic"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-expression",
- "bigbytes-functions-scalar-numeric-basic-arithmetic",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-functions-scalar-numeric-basic-arithmetic",
  "match-template",
  "num-traits",
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-math"
+name = "bigbytesdb-functions-scalar-math"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-expression",
- "bigbytes-functions-scalar-decimal",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-functions-scalar-decimal",
  "crc32fast",
  "match-template",
  "num-traits",
 ]
 
 [[package]]
-name = "bigbytes-functions-scalar-numeric-basic-arithmetic"
+name = "bigbytesdb-functions-scalar-numeric-basic-arithmetic"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-expression",
+ "bigbytesdb-common-expression",
  "match-template",
  "num-traits",
  "strength_reduce",
 ]
 
 [[package]]
-name = "bigbytes-meta"
+name = "bigbytesdb-meta"
 version = "0.1.0"
 dependencies = [
  "anyerror",
@@ -3265,19 +3265,19 @@ dependencies = [
  "arrow-flight",
  "async-trait",
  "backon",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-grpc",
- "bigbytes-common-http",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-client",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-raft-store",
- "bigbytes-common-meta-sled-store",
- "bigbytes-common-meta-stoerr",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-tracing",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-http",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-client",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-raft-store",
+ "bigbytesdb-common-meta-sled-store",
+ "bigbytesdb-common-meta-stoerr",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-tracing",
  "clap",
  "deepsize",
  "derive_more",
@@ -3313,24 +3313,24 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-meta-binaries"
+name = "bigbytesdb-meta-binaries"
 version = "0.1.0"
 dependencies = [
  "anyerror",
  "anyhow",
- "bigbytes-common-base",
- "bigbytes-common-exception",
- "bigbytes-common-grpc",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-client",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-raft-store",
- "bigbytes-common-meta-sled-store",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-tracing",
- "bigbytes-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-client",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-raft-store",
+ "bigbytesdb-common-meta-sled-store",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-tracing",
+ "bigbytesdb-meta",
  "chrono",
  "clap",
  "fastrace",
@@ -3347,7 +3347,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-query"
+name = "bigbytesdb-query"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -3370,71 +3370,71 @@ dependencies = [
  "backoff",
  "backon",
  "base64 0.22.1",
- "bigbytes-common-ast",
- "bigbytes-common-base",
- "bigbytes-common-building",
- "bigbytes-common-cache",
- "bigbytes-common-catalog",
- "bigbytes-common-cloud-control",
- "bigbytes-common-column",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-formats",
- "bigbytes-common-functions",
- "bigbytes-common-grpc",
- "bigbytes-common-hashtable",
- "bigbytes-common-http",
- "bigbytes-common-io",
- "bigbytes-common-license",
- "bigbytes-common-management",
- "bigbytes-common-meta-api",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-kvapi",
- "bigbytes-common-meta-store",
- "bigbytes-common-meta-types",
- "bigbytes-common-metrics",
- "bigbytes-common-openai",
- "bigbytes-common-pipeline-core",
- "bigbytes-common-pipeline-sinks",
- "bigbytes-common-pipeline-sources",
- "bigbytes-common-pipeline-transforms",
- "bigbytes-common-script",
- "bigbytes-common-settings",
- "bigbytes-common-sql",
- "bigbytes-common-storage",
- "bigbytes-common-storages-delta",
- "bigbytes-common-storages-factory",
- "bigbytes-common-storages-fuse",
- "bigbytes-common-storages-hive",
- "bigbytes-common-storages-iceberg",
- "bigbytes-common-storages-information-schema",
- "bigbytes-common-storages-memory",
- "bigbytes-common-storages-null",
- "bigbytes-common-storages-orc",
- "bigbytes-common-storages-parquet",
- "bigbytes-common-storages-result-cache",
- "bigbytes-common-storages-stage",
- "bigbytes-common-storages-stream",
- "bigbytes-common-storages-system",
- "bigbytes-common-storages-view",
- "bigbytes-common-tracing",
- "bigbytes-common-users",
- "bigbytes-enterprise-aggregating-index",
- "bigbytes-enterprise-attach-table",
- "bigbytes-enterprise-background-service",
- "bigbytes-enterprise-data-mask-feature",
- "bigbytes-enterprise-inverted-index",
- "bigbytes-enterprise-resources-management",
- "bigbytes-enterprise-stream-handler",
- "bigbytes-enterprise-vacuum-handler",
- "bigbytes-enterprise-virtual-column",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-cache",
- "bigbytes-storages-common-index",
- "bigbytes-storages-common-io",
- "bigbytes-storages-common-session",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-building",
+ "bigbytesdb-common-cache",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-cloud-control",
+ "bigbytesdb-common-column",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-formats",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-grpc",
+ "bigbytesdb-common-hashtable",
+ "bigbytesdb-common-http",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-license",
+ "bigbytesdb-common-management",
+ "bigbytesdb-common-meta-api",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-kvapi",
+ "bigbytesdb-common-meta-store",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-common-openai",
+ "bigbytesdb-common-pipeline-core",
+ "bigbytesdb-common-pipeline-sinks",
+ "bigbytesdb-common-pipeline-sources",
+ "bigbytesdb-common-pipeline-transforms",
+ "bigbytesdb-common-script",
+ "bigbytesdb-common-settings",
+ "bigbytesdb-common-sql",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-common-storages-delta",
+ "bigbytesdb-common-storages-factory",
+ "bigbytesdb-common-storages-fuse",
+ "bigbytesdb-common-storages-hive",
+ "bigbytesdb-common-storages-iceberg",
+ "bigbytesdb-common-storages-information-schema",
+ "bigbytesdb-common-storages-memory",
+ "bigbytesdb-common-storages-null",
+ "bigbytesdb-common-storages-orc",
+ "bigbytesdb-common-storages-parquet",
+ "bigbytesdb-common-storages-result-cache",
+ "bigbytesdb-common-storages-stage",
+ "bigbytesdb-common-storages-stream",
+ "bigbytesdb-common-storages-system",
+ "bigbytesdb-common-storages-view",
+ "bigbytesdb-common-tracing",
+ "bigbytesdb-common-users",
+ "bigbytesdb-enterprise-aggregating-index",
+ "bigbytesdb-enterprise-attach-table",
+ "bigbytesdb-enterprise-background-service",
+ "bigbytesdb-enterprise-data-mask-feature",
+ "bigbytesdb-enterprise-inverted-index",
+ "bigbytesdb-enterprise-resources-management",
+ "bigbytesdb-enterprise-stream-handler",
+ "bigbytesdb-enterprise-vacuum-handler",
+ "bigbytesdb-enterprise-virtual-column",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-cache",
+ "bigbytesdb-storages-common-index",
+ "bigbytesdb-storages-common-io",
+ "bigbytesdb-storages-common-session",
+ "bigbytesdb-storages-common-table-meta",
  "buf-list",
  "bumpalo",
  "byte-unit 4.0.19",
@@ -3516,12 +3516,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-sqllogictests"
+name = "bigbytesdb-sqllogictests"
 version = "0.1.0"
 dependencies = [
  "async-recursion",
  "async-trait",
- "bigbytes-common-exception",
+ "bigbytesdb-common-exception",
  "bollard",
  "clap",
  "cookie",
@@ -3545,16 +3545,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-sqlsmith"
+name = "bigbytesdb-sqlsmith"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-ast",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-formats",
- "bigbytes-common-functions",
- "bigbytes-common-io",
- "bigbytes-common-sql",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-formats",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-sql",
  "chrono-tz 0.8.6",
  "clap",
  "cookie",
@@ -3574,31 +3574,31 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-storages-common-blocks"
+name = "bigbytesdb-storages-common-blocks"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-storages-common-table-meta",
  "parking_lot 0.12.3",
  "parquet",
 ]
 
 [[package]]
-name = "bigbytes-storages-common-cache"
+name = "bigbytesdb-storages-common-cache"
 version = "0.1.0"
 dependencies = [
  "arrow",
  "async-backtrace",
  "async-trait",
- "bigbytes-common-base",
- "bigbytes-common-cache",
- "bigbytes-common-catalog",
- "bigbytes-common-config",
- "bigbytes-common-exception",
- "bigbytes-common-metrics",
- "bigbytes-storages-common-index",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-cache",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-config",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-metrics",
+ "bigbytesdb-storages-common-index",
+ "bigbytesdb-storages-common-table-meta",
  "bytes",
  "crc32fast",
  "crossbeam-channel",
@@ -3613,15 +3613,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-storages-common-index"
+name = "bigbytesdb-storages-common-index"
 version = "0.1.0"
 dependencies = [
  "anyerror",
- "bigbytes-common-ast",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-ast",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-storages-common-table-meta",
  "cbordata",
  "criterion",
  "fastrace",
@@ -3641,15 +3641,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-storages-common-io"
+name = "bigbytesdb-storages-common-io"
 version = "0.1.0"
 dependencies = [
  "async-backtrace",
- "bigbytes-common-base",
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-metrics",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-metrics",
  "bytes",
  "fastrace",
  "futures",
@@ -3658,58 +3658,58 @@ dependencies = [
 ]
 
 [[package]]
-name = "bigbytes-storages-common-pruner"
+name = "bigbytesdb-storages-common-pruner"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-storages-common-index",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-storages-common-index",
+ "bigbytesdb-storages-common-table-meta",
  "log",
  "serde",
  "typetag",
 ]
 
 [[package]]
-name = "bigbytes-storages-common-session"
+name = "bigbytesdb-storages-common-session"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-exception",
- "bigbytes-common-meta-app",
- "bigbytes-common-meta-types",
- "bigbytes-common-storage",
- "bigbytes-storages-common-blocks",
- "bigbytes-storages-common-table-meta",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-meta-app",
+ "bigbytesdb-common-meta-types",
+ "bigbytesdb-common-storage",
+ "bigbytesdb-storages-common-blocks",
+ "bigbytesdb-storages-common-table-meta",
  "parking_lot 0.12.3",
  "serde",
  "uuid",
 ]
 
 [[package]]
-name = "bigbytes-storages-common-stage"
+name = "bigbytesdb-storages-common-stage"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-catalog",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-functions",
- "bigbytes-common-meta-app",
+ "bigbytesdb-common-catalog",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-functions",
+ "bigbytesdb-common-meta-app",
  "serde",
  "typetag",
 ]
 
 [[package]]
-name = "bigbytes-storages-common-table-meta"
+name = "bigbytesdb-storages-common-table-meta"
 version = "0.1.0"
 dependencies = [
- "bigbytes-common-base",
- "bigbytes-common-datavalues",
- "bigbytes-common-exception",
- "bigbytes-common-expression",
- "bigbytes-common-io",
- "bigbytes-common-native",
- "bigbytes-common-storage",
+ "bigbytesdb-common-base",
+ "bigbytesdb-common-datavalues",
+ "bigbytesdb-common-exception",
+ "bigbytesdb-common-expression",
+ "bigbytesdb-common-io",
+ "bigbytesdb-common-native",
+ "bigbytesdb-common-storage",
  "bincode 1.3.3",
  "chrono",
  "enum-as-inner",
@@ -16273,7 +16273,7 @@ dependencies = [
 [[package]]
 name = "xorfilter-rs"
 version = "0.5.2"
-source = "git+https://github.com/datafuse-extras/xorfilter?tag=bigbytes-alpha.4#3bd8eb6b5b5e134703cc3b2807dfe43a763aa886"
+source = "git+https://github.com/datafuse-extras/xorfilter?tag=bigbytesdb-alpha.4#3bd8eb6b5b5e134703cc3b2807dfe43a763aa886"
 dependencies = [
  "cbordata",
 ]

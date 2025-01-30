@@ -15,42 +15,42 @@
 use std::io::Write;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::block_debug::box_render;
-use bigbytes_common_expression::block_debug::pretty_format_blocks;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::AuthType;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
-use bigbytes_common_storages_system::BuildOptionsTable;
-use bigbytes_common_storages_system::CachesTable;
-use bigbytes_common_storages_system::CatalogsTable;
-use bigbytes_common_storages_system::ClustersTable;
-use bigbytes_common_storages_system::ColumnsTable;
-use bigbytes_common_storages_system::ConfigsTable;
-use bigbytes_common_storages_system::ContributorsTable;
-use bigbytes_common_storages_system::CreditsTable;
-use bigbytes_common_storages_system::DatabasesTableWithHistory;
-use bigbytes_common_storages_system::DatabasesTableWithoutHistory;
-use bigbytes_common_storages_system::EnginesTable;
-use bigbytes_common_storages_system::FunctionsTable;
-use bigbytes_common_storages_system::MetricsTable;
-use bigbytes_common_storages_system::RolesTable;
-use bigbytes_common_storages_system::UsersTable;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sessions::TableContext;
-use bigbytes_query::stream::ReadDataBlockStream;
-use bigbytes_query::test_kits::ClusterDescriptor;
-use bigbytes_query::test_kits::ConfigBuilder;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::block_debug::box_render;
+use bigbytesdb_common_expression::block_debug::pretty_format_blocks;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::AuthType;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
+use bigbytesdb_common_storages_system::BuildOptionsTable;
+use bigbytesdb_common_storages_system::CachesTable;
+use bigbytesdb_common_storages_system::CatalogsTable;
+use bigbytesdb_common_storages_system::ClustersTable;
+use bigbytesdb_common_storages_system::ColumnsTable;
+use bigbytesdb_common_storages_system::ConfigsTable;
+use bigbytesdb_common_storages_system::ContributorsTable;
+use bigbytesdb_common_storages_system::CreditsTable;
+use bigbytesdb_common_storages_system::DatabasesTableWithHistory;
+use bigbytesdb_common_storages_system::DatabasesTableWithoutHistory;
+use bigbytesdb_common_storages_system::EnginesTable;
+use bigbytesdb_common_storages_system::FunctionsTable;
+use bigbytesdb_common_storages_system::MetricsTable;
+use bigbytesdb_common_storages_system::RolesTable;
+use bigbytesdb_common_storages_system::UsersTable;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sessions::TableContext;
+use bigbytesdb_query::stream::ReadDataBlockStream;
+use bigbytesdb_query::test_kits::ClusterDescriptor;
+use bigbytesdb_query::test_kits::ConfigBuilder;
+use bigbytesdb_query::test_kits::TestFixture;
 use futures::TryStreamExt;
 use goldenfile::Mint;
 use wiremock::matchers::method;
@@ -177,7 +177,7 @@ async fn test_configs_table_redact() -> Result<()> {
         .mount(&mock_server)
         .await;
 
-    let mut conf = bigbytes_query::test_kits::ConfigBuilder::create().build();
+    let mut conf = bigbytesdb_query::test_kits::ConfigBuilder::create().build();
     conf.storage.params = StorageParams::S3(StorageS3Config {
         region: "us-east-2".to_string(),
         endpoint_url: mock_server.uri(),
@@ -330,8 +330,8 @@ async fn test_metrics_table() -> Result<()> {
         .read_plan(ctx.clone(), None, None, false, true)
         .await?;
     let counter1 =
-        bigbytes_common_base::runtime::metrics::register_counter("test_metrics_table_count");
-    let histogram1 = bigbytes_common_base::runtime::metrics::register_histogram_in_milliseconds(
+        bigbytesdb_common_base::runtime::metrics::register_counter("test_metrics_table_count");
+    let histogram1 = bigbytesdb_common_base::runtime::metrics::register_histogram_in_milliseconds(
         "test_metrics_table_histogram",
     );
 

@@ -15,18 +15,18 @@
 use std::sync::Arc;
 
 use arrow::array::ArrayRef;
-use bigbytes_common_cache::MemSized;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_storages_common_index::filters::Xor8Filter;
-use bigbytes_storages_common_index::BloomIndexMeta;
-use bigbytes_storages_common_index::InvertedIndexFile;
-use bigbytes_storages_common_index::InvertedIndexMeta;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::TableSnapshotStatistics;
+use bigbytesdb_common_cache::MemSized;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_storages_common_index::filters::Xor8Filter;
+use bigbytesdb_storages_common_index::BloomIndexMeta;
+use bigbytesdb_storages_common_index::InvertedIndexFile;
+use bigbytesdb_storages_common_index::InvertedIndexMeta;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshotStatistics;
 use parquet::file::metadata::ParquetMetaData;
 
 use crate::manager::CacheManager;

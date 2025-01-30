@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-vacuum-handler"
+name = "bigbytesdb-enterprise-vacuum-handler"
 description = "vacuum handler"
 version = { workspace = true }
 authors = { workspace = true }
@@ -15,10 +15,10 @@ test = true
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
 chrono = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-storages-fuse = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-storages-fuse = { workspace = true }
 
 [build-dependencies]
 

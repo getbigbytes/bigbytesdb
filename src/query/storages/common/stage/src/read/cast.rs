@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
 
 /// limits automatic type casting when loading data with a specified schema, applicable to formats like Parquet, ORC, Iceberg, and Delta.
 ///

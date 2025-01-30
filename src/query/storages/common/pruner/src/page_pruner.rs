@@ -15,14 +15,14 @@
 use std::ops::Range;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_storages_common_index::PageIndex;
-use bigbytes_storages_common_table_meta::meta::ClusterKey;
-use bigbytes_storages_common_table_meta::meta::ClusterStatistics;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_storages_common_index::PageIndex;
+use bigbytesdb_storages_common_table_meta::meta::ClusterKey;
+use bigbytesdb_storages_common_table_meta::meta::ClusterStatistics;
 use log::warn;
 
 pub trait PagePruner {

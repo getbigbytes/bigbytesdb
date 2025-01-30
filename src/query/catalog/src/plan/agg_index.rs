@@ -14,11 +14,11 @@
 
 use std::fmt::Debug;
 
-use bigbytes_common_expression::local_block_meta_serde;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoPtr;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::local_block_meta_serde;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
 
 use super::Projection;
 

@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_sql::plans::DropUDFPlan;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_sql::plans::DropUDFPlan;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;

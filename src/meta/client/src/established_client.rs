@@ -14,22 +14,22 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::protobuf as pb;
-use bigbytes_common_meta_types::protobuf::meta_service_client::MetaServiceClient;
-use bigbytes_common_meta_types::protobuf::ClientInfo;
-use bigbytes_common_meta_types::protobuf::ClusterStatus;
-use bigbytes_common_meta_types::protobuf::Empty;
-use bigbytes_common_meta_types::protobuf::ExportedChunk;
-use bigbytes_common_meta_types::protobuf::MemberListReply;
-use bigbytes_common_meta_types::protobuf::MemberListRequest;
-use bigbytes_common_meta_types::protobuf::RaftReply;
-use bigbytes_common_meta_types::protobuf::RaftRequest;
-use bigbytes_common_meta_types::protobuf::StreamItem;
-use bigbytes_common_meta_types::protobuf::WatchRequest;
-use bigbytes_common_meta_types::protobuf::WatchResponse;
-use bigbytes_common_meta_types::GrpcHelper;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::protobuf as pb;
+use bigbytesdb_common_meta_types::protobuf::meta_service_client::MetaServiceClient;
+use bigbytesdb_common_meta_types::protobuf::ClientInfo;
+use bigbytesdb_common_meta_types::protobuf::ClusterStatus;
+use bigbytesdb_common_meta_types::protobuf::Empty;
+use bigbytesdb_common_meta_types::protobuf::ExportedChunk;
+use bigbytesdb_common_meta_types::protobuf::MemberListReply;
+use bigbytesdb_common_meta_types::protobuf::MemberListRequest;
+use bigbytesdb_common_meta_types::protobuf::RaftReply;
+use bigbytesdb_common_meta_types::protobuf::RaftRequest;
+use bigbytesdb_common_meta_types::protobuf::StreamItem;
+use bigbytesdb_common_meta_types::protobuf::WatchRequest;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::GrpcHelper;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
 use log::error;
 use log::info;
 use log::warn;

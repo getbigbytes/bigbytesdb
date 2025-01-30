@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 use enumflags2::make_bitflags;
 use fastrace::func_name;
 

@@ -54,7 +54,7 @@ runs:
       run: |
         artifacts="${{ inputs.artifacts }}"
         for artifact in ${artifacts//,/ }; do
-          chmod +x ${{ steps.info.outputs.path }}/bigbytes-$artifact
+          chmod +x ${{ steps.info.outputs.path }}/bigbytesdb-$artifact
         done
 
     - name: Download artifact from s3
@@ -63,9 +63,9 @@ runs:
       run: |
         artifacts="${{ inputs.artifacts }}"
         for artifact in ${artifacts//,/ }; do
-          echo "==> fetching bigbytes-$artifact ..."
-          aws s3 cp s3://bigbytes-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytes-$artifact ${{ steps.info.outputs.path }}/bigbytes-$artifact --no-progress
-          chmod +x ${{ steps.info.outputs.path }}/bigbytes-$artifact
+          echo "==> fetching bigbytesdb-$artifact ..."
+          aws s3 cp s3://bigbytesdb-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytesdb-$artifact ${{ steps.info.outputs.path }}/bigbytesdb-$artifact --no-progress
+          chmod +x ${{ steps.info.outputs.path }}/bigbytesdb-$artifact
         done
 
     - name: Download artifact from gcs
@@ -75,9 +75,9 @@ runs:
         gcloud config set storage/parallel_composite_upload_enabled False
         artifacts="${{ inputs.artifacts }}"
         for artifact in ${artifacts//,/ }; do
-          echo "==> fetching bigbytes-$artifact ..."
-          gcloud storage cp gs://bigbytes-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytes-$artifact ${{ steps.info.outputs.path }}/bigbytes-$artifact
-          chmod +x ${{ steps.info.outputs.path }}/bigbytes-$artifact
+          echo "==> fetching bigbytesdb-$artifact ..."
+          gcloud storage cp gs://bigbytesdb-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytesdb-$artifact ${{ steps.info.outputs.path }}/bigbytesdb-$artifact
+          chmod +x ${{ steps.info.outputs.path }}/bigbytesdb-$artifact
         done
 
     - name: Check Disk Space

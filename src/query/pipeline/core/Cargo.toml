@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-pipeline-core"
+name = "bigbytesdb-common-pipeline-core"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,9 +13,9 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
 fastrace = { workspace = true }
 futures = { workspace = true }
 log = { workspace = true }

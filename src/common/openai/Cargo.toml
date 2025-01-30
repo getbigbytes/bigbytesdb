@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-openai"
+name = "bigbytesdb-common-openai"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,8 +13,8 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
 log = { workspace = true }
 openai_api_rust = { workspace = true }
 

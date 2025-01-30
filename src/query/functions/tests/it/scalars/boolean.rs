@@ -14,10 +14,10 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::nullable::NullableColumn;
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::nullable::NullableColumn;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;

@@ -1,6 +1,6 @@
 [package]
-name = "bigbytes-enterprise-meta"
-description = "enterprise features for bigbytes-meta"
+name = "bigbytesdb-enterprise-meta"
+description = "enterprise features for bigbytesdb-meta"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -14,7 +14,7 @@ test = true
 [dependencies]
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 
 [lints]
 workspace = true

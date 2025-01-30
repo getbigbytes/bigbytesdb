@@ -15,13 +15,13 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::parser::token::all_reserved_keywords;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_storages_view::view_table::ViewTable;
-use bigbytes_common_storages_view::view_table::QUERY;
+use bigbytesdb_common_ast::parser::token::all_reserved_keywords;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_storages_view::view_table::ViewTable;
+use bigbytesdb_common_storages_view::view_table::QUERY;
 
 pub struct KeywordsTable {}
 

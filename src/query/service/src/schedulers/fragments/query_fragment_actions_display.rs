@@ -15,7 +15,7 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_sql::MetadataRef;
+use bigbytesdb_common_sql::MetadataRef;
 
 use crate::schedulers::QueryFragmentActions;
 use crate::schedulers::QueryFragmentsActions;

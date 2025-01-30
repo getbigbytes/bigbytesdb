@@ -33,8 +33,8 @@ mod set_cache_capacity;
 
 pub use clustering_information::ClusteringInformationFunc;
 pub use clustering_statistics::ClusteringStatisticsFunc;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_catalog::table_function::TableFunction;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_catalog::table_function::TableFunction;
 pub use function_template::SimpleTableFunc;
 pub use function_template::TableFunctionTemplate;
 pub use function_template::*;

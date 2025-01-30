@@ -18,7 +18,7 @@
 
 syntax = "proto3";
 
-package bigbytes_proto;
+package bigbytesdb_proto;
 
 import "share.proto";
 import "tenant.proto";

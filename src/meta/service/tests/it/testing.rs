@@ -15,10 +15,10 @@
 use std::collections::BTreeMap;
 use std::sync::Once;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_tracing::closure_name;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::Config;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_tracing::closure_name;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::Config;
 use fastrace::prelude::*;
 
 pub fn meta_service_test_harness<F, Fut>(test: F)

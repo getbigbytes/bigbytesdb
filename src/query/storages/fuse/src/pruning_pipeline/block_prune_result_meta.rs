@@ -16,11 +16,11 @@ use std::fmt::Debug;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_expression::local_block_meta_serde;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoPtr;
-use bigbytes_storages_common_pruner::BlockMetaIndex;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_common_expression::local_block_meta_serde;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_storages_common_pruner::BlockMetaIndex;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
 
 pub struct BlockPruneResult {
     pub block_metas: Vec<(BlockMetaIndex, Arc<BlockMeta>)>,

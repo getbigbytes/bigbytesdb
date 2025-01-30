@@ -17,8 +17,8 @@ use std::iter::TrustedLen;
 use std::marker::PhantomData;
 use std::ops::Range;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
 
 use super::AnyType;
 use super::DecimalSize;
@@ -357,7 +357,7 @@ impl NullableColumn<AnyType> {
 
 pub struct NullableIterator<'a, T: ValueType> {
     iter: T::ColumnIterator<'a>,
-    validity: bigbytes_common_column::bitmap::utils::BitmapIter<'a>,
+    validity: bigbytesdb_common_column::bitmap::utils::BitmapIter<'a>,
 }
 
 impl<'a, T: ValueType> Iterator for NullableIterator<'a, T> {

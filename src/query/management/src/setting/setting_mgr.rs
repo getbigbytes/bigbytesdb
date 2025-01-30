@@ -14,16 +14,16 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::SettingIdent;
-use bigbytes_common_meta_app::principal::UserSetting;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::seq_value::SeqValue;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::SettingIdent;
+use bigbytesdb_common_meta_app::principal::UserSetting;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::seq_value::SeqValue;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures::TryStreamExt;
 
 pub struct SettingMgr {

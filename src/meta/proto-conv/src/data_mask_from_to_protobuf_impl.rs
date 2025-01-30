@@ -19,8 +19,8 @@ use std::collections::BTreeMap;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app::data_mask as mt;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app::data_mask as mt;
+use bigbytesdb_common_protos::pb;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::ReclusterInfoSideCar;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::plan::ReclusterInfoSideCar;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::executor::physical_plans::common::MutationKind;
 use crate::executor::PhysicalPlan;

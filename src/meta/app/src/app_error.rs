@@ -14,8 +14,8 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 use crate::background::job_ident;
 use crate::data_mask::data_mask_name_ident;

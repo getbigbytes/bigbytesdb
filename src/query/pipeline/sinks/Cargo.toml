@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-pipeline-sinks"
+name = "bigbytesdb-common-pipeline-sinks"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -14,10 +14,10 @@ test = true
 async-backtrace = { workspace = true }
 async-channel = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-pipeline-core = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-pipeline-core = { workspace = true }
 
 [dev-dependencies]
 tokio = { workspace = true }

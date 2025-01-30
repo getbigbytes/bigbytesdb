@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::InvalidArgument;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_proto_conv::Incompatible;
+use bigbytesdb_common_meta_types::InvalidArgument;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_proto_conv::Incompatible;
 
 /// An error occurred when encoding with FromToProto.
 #[derive(Clone, Debug, PartialEq, thiserror::Error)]

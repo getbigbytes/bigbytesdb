@@ -37,7 +37,7 @@ impl NotificationClient {
     // TODO: add auth interceptor
     pub async fn new(
         channel: Channel,
-    ) -> bigbytes_common_exception::Result<Arc<NotificationClient>> {
+    ) -> bigbytesdb_common_exception::Result<Arc<NotificationClient>> {
         let client = NotificationServiceClient::new(channel);
         Ok(Arc::new(NotificationClient { client }))
     }
@@ -46,7 +46,7 @@ impl NotificationClient {
     pub async fn create_notification(
         &self,
         req: Request<CreateNotificationRequest>,
-    ) -> bigbytes_common_exception::Result<CreateNotificationResponse> {
+    ) -> bigbytesdb_common_exception::Result<CreateNotificationResponse> {
         let mut client = self.client.clone();
         let resp = client.create_notification(req).await?;
         Ok(resp.into_inner())
@@ -55,7 +55,7 @@ impl NotificationClient {
     pub async fn drop_notification(
         &self,
         req: Request<DropNotificationRequest>,
-    ) -> bigbytes_common_exception::Result<DropNotificationResponse> {
+    ) -> bigbytesdb_common_exception::Result<DropNotificationResponse> {
         let mut client = self.client.clone();
         let resp = client.drop_notification(req).await?;
         Ok(resp.into_inner())
@@ -64,7 +64,7 @@ impl NotificationClient {
     pub async fn desc_notification(
         &self,
         req: Request<GetNotificationRequest>,
-    ) -> bigbytes_common_exception::Result<GetNotificationResponse> {
+    ) -> bigbytesdb_common_exception::Result<GetNotificationResponse> {
         let mut client = self.client.clone();
         let resp = client.get_notification(req).await?;
         Ok(resp.into_inner())
@@ -73,7 +73,7 @@ impl NotificationClient {
     pub async fn alter_notification(
         &self,
         req: Request<crate::pb::AlterNotificationRequest>,
-    ) -> bigbytes_common_exception::Result<crate::pb::AlterNotificationResponse> {
+    ) -> bigbytesdb_common_exception::Result<crate::pb::AlterNotificationResponse> {
         let mut client = self.client.clone();
         let resp = client.alter_notification(req).await?;
         Ok(resp.into_inner())
@@ -82,7 +82,7 @@ impl NotificationClient {
     pub async fn list_notifications(
         &self,
         req: Request<ListNotificationRequest>,
-    ) -> bigbytes_common_exception::Result<ListNotificationResponse> {
+    ) -> bigbytesdb_common_exception::Result<ListNotificationResponse> {
         let mut client = self.client.clone();
         let resp = client.list_notification(req).await?;
         Ok(resp.into_inner())
@@ -91,7 +91,7 @@ impl NotificationClient {
     pub async fn list_notification_histories(
         &self,
         req: Request<crate::pb::ListNotificationHistoryRequest>,
-    ) -> bigbytes_common_exception::Result<crate::pb::ListNotificationHistoryResponse> {
+    ) -> bigbytesdb_common_exception::Result<crate::pb::ListNotificationHistoryResponse> {
         let mut client = self.client.clone();
         let resp = client.list_notification_history(req).await?;
         Ok(resp.into_inner())

@@ -14,15 +14,15 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_datavalues as dv;
-use bigbytes_common_expression::ColumnId;
+use bigbytesdb_common_datavalues as dv;
+use bigbytesdb_common_expression::ColumnId;
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct ColumnStatistics {
     pub min: dv::DataValue,
     pub max: dv::DataValue,
-    // A non-backward compatible change has been introduced by [PR#6067](https://github.com/getbigbytes/bigbytes/pull/6067/files#diff-20030750809780d6492d2fe215a8eb80294aa6a8a5af2cf1bebe17eb740cae35)
-    // , please also see [issue#6556](https://github.com/getbigbytes/bigbytes/issues/6556)
+    // A non-backward compatible change has been introduced by [PR#6067](https://github.com/getbigbytes/bigbytesdb/pull/6067/files#diff-20030750809780d6492d2fe215a8eb80294aa6a8a5af2cf1bebe17eb740cae35)
+    // , please also see [issue#6556](https://github.com/getbigbytes/bigbytesdb/issues/6556)
     // therefore, we alias `null_count` with `unset_bits`, to make subsequent versions backward compatible again
     #[serde(alias = "unset_bits")]
     pub null_count: u64,

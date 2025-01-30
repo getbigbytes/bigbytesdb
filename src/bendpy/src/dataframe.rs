@@ -17,11 +17,11 @@ use std::sync::Arc;
 use arrow::pyarrow::PyArrowType;
 use arrow::pyarrow::ToPyArrow;
 use arrow_schema::Schema as ArrowSchema;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_query::interpreters::InterpreterFactory;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sql::plans::Plan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_query::interpreters::InterpreterFactory;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sql::plans::Plan;
 use pyo3::prelude::*;
 use pyo3::types::PyTuple;
 use tokio_stream::StreamExt;
@@ -30,7 +30,7 @@ use crate::datablock::PyDataBlocks;
 use crate::schema::PySchema;
 use crate::utils::wait_for_future;
 
-#[pyclass(name = "BoxSize", module = "bigbytes", subclass)]
+#[pyclass(name = "BoxSize", module = "bigbytesdb", subclass)]
 #[derive(Clone, Debug)]
 pub(crate) struct PyBoxSize {
     pub(crate) bs_max_display_rows: usize,
@@ -38,7 +38,7 @@ pub(crate) struct PyBoxSize {
     pub(crate) bs_max_col_width: usize,
 }
 
-#[pyclass(name = "DataFrame", module = "bigbytes", subclass)]
+#[pyclass(name = "DataFrame", module = "bigbytesdb", subclass)]
 #[derive(Clone)]
 pub(crate) struct PyDataFrame {
     ctx: Arc<QueryContext>,

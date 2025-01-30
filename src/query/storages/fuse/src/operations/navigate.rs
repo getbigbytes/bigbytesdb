@@ -16,17 +16,17 @@ use std::sync::Arc;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_catalog::table::NavigationPoint;
-use bigbytes_common_catalog::table_context::AbortChecker;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SOURCE_TABLE_ID;
+use bigbytesdb_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table_context::AbortChecker;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SOURCE_TABLE_ID;
 use futures::TryStreamExt;
 use opendal::EntryMode;
 

@@ -1,12 +1,12 @@
 [package]
-name = "bigbytes-common-ast"
+name = "bigbytesdb-common-ast"
 version = "0.1.3"
 publish = true
-description = "SQL parser for Bigbytes"
+description = "SQL parser for Bigbytesdb"
 authors = { workspace = true }
 license = { workspace = true }
 edition = { workspace = true }
-repository = "https://github.com/getbigbytes/bigbytes/tree/main/src/query/ast"
+repository = "https://github.com/getbigbytes/bigbytesdb/tree/main/src/query/ast"
 
 [lib]
 doctest = false

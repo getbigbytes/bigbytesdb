@@ -14,20 +14,20 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_query::interpreters::interpreter_plan_sql;
-use bigbytes_query::interpreters::Interpreter;
-use bigbytes_query::interpreters::InterpreterFactory;
-use bigbytes_query::servers::admin::v1::instance_status::instance_status_handler;
-use bigbytes_query::servers::admin::v1::instance_status::InstanceStatus;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sessions::SessionManager;
-use bigbytes_query::sessions::SessionType;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_query::interpreters::interpreter_plan_sql;
+use bigbytesdb_query::interpreters::Interpreter;
+use bigbytesdb_query::interpreters::InterpreterFactory;
+use bigbytesdb_query::servers::admin::v1::instance_status::instance_status_handler;
+use bigbytesdb_query::servers::admin::v1::instance_status::InstanceStatus;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sessions::SessionManager;
+use bigbytesdb_query::sessions::SessionType;
+use bigbytesdb_query::test_kits::*;
 use http::header;
 use http::Method;
 use http::StatusCode;

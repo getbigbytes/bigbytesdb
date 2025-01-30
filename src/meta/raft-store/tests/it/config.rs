@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_meta_types::MetaStartupError;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_meta_types::MetaStartupError;
 
 #[test]
 fn test_raft_config() -> anyhow::Result<()> {

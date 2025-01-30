@@ -15,10 +15,10 @@
 use std::sync::Arc;
 
 use async_recursion::async_recursion;
-use bigbytes_common_ast::ast::ExplainKind;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::ExplainKind;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use educe::Educe;
 use log::info;
 

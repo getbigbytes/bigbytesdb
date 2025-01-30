@@ -240,7 +240,7 @@ impl Debug for OutOfLimit<i64> {
 mod tests {
     use std::sync::atomic::Ordering;
 
-    use bigbytes_common_exception::Result;
+    use bigbytesdb_common_exception::Result;
 
     use crate::runtime::memory::mem_stat::MINIMUM_MEMORY_LIMIT;
     use crate::runtime::MemStat;

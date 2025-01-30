@@ -13,5 +13,5 @@
 // limitations under the License.
 
 fn main() {
-    bigbytes_common_building::setup();
+    bigbytesdb_common_building::setup();
 }

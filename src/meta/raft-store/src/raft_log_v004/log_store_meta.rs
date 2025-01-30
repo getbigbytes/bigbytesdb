@@ -14,7 +14,7 @@
 
 use std::io;
 
-use bigbytes_common_meta_types::raft_types;
+use bigbytesdb_common_meta_types::raft_types;
 use raft_log::codeq::OffsetWriter;
 use serde::Deserialize;
 use serde::Serialize;

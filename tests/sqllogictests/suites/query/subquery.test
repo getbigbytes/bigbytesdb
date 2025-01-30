@@ -677,7 +677,7 @@ SELECT  *, (SELECT SUM(a) FROM t3 WHERE b IN (SELECT b FROM t1 WHERE a = t2.a ))
 ----
 
 
-# https://github.com/getbigbytes/bigbytes/issues/16099
+# https://github.com/getbigbytes/bigbytesdb/issues/16099
 statement ok
 drop table if exists t4
 
@@ -710,7 +710,7 @@ drop table t3
 statement ok
 drop table t4
 
-# https://github.com/getbigbytes/bigbytes/pull/14353
+# https://github.com/getbigbytes/bigbytesdb/pull/14353
 statement ok
 CREATE TABLE property_records (
   owner_id VARCHAR NULL,

@@ -15,16 +15,16 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_meta_app::schema::CreateIndexReq;
-use bigbytes_common_meta_app::schema::IndexMeta;
-use bigbytes_common_meta_app::schema::IndexNameIdent;
-use bigbytes_common_meta_app::schema::IndexType;
-use bigbytes_common_sql::plans::CreateIndexPlan;
-use bigbytes_enterprise_aggregating_index::get_agg_index_handler;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_meta_app::schema::CreateIndexReq;
+use bigbytesdb_common_meta_app::schema::IndexMeta;
+use bigbytesdb_common_meta_app::schema::IndexNameIdent;
+use bigbytesdb_common_meta_app::schema::IndexType;
+use bigbytesdb_common_sql::plans::CreateIndexPlan;
+use bigbytesdb_enterprise_aggregating_index::get_agg_index_handler;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

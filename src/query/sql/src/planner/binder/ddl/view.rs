@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::AlterViewStmt;
-use bigbytes_common_ast::ast::CreateViewStmt;
-use bigbytes_common_ast::ast::DescribeViewStmt;
-use bigbytes_common_ast::ast::DropViewStmt;
-use bigbytes_common_ast::ast::ShowLimit;
-use bigbytes_common_ast::ast::ShowViewsStmt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_ast::ast::AlterViewStmt;
+use bigbytesdb_common_ast::ast::CreateViewStmt;
+use bigbytesdb_common_ast::ast::DescribeViewStmt;
+use bigbytesdb_common_ast::ast::DropViewStmt;
+use bigbytesdb_common_ast::ast::ShowLimit;
+use bigbytesdb_common_ast::ast::ShowViewsStmt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRefExt;
 use derive_visitor::DriveMut;
 use log::debug;
 

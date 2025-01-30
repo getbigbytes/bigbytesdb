@@ -14,7 +14,7 @@
 
 use std::io::Write;
 
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::Bitmap;
 
 use super::WriteOptions;
 use crate::compression::boolean::compress_boolean;

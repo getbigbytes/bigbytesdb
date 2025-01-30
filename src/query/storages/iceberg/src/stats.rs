@@ -14,14 +14,14 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 use iceberg::spec::DataFile;
 use iceberg::spec::Datum;
 use iceberg::spec::PrimitiveLiteral;
@@ -50,7 +50,7 @@ fn get_column_stats(
     upper: &HashMap<i32, Datum>,
     null_counts: &HashMap<i32, u64>,
 ) -> Option<ColumnStatistics> {
-    // The column id in iceberg is 1-based while the column id in Bigbytes is 0-based.
+    // The column id in iceberg is 1-based while the column id in Bigbytesdb is 0-based.
     let iceberg_col_id = field.column_id as i32 + 1;
     match (
         lower.get(&iceberg_col_id),

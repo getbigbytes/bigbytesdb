@@ -14,14 +14,14 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_query::servers::http::middleware::EndpointKind;
-use bigbytes_query::servers::http::middleware::HTTPSessionEndpoint;
-use bigbytes_query::servers::http::middleware::HTTPSessionMiddleware;
-use bigbytes_query::servers::http::v1::clickhouse_router;
-use bigbytes_query::servers::http::CLICKHOUSE_VERSION;
-use bigbytes_query::servers::HttpHandlerKind;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_query::servers::http::middleware::EndpointKind;
+use bigbytesdb_query::servers::http::middleware::HTTPSessionEndpoint;
+use bigbytesdb_query::servers::http::middleware::HTTPSessionMiddleware;
+use bigbytesdb_query::servers::http::v1::clickhouse_router;
+use bigbytesdb_query::servers::http::CLICKHOUSE_VERSION;
+use bigbytesdb_query::servers::HttpHandlerKind;
+use bigbytesdb_query::test_kits::TestFixture;
 use http::Method;
 use http::StatusCode;
 use http::Uri;

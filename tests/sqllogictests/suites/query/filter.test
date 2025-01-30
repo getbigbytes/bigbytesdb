@@ -111,98 +111,98 @@ statement ok
 create table t(a int, b varchar);
 
 statement ok
-insert into t values(1, 'bigbytes'), (2, ' bigbytes query'), (3, 'query bigbytes'), (4, 'query bigbytes, query'), (5, 'bigbytes cloud data warehouse'), (6, 'bigbytes%cloud data warehouse');
+insert into t values(1, 'bigbytesdb'), (2, ' bigbytesdb query'), (3, 'query bigbytesdb'), (4, 'query bigbytesdb, query'), (5, 'bigbytesdb cloud data warehouse'), (6, 'bigbytesdb%cloud data warehouse');
 
 # LikePattern::OrdinalStr
 query I
-select * from t where b like 'bigbytes';
+select * from t where b like 'bigbytesdb';
 ----
-1 bigbytes
+1 bigbytesdb
 
 # LikePattern::StartOfPercent
 query I
-select * from t where b like '%bigbytes';
+select * from t where b like '%bigbytesdb';
 ----
-1 bigbytes
-3 query bigbytes
+1 bigbytesdb
+3 query bigbytesdb
 
 # LikePattern::EndOfPercent
 query I
-select * from t where b like 'bigbytes%';
+select * from t where b like 'bigbytesdb%';
 ----
-1 bigbytes
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+1 bigbytesdb
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SurroundByPercent
 query I
-select * from t where b like '%bigbytes%';
+select * from t where b like '%bigbytesdb%';
 ----
-1 bigbytes
-2  bigbytes query
-3 query bigbytes
-4 query bigbytes, query
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+1 bigbytesdb
+2  bigbytesdb query
+3 query bigbytesdb
+4 query bigbytesdb, query
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::ComplexPattern
 query I
-select * from t where b like 'bigbytes\\%cloud%data%warehouse';
+select * from t where b like 'bigbytesdb\\%cloud%data%warehouse';
 ----
-6 bigbytes%cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::ComplexPattern
 query I
-select * from t where b like 'bigbytes%cloud_data%warehouse';
+select * from t where b like 'bigbytesdb%cloud_data%warehouse';
 ----
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SimplePattern, has_start_percent = false, has_end_percent = false
 query I
-select * from t where b like 'bigbytes%cloud%data%warehouse';
+select * from t where b like 'bigbytesdb%cloud%data%warehouse';
 ----
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SimplePattern, has_start_percent = true, has_end_percent = false
 query I
-select * from t where b like '%bigbytes%cloud%data%warehouse';
+select * from t where b like '%bigbytesdb%cloud%data%warehouse';
 ----
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SimplePattern, has_start_percent = false, has_end_percent = true
 query I
-select * from t where b like 'bigbytes%cloud%data%warehouse%';
+select * from t where b like 'bigbytesdb%cloud%data%warehouse%';
 ----
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SimplePattern, has_start_percent = true, has_end_percent = true
 query I
-select * from t where b like '%bigbytes%cloud%data%warehouse%';
+select * from t where b like '%bigbytesdb%cloud%data%warehouse%';
 ----
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::StartOfPercent, push down not
 query I
-select * from t where b not like '%bigbytes';
+select * from t where b not like '%bigbytesdb';
 ----
-2  bigbytes query
-4 query bigbytes, query
-5 bigbytes cloud data warehouse
-6 bigbytes%cloud data warehouse
+2  bigbytesdb query
+4 query bigbytesdb, query
+5 bigbytesdb cloud data warehouse
+6 bigbytesdb%cloud data warehouse
 
 # LikePattern::SimplePattern, has_start_percent = false, has_end_percent = false, push down not
 query I
-select * from t where b not like 'bigbytes%cloud%data%warehouse';
+select * from t where b not like 'bigbytesdb%cloud%data%warehouse';
 ----
-1 bigbytes
-2  bigbytes query
-3 query bigbytes
-4 query bigbytes, query
+1 bigbytesdb
+2  bigbytesdb query
+3 query bigbytesdb
+4 query bigbytesdb, query
 
 statement ok
 create or replace table t(a int) change_tracking = true;

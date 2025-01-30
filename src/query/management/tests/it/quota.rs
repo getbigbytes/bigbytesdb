@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::*;
-use bigbytes_common_meta_api::deserialize_struct;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_meta_embedded::MemMeta;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::*;
+use bigbytesdb_common_meta_api::deserialize_struct;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_meta_embedded::MemMeta;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_update_quota_from_json_to_pb() -> Result<()> {

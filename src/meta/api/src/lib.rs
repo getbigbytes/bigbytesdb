@@ -17,7 +17,7 @@
 #![allow(clippy::type_complexity)]
 #![feature(try_blocks)]
 
-extern crate bigbytes_common_meta_types;
+extern crate bigbytesdb_common_meta_types;
 
 mod background_api;
 mod background_api_impl;

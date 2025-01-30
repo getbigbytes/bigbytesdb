@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::DropSequenceReq;
-use bigbytes_common_sql::plans::DropSequencePlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::DropSequenceReq;
+use bigbytesdb_common_sql::plans::DropSequencePlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

@@ -21,11 +21,11 @@ use arrow_data::ArrayData;
 use arrow_data::ArrayDataBuilder;
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::display_decimal_128;
-use bigbytes_common_io::display_decimal_256;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::display_decimal_128;
+use bigbytesdb_common_io::display_decimal_256;
 use enum_as_inner::EnumAsInner;
 use ethnum::i256;
 use ethnum::u256;
@@ -1179,7 +1179,7 @@ impl DecimalColumn {
             DecimalColumn::Decimal128(col, _) => col.clone().into(),
             DecimalColumn::Decimal256(col, _) => {
                 let col = unsafe {
-                    std::mem::transmute::<_, Buffer<bigbytes_common_column::types::i256>>(
+                    std::mem::transmute::<_, Buffer<bigbytesdb_common_column::types::i256>>(
                         col.clone(),
                     )
                 };
@@ -1207,7 +1207,7 @@ impl DecimalColumn {
                 Ok(Self::Decimal128(buffer.into(), decimal_size))
             }
             arrow_schema::DataType::Decimal256(p, s) => {
-                let buffer: Buffer<bigbytes_common_column::types::i256> = buffer.into();
+                let buffer: Buffer<bigbytesdb_common_column::types::i256> = buffer.into();
                 let buffer = unsafe { std::mem::transmute::<_, Buffer<i256>>(buffer) };
 
                 let decimal_size = DecimalSize {

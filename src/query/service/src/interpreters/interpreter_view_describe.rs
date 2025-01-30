@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::infer_table_schema;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_sql::plans::DescribeViewPlan;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_common_storages_stream::stream_table::STREAM_ENGINE;
-use bigbytes_common_storages_view::view_table::QUERY;
-use bigbytes_common_storages_view::view_table::VIEW_ENGINE;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::infer_table_schema;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_sql::plans::DescribeViewPlan;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_common_storages_stream::stream_table::STREAM_ENGINE;
+use bigbytesdb_common_storages_view::view_table::QUERY;
+use bigbytesdb_common_storages_view::view_table::VIEW_ENGINE;
 
 use crate::interpreters::util::generate_desc_schema;
 use crate::interpreters::Interpreter;

@@ -14,7 +14,7 @@
 
 use std::io::Read;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use crate::meta::load_json;
 use crate::meta::TableSnapshotStatistics;

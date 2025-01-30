@@ -14,19 +14,19 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr as AExpr;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_pipeline_transforms::processors::Transform;
+use bigbytesdb_common_ast::ast::Expr as AExpr;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_pipeline_transforms::processors::Transform;
 
 use crate::binder::wrap_cast;
 use crate::evaluator::BlockOperator;
@@ -67,7 +67,7 @@ impl<'a> VisitorMut<'a> for ExprValuesRewriter {
         if let ScalarExpr::AsyncFunctionCall(async_func) = &expr {
             let tenant = self.ctx.get_tenant();
             let catalog = self.ctx.get_default_catalog()?;
-            let value = bigbytes_common_base::runtime::block_on(async move {
+            let value = bigbytesdb_common_base::runtime::block_on(async move {
                 async_func.generate(tenant.clone(), catalog.clone()).await
             })?;
 

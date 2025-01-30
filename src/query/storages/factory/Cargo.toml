@@ -1,8 +1,8 @@
 [package]
-name = "bigbytes-common-storages-factory"
+name = "bigbytesdb-common-storages-factory"
 version = "0.1.0"
 edition = "2021"
-authors = ["Bigbytes Authors <opensource@getbigbytes.com>"]
+authors = ["Bigbytesdb Authors <opensource@getbigbytes.com>"]
 license = "Apache-2.0"
 publish = false
 
@@ -12,19 +12,19 @@ test = true
 
 [dependencies]
 dashmap = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-config = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-storages-delta = { workspace = true }
-bigbytes-common-storages-fuse = { workspace = true }
-bigbytes-common-storages-iceberg = { workspace = true }
-bigbytes-common-storages-memory = { workspace = true }
-bigbytes-common-storages-null = { workspace = true }
-bigbytes-common-storages-random = { workspace = true }
-bigbytes-common-storages-stream = { workspace = true }
-bigbytes-common-storages-view = { workspace = true }
-bigbytes-storages-common-index = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-config = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-storages-delta = { workspace = true }
+bigbytesdb-common-storages-fuse = { workspace = true }
+bigbytesdb-common-storages-iceberg = { workspace = true }
+bigbytesdb-common-storages-memory = { workspace = true }
+bigbytesdb-common-storages-null = { workspace = true }
+bigbytesdb-common-storages-random = { workspace = true }
+bigbytesdb-common-storages-stream = { workspace = true }
+bigbytesdb-common-storages-view = { workspace = true }
+bigbytesdb-storages-common-index = { workspace = true }
 
 [lints]
 workspace = true

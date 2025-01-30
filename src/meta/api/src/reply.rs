@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::protobuf::RaftReply;
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MetaAPIError;
-use bigbytes_common_meta_types::TxnOpResponse;
-use bigbytes_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::protobuf::RaftReply;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MetaAPIError;
+use bigbytesdb_common_meta_types::TxnOpResponse;
+use bigbytesdb_common_meta_types::TxnReply;
 use serde::de::DeserializeOwned;
 
 pub fn reply_to_api_result<T>(msg: RaftReply) -> Result<T, MetaAPIError>
@@ -55,9 +55,9 @@ mod tests {
         i: i32,
     }
 
-    use bigbytes_common_meta_types::protobuf::RaftReply;
-    use bigbytes_common_meta_types::MetaAPIError;
-    use bigbytes_common_meta_types::MetaNetworkError;
+    use bigbytesdb_common_meta_types::protobuf::RaftReply;
+    use bigbytesdb_common_meta_types::MetaAPIError;
+    use bigbytesdb_common_meta_types::MetaNetworkError;
 
     use crate::reply::reply_to_api_result;
 

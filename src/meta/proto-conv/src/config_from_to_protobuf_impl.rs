@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::storage::StorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig;
-use bigbytes_common_meta_app::storage::StorageHdfsConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig;
+use bigbytesdb_common_meta_app::storage::StorageHdfsConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_common_protos::pb;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

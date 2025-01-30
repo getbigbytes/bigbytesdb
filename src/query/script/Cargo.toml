@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-script"
+name = "bigbytesdb-common-script"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -10,8 +10,8 @@ edition = { workspace = true }
 doctest = false
 
 [dependencies]
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 derive-visitor = { workspace = true }
 fastrace = { workspace = true }
 

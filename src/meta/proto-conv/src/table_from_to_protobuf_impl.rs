@@ -21,12 +21,12 @@ use std::sync::Arc;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression as ex;
-use bigbytes_common_meta_app::schema as mt;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::NonEmptyString;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_expression as ex;
+use bigbytesdb_common_meta_app::schema as mt;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::NonEmptyString;
+use bigbytesdb_common_protos::pb;
 
 use crate::reader_check_msg;
 use crate::FromToProto;

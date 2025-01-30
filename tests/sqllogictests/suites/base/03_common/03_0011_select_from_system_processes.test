@@ -1,4 +1,4 @@
-# https://github.com/getbigbytes/bigbytes/issues/8792
+# https://github.com/getbigbytes/bigbytesdb/issues/8792
 # query TT
 # select command, database from system.processes
 

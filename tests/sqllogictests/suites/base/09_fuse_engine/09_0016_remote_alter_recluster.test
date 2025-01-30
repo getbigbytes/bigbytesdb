@@ -41,7 +41,7 @@ select * from t1 order by a
 4 4
 5 5
 
-# Fix dead cycles in PR #11762 (https://github.com/getbigbytes/bigbytes/pull/11762).
+# Fix dead cycles in PR #11762 (https://github.com/getbigbytes/bigbytesdb/pull/11762).
 statement ok
 create table t2(a int) cluster by(a+1) row_per_block=3
 

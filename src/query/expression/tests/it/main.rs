@@ -15,12 +15,12 @@
 #![feature(box_patterns)]
 #![feature(try_blocks)]
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::DecimalSize;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::DecimalSize;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
 
 extern crate core;
 

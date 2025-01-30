@@ -17,7 +17,7 @@ use std::fmt::Debug;
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_ast::Span;
+use bigbytesdb_common_ast::Span;
 use geozero::error::GeozeroError;
 
 use crate::exception_backtrace::capture;
@@ -221,8 +221,8 @@ impl From<std::string::FromUtf8Error> for ErrorCode {
     }
 }
 
-impl From<bigbytes_common_ast::ParseError> for ErrorCode {
-    fn from(error: bigbytes_common_ast::ParseError) -> Self {
+impl From<bigbytesdb_common_ast::ParseError> for ErrorCode {
+    fn from(error: bigbytesdb_common_ast::ParseError) -> Self {
         ErrorCode::SyntaxException(error.1).set_span(error.0)
     }
 }
@@ -280,7 +280,7 @@ impl Display for SerializedError {
 
 impl From<&ErrorCode> for SerializedError {
     fn from(e: &ErrorCode) -> Self {
-        // let binary_version = (*bigbytes_common_config::BIGBYTES_COMMIT_VERSION).clone();
+        // let binary_version = (*bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION).clone();
         SerializedError {
             code: e.code(),
             name: e.name(),

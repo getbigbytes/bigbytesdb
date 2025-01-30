@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_enterprise_query::test_kits::context::EESetup;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_enterprise_query::test_kits::context::EESetup;
+use bigbytesdb_query::test_kits::*;
 use futures::TryStreamExt;
 
 #[tokio::test(flavor = "multi_thread")]

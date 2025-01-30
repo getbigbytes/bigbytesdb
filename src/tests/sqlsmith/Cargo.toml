@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-sqlsmith"
+name = "bigbytesdb-sqlsmith"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -10,13 +10,13 @@ edition = { workspace = true }
 chrono-tz = { workspace = true }
 clap = { workspace = true }
 cookie = { workspace = true }
-bigbytes-common-ast = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-formats = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-sql = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-formats = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-sql = { workspace = true }
 derive-visitor = { workspace = true }
 ethnum = { workspace = true }
 itertools = { workspace = true }
@@ -32,7 +32,7 @@ tracing-subscriber = { workspace = true }
 url = { workspace = true }
 
 [[bin]]
-name = "bigbytes-sqlsmith"
+name = "bigbytesdb-sqlsmith"
 path = "src/bin/main.rs"
 
 [lints]

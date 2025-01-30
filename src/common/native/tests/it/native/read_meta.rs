@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::infer_schema_type;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_native::read::reader::read_meta;
-use bigbytes_common_native::write::NativeWriter;
-use bigbytes_common_native::write::WriteOptions;
-use bigbytes_common_native::ColumnMeta;
-use bigbytes_common_native::CommonCompression;
+use bigbytesdb_common_expression::infer_schema_type;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_native::read::reader::read_meta;
+use bigbytesdb_common_native::write::NativeWriter;
+use bigbytesdb_common_native::write::WriteOptions;
+use bigbytesdb_common_native::ColumnMeta;
+use bigbytesdb_common_native::CommonCompression;
 
 use super::io::new_test_column;
 use super::io::WRITE_PAGE;

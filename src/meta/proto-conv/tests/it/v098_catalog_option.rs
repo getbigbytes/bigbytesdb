@@ -14,9 +14,9 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::IcebergCatalogOption;
-use bigbytes_common_meta_app::schema::IcebergRestCatalogOption;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergCatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergRestCatalogOption;
 use fastrace::func_name;
 
 use crate::common;
@@ -41,7 +41,7 @@ fn test_decode_v98_catalog() -> anyhow::Result<()> {
         24,
     ];
 
-    let want = || bigbytes_common_meta_app::schema::CatalogMeta {
+    let want = || bigbytesdb_common_meta_app::schema::CatalogMeta {
         catalog_option: CatalogOption::Iceberg(IcebergCatalogOption::Rest(
             IcebergRestCatalogOption {
                 uri: "http://127.0.0.1:9900".to_string(),

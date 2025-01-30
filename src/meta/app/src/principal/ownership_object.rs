@@ -14,8 +14,8 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::KeyCodec;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyCodec;
 
 /// [`OwnershipObject`] is used to maintain the grant object that support rename by id. Using ID over name
 /// have many benefits, it can avoid lost privileges after the object get renamed.
@@ -60,7 +60,7 @@ impl OwnershipObject {
     // But at that time, only `"default"` catalog is used.
     // Thus we follow the same rule, if catalog is `"default"`, we don't encode it.
     //
-    // This issue is introduced in https://github.com/drmingdrmer/bigbytes/blob/7681763dc54306e55b5e0326af0510292d244be3/src/query/management/src/role/role_mgr.rs#L86
+    // This issue is introduced in https://github.com/drmingdrmer/bigbytesdb/blob/7681763dc54306e55b5e0326af0510292d244be3/src/query/management/src/role/role_mgr.rs#L86
     const DEFAULT_CATALOG: &'static str = "default";
 }
 

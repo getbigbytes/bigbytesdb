@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_sql::plans::DropDatamaskPolicyPlan;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_enterprise_data_mask_feature::get_datamask_handler;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_sql::plans::DropDatamaskPolicyPlan;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_enterprise_data_mask_feature::get_datamask_handler;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

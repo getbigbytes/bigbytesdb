@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::CsvFileFormatParams;
-use bigbytes_common_meta_app::principal::NullAs;
-use bigbytes_common_meta_app::principal::StageFileCompression;
-use bigbytes_common_meta_app::principal::TsvFileFormatParams;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::CsvFileFormatParams;
+use bigbytesdb_common_meta_app::principal::NullAs;
+use bigbytesdb_common_meta_app::principal::StageFileCompression;
+use bigbytesdb_common_meta_app::principal::TsvFileFormatParams;
 use fastrace::func_name;
 
 use crate::common;

@@ -14,8 +14,8 @@
 
 //! Test for db_map_api_ro_impl.
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::UpsertKV;
 use futures_util::TryStreamExt;
 
 use crate::leveled_store::db_builder::DBBuilder;

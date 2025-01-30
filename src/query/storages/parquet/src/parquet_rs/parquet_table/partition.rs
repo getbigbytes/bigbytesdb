@@ -15,20 +15,20 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::execute_futures_in_parallel;
-use bigbytes_common_catalog::plan::FullParquetMeta;
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::TopK;
-use bigbytes_common_catalog::query_kind::QueryKind;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::CopyStatus;
-use bigbytes_common_storage::FileStatus;
+use bigbytesdb_common_base::runtime::execute_futures_in_parallel;
+use bigbytesdb_common_catalog::plan::FullParquetMeta;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::TopK;
+use bigbytesdb_common_catalog::query_kind::QueryKind;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::CopyStatus;
+use bigbytesdb_common_storage::FileStatus;
 use parquet::arrow::arrow_reader::RowSelector;
 
 use super::table::ParquetRSTable;

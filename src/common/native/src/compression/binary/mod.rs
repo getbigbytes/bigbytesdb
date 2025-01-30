@@ -19,10 +19,10 @@ mod one_value;
 use std::collections::HashMap;
 use std::hash::Hash;
 
-use bigbytes_common_column::binary::BinaryColumn;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::types::Index;
-use bigbytes_common_expression::types::Buffer;
+use bigbytesdb_common_column::binary::BinaryColumn;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::types::Index;
+use bigbytesdb_common_expression::types::Buffer;
 
 use super::basic::CommonCompression;
 use super::integer::Dict;

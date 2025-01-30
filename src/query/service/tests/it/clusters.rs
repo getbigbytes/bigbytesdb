@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_query::clusters::ClusterDiscovery;
-use bigbytes_query::clusters::ClusterHelper;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::clusters::ClusterDiscovery;
+use bigbytesdb_query::clusters::ClusterHelper;
+use bigbytesdb_query::test_kits::*;
 use pretty_assertions::assert_eq;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]

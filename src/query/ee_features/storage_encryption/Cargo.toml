@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-storage-encryption"
+name = "bigbytesdb-enterprise-storage-encryption"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,8 +12,8 @@ test = true
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 
 [build-dependencies]
 

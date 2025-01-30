@@ -14,9 +14,9 @@
 
 use std::fmt;
 
-use bigbytes_common_meta_sled_store::sled;
-use bigbytes_common_meta_sled_store::SledBytesError;
-use bigbytes_common_meta_sled_store::SledSerde;
+use bigbytesdb_common_meta_sled_store::sled;
+use bigbytesdb_common_meta_sled_store::SledBytesError;
+use bigbytesdb_common_meta_sled_store::SledSerde;
 
 use crate::ondisk::DataVersion;
 use crate::ondisk::DATA_VERSION;

@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-io"
+name = "bigbytesdb-storages-common-io"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -9,11 +9,11 @@ edition = { workspace = true }
 [dependencies]
 async-backtrace = { workspace = true }
 bytes = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-metrics = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-metrics = { workspace = true }
 fastrace = { workspace = true }
 futures = { workspace = true }
 log = { workspace = true }

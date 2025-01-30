@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_users::GrantObjectVisibilityChecker;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
-use bigbytes_common_users::BUILTIN_ROLE_PUBLIC;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_users::GrantObjectVisibilityChecker;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
+use bigbytesdb_common_users::BUILTIN_ROLE_PUBLIC;
 
 use crate::sessions::SessionContext;
 

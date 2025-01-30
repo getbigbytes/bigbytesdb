@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature::Vacuum;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_enterprise_vacuum_handler::get_vacuum_handler;
-use bigbytes_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
-use bigbytes_storages_common_cache::TempDirManager;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature::Vacuum;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_enterprise_vacuum_handler::get_vacuum_handler;
+use bigbytesdb_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
+use bigbytesdb_storages_common_cache::TempDirManager;
 use log::warn;
 use rand::Rng;
 

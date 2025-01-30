@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_management::*;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_embedded::MemMeta;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_management::*;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_embedded::MemMeta;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::UpsertKV;
 use mockall::predicate::*;
 
 fn make_role_key(role: &str) -> String {
@@ -27,14 +27,14 @@ fn make_role_key(role: &str) -> String {
 }
 
 mod add {
-    use bigbytes_common_meta_app::principal::RoleInfo;
-    use bigbytes_common_meta_kvapi::kvapi::KVApi;
-    use bigbytes_common_meta_types::Operation;
+    use bigbytesdb_common_meta_app::principal::RoleInfo;
+    use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+    use bigbytesdb_common_meta_types::Operation;
 
     use super::*;
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_json_upgrade_to_pb() -> bigbytes_common_exception::Result<()> {
+    async fn test_json_upgrade_to_pb() -> bigbytesdb_common_exception::Result<()> {
         let role_name = "role1";
         {
             let (kv_api, role_api) = new_role_api(true).await?;
@@ -89,7 +89,7 @@ mod add {
 
 async fn new_role_api(
     enable_meta_data_upgrade_json_to_pb_from_v307: bool,
-) -> bigbytes_common_exception::Result<(Arc<MemMeta>, RoleMgr)> {
+) -> bigbytesdb_common_exception::Result<(Arc<MemMeta>, RoleMgr)> {
     let test_api = Arc::new(MemMeta::default());
     let tenant = Tenant::new_literal("admin");
     let mgr = RoleMgr::create(

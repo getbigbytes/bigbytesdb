@@ -14,15 +14,15 @@
 
 use std::marker::PhantomData;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_storages_common_table_meta::meta::trim_vacuum2_object_prefix;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::SnapshotVersion;
-use bigbytes_storages_common_table_meta::meta::TableSnapshotStatisticsVersion;
-use bigbytes_storages_common_table_meta::meta::Versioned;
-use bigbytes_storages_common_table_meta::meta::VACUUM2_OBJECT_KEY_PREFIX;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_storages_common_table_meta::meta::trim_vacuum2_object_prefix;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::SnapshotVersion;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshotStatisticsVersion;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_storages_common_table_meta::meta::VACUUM2_OBJECT_KEY_PREFIX;
 use uuid::Uuid;
 use uuid::Version;
 

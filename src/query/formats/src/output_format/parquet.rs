@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_io::constants::DEFAULT_BLOCK_BUFFER_SIZE;
-use bigbytes_storages_common_blocks::blocks_to_parquet;
-use bigbytes_storages_common_table_meta::table::TableCompression;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_io::constants::DEFAULT_BLOCK_BUFFER_SIZE;
+use bigbytesdb_storages_common_blocks::blocks_to_parquet;
+use bigbytesdb_storages_common_table_meta::table::TableCompression;
 
 use crate::output_format::OutputFormat;
 use crate::FileFormatOptionsExt;

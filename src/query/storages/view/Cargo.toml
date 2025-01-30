@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-storages-view"
+name = "bigbytesdb-common-storages-view"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,9 +12,9 @@ test = true
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-catalog = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
+bigbytesdb-common-catalog = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
 
 [build-dependencies]
 

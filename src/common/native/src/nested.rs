@@ -14,12 +14,12 @@
 
 use std::ops::Range;
 
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::ArrayColumn;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::ArrayColumn;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::error::Result;
 

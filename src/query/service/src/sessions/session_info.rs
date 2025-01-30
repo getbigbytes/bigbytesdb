@@ -15,10 +15,10 @@
 use std::sync::Arc;
 use std::time::SystemTime;
 
-use bigbytes_common_base::base::ProgressValues;
-pub use bigbytes_common_catalog::table_context::ProcessInfo;
-use bigbytes_common_catalog::table_context::ProcessInfoState;
-use bigbytes_common_storage::StorageMetrics;
+use bigbytesdb_common_base::base::ProgressValues;
+pub use bigbytesdb_common_catalog::table_context::ProcessInfo;
+use bigbytesdb_common_catalog::table_context::ProcessInfoState;
+use bigbytesdb_common_storage::StorageMetrics;
 
 use crate::sessions::Session;
 use crate::sessions::SessionContext;

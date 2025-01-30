@@ -14,12 +14,12 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_catalog::plan::DataSourceInfo;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_catalog::plan::DataSourceInfo;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use enum_as_inner::EnumAsInner;
 use itertools::Itertools;
 

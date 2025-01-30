@@ -17,16 +17,16 @@ use std::fmt::Display;
 use std::fmt::Formatter;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::CopyIntoLocationOptions;
-use bigbytes_common_ast::ast::CopyIntoTableOptions;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_storage::init_stage_operator;
-use bigbytes_common_storage::StageFileInfo;
-use bigbytes_common_storage::StageFilesInfo;
+use bigbytesdb_common_ast::ast::CopyIntoLocationOptions;
+use bigbytesdb_common_ast::ast::CopyIntoTableOptions;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_storage::init_stage_operator;
+use bigbytesdb_common_storage::StageFileInfo;
+use bigbytesdb_common_storage::StageFilesInfo;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, PartialEq, Eq)]
 pub struct StageTableInfo {

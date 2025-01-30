@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::merge_into_join::MergeIntoJoinType;
-use bigbytes_common_catalog::plan::gen_mutation_stream_meta;
-use bigbytes_common_catalog::plan::InternalColumnMeta;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoPtr;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_catalog::merge_into_join::MergeIntoJoinType;
+use bigbytesdb_common_catalog::plan::gen_mutation_stream_meta;
+use bigbytesdb_common_catalog::plan::InternalColumnMeta;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoPtr;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::operations::BlockMetaIndex;
 use crate::FuseBlockPartInfo;

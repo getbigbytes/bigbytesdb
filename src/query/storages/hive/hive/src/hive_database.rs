@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::schema::DatabaseInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseInfo;
 
 pub const HIVE_DATABASE_ENGINE: &str = "hive";
-use bigbytes_common_catalog::database::Database;
+use bigbytesdb_common_catalog::database::Database;
 
 #[derive(Clone)]
 pub struct HiveDatabase {

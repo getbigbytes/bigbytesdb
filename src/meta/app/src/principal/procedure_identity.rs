@@ -15,10 +15,10 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_meta_kvapi::kvapi::KeyBuilder;
-use bigbytes_common_meta_kvapi::kvapi::KeyCodec;
-use bigbytes_common_meta_kvapi::kvapi::KeyError;
-use bigbytes_common_meta_kvapi::kvapi::KeyParser;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyBuilder;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyCodec;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyError;
+use bigbytesdb_common_meta_kvapi::kvapi::KeyParser;
 
 /// Uniquely identifies a procedure with a name and a args vec(string).
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Default)]
@@ -62,8 +62,8 @@ impl KeyCodec for ProcedureIdentity {
     }
 }
 
-impl From<bigbytes_common_ast::ast::ProcedureIdentity> for ProcedureIdentity {
-    fn from(procedure: bigbytes_common_ast::ast::ProcedureIdentity) -> Self {
+impl From<bigbytesdb_common_ast::ast::ProcedureIdentity> for ProcedureIdentity {
+    fn from(procedure: bigbytesdb_common_ast::ast::ProcedureIdentity) -> Self {
         ProcedureIdentity::new(procedure.name, procedure.args_type)
     }
 }

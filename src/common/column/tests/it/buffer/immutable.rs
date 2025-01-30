@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::buffer::Buffer;
+use bigbytesdb_common_column::buffer::Buffer;
 
 #[test]
 fn new() {

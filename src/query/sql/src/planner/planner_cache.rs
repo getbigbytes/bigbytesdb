@@ -16,20 +16,20 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::sync::LazyLock;
 
-use bigbytes_common_ast::ast::FunctionCall;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::IdentifierType;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_functions::is_cacheable_function;
-use bigbytes_common_settings::ChangeValue;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CacheValue;
-use bigbytes_storages_common_cache::InMemoryLruCache;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_common_ast::ast::FunctionCall;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::IdentifierType;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_functions::is_cacheable_function;
+use bigbytesdb_common_settings::ChangeValue;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CacheValue;
+use bigbytesdb_storages_common_cache::InMemoryLruCache;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
 use derive_visitor::Drive;
 use derive_visitor::Visitor;
 use itertools::Itertools;
@@ -202,7 +202,7 @@ impl TableRefVisitor {
             let database_name = normalize_identifier(&database, &self.name_resolution_ctx).name;
             let table_name = normalize_identifier(table, &self.name_resolution_ctx).name;
 
-            bigbytes_common_base::runtime::block_on(async move {
+            bigbytesdb_common_base::runtime::block_on(async move {
                 if let Ok(table_meta) = self
                     .ctx
                     .get_table(&catalog_name, &database_name, &table_name)

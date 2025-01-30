@@ -19,30 +19,30 @@ use std::time::Duration;
 
 use base64::engine::general_purpose;
 use base64::prelude::*;
-use bigbytes_common_base::base::get_free_tcp_port;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::headers::HEADER_VERSION;
-use bigbytes_common_config::UserAuthConfig;
-use bigbytes_common_config::UserConfig;
-use bigbytes_common_config::BIGBYTES_SEMVER;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::PasswordHashMethod;
-use bigbytes_common_users::CustomClaims;
-use bigbytes_common_users::EnsureUser;
-use bigbytes_query::servers::http::error::QueryError;
-use bigbytes_query::servers::http::middleware::json_response;
-use bigbytes_query::servers::http::v1::make_page_uri;
-use bigbytes_query::servers::http::v1::query_route;
-use bigbytes_query::servers::http::v1::ExecuteStateKind;
-use bigbytes_query::servers::http::v1::HttpSessionConf;
-use bigbytes_query::servers::http::v1::QueryResponse;
-use bigbytes_query::servers::HttpHandler;
-use bigbytes_query::servers::HttpHandlerKind;
-use bigbytes_query::sessions::QueryAffect;
-use bigbytes_query::test_kits::ConfigBuilder;
-use bigbytes_query::test_kits::TestFixture;
-use bigbytes_storages_common_session::TxnState;
+use bigbytesdb_common_base::base::get_free_tcp_port;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::headers::HEADER_VERSION;
+use bigbytesdb_common_config::UserAuthConfig;
+use bigbytesdb_common_config::UserConfig;
+use bigbytesdb_common_config::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::PasswordHashMethod;
+use bigbytesdb_common_users::CustomClaims;
+use bigbytesdb_common_users::EnsureUser;
+use bigbytesdb_query::servers::http::error::QueryError;
+use bigbytesdb_query::servers::http::middleware::json_response;
+use bigbytesdb_query::servers::http::v1::make_page_uri;
+use bigbytesdb_query::servers::http::v1::query_route;
+use bigbytesdb_query::servers::http::v1::ExecuteStateKind;
+use bigbytesdb_query::servers::http::v1::HttpSessionConf;
+use bigbytesdb_query::servers::http::v1::QueryResponse;
+use bigbytesdb_query::servers::HttpHandler;
+use bigbytesdb_query::servers::HttpHandlerKind;
+use bigbytesdb_query::sessions::QueryAffect;
+use bigbytesdb_query::test_kits::ConfigBuilder;
+use bigbytesdb_query::test_kits::TestFixture;
+use bigbytesdb_storages_common_session::TxnState;
 use futures_util::future::try_join_all;
 use headers::Header;
 use headers::HeaderMapExt;
@@ -187,7 +187,7 @@ impl TestHttpQueryRequest {
             .unwrap();
         assert_eq!(
             resp.header(HEADER_VERSION),
-            Some(BIGBYTES_SEMVER.to_string().as_str())
+            Some(BIGBYTESDB_SEMVER.to_string().as_str())
         );
 
         let status_code = resp.status();
@@ -414,7 +414,7 @@ async fn test_client_query_id() -> Result<()> {
     let sql = "select * from numbers(1)";
     let ep = create_endpoint()?;
     let mut headers = HeaderMap::new();
-    headers.insert("x-bigbytes-query-id", "test-query-id".parse().unwrap());
+    headers.insert("x-bigbytesdb-query-id", "test-query-id".parse().unwrap());
     let (status, result) =
         post_sql_to_endpoint_new_session(&ep, sql, wait_time_secs, headers).await?;
     assert_eq!(status, StatusCode::OK);
@@ -1349,9 +1349,9 @@ async fn test_multi_partition() -> Result<()> {
 
     let sqls = vec![
         ("create table tb2(id int, c1 varchar) Engine=Fuse;", 0),
-        ("insert into tb2 values(1, 'mysql'),(1, 'bigbytes')", 1),
-        ("insert into tb2 values(2, 'mysql'),(2, 'bigbytes')", 1),
-        ("insert into tb2 values(3, 'mysql'),(3, 'bigbytes')", 1),
+        ("insert into tb2 values(1, 'mysql'),(1, 'bigbytesdb')", 1),
+        ("insert into tb2 values(2, 'mysql'),(2, 'bigbytesdb')", 1),
+        ("insert into tb2 values(3, 'mysql'),(3, 'bigbytesdb')", 1),
         ("select * from tb2;", 6),
     ];
 
@@ -1682,7 +1682,7 @@ async fn test_has_result_set() -> Result<()> {
 
     let sqls = vec![
         ("create table tb2(id int, c1 varchar) Engine=Fuse;", false),
-        ("insert into tb2 values(1, 'mysql'),(1, 'bigbytes')", true),
+        ("insert into tb2 values(1, 'mysql'),(1, 'bigbytesdb')", true),
         ("select * from tb2;", true),
     ];
 

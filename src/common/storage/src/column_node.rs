@@ -18,13 +18,13 @@
 use arrow_schema::DataType as ArrowType;
 use arrow_schema::Field;
 use arrow_schema::Schema;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_native::nested::InitNested;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_native::nested::InitNested;
 
 #[derive(Debug, Clone)]
 pub struct ColumnNodes {

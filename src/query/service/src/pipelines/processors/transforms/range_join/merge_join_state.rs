@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_expression::SortColumnDescription;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_expression::SortColumnDescription;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::pipelines::processors::transforms::range_join::filter_block;
 use crate::pipelines::processors::transforms::range_join::RangeJoinState;

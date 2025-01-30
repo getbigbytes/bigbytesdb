@@ -16,46 +16,46 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use async_recursion::async_recursion;
-use bigbytes_common_base::base::tokio::sync::Semaphore;
-use bigbytes_common_catalog::catalog_kind::CATALOG_HIVE;
-use bigbytes_common_catalog::partition_columns::get_pushdown_without_partition_columns;
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::plan::ParquetReadOptions;
-use bigbytes_common_catalog::plan::PartStatistics;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::plan::PartitionsShuffleKind;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table::DistributionLevel;
-use bigbytes_common_catalog::table::NavigationPoint;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableStatistics;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_meta_app::schema::UpsertTableCopiedFileReq;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_pipeline_sources::SyncSource;
-use bigbytes_common_pipeline_sources::SyncSourcer;
-use bigbytes_common_storage::init_operator;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_storages_parquet::ParquetRSPruner;
-use bigbytes_common_storages_parquet::ParquetRSReaderBuilder;
-use bigbytes_storages_common_pruner::partition_prunner::PartitionPruner;
-use bigbytes_storages_common_table_meta::meta::SnapshotId;
-use bigbytes_storages_common_table_meta::table::ChangeType;
+use bigbytesdb_common_base::base::tokio::sync::Semaphore;
+use bigbytesdb_common_catalog::catalog_kind::CATALOG_HIVE;
+use bigbytesdb_common_catalog::partition_columns::get_pushdown_without_partition_columns;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::plan::ParquetReadOptions;
+use bigbytesdb_common_catalog::plan::PartStatistics;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::plan::PartitionsShuffleKind;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table::DistributionLevel;
+use bigbytesdb_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableStatistics;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_meta_app::schema::UpsertTableCopiedFileReq;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_pipeline_sources::SyncSource;
+use bigbytesdb_common_pipeline_sources::SyncSourcer;
+use bigbytesdb_common_storage::init_operator;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_storages_parquet::ParquetRSPruner;
+use bigbytesdb_common_storages_parquet::ParquetRSReaderBuilder;
+use bigbytesdb_storages_common_pruner::partition_prunner::PartitionPruner;
+use bigbytesdb_storages_common_table_meta::meta::SnapshotId;
+use bigbytesdb_storages_common_table_meta::table::ChangeType;
 use futures::TryStreamExt;
 use log::info;
 use log::trace;
@@ -329,7 +329,7 @@ impl HiveTable {
             let sem_t = sem.clone();
             let operator_t = self.dal.clone();
             let dir_t = dir.to_string();
-            let task = bigbytes_common_base::runtime::spawn(async move {
+            let task = bigbytesdb_common_base::runtime::spawn(async move {
                 list_files_from_dir(operator_t, dir_t, sem_t).await
             });
             tasks.push((task, partition));
@@ -577,7 +577,7 @@ async fn list_files_from_dir(
     for dir in dirs {
         let sem_t = sem.clone();
         let operator_t = operator.clone();
-        let task = bigbytes_common_base::runtime::spawn(async move {
+        let task = bigbytesdb_common_base::runtime::spawn(async move {
             list_files_from_dir(operator_t, dir, sem_t).await
         });
         tasks.push(task);

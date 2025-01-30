@@ -15,10 +15,10 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateSequenceReq;
-use bigbytes_common_sql::plans::CreateSequencePlan;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateSequenceReq;
+use bigbytesdb_common_sql::plans::CreateSequencePlan;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

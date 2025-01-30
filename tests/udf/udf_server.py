@@ -18,8 +18,8 @@ from decimal import Decimal
 import time
 from typing import List, Dict, Any, Tuple, Optional
 
-# https://github.com/getbigbytes/bigbytes-udf
-from bigbytes_udf import udf, UDFServer
+# https://github.com/getbigbytes/bigbytesdb-udf
+from bigbytesdb_udf import udf, UDFServer
 
 logging.basicConfig(level=logging.INFO)
 

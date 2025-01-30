@@ -1,4 +1,4 @@
-# GitHub issue: https://github.com/getbigbytes/bigbytes/issues/9236
+# GitHub issue: https://github.com/getbigbytes/bigbytesdb/issues/9236
 
 statement ok
 DROP DATABASE IF EXISTS bigbytes0

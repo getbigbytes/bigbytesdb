@@ -64,7 +64,7 @@ impl Rule for RulePushDownLimitEvalScalar {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let limit: Limit = s_expr.plan().clone().try_into()?;
         let eval_plan = s_expr.child(0)?;
         let eval_scalar: EvalScalar = eval_plan.plan().clone().try_into()?;

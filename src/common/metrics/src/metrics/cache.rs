@@ -14,10 +14,10 @@
 
 use std::sync::LazyLock;
 
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::register_histogram_family_in_milliseconds;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
-use bigbytes_common_base::runtime::metrics::FamilyHistogram;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::register_histogram_family_in_milliseconds;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::FamilyHistogram;
 use prometheus_client::encoding::EncodeLabelSet;
 
 #[derive(Clone, Debug, EncodeLabelSet, Hash, PartialEq, Eq)]

@@ -15,7 +15,7 @@
 mod array;
 mod variant;
 
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionRegistry;
 
 pub fn register(registry: &mut FunctionRegistry) {
     array::register(registry);

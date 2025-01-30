@@ -14,9 +14,9 @@
 
 use std::fmt;
 
-use bigbytes_common_base::display::display_option::DisplayOptionExt;
-use bigbytes_common_base::display::display_slice::DisplaySliceExt;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_base::display::display_option::DisplayOptionExt;
+use bigbytesdb_common_base::display::display_slice::DisplaySliceExt;
+use bigbytesdb_common_exception::ErrorCode;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -356,8 +356,8 @@ mod tests {
     fn test_display_license_info() {
         let license_info = LicenseInfo {
             r#type: Some("enterprise".to_string()),
-            org: Some("bigbytes".to_string()),
-            tenants: Some(vec!["bigbytes_tenant".to_string(), "foo".to_string()]),
+            org: Some("bigbytesdb".to_string()),
+            tenants: Some(vec!["bigbytesdb_tenant".to_string(), "foo".to_string()]),
             features: Some(vec![
                 Feature::LicenseInfo,
                 Feature::Vacuum,
@@ -384,7 +384,7 @@ mod tests {
         };
 
         assert_eq!(
-            "LicenseInfo{ type: enterprise, org: bigbytes, tenants: [bigbytes_tenant,foo], features: [aggregate_index,amend_table,attach_table,background_service,compute_quota(threads_num: 1, memory_usage: 1),computed_column,data_mask,hilbert_clustering,inverted_index,license_info,storage_encryption,storage_quota(storage_usage: 1),stream,vacuum,virtual_column] }",
+            "LicenseInfo{ type: enterprise, org: bigbytesdb, tenants: [bigbytesdb_tenant,foo], features: [aggregate_index,amend_table,attach_table,background_service,compute_quota(threads_num: 1, memory_usage: 1),computed_column,data_mask,hilbert_clustering,inverted_index,license_info,storage_encryption,storage_quota(storage_usage: 1),stream,vacuum,virtual_column] }",
             license_info.to_string()
         );
     }

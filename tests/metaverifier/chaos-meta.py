@@ -75,7 +75,7 @@ class MetaChaos:
 
     def get_node(self, get_leader):
         nodes = []
-        cmd = "kubectl exec -i bigbytes-metaverifier -n bigbytes -- "
+        cmd = "kubectl exec -i bigbytesdb-metaverifier -n bigbytesdb -- "
         for node, addr in self.node_port_map.items():
             curl_cmd = cmd + "curl " + addr + "/v1/cluster/status"
             content = os.popen(curl_cmd).read()
@@ -101,7 +101,7 @@ class MetaChaos:
         return random.sample(list(self.node_port_map.keys()), 1)[0]
 
     def exec_cat_meta_verifier(self):
-        cmd = "kubectl exec -i bigbytes-metaverifier -n bigbytes -- cat /tmp/meta-verifier"
+        cmd = "kubectl exec -i bigbytesdb-metaverifier -n bigbytesdb -- cat /tmp/meta-verifier"
         content = os.popen(cmd).read().strip()
         logging.debug("exec cat meta-verifier: " + str(content))
 
@@ -114,23 +114,23 @@ class MetaChaos:
         while count < 10:
             content = self.exec_cat_meta_verifier()
             if content == "START":
-                logging.debug("bigbytes-metaverifier has started")
+                logging.debug("bigbytesdb-metaverifier has started")
                 return
             count += 1
             time.sleep(1)
 
-        logging.error("bigbytes-metaverifier has not started, exit")
+        logging.error("bigbytesdb-metaverifier has not started, exit")
         sys.exit(-1)
 
     def is_verifier_end(self):
-        cmd = "kubectl logs bigbytes-metaverifier -n bigbytes | tail -10"
+        cmd = "kubectl logs bigbytesdb-metaverifier -n bigbytesdb | tail -10"
         content = os.popen(cmd).read()
         logging.debug(
-            "kubectl logs bigbytes-metaverifier -n bigbytes:\n" + str(content)
+            "kubectl logs bigbytesdb-metaverifier -n bigbytesdb:\n" + str(content)
         )
         content = self.exec_cat_meta_verifier()
         if content == "ERROR":
-            logging.error("bigbytes-metaverifier return error")
+            logging.error("bigbytesdb-metaverifier return error")
             sys.exit(-1)
 
         return content == "END"
@@ -200,13 +200,13 @@ class MetaChaos:
             diff = current - start
             if self.is_verifier_end():
                 logging.debug(
-                    "bigbytes-metaverifier has completed, cost:" + str(diff) + "s, exit"
+                    "bigbytesdb-metaverifier has completed, cost:" + str(diff) + "s, exit"
                 )
                 sys.exit(0)
 
             if diff > self.total:
                 logging.error(
-                    "bigbytes-metaverifier is not completed in total time, exit -1"
+                    "bigbytesdb-metaverifier is not completed in total time, exit -1"
                 )
                 sys.exit(-1)
 
@@ -214,7 +214,7 @@ class MetaChaos:
 # mode = type/subtype/mode params
 # ex: mode = io/delay/delay=300,percent=100
 # nodes = node-pod-name:node-port[,node-pod-name:node-port]
-# namespace: bigbytes meta k8s namespace
+# namespace: bigbytesdb meta k8s namespace
 # total: test total time
 # apply_second: apply chaos second
 # recover_second: recover from chaos second

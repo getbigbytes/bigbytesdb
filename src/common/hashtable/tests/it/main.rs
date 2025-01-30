@@ -20,14 +20,14 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 
 use bumpalo::Bump;
-use bigbytes_common_hashtable::fast_memcmp;
-use bigbytes_common_hashtable::DictionaryKeys;
-use bigbytes_common_hashtable::DictionaryStringHashMap;
-use bigbytes_common_hashtable::HashMap;
-use bigbytes_common_hashtable::HashtableEntryMutRefLike;
-use bigbytes_common_hashtable::HashtableLike;
-use bigbytes_common_hashtable::ShortStringHashMap;
-use bigbytes_common_hashtable::StackHashMap;
+use bigbytesdb_common_hashtable::fast_memcmp;
+use bigbytesdb_common_hashtable::DictionaryKeys;
+use bigbytesdb_common_hashtable::DictionaryStringHashMap;
+use bigbytesdb_common_hashtable::HashMap;
+use bigbytesdb_common_hashtable::HashtableEntryMutRefLike;
+use bigbytesdb_common_hashtable::HashtableLike;
+use bigbytesdb_common_hashtable::ShortStringHashMap;
+use bigbytesdb_common_hashtable::StackHashMap;
 use rand::distributions::Alphanumeric;
 use rand::Rng;
 

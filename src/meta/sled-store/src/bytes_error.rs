@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use anyerror::AnyError;
-use bigbytes_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
 
 /// Errors that occur when encode/decode
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize, PartialEq, Eq, thiserror::Error)]

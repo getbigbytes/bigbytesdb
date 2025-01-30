@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::principal::check_record_delimiter;
+use bigbytesdb_common_meta_app::principal::check_record_delimiter;
 
 #[test]
 fn test_check_record_delimiter() {

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2022 The Bigbytes Authors.
+# Copyright 2022 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 SCRIPT_PATH="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
@@ -16,13 +16,13 @@ fi
 # `query` tries to remove its liveness record from meta before shutting down.
 # If meta is stopped, `query` will receive an error that hangs graceful
 # shutdown.
-killall bigbytes-query
+killall bigbytesdb-query
 sleep 3
 
-killall bigbytes-meta
+killall bigbytesdb-meta
 sleep 3
 
-for bin in bigbytes-query bigbytes-meta; do
+for bin in bigbytesdb-query bigbytesdb-meta; do
 	if test -n "$(pgrep $bin)"; then
 		echo "The $bin is not killed. force killing."
 		killall -9 $bin
@@ -34,13 +34,13 @@ sleep 1
 
 echo 'Start Meta service HA cluster(3 nodes)...'
 
-nohup ./target/release/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-1.toml &
+nohup ./target/release/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-1.toml &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 9191
 
-nohup ./target/release/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-2.toml &
+nohup ./target/release/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-2.toml &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 28202
 
-nohup ./target/release/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-3.toml &
+nohup ./target/release/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-3.toml &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 28302
 
 echo 'Waiting leader election...'
@@ -56,4 +56,4 @@ if [ $leader_id == "0" ]; then
 	exit -1
 fi
 
-./target/release/bigbytes-metabench --number $2 --client $1 --grpc-api-address ${grpc_address_array[$leader_id]}
+./target/release/bigbytesdb-metabench --number $2 --client $1 --grpc-api-address ${grpc_address_array[$leader_id]}

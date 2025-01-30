@@ -15,30 +15,30 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_io::prelude::borsh_deserialize_from_slice;
-use bigbytes_common_storages_fuse::io::MetaReaders;
-use bigbytes_common_storages_fuse::io::MetaWriter;
-use bigbytes_common_storages_fuse::statistics::reducers::merge_statistics_mut;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sessions::TableContext;
-use bigbytes_query::sql::plans::Plan;
-use bigbytes_query::sql::Planner;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::MetaHLL;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::TableSnapshotStatistics;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_io::prelude::borsh_deserialize_from_slice;
+use bigbytesdb_common_storages_fuse::io::MetaReaders;
+use bigbytesdb_common_storages_fuse::io::MetaWriter;
+use bigbytesdb_common_storages_fuse::statistics::reducers::merge_statistics_mut;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sessions::TableContext;
+use bigbytesdb_query::sql::plans::Plan;
+use bigbytesdb_query::sql::Planner;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::MetaHLL;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshotStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_table_modify_column_ndv_statistics() -> Result<()> {

@@ -20,40 +20,40 @@ use std::sync::Arc;
 use chrono::TimeZone;
 use chrono::Utc;
 use dashmap::DashMap;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Indirection;
-use bigbytes_common_ast::ast::SampleConfig;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_ast::ast::SetOperator;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::ast::TemporalClause;
-use bigbytes_common_ast::ast::TimeTravelPoint;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::catalog_kind::CATALOG_DEFAULT;
-use bigbytes_common_catalog::table::NavigationPoint;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TimeNavigation;
-use bigbytes_common_catalog::table_context::AbortChecker;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::is_stream_column;
-use bigbytes_common_expression::type_check::check_number;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_meta_app::schema::IndexMeta;
-use bigbytes_common_meta_app::schema::ListIndexesReq;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::MetaId;
-use bigbytes_common_storage::StageFileInfo;
-use bigbytes_common_storage::StageFilesInfo;
-use bigbytes_storages_common_table_meta::table::ChangeType;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Indirection;
+use bigbytesdb_common_ast::ast::SampleConfig;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::SetOperator;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::ast::TemporalClause;
+use bigbytesdb_common_ast::ast::TimeTravelPoint;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::catalog_kind::CATALOG_DEFAULT;
+use bigbytesdb_common_catalog::table::NavigationPoint;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TimeNavigation;
+use bigbytesdb_common_catalog::table_context::AbortChecker;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::is_stream_column;
+use bigbytesdb_common_expression::type_check::check_number;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_meta_app::schema::IndexMeta;
+use bigbytesdb_common_meta_app::schema::ListIndexesReq;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::MetaId;
+use bigbytesdb_common_storage::StageFileInfo;
+use bigbytesdb_common_storage::StageFilesInfo;
+use bigbytesdb_storages_common_table_meta::table::ChangeType;
 use log::info;
 
 use crate::binder::Binder;
@@ -434,7 +434,7 @@ impl Binder {
         max_batch_size: Option<u64>,
         abort_checker: AbortChecker,
     ) -> Result<Arc<dyn Table>> {
-        bigbytes_common_base::runtime::block_on(async move {
+        bigbytesdb_common_base::runtime::block_on(async move {
             // Resolve table with ctx
             // for example: select * from t1 join (select * from t1 as t2 where a > 1 and a < 13);
             // we will invoke here twice for t1, so in the past, we use catalog every time to get the
@@ -504,7 +504,7 @@ impl Binder {
                 );
 
                 match new_expr {
-                    bigbytes_common_expression::Expr::Constant {
+                    bigbytesdb_common_expression::Expr::Constant {
                         scalar,
                         data_type: DataType::Timestamp,
                         ..
@@ -576,7 +576,7 @@ impl Binder {
     ) -> Result<NavigationPoint> {
         let (catalog, database, name) =
             self.normalize_object_identifier_triple(catalog, database, name);
-        bigbytes_common_base::runtime::block_on(async move {
+        bigbytesdb_common_base::runtime::block_on(async move {
             let stream = self.ctx.get_table(&catalog, &database, &name).await?;
             if !stream.is_stream() {
                 return Err(ErrorCode::TableEngineNotSupported(format!(

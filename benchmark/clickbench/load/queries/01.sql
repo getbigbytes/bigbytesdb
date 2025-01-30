@@ -107,4 +107,4 @@ CREATE TABLE hits_csv (
     CLID INTEGER NOT NULL
 ) CLUSTER BY (CounterID, EventDate, UserID, EventTime, WatchID);
 COPY INTO hits_csv
-FROM 's3://bigbytes-datasets/hits_compatible/hits.csv.gz' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'CSV', COMPRESSION = AUTO);
+FROM 's3://bigbytesdb-datasets/hits_compatible/hits.csv.gz' CONNECTION = (CONNECTION_NAME = 'repo') FILE_FORMAT = (TYPE = 'CSV', COMPRESSION = AUTO);

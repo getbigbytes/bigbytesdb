@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_store::MetaStore;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_store::MetaStore;
 
 use crate::storages::StorageFactory;
 

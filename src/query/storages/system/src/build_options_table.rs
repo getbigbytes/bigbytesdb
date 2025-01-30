@@ -15,18 +15,18 @@
 use std::cmp::max;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::utils::FromData;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_meta_app::schema::TableIdent;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::utils::FromData;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_meta_app::schema::TableIdent;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TableMeta;
 
 use crate::SyncOneBlockSystemTable;
 use crate::SyncSystemTable;
@@ -54,7 +54,7 @@ impl SyncSystemTable for BuildOptionsTable {
             cargo_features = vec!["not available".to_string()];
         }
 
-        let mut target_features: Vec<String> = env!("BIGBYTES_CARGO_CFG_TARGET_FEATURE")
+        let mut target_features: Vec<String> = env!("BIGBYTESDB_CARGO_CFG_TARGET_FEATURE")
             .split_terminator(',')
             .map(|x| x.trim().to_string())
             .collect();

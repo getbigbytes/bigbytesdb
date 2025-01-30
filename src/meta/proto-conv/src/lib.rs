@@ -20,7 +20,7 @@
 //!
 //! Thus protobuf messages has the maximized compatibility.
 //! I.e., a protobuf message is able to contain several different versions of metadata in one format.
-//! This mod will convert protobuf message to the current version of meta data used in bigbytes-query.
+//! This mod will convert protobuf message to the current version of meta data used in bigbytesdb-query.
 //!
 //! # Versioning and compatibility
 //!

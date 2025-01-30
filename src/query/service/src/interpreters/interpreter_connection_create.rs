@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserDefinedConnection;
-use bigbytes_common_sql::plans::CreateConnectionPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserDefinedConnection;
+use bigbytesdb_common_sql::plans::CreateConnectionPlan;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;

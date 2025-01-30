@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::executor::cast_expr_to_non_null_boolean;
-use bigbytes_common_sql::executor::physical_plans::HashJoin;
-use bigbytes_common_sql::IndexType;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::executor::cast_expr_to_non_null_boolean;
+use bigbytesdb_common_sql::executor::physical_plans::HashJoin;
+use bigbytesdb_common_sql::IndexType;
 use parking_lot::RwLock;
 
 use crate::sql::plans::JoinType;

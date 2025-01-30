@@ -14,19 +14,19 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::types::nullable::NullableColumn;
-use bigbytes_common_expression::types::nullable::NullableDomain;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::Domain;
-use bigbytes_common_expression::Function;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionEval;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_common_expression::FunctionSignature;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_expression::types::nullable::NullableColumn;
+use bigbytesdb_common_expression::types::nullable::NullableDomain;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::Domain;
+use bigbytesdb_common_expression::Function;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionEval;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionSignature;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
 
 pub fn register(registry: &mut FunctionRegistry) {
     registry.register_function_factory("tuple", |_, args_type| {

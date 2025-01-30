@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::execute_futures_in_parallel;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_storages_common_cache::LoadParams;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_common_base::runtime::execute_futures_in_parallel;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_storages_common_cache::LoadParams;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
 use fastrace::func_path;
 use fastrace::prelude::*;
 use opendal::Operator;

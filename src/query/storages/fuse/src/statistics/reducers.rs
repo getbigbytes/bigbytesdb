@@ -15,14 +15,14 @@
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::ClusterStatistics;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::ClusterStatistics;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 
 use crate::table_functions::cmp_with_null;
 

@@ -1,4 +1,4 @@
-# Bigbytes TPCDS-Benchmark
+# Bigbytesdb TPCDS-Benchmark
 
 ## Preparing the Table and Data
 
@@ -19,7 +19,7 @@ Then, move the data to current directory:
 mv /tmp/tpcds_0_01/ "$(pwd)/data/"
 ```
 
-After that, you can load data to Bigbytes:
+After that, you can load data to Bigbytesdb:
 
 ```shell
 ./load_data.sh
@@ -27,10 +27,10 @@ After that, you can load data to Bigbytes:
 
 ## Benchmark
 
-To run the TPC-DS Benchmark, first build `bigbytes-sqllogictests` binary.
+To run the TPC-DS Benchmark, first build `bigbytesdb-sqllogictests` binary.
 
 Then, execute the following command in your shell:
 
 ```shell
-bigbytes-sqllogictests --handlers mysql --database tpcds --run_dir tpcds --bench
+bigbytesdb-sqllogictests --handlers mysql --database tpcds --run_dir tpcds --bench
 ```

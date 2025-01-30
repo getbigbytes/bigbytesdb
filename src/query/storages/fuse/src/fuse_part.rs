@@ -22,18 +22,18 @@ use std::sync::Arc;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_catalog::plan::PartInfoType;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
-use bigbytes_storages_common_pruner::BlockMetaIndex;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::Compression;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_catalog::plan::PartInfoType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_storages_common_pruner::BlockMetaIndex;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Compression;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 
 /// Fuse table partition information.
 #[derive(serde::Serialize, serde::Deserialize, PartialEq, Debug)]

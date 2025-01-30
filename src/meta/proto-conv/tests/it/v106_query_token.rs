@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::principal::user_token::TokenType;
+use bigbytesdb_common_meta_app::principal::user_token::TokenType;
 use fastrace::func_name;
 
 use crate::common;
@@ -34,7 +34,7 @@ fn test_v106_query_token_info() -> anyhow::Result<()> {
         104, 160, 6, 106, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::principal::user_token::QueryTokenInfo {
+    let want = || bigbytesdb_common_meta_app::principal::user_token::QueryTokenInfo {
         token_type: TokenType::Refresh,
         parent: Some("parent_token_hash".to_string()),
     };

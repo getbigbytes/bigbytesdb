@@ -14,8 +14,8 @@
 
 use std::sync::LazyLock;
 
-use bigbytes_common_base::runtime::metrics::register_gauge_family;
-use bigbytes_common_base::runtime::metrics::FamilyGauge;
+use bigbytesdb_common_base::runtime::metrics::register_gauge_family;
+use bigbytesdb_common_base::runtime::metrics::FamilyGauge;
 
 pub static SYSTEM_VERSION_GAUGE: LazyLock<FamilyGauge<Vec<(&'static str, String)>>> =
     LazyLock::new(|| register_gauge_family("system_version"));

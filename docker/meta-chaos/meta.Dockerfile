@@ -8,7 +8,7 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/apt/*
-COPY ./distro/$TARGETPLATFORM/bigbytes-meta /bigbytes-meta
-COPY ./distro/$TARGETPLATFORM/bigbytes-metactl /bigbytes-metactl
+COPY ./distro/$TARGETPLATFORM/bigbytesdb-meta /bigbytesdb-meta
+COPY ./distro/$TARGETPLATFORM/bigbytesdb-metactl /bigbytesdb-metactl
 COPY ./distro/$TARGETPLATFORM/cat-logs.sh /cat-logs.sh
-ENTRYPOINT ["/bigbytes-meta"]
+ENTRYPOINT ["/bigbytesdb-meta"]

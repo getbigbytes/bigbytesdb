@@ -5,7 +5,7 @@ CURDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 post() {
 	echo ">>>> curl $1: $2 | jq $3"
-	curl -s -u root: -XPOST "http://localhost:8000/v1/query" --header 'Content-Type: application/json' --header x-bigbytes-query-id:"$1" -d "$2" | jq "$3"
+	curl -s -u root: -XPOST "http://localhost:8000/v1/query" --header 'Content-Type: application/json' --header x-bigbytesdb-query-id:"$1" -d "$2" | jq "$3"
 	echo "<<<<"
 }
 

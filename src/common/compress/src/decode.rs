@@ -29,7 +29,7 @@ use async_compression::codec::ZstdDecoder;
 use async_compression::util::PartialBuffer;
 use bytes::Buf;
 use bytes::BytesMut;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 use futures::io::BufReader;
 use futures::ready;
 use futures::AsyncBufRead;
@@ -344,7 +344,7 @@ impl DecompressDecoder {
     pub fn decompress_all(
         &mut self,
         compressed: &[u8],
-    ) -> bigbytes_common_exception::Result<Vec<u8>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let mut main = self.decompress_batch(compressed)?;
         let tail = self.decompress_batch(&[])?;
         main.extend_from_slice(&tail);
@@ -354,7 +354,7 @@ impl DecompressDecoder {
     pub fn decompress_batch(
         &mut self,
         compressed: &[u8],
-    ) -> bigbytes_common_exception::Result<Vec<u8>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let mut decompress_bufs = vec![];
         let mut filled = false;
         loop {

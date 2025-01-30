@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::DataSourcePlan;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_pipeline_core::Pipeline;
+use bigbytesdb_common_catalog::plan::DataSourcePlan;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_pipeline_core::Pipeline;
 
 use super::ParquetRSTable;
 use crate::parquet_rs::source::ParquetSource;

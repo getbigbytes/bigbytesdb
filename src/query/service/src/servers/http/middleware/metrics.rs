@@ -14,9 +14,9 @@
 
 use std::time::Instant;
 
-use bigbytes_common_metrics::http::metrics_incr_http_request_count;
-use bigbytes_common_metrics::http::metrics_incr_http_slow_request_count;
-use bigbytes_common_metrics::http::metrics_observe_http_response_duration;
+use bigbytesdb_common_metrics::http::metrics_incr_http_request_count;
+use bigbytesdb_common_metrics::http::metrics_incr_http_slow_request_count;
+use bigbytesdb_common_metrics::http::metrics_observe_http_response_duration;
 use poem::Endpoint;
 use poem::IntoResponse;
 use poem::Middleware;

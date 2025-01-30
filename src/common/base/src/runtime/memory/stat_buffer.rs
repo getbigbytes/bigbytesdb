@@ -147,7 +147,7 @@ impl StatBuffer {
 mod tests {
     use std::sync::atomic::Ordering;
 
-    use bigbytes_common_exception::Result;
+    use bigbytesdb_common_exception::Result;
 
     use crate::runtime::memory::stat_buffer::MEM_STAT_BUFFER_SIZE;
     use crate::runtime::memory::MemStat;

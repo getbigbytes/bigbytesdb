@@ -11,7 +11,7 @@ transforms:
     inputs:
       - otlp.logs
     source: |-
-      if (.resources.service != "bigbytes-query") {
+      if (.resources.service != "bigbytesdb-query") {
         abort
       }
       if (.resources.category != "query") {
@@ -27,7 +27,7 @@ transforms:
     inputs:
       - otlp.logs
     source: |-
-      if (.resources.service != "bigbytes-query") {
+      if (.resources.service != "bigbytesdb-query") {
         abort
       }
       if (.resources.category != "profile") {
@@ -51,7 +51,7 @@ sinks:
     compression: none
     encoding:
       codec: json
-    path: .bigbytes/vector/query/%Y-%m-%d.log
+    path: .bigbytesdb/vector/query/%Y-%m-%d.log
     timezone: local
   output_profile_logs:
     type: file
@@ -60,5 +60,5 @@ sinks:
     compression: none
     encoding:
       codec: json
-    path: .bigbytes/vector/profile/%Y-%m-%d.log
+    path: .bigbytesdb/vector/profile/%Y-%m-%d.log
     timezone: local

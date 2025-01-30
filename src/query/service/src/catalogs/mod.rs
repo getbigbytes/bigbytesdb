@@ -13,7 +13,7 @@
 // limitations under the License.
 
 pub mod default;
-pub use bigbytes_common_catalog::catalog::Catalog;
-pub use bigbytes_common_storages_hive as hive;
+pub use bigbytesdb_common_catalog::catalog::Catalog;
+pub use bigbytesdb_common_storages_hive as hive;
 pub use default::table_memory_meta::InMemoryMetas;
 pub use default::DatabaseCatalog;

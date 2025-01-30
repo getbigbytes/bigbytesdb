@@ -1,14 +1,16 @@
 # Usage:
-# bigbytes-meta -c bigbytes-meta-node-3.toml
+# bigbytesdb-meta -c bigbytesdb-meta-node-3.toml
 
-log_dir                 = "./.bigbytes/logs3"
+log_dir                 = "./.bigbytesdb/logs3"
 admin_api_address       = "0.0.0.0:28301"
 grpc_api_address        = "0.0.0.0:28302"
+# bigbytesdb-query fetch this address to update its bigbytesdb-meta endpoints list,
+# in case bigbytesdb-meta cluster changes.
 grpc_api_advertise_host = "127.0.0.1"
 
 [raft_config]
 id            = 3
-raft_dir      = "./.bigbytes/meta3"
+raft_dir      = "./.bigbytesdb/meta3"
 raft_api_port = 28303
 
 # assign raft_{listen|advertise}_host in test config,

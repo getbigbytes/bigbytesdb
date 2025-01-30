@@ -14,24 +14,24 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_ast::parser::token::TokenKind;
-use bigbytes_common_ast::parser::token::Tokenizer;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::io::AsyncRead;
-use bigbytes_common_base::base::tokio::time::Instant;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::Planner;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_ast::parser::token::TokenKind;
+use bigbytesdb_common_ast::parser::token::Tokenizer;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::io::AsyncRead;
+use bigbytesdb_common_base::base::tokio::time::Instant;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::Planner;
 use futures_util::StreamExt;
 use rustyline::config::Builder;
 use rustyline::error::ReadlineError;
@@ -100,7 +100,7 @@ impl SessionExecutor {
         settings.merge_config(config.settings);
 
         if is_repl {
-            println!("Welcome to Bigbytes, version {}.", *BIGBYTES_COMMIT_VERSION);
+            println!("Welcome to Bigbytesdb, version {}.", *BIGBYTESDB_COMMIT_VERSION);
             println!();
 
             let rows = Self::query(&session, PROMPT_SQL).await;
@@ -329,7 +329,7 @@ impl SessionExecutor {
 
 fn get_history_path() -> String {
     format!(
-        "{}/.bigbytes_history",
+        "{}/.bigbytesdb_history",
         std::env::var("HOME").unwrap_or_else(|_| ".".to_string())
     )
 }

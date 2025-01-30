@@ -25,12 +25,12 @@ use gix::Repository;
 use log::error;
 use vergen::EmitBuilder;
 
-const VERSION_ERROR_MESSAGE: &str = "A valid version is required for MetaClient handshaking, you could either set the `BIGBYTES_RELEASE_VERSION` env var or use `git fetch` to get the latest tag";
+const VERSION_ERROR_MESSAGE: &str = "A valid version is required for MetaClient handshaking, you could either set the `BIGBYTESDB_RELEASE_VERSION` env var or use `git fetch` to get the latest tag";
 
 /// Setup building environment:
 /// - Watch git HEAD to trigger a rebuild;
-/// - Generate vergen instruction to setup environment variables for building bigbytes components. See: https://docs.rs/vergen/5.1.8/vergen/ ;
-/// - Generate bigbytes environment variables, e.g., authors.
+/// - Generate vergen instruction to setup environment variables for building bigbytesdb components. See: https://docs.rs/vergen/5.1.8/vergen/ ;
+/// - Generate bigbytesdb environment variables, e.g., authors.
 pub fn setup() {
     if Path::new(".git/HEAD").exists() {
         println!("cargo:rerun-if-changed=.git/HEAD");
@@ -45,9 +45,9 @@ pub fn setup_commit_authors() {
         }
         Err(_) => {
             println!(
-                "cargo:warning=failed to discover git repo, set BIGBYTES_COMMIT_AUTHORS=unknown"
+                "cargo:warning=failed to discover git repo, set BIGBYTESDB_COMMIT_AUTHORS=unknown"
             );
-            println!("cargo:rustc-env=BIGBYTES_COMMIT_AUTHORS=unknown");
+            println!("cargo:rustc-env=BIGBYTESDB_COMMIT_AUTHORS=unknown");
         }
     };
 }
@@ -74,11 +74,11 @@ pub fn set_env_config() {
 
 pub fn add_env_version() {
     let version = discover_version().expect(VERSION_ERROR_MESSAGE);
-    println!("cargo:rustc-env=BIGBYTES_GIT_SEMVER={}", version);
+    println!("cargo:rustc-env=BIGBYTESDB_GIT_SEMVER={}", version);
 }
 
 fn discover_version() -> Result<String> {
-    match env::var("BIGBYTES_RELEASE_VERSION") {
+    match env::var("BIGBYTESDB_RELEASE_VERSION") {
         Ok(ver) => Ok(ver),
         Err(_) => {
             // env var not set, try to get the latest git tag
@@ -90,20 +90,20 @@ fn discover_version() -> Result<String> {
 }
 
 pub fn add_env_license() {
-    let v = env::var("BIGBYTES_ENTERPRISE_LICENSE_EMBEDDED").unwrap_or_default();
-    println!("cargo:rustc-env=BIGBYTES_ENTERPRISE_LICENSE_EMBEDDED={v}");
+    let v = env::var("BIGBYTESDB_ENTERPRISE_LICENSE_EMBEDDED").unwrap_or_default();
+    println!("cargo:rustc-env=BIGBYTESDB_ENTERPRISE_LICENSE_EMBEDDED={v}");
 }
 
 pub fn add_license_public_key() {
-    let v = env::var("BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY").unwrap_or_default();
+    let v = env::var("BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY").unwrap_or_default();
     let v = base64::Engine::encode(&base64::engine::general_purpose::STANDARD, v.as_bytes());
-    println!("cargo:rustc-env=BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY={v}");
+    println!("cargo:rustc-env=BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY={v}");
 }
 
 pub fn add_env_commit_authors(repo: &Repository) {
     match git::get_commit_authors(repo) {
-        Ok(authors) => println!("cargo:rustc-env=BIGBYTES_COMMIT_AUTHORS={}", authors),
-        Err(e) => println!("cargo:rustc-env=BIGBYTES_COMMIT_AUTHORS={}", e),
+        Ok(authors) => println!("cargo:rustc-env=BIGBYTESDB_COMMIT_AUTHORS={}", authors),
+        Err(e) => println!("cargo:rustc-env=BIGBYTESDB_COMMIT_AUTHORS={}", e),
     }
 }
 
@@ -135,15 +135,15 @@ pub fn add_env_credits_info() {
         })
         .collect();
     println!(
-        "cargo:rustc-env=BIGBYTES_CREDITS_NAMES={}",
+        "cargo:rustc-env=BIGBYTESDB_CREDITS_NAMES={}",
         names.join(", ")
     );
     println!(
-        "cargo:rustc-env=BIGBYTES_CREDITS_VERSIONS={}",
+        "cargo:rustc-env=BIGBYTESDB_CREDITS_VERSIONS={}",
         versions.join(", ")
     );
     println!(
-        "cargo:rustc-env=BIGBYTES_CREDITS_LICENSES={}",
+        "cargo:rustc-env=BIGBYTESDB_CREDITS_LICENSES={}",
         licenses.join(", ")
     );
 }
@@ -151,7 +151,7 @@ pub fn add_env_credits_info() {
 pub fn add_target_features() {
     match env::var_os("CARGO_CFG_TARGET_FEATURE") {
         Some(var) => match var.into_string() {
-            Ok(s) => println!("cargo:rustc-env=BIGBYTES_CARGO_CFG_TARGET_FEATURE={}", s),
+            Ok(s) => println!("cargo:rustc-env=BIGBYTESDB_CARGO_CFG_TARGET_FEATURE={}", s),
             Err(_) => {
                 println!("cargo:warning=CARGO_CFG_TARGET_FEATURE was not valid utf-8");
             }

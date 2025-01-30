@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::SetType;
-use bigbytes_common_ast::ast::SetValues;
-use bigbytes_common_ast::ast::Statement;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::SetType;
+use bigbytesdb_common_ast::ast::SetValues;
+use bigbytesdb_common_ast::ast::Statement;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use super::BindContext;
 use super::Binder;
@@ -59,7 +59,7 @@ impl Binder {
                         &BUILTIN_FUNCTIONS,
                     );
                     match new_expr {
-                        bigbytes_common_expression::Expr::Constant { scalar, .. } => {
+                        bigbytesdb_common_expression::Expr::Constant { scalar, .. } => {
                             results.push(scalar);
                         }
                         _ => return Err(ErrorCode::SemanticError("value must be constant value")),

@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-tracing"
+name = "bigbytesdb-common-tracing"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -13,8 +13,8 @@ test = true
 [dependencies]
 backtrace = { workspace = true, features = ["std", "serialize-serde"] }
 chrono = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 defer = { workspace = true }
 fastrace = { workspace = true }
 fastrace-opentelemetry = { workspace = true }

@@ -15,9 +15,9 @@
 use std::sync::Arc;
 
 use binary::BinaryColumnBuilder;
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_hashtable::RowPtr;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_hashtable::RowPtr;
 use itertools::Itertools;
 use string::StringColumnBuilder;
 

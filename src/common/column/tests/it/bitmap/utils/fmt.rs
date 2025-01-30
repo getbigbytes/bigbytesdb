@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::utils::fmt;
+use bigbytesdb_common_column::bitmap::utils::fmt;
 
 struct A<'a>(&'a [u8], usize, usize);
 

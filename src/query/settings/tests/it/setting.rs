@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_set_settings() {
@@ -136,7 +136,7 @@ async fn test_set_global_settings() {
 async fn test_set_data_retention_time_in_days() {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {
@@ -186,7 +186,7 @@ async fn test_set_data_retention_time_in_days() {
 async fn test_set_data_retention_time_in_days_from_config() {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Change default value.
     {

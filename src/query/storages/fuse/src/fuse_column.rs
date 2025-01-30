@@ -14,12 +14,12 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_catalog::statistics::BasicColumnStatistics;
-use bigbytes_common_catalog::table::ColumnStatisticsProvider;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::Histogram;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics as FuseColumnStatistics;
+use bigbytesdb_common_catalog::statistics::BasicColumnStatistics;
+use bigbytesdb_common_catalog::table::ColumnStatisticsProvider;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::Histogram;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics as FuseColumnStatistics;
 
 /// A column statistics provider for fuse table.
 #[derive(Default)]

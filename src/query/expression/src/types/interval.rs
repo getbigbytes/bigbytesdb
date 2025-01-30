@@ -16,9 +16,9 @@ use std::cmp::Ordering;
 use std::fmt::Display;
 use std::ops::Range;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_io::Interval;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_io::Interval;
 
 use super::number::SimpleDomain;
 use crate::property::Domain;
@@ -233,7 +233,7 @@ impl ArgType for IntervalType {
 }
 
 #[inline]
-pub fn string_to_interval(interval_str: &str) -> bigbytes_common_exception::Result<Interval> {
+pub fn string_to_interval(interval_str: &str) -> bigbytesdb_common_exception::Result<Interval> {
     Interval::from_string(interval_str)
 }
 

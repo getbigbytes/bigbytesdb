@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio::io::AsyncReadExt;
-use bigbytes_common_base::base::tokio::io::AsyncWriteExt;
-use bigbytes_common_base::base::tokio::net::TcpStream;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio::io::AsyncReadExt;
+use bigbytesdb_common_base::base::tokio::io::AsyncWriteExt;
+use bigbytesdb_common_base::base::tokio::net::TcpStream;
+use bigbytesdb_common_exception::Result;
 use opensrv_mysql::ErrorKind;
 
 pub struct RejectConnection;

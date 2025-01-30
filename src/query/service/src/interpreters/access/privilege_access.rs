@@ -15,35 +15,35 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_catalog::plan::DataSourceInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipInfo;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_meta_app::principal::StageType;
-use bigbytes_common_meta_app::principal::UserGrantSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_meta_app::principal::SYSTEM_TABLES_ALLOW_LIST;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_sql::binder::MutationType;
-use bigbytes_common_sql::optimizer::get_udf_names;
-use bigbytes_common_sql::plans::InsertInputSource;
-use bigbytes_common_sql::plans::Mutation;
-use bigbytes_common_sql::plans::OptimizeCompactBlock;
-use bigbytes_common_sql::plans::PresignAction;
-use bigbytes_common_sql::plans::Recluster;
-use bigbytes_common_sql::plans::RewriteKind;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_users::RoleCacheManager;
-use bigbytes_common_users::UserApiProvider;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_catalog::plan::DataSourceInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipInfo;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_meta_app::principal::StageType;
+use bigbytesdb_common_meta_app::principal::UserGrantSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::principal::SYSTEM_TABLES_ALLOW_LIST;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_sql::binder::MutationType;
+use bigbytesdb_common_sql::optimizer::get_udf_names;
+use bigbytesdb_common_sql::plans::InsertInputSource;
+use bigbytesdb_common_sql::plans::Mutation;
+use bigbytesdb_common_sql::plans::OptimizeCompactBlock;
+use bigbytesdb_common_sql::plans::PresignAction;
+use bigbytesdb_common_sql::plans::Recluster;
+use bigbytesdb_common_sql::plans::RewriteKind;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_users::RoleCacheManager;
+use bigbytesdb_common_users::UserApiProvider;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TEMP_PREFIX;
 
 use crate::interpreters::access::AccessChecker;
 use crate::sessions::QueryContext;
@@ -1152,14 +1152,14 @@ impl AccessChecker for PrivilegeAccess {
                     .await?;
             }
             Plan::Set(plan) => {
-                use bigbytes_common_ast::ast::SetType;
+                use bigbytesdb_common_ast::ast::SetType;
                 if let SetType::SettingsGlobal = plan.set_type {
                     self.validate_access(&GrantObject::Global, UserPrivilegeType::Super, false, false)
                         .await?;
                 }
             }
             Plan::Unset(plan) => {
-                use bigbytes_common_ast::ast::SetType;
+                use bigbytesdb_common_ast::ast::SetType;
                 if let SetType::SettingsGlobal = plan.unset_type {
                     self.validate_access(&GrantObject::Global, UserPrivilegeType::Super, false, false)
                         .await?;

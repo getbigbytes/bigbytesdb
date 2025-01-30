@@ -19,7 +19,7 @@ use std::fmt::Formatter;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_types::MetaId;
+use bigbytesdb_common_meta_types::MetaId;
 
 use super::CreateOption;
 use crate::schema::IndexNameIdent;
@@ -63,7 +63,7 @@ pub struct IndexMeta {
     pub updated_on: Option<DateTime<Utc>>,
     pub original_query: String,
     pub query: String,
-    // if true, index will create after data written to bigbytes,
+    // if true, index will create after data written to bigbytesdb,
     // no need execute refresh index manually.
     pub sync_creation: bool,
 }

@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_settings::FlightCompression;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_settings::FlightCompression;
 
 use super::exchange_params::MergeExchangeParams;
 use crate::servers::flight::v1::exchange::serde::TransformExchangeDeserializer;

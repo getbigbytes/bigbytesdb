@@ -15,11 +15,11 @@
 use std::fmt::Display;
 use std::fmt::Formatter;
 
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
 
 pub type F64 = OrderedFloat<f64>;
 

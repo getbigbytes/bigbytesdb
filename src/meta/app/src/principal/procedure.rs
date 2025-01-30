@@ -19,8 +19,8 @@ use std::ops::Deref;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_base::display::display_slice::DisplaySliceExt;
-use bigbytes_common_expression::types::DataType;
+use bigbytesdb_common_base::display::display_slice::DisplaySliceExt;
+use bigbytesdb_common_expression::types::DataType;
 
 use crate::principal::procedure_id_ident::ProcedureIdIdent;
 use crate::principal::procedure_name_ident::ProcedureNameIdent;

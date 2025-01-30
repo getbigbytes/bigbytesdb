@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use jwt_simple::algorithms::ECDSAP256PublicKeyLike;
 use jwt_simple::algorithms::ES256PublicKey;
 use jwt_simple::algorithms::RS256PublicKey;

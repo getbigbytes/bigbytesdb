@@ -14,12 +14,12 @@
 
 use std::cmp::Ordering;
 
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::arithmetics_type::ResultTypeOfUnary;
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::Histogram;
-use bigbytes_common_storage::HistogramBucket;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::arithmetics_type::ResultTypeOfUnary;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::Histogram;
+use bigbytesdb_common_storage::HistogramBucket;
 
 pub type F64 = OrderedFloat<f64>;
 

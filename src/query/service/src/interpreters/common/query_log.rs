@@ -16,13 +16,13 @@ use std::fmt::Write;
 use std::sync::Arc;
 use std::time::SystemTime;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_system::LogType;
-use bigbytes_common_storages_system::QueryLogElement;
-use bigbytes_common_storages_system::QueryLogQueue;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_system::LogType;
+use bigbytesdb_common_storages_system::QueryLogElement;
+use bigbytesdb_common_storages_system::QueryLogQueue;
 use log::error;
 use log::info;
 use serde_json;
@@ -67,7 +67,7 @@ impl InterpreterQueryLog {
     fn write_log(event: QueryLogElement) -> Result<()> {
         let event_str = serde_json::to_string(&event)?;
         // log the query log in JSON format
-        info!(target: "bigbytes::log::query", "{}", event_str);
+        info!(target: "bigbytesdb::log::query", "{}", event_str);
         // log the query event in the system log
         info!("query: {} becomes {:?}", event.query_id, event.log_type);
         QueryLogQueue::instance()?.append_data(event)
@@ -212,7 +212,7 @@ impl InterpreterQueryLog {
             exception_code,
             exception_text,
             stack_trace,
-            server_version: BIGBYTES_COMMIT_VERSION.to_string(),
+            server_version: BIGBYTESDB_COMMIT_VERSION.to_string(),
             session_settings,
             extra: "".to_string(),
             has_profiles: false,
@@ -379,7 +379,7 @@ impl InterpreterQueryLog {
             exception_code,
             exception_text,
             stack_trace,
-            server_version: BIGBYTES_COMMIT_VERSION.to_string(),
+            server_version: BIGBYTESDB_COMMIT_VERSION.to_string(),
             session_settings,
             extra: "".to_string(),
             has_profiles,

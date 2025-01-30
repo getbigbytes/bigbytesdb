@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-meta-types"
+name = "bigbytesdb-common-meta-types"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,10 +12,10 @@ test = true
 
 [dependencies]
 anyerror = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-stoerr = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-stoerr = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
 deepsize = { workspace = true }
 derive_more = { workspace = true }
 futures-util = { workspace = true }
@@ -32,7 +32,7 @@ tokio = { workspace = true }
 tonic = { workspace = true }
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 prost-build = { workspace = true }
 tonic-build = { workspace = true }
 

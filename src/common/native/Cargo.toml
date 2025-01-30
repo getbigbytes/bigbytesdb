@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-native"
+name = "bigbytesdb-common-native"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -12,8 +12,8 @@ test = true
 [features]
 
 [dependencies]
-bigbytes-common-column = { workspace = true }
-bigbytes-common-expression = { workspace = true }
+bigbytesdb-common-column = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
 
 ahash = { workspace = true }
 bitpacking = { workspace = true }

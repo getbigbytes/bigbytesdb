@@ -15,23 +15,23 @@
 use std::cmp::Ordering;
 use std::io::Write;
 
-use bigbytes_common_base::base::uuid::Uuid;
-use bigbytes_common_expression::types::decimal::Decimal128Type;
-use bigbytes_common_expression::types::number::SimpleDomain;
-use bigbytes_common_expression::types::number::UInt64Type;
-use bigbytes_common_expression::types::string::StringColumnBuilder;
-use bigbytes_common_expression::types::string::StringDomain;
-use bigbytes_common_expression::types::ArrayType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::unify_string;
-use bigbytes_common_expression::vectorize_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::vectorize_with_builder_3_arg;
-use bigbytes_common_expression::vectorize_with_builder_4_arg;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_base::base::uuid::Uuid;
+use bigbytesdb_common_expression::types::decimal::Decimal128Type;
+use bigbytesdb_common_expression::types::number::SimpleDomain;
+use bigbytesdb_common_expression::types::number::UInt64Type;
+use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+use bigbytesdb_common_expression::types::string::StringDomain;
+use bigbytesdb_common_expression::types::ArrayType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::unify_string;
+use bigbytesdb_common_expression::vectorize_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_3_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_4_arg;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
 use stringslice::StringSlice;
 
 pub const ALL_STRING_FUNC_NAMES: &[&str] = &[
@@ -526,7 +526,7 @@ pub fn register(registry: &mut FunctionRegistry) {
     );
 
     // TODO: generalize them to be alias of [CONV](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_conv)
-    // Tracking issue: https://github.com/getbigbytes/bigbytes/issues/7242
+    // Tracking issue: https://github.com/getbigbytes/bigbytesdb/issues/7242
     registry.register_passthrough_nullable_1_arg::<NumberType<i64>, StringType, _, _>(
         "bin",
         |_, _| FunctionDomain::Full,
@@ -780,8 +780,8 @@ pub fn register(registry: &mut FunctionRegistry) {
 }
 
 pub(crate) mod soundex {
-    use bigbytes_common_expression::types::string::StringColumnBuilder;
-    use bigbytes_common_expression::EvalContext;
+    use bigbytesdb_common_expression::types::string::StringColumnBuilder;
+    use bigbytesdb_common_expression::EvalContext;
 
     pub fn soundex(val: &str, output: &mut StringColumnBuilder, _eval_context: &mut EvalContext) {
         let mut last = None;

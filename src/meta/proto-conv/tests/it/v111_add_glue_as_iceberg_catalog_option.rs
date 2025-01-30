@@ -14,9 +14,9 @@
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app::schema::CatalogOption;
-use bigbytes_common_meta_app::schema::IcebergCatalogOption;
-use bigbytes_common_meta_app::schema::IcebergGlueCatalogOption;
+use bigbytesdb_common_meta_app::schema::CatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergCatalogOption;
+use bigbytesdb_common_meta_app::schema::IcebergGlueCatalogOption;
 use fastrace::func_name;
 use maplit::hashmap;
 
@@ -47,7 +47,7 @@ fn test_v111_add_glue_as_iceberg_catalog_option() -> anyhow::Result<()> {
         32, 49, 50, 58, 48, 48, 58, 48, 57, 32, 85, 84, 67, 160, 6, 111, 168, 6, 24,
     ];
 
-    let want = || bigbytes_common_meta_app::schema::CatalogMeta {
+    let want = || bigbytesdb_common_meta_app::schema::CatalogMeta {
         catalog_option: CatalogOption::Iceberg(IcebergCatalogOption::Glue(
             IcebergGlueCatalogOption {
                 warehouse: "s3://my_bucket".to_string(),

@@ -10,7 +10,7 @@ CREATE DATABASE issue_12294
 statement ok
 USE issue_12294
 
-# https://github.com/getbigbytes/bigbytes/issues/12294
+# https://github.com/getbigbytes/bigbytesdb/issues/12294
 # on-conflict with nullable column
 
 # scenario I : non-clustered table

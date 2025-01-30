@@ -16,10 +16,10 @@ use std::fmt::Display;
 use std::io;
 use std::str::FromStr;
 
-use bigbytes_common_meta_stoerr::MetaStorageError;
-use bigbytes_common_meta_types::raft_types::ErrorSubject;
-use bigbytes_common_meta_types::raft_types::StorageError;
-use bigbytes_common_meta_types::SnapshotData;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_types::raft_types::ErrorSubject;
+use bigbytesdb_common_meta_types::raft_types::StorageError;
+use bigbytesdb_common_meta_types::SnapshotData;
 use log::error;
 use log::info;
 use log::warn;

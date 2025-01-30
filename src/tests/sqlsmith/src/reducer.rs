@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_ast::ast::SetExpr;
 
 use crate::Runner;
 

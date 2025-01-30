@@ -17,7 +17,7 @@ use std::mem::MaybeUninit;
 use std::ops::Deref;
 use std::ops::DerefMut;
 
-use bigbytes_common_base::runtime::drop_guard;
+use bigbytesdb_common_base::runtime::drop_guard;
 
 use super::table0::Entry;
 use super::traits::Keyable;

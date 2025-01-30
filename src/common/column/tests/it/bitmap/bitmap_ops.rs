@@ -13,10 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::and;
-use bigbytes_common_column::bitmap::or;
-use bigbytes_common_column::bitmap::xor;
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::and;
+use bigbytesdb_common_column::bitmap::or;
+use bigbytesdb_common_column::bitmap::xor;
+use bigbytesdb_common_column::bitmap::Bitmap;
 use proptest::prelude::*;
 
 use crate::bitmap::bitmap_strategy;

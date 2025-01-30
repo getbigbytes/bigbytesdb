@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::exception::Result;
-use bigbytes_common_meta_app::principal::GrantEntry;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::UserGrantSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_exception::exception::Result;
+use bigbytesdb_common_meta_app::principal::GrantEntry;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::UserGrantSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 use enumflags2::make_bitflags;
 
 #[test]

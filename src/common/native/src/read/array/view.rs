@@ -16,12 +16,12 @@ use std::io::Cursor;
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::binview::Utf8ViewColumn;
-use bigbytes_common_column::binview::View;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_column::binview::Utf8ViewColumn;
+use bigbytesdb_common_column::binview::View;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::error::Result;
 use crate::nested::InitNested;

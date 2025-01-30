@@ -15,9 +15,9 @@
 use std::fmt;
 use std::fmt::Formatter;
 
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::Change;
-use bigbytes_common_meta_types::VecDisplay;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::Change;
+use bigbytesdb_common_meta_types::VecDisplay;
 
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, PartialEq, Eq)]
 pub struct GetKVReq {

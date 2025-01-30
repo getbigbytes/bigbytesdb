@@ -1,11 +1,11 @@
-# Bigbytes Python Binding
+# Bigbytesdb Python Binding
 
 This crate intends to build a native python binding.
 
 ## Installation
 
 ```bash
-pip install bigbytes
+pip install bigbytesdb
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ pip install bigbytes
 ### Basic:
 
 ```python
-from bigbytes import SessionContext
+from bigbytesdb import SessionContext
 
 ctx = SessionContext()
 
@@ -85,16 +85,16 @@ Build API docs:
 
 ```shell
 maturin develop -E docs
-pdoc bigbytes
+pdoc bigbytesdb
 ```
 
 ## Storage configuration
 
-- Meta Storage directory(Catalogs, Databases, Tables, Partitions, etc.): `./.bigbytes/_meta`
-- Data Storage directory: `./.bigbytes/_data`
-- Cache Storage directory: `./.bigbytes/_cache`
-- Logs directory: `./.bigbytes/logs`
+- Meta Storage directory(Catalogs, Databases, Tables, Partitions, etc.): `./.bigbytesdb/_meta`
+- Data Storage directory: `./.bigbytesdb/_data`
+- Cache Storage directory: `./.bigbytesdb/_cache`
+- Logs directory: `./.bigbytesdb/logs`
 
 ## More
 
-Bigbytes python api is inspired by [arrow-datafusion-python](https://github.com/apache/arrow-datafusion-python), thanks for their great work.
+Bigbytesdb python api is inspired by [arrow-datafusion-python](https://github.com/apache/arrow-datafusion-python), thanks for their great work.

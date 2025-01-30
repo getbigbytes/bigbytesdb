@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_exception::Result;
 use log::debug;
 
 use crate::servers::flight::v1::exchange::DataExchangeManager;

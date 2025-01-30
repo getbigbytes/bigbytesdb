@@ -14,18 +14,18 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_ast::ast::ColumnDefinition;
-use bigbytes_common_ast::ast::ColumnExpr;
-use bigbytes_common_ast::ast::CreateOption;
-use bigbytes_common_ast::ast::CreateTableSource;
-use bigbytes_common_ast::ast::CreateTableStmt;
-use bigbytes_common_ast::ast::DropTableStmt;
-use bigbytes_common_ast::ast::Engine;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::TableType;
-use bigbytes_common_ast::ast::TypeName;
+use bigbytesdb_common_ast::ast::ColumnDefinition;
+use bigbytesdb_common_ast::ast::ColumnExpr;
+use bigbytesdb_common_ast::ast::CreateOption;
+use bigbytesdb_common_ast::ast::CreateTableSource;
+use bigbytesdb_common_ast::ast::CreateTableStmt;
+use bigbytesdb_common_ast::ast::DropTableStmt;
+use bigbytesdb_common_ast::ast::Engine;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::TableType;
+use bigbytesdb_common_ast::ast::TypeName;
 use rand::distributions::Alphanumeric;
 use rand::Rng;
 

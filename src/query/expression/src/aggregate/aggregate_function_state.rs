@@ -15,7 +15,7 @@
 use std::alloc::Layout;
 use std::ptr::NonNull;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 use enum_as_inner::EnumAsInner;
 
 use super::AggregateFunctionRef;

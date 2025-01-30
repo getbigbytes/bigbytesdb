@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::StealablePartitions;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_pipeline_core::processors::OutputPort;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_sources::SyncSource;
-use bigbytes_common_pipeline_sources::SyncSourcer;
+use bigbytesdb_common_catalog::plan::StealablePartitions;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_pipeline_core::processors::OutputPort;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_sources::SyncSource;
+use bigbytesdb_common_pipeline_sources::SyncSourcer;
 
 use crate::operations::read::block_partition_meta::BlockPartitionMeta;
 
@@ -37,7 +37,7 @@ impl BlockPartitionSource {
         max_batch_size: usize,
         ctx: Arc<dyn TableContext>,
         output_port: Arc<OutputPort>,
-    ) -> bigbytes_common_exception::Result<ProcessorPtr> {
+    ) -> bigbytesdb_common_exception::Result<ProcessorPtr> {
         SyncSourcer::create(ctx, output_port, BlockPartitionSource {
             id,
             partitions,
@@ -49,7 +49,7 @@ impl BlockPartitionSource {
 impl SyncSource for BlockPartitionSource {
     const NAME: &'static str = "BlockPartitionSource";
 
-    fn generate(&mut self) -> bigbytes_common_exception::Result<Option<DataBlock>> {
+    fn generate(&mut self) -> bigbytesdb_common_exception::Result<Option<DataBlock>> {
         match self.partitions.steal(self.id, self.max_batch_size) {
             None => Ok(None),
             Some(parts) => Ok(Some(DataBlock::empty_with_meta(

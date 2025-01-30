@@ -15,11 +15,11 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::OrderByExpr;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::OrderByExpr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use super::ExprContext;
 use crate::binder::aggregate::AggregateRewriter;

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_expression::BlockMetaInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_expression::BlockMetaInfo;
 
 use crate::io::BlockReadResult;
 use crate::io::VirtualBlockReadResult;

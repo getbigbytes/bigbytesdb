@@ -18,7 +18,7 @@ use std::io::BufRead;
 use bitpacking::BitPacker;
 use bitpacking::BitPacker4x;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::buffer::Buffer;
+use bigbytesdb_common_column::buffer::Buffer;
 
 use super::compress_sample_ratio;
 use super::IntegerCompression;

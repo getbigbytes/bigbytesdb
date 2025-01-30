@@ -12,4 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub use bigbytes_common_catalog::table_function::TableFunction;
+pub use bigbytesdb_common_catalog::table_function::TableFunction;

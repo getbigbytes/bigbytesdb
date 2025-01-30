@@ -19,30 +19,30 @@ use std::iter::once;
 
 use ahash::HashSet;
 use ahash::HashSetExt;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::MutableBitmap;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::Value;
-use bigbytes_common_functions::aggregates::eval_aggr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_metrics::storage::*;
-use bigbytes_common_sql::executor::physical_plans::OnConflictField;
-use bigbytes_storages_common_index::BloomIndex;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::MutableBitmap;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_functions::aggregates::eval_aggr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_metrics::storage::*;
+use bigbytesdb_common_sql::executor::physical_plans::OnConflictField;
+use bigbytesdb_storages_common_index::BloomIndex;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
 use log::info;
 
 use crate::operations::replace_into::meta::DeletionByColumn;
@@ -485,9 +485,9 @@ fn on_conflict_key_column_values<'a>(
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_expression::types::NumberType;
-    use bigbytes_common_expression::types::StringType;
-    use bigbytes_common_expression::FromData;
+    use bigbytesdb_common_expression::types::NumberType;
+    use bigbytesdb_common_expression::types::StringType;
+    use bigbytesdb_common_expression::FromData;
 
     use super::*;
 

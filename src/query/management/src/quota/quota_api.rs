@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::tenant::TenantQuota;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::tenant::TenantQuota;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 #[async_trait::async_trait]
 pub trait QuotaApi: Sync + Send {

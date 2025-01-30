@@ -14,13 +14,13 @@
 
 use std::time::Duration;
 
-use bigbytes_common_grpc::RpcClientTlsConfig;
-use bigbytes_common_meta_api::SchemaApi;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::MetaClientError;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_grpc::RpcClientTlsConfig;
+use bigbytesdb_common_meta_api::SchemaApi;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::MetaClientError;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaNetworkError;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

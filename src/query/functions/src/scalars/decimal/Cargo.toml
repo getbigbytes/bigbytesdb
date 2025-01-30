@@ -1,11 +1,11 @@
 [package]
-name = "bigbytes-functions-scalar-decimal"
+name = "bigbytesdb-functions-scalar-decimal"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bigbytes-common-base = { workspace = true }
-bigbytes-common-expression = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
 ethnum = { workspace = true }
 match-template = { workspace = true }
 num-traits = { workspace = true }

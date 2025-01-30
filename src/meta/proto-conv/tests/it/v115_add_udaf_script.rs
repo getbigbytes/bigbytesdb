@@ -14,12 +14,12 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_meta_app::principal::UDAFScript;
-use bigbytes_common_meta_app::principal::UDFDefinition;
-use bigbytes_common_meta_app::principal::UserDefinedFunction;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_meta_app::principal::UDAFScript;
+use bigbytesdb_common_meta_app::principal::UDFDefinition;
+use bigbytesdb_common_meta_app::principal::UserDefinedFunction;
 use fastrace::func_name;
 
 use crate::common;

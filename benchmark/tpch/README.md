@@ -1,4 +1,4 @@
-# Bigbytes TPCH-Benchmark
+# Bigbytesdb TPCH-Benchmark
 
 
 ## Preparing the Table and Data
@@ -23,14 +23,14 @@ More information about the scale factor:
 
 ## Benchmark
 
-To run the TPC-H Benchmark, first build `bigbytes-sqllogictests` binary.
+To run the TPC-H Benchmark, first build `bigbytesdb-sqllogictests` binary.
 
 Then, execute the following command in your shell:
 
 ```shell
-bigbytes-sqllogictests --handlers mysql --database tpch --run_dir tpch --bench
+bigbytesdb-sqllogictests --handlers mysql --database tpch --run_dir tpch --bench
 ```
 
 ## More
 
-[Benchmarking Bigbytes using TPC-H](https://www.bigbytes.com/blog/2022/08/08/benchmark-tpc-h)
+[Benchmarking Bigbytesdb using TPC-H](https://www.bigbytesdb.com/blog/2022/08/08/benchmark-tpc-h)

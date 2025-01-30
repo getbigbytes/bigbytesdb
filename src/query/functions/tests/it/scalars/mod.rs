@@ -16,16 +16,16 @@ use std::collections::HashMap;
 use std::io::Write;
 
 use comfy_table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Value;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use goldenfile::Mint;
 use itertools::Itertools;
 
@@ -274,9 +274,9 @@ fn check_ambiguity() {
 
 #[test]
 fn test_if_function() -> Result<()> {
-    use bigbytes_common_expression::types::*;
-    use bigbytes_common_expression::FromData;
-    use bigbytes_common_expression::Scalar;
+    use bigbytesdb_common_expression::types::*;
+    use bigbytesdb_common_expression::FromData;
+    use bigbytesdb_common_expression::Scalar;
     let raw_expr = parser::parse_raw_expr("if(eq(n,1), sum_sid + 1,100)", &[
         ("n", UInt8Type::data_type()),
         ("sum_sid", Int32Type::data_type().wrap_nullable()),

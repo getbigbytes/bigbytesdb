@@ -16,23 +16,23 @@ use std::sync::Arc;
 use std::time::Duration;
 use std::time::Instant;
 
-use bigbytes_common_base::base::convert_byte_size;
-use bigbytes_common_base::base::convert_number_size;
-use bigbytes_common_base::base::tokio::io::AsyncWrite;
-use bigbytes_common_base::runtime::ThreadTracker;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ToErrorCode;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_io::prelude::FormatSettings;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_metrics::mysql::*;
-use bigbytes_common_users::CertifiedInfo;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_base::base::convert_byte_size;
+use bigbytesdb_common_base::base::convert_number_size;
+use bigbytesdb_common_base::base::tokio::io::AsyncWrite;
+use bigbytesdb_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ToErrorCode;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_io::prelude::FormatSettings;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_metrics::mysql::*;
+use bigbytesdb_common_users::CertifiedInfo;
+use bigbytesdb_common_users::UserApiProvider;
 use fastrace::func_path;
 use fastrace::prelude::*;
 use futures_util::StreamExt;
@@ -315,7 +315,7 @@ impl InteractiveWorkerBase {
         writer
             .error(
                 ErrorKind::ER_UNKNOWN_ERROR,
-                "Prepare is not support in Bigbytes.".as_bytes(),
+                "Prepare is not support in Bigbytesdb.".as_bytes(),
             )
             .await?;
         Ok(())
@@ -331,7 +331,7 @@ impl InteractiveWorkerBase {
         writer
             .error(
                 ErrorKind::ER_UNKNOWN_ERROR,
-                "Execute is not support in Bigbytes.".as_bytes(),
+                "Execute is not support in Bigbytesdb.".as_bytes(),
             )
             .await?;
         Ok(())
@@ -341,7 +341,7 @@ impl InteractiveWorkerBase {
     async fn do_close(&mut self, _: u32) {}
 
     // Check the query is a federated or driver setup command.
-    // Here we fake some values for the command which Bigbytes not supported.
+    // Here we fake some values for the command which Bigbytesdb not supported.
     fn federated_server_command_check(&self, query: &str) -> Option<(DataSchemaRef, DataBlock)> {
         // INSERT don't need MySQL federated check
         // Ensure the query is start with ASCII chars so we won't
@@ -490,7 +490,7 @@ impl InteractiveWorker {
         InteractiveWorker {
             base: InteractiveWorkerBase { session },
             salt: scramble,
-            version: format!("{}-{}", MYSQL_VERSION, *BIGBYTES_COMMIT_VERSION),
+            version: format!("{}-{}", MYSQL_VERSION, *BIGBYTESDB_COMMIT_VERSION),
             client_addr,
             keep_alive_task_started: false,
         }
@@ -506,7 +506,7 @@ impl InteractiveWorker {
             .name;
         self.keep_alive_task_started = true;
 
-        bigbytes_common_base::runtime::spawn(async move {
+        bigbytesdb_common_base::runtime::spawn(async move {
             loop {
                 UserApiProvider::instance()
                     .client_session_api(&tenant)

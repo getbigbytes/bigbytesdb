@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_meta_raft_store::ondisk::OnDisk;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_meta_raft_store::ondisk::OnDisk;
 
 /// Upgrade the data in raft_dir to the latest version.
 pub async fn upgrade(raft_config: &RaftConfig) -> anyhow::Result<()> {

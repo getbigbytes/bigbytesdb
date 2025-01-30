@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::InsertMultiTableStmt;
-use bigbytes_common_ast::ast::IntoClause;
-use bigbytes_common_ast::ast::SourceExpr;
-use bigbytes_common_ast::ast::TableReference;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_ast::ast::InsertMultiTableStmt;
+use bigbytesdb_common_ast::ast::IntoClause;
+use bigbytesdb_common_ast::ast::SourceExpr;
+use bigbytesdb_common_ast::ast::TableReference;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::TableSchema;
 
 use crate::binder::ScalarBinder;
 use crate::plans::Else;

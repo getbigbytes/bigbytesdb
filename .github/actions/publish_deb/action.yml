@@ -32,10 +32,10 @@ runs:
         version=${{ inputs.version }}
         deb_version=${version/-/.}
         deb_version=${deb_version/v/}
-        wget -q https://github.com/getbigbytes/bigbytes/releases/download/${version}/bigbytes_${deb_version}_amd64.deb
-        wget -q https://github.com/getbigbytes/bigbytes/releases/download/${version}/bigbytes_${deb_version}_arm64.deb
-        reprepro includedeb stable bigbytes_${deb_version}_amd64.deb
-        reprepro includedeb stable bigbytes_${deb_version}_arm64.deb
+        wget -q https://github.com/getbigbytes/bigbytesdb/releases/download/${version}/bigbytesdb_${deb_version}_amd64.deb
+        wget -q https://github.com/getbigbytes/bigbytesdb/releases/download/${version}/bigbytesdb_${deb_version}_arm64.deb
+        reprepro includedeb stable bigbytesdb_${deb_version}_amd64.deb
+        reprepro includedeb stable bigbytesdb_${deb_version}_arm64.deb
 
     - name: Add BendSQL
       shell: bash

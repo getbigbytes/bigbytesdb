@@ -25,8 +25,8 @@ use super::type_struct::StructType;
 use super::type_timestamp::TimestampType;
 use crate::prelude::*;
 
-pub const ARROW_EXTENSION_NAME: &str = "ARROW:extension:bigbytes_name";
-pub const ARROW_EXTENSION_META: &str = "ARROW:extension:bigbytes_metadata";
+pub const ARROW_EXTENSION_NAME: &str = "ARROW:extension:bigbytesdb_name";
+pub const ARROW_EXTENSION_META: &str = "ARROW:extension:bigbytesdb_metadata";
 
 #[derive(Clone, Debug, Hash, serde::Deserialize, serde::Serialize)]
 #[allow(clippy::derived_hash_with_manual_eq)]

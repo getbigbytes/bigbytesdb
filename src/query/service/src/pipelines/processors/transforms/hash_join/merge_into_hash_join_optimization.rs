@@ -16,16 +16,16 @@ use std::cell::SyncUnsafeCell;
 use std::sync::atomic::AtomicU8;
 use std::sync::atomic::Ordering;
 
-use bigbytes_common_catalog::plan::compute_row_id_prefix;
-use bigbytes_common_catalog::plan::split_prefix;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_hashtable::MergeIntoBlockInfoIndex;
-use bigbytes_common_hashtable::RowPtr;
-use bigbytes_common_sql::plans::JoinType;
-use bigbytes_common_storages_fuse::operations::BlockMetaIndex;
+use bigbytesdb_common_catalog::plan::compute_row_id_prefix;
+use bigbytesdb_common_catalog::plan::split_prefix;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_hashtable::MergeIntoBlockInfoIndex;
+use bigbytesdb_common_hashtable::RowPtr;
+use bigbytesdb_common_sql::plans::JoinType;
+use bigbytesdb_common_storages_fuse::operations::BlockMetaIndex;
 use log::info;
 
 use super::build_state::BuildState;

@@ -13,13 +13,13 @@
 // limitations under the License.
 
 use chrono_tz::Tz;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_io::GeometryDataType;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
-use bigbytes_common_settings::Settings;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_io::GeometryDataType;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_common_settings::Settings;
 use jiff::tz::TimeZone;
 
 use crate::output_format::CSVOutputFormat;

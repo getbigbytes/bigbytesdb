@@ -16,7 +16,7 @@ BUILD_PROFILE="${BUILD_PROFILE:-debug}"
 source "${SCRIPT_PATH}/../util.sh"
 
 usage() {
-    echo " === Assert that latest bigbytes-meta being compatible with an old version bigbytes-meta"
+    echo " === Assert that latest bigbytesdb-meta being compatible with an old version bigbytesdb-meta"
     echo " === Expect ./bins/current contains current version binaries"
     echo " === Usage: $0 <leader-meta-ver> <follower-meta-ver>"
 }
@@ -33,15 +33,15 @@ raft_addr() {
   echo "127.0.0.1:1200$1"
 }
 
-# $0 bring_up_bigbytes_meta $ver $id ...
-# The other args are passed to bigbytes-meta
-bring_up_bigbytes_meta() {
+# $0 bring_up_bigbytesdb_meta $ver $id ...
+# The other args are passed to bigbytesdb-meta
+bring_up_bigbytesdb_meta() {
   local ver="$1"
   local id="$2"
   shift
   shift
 
-  ./bins/$ver/bin/bigbytes-meta \
+  ./bins/$ver/bin/bigbytesdb-meta \
     --id "$id" \
     --admin-api-address 127.0.0.1:1000$id \
     --grpc-api-address 127.0.0.1:1100$id \
@@ -49,11 +49,11 @@ bring_up_bigbytes_meta() {
     --raft-listen-host 127.0.0.1 \
     --raft-advertise-host 127.0.0.1 \
     --raft-api-port 1200$id \
-    --raft-dir ./.bigbytes/meta_$id/ \
+    --raft-dir ./.bigbytesdb/meta_$id/ \
     \
     --max-applied-log-to-keep 0 \
     \
-    --log-dir ./.bigbytes/meta_log_$id/ \
+    --log-dir ./.bigbytesdb/meta_log_$id/ \
     --log-stderr-on \
     --log-stderr-level WARN \
     --log-stderr-format text \
@@ -65,7 +65,7 @@ bring_up_bigbytes_meta() {
 
   python3 scripts/ci/wait_tcp.py --timeout 20 --port 1100$id
 
-  echo " === OK: bigbytes-meta ver=$ver id=$id started"
+  echo " === OK: bigbytesdb-meta ver=$ver id=$id started"
 
 }
 
@@ -83,24 +83,24 @@ chmod +x ./bins/current/bin/*
 
 echo " === leader_meta_ver : ${leader_meta_ver}"
 echo " === follower_meta_ver : ${follower_meta_ver}"
-echo " === current meta ver: $(./bins/current/bin/bigbytes-meta --single --cmd ver | tr '\n' ' ')"
+echo " === current meta ver: $(./bins/current/bin/bigbytesdb-meta --single --cmd ver | tr '\n' ' ')"
 
 if [ ".$follower_meta_ver" != ".current" ]; then
-  download_binary "$follower_meta_ver" bigbytes-meta
+  download_binary "$follower_meta_ver" bigbytesdb-meta
 fi
 if [ ".$leader_meta_ver" != ".current" ]; then
-  download_binary "$leader_meta_ver" bigbytes-meta
+  download_binary "$leader_meta_ver" bigbytesdb-meta
 fi
 
-kill_proc bigbytes-meta
+kill_proc bigbytesdb-meta
 
-rm -rf ./.bigbytes || echo " === No .bigbytes folder found, skip"
+rm -rf ./.bigbytesdb || echo " === No .bigbytesdb folder found, skip"
 
 echo " === Bring up leader meta service, ver: $leader_meta_ver"
-bring_up_bigbytes_meta "$leader_meta_ver" "1" --single
+bring_up_bigbytesdb_meta "$leader_meta_ver" "1" --single
 
 echo " === Feed data to leader"
-./bins/current/bin/bigbytes-metabench \
+./bins/current/bin/bigbytesdb-metabench \
     --rpc 'table_copy_file:{"file_cnt":5,"ttl_ms":86400999}' \
     --client 1 \
     --number 100 \
@@ -116,7 +116,7 @@ echo " === Leader status should contains snapshot state"
 curl -qs $(admin_addr 1)/v1/cluster/status
 
 echo " === Feed more data to leader"
-./bins/current/bin/bigbytes-metabench \
+./bins/current/bin/bigbytesdb-metabench \
     --rpc 'table_copy_file:{"file_cnt":5,"ttl_ms":86400999}' \
     --client 1 \
     --number 100 \
@@ -125,7 +125,7 @@ echo " === Feed more data to leader"
     > /dev/null
 
 echo " === Bring up follower meta service, ver: $follower_meta_ver"
-bring_up_bigbytes_meta "$follower_meta_ver" "2" --join "$(raft_addr 1)"
+bring_up_bigbytesdb_meta "$follower_meta_ver" "2" --join "$(raft_addr 1)"
 
 sleep 3
 
@@ -135,35 +135,35 @@ curl -qs $(admin_addr 2)/v1/cluster/status
 echo " === Check consistency between leader and follower"
 echo ""
 
-echo " === Export leader meta data to ./.bigbytes/leader-tmp"
-./bins/$leader_meta_ver/bin/bigbytes-metactl \
+echo " === Export leader meta data to ./.bigbytesdb/leader-tmp"
+./bins/$leader_meta_ver/bin/bigbytesdb-metactl \
     --export \
     --grpc-api-address $(grpc_addr 1) \
-    > ./.bigbytes/leader-tmp
+    > ./.bigbytesdb/leader-tmp
 
-echo " === Export follower meta data to ./.bigbytes/follower-tmp"
-./bins/$follower_meta_ver/bin/bigbytes-metactl \
+echo " === Export follower meta data to ./.bigbytesdb/follower-tmp"
+./bins/$follower_meta_ver/bin/bigbytesdb-metactl \
     --export \
     --grpc-api-address $(grpc_addr 2) \
-    > ./.bigbytes/follower-tmp
+    > ./.bigbytesdb/follower-tmp
 
-echo " === Shutdown bigbytes-meta servers"
-killall bigbytes-meta
+echo " === Shutdown bigbytesdb-meta servers"
+killall bigbytesdb-meta
 sleep 3
 
 # Old version SM exported data contains DataHeader
 
-cat ./.bigbytes/leader-tmp   | grep 'state_machine' | grep -v DataHeader | sort > ./.bigbytes/leader-sm
-cat ./.bigbytes/follower-tmp | grep 'state_machine' | grep -v DataHeader | sort > ./.bigbytes/follower-sm
+cat ./.bigbytesdb/leader-tmp   | grep 'state_machine' | grep -v DataHeader | sort > ./.bigbytesdb/leader-sm
+cat ./.bigbytesdb/follower-tmp | grep 'state_machine' | grep -v DataHeader | sort > ./.bigbytesdb/follower-sm
 
 echo " === diff SM data between Leader and Follower"
-diff ./.bigbytes/leader-sm ./.bigbytes/follower-sm
+diff ./.bigbytesdb/leader-sm ./.bigbytesdb/follower-sm
 
 
 
 echo " === mkdir to import with latest datbend-metactl"
-mkdir -p ./.bigbytes/_upgrade_meta_1
-mkdir -p ./.bigbytes/_upgrade_meta_2
+mkdir -p ./.bigbytesdb/_upgrade_meta_1
+mkdir -p ./.bigbytesdb/_upgrade_meta_2
 
 
 # Exported log data format has changed, re-import them and compare.
@@ -174,31 +174,31 @@ mkdir -p ./.bigbytes/_upgrade_meta_2
 # Thus we skip all state machine data, but keeps log data and SM meta.
 
 echo " === Import Leader's log data"
-cat ./.bigbytes/leader-tmp \
+cat ./.bigbytesdb/leader-tmp \
     | grep -v '"Expire":\|"GenericKV":' \
-    | ./bins/current/bin/bigbytes-metactl --import --raft-dir ./.bigbytes/_upgrade_meta_1
+    | ./bins/current/bin/bigbytesdb-metactl --import --raft-dir ./.bigbytesdb/_upgrade_meta_1
 
 echo " === Import Follower's log data"
-cat ./.bigbytes/follower-tmp \
+cat ./.bigbytesdb/follower-tmp \
     | grep -v '"Expire":\|"GenericKV":' \
-    | ./bins/current/bin/bigbytes-metactl --import --raft-dir ./.bigbytes/_upgrade_meta_2
+    | ./bins/current/bin/bigbytesdb-metactl --import --raft-dir ./.bigbytesdb/_upgrade_meta_2
 
 # skip DataHeader that contains distinguished version info
 # skip NodeId
 # sort because newer version export `Sequence` in different order
 
 echo " === Export Leader's data"
-./bins/current/bin/bigbytes-metactl --export --raft-dir ./.bigbytes/_upgrade_meta_1 \
+./bins/current/bin/bigbytesdb-metactl --export --raft-dir ./.bigbytesdb/_upgrade_meta_1 \
     | grep -v 'NodeId\|DataHeader' \
     | sort \
-    > ./.bigbytes/leader
+    > ./.bigbytesdb/leader
 
 echo " === Export Follower's data"
-./bins/current/bin/bigbytes-metactl --export --raft-dir ./.bigbytes/_upgrade_meta_2 \
+./bins/current/bin/bigbytesdb-metactl --export --raft-dir ./.bigbytesdb/_upgrade_meta_2 \
     | grep -v 'NodeId\|DataHeader' \
     | sort \
-    > ./.bigbytes/follower
+    > ./.bigbytesdb/follower
 
 
 echo " === diff leader exported and follower exported"
-diff ./.bigbytes/leader ./.bigbytes/follower
+diff ./.bigbytesdb/leader ./.bigbytesdb/follower

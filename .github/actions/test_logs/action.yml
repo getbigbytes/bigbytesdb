@@ -1,5 +1,5 @@
-name: "Test collection query & profile logs for bigbytes query"
-description: "Test collection query & profile logs for bigbytes query"
+name: "Test collection query & profile logs for bigbytesdb query"
+description: "Test collection query & profile logs for bigbytesdb query"
 runs:
   using: "composite"
   steps:

@@ -13,11 +13,11 @@
 // limitations under the License.
 
 use arrow_schema::Schema;
-use bigbytes_common_expression::arrow::deserialize_column;
-use bigbytes_common_expression::arrow::serialize_column;
-use bigbytes_common_expression::types::timestamp::timestamp_to_string;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
+use bigbytesdb_common_expression::arrow::deserialize_column;
+use bigbytesdb_common_expression::arrow::serialize_column;
+use bigbytesdb_common_expression::types::timestamp::timestamp_to_string;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
 use jiff::fmt::strtime::BrokenDownTime;
 use jiff::tz;
 use jiff::tz::TimeZone;

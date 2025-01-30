@@ -15,8 +15,8 @@
 use core::ops::Range;
 use std::collections::HashSet;
 
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_exception::Result;
 
 use crate::filter::SelectExpr;
 use crate::filter::Selector;

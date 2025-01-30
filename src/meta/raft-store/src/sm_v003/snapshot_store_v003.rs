@@ -17,8 +17,8 @@ use std::io;
 use std::ops::Deref;
 use std::ops::DerefMut;
 
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
 
 use crate::config::RaftConfig;
 use crate::ondisk::DataVersion;

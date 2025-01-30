@@ -15,16 +15,16 @@
 use std::collections::BTreeMap;
 
 use ctor::ctor;
-use bigbytes_common_catalog::plan::InternalColumn;
-use bigbytes_common_catalog::plan::InternalColumnType;
-use bigbytes_common_expression::BASE_BLOCK_IDS_COL_NAME;
-use bigbytes_common_expression::BASE_ROW_ID_COL_NAME;
-use bigbytes_common_expression::BLOCK_NAME_COL_NAME;
-use bigbytes_common_expression::ROW_ID_COL_NAME;
-use bigbytes_common_expression::SEARCH_MATCHED_COL_NAME;
-use bigbytes_common_expression::SEARCH_SCORE_COL_NAME;
-use bigbytes_common_expression::SEGMENT_NAME_COL_NAME;
-use bigbytes_common_expression::SNAPSHOT_NAME_COL_NAME;
+use bigbytesdb_common_catalog::plan::InternalColumn;
+use bigbytesdb_common_catalog::plan::InternalColumnType;
+use bigbytesdb_common_expression::BASE_BLOCK_IDS_COL_NAME;
+use bigbytesdb_common_expression::BASE_ROW_ID_COL_NAME;
+use bigbytesdb_common_expression::BLOCK_NAME_COL_NAME;
+use bigbytesdb_common_expression::ROW_ID_COL_NAME;
+use bigbytesdb_common_expression::SEARCH_MATCHED_COL_NAME;
+use bigbytesdb_common_expression::SEARCH_SCORE_COL_NAME;
+use bigbytesdb_common_expression::SEGMENT_NAME_COL_NAME;
+use bigbytesdb_common_expression::SNAPSHOT_NAME_COL_NAME;
 
 #[ctor]
 pub static INTERNAL_COLUMN_FACTORY: InternalColumnFactory = InternalColumnFactory::init();

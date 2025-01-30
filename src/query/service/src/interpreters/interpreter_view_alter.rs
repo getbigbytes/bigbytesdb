@@ -15,12 +15,12 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::UpsertTableOptionReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_sql::plans::AlterViewPlan;
-use bigbytes_common_sql::Planner;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::UpsertTableOptionReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_sql::plans::AlterViewPlan;
+use bigbytesdb_common_sql::Planner;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

@@ -15,16 +15,16 @@
 use std::ops::Sub;
 use std::time::Duration;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_storages_fuse::io::SnapshotHistoryReader;
-use bigbytes_query::storages::fuse::io::MetaReaders;
-use bigbytes_query::storages::fuse::io::TableMetaLocationGenerator;
-use bigbytes_query::storages::fuse::FuseTable;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_storages_fuse::io::SnapshotHistoryReader;
+use bigbytesdb_query::storages::fuse::io::MetaReaders;
+use bigbytesdb_query::storages::fuse::io::TableMetaLocationGenerator;
+use bigbytesdb_query::storages::fuse::FuseTable;
+use bigbytesdb_query::test_kits::*;
 use futures::TryStreamExt;
 
 #[tokio::test(flavor = "multi_thread")]

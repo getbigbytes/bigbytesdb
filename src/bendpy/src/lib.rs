@@ -23,22 +23,22 @@ mod utils;
 use std::env;
 use std::path::Path;
 
-use bigbytes_common_config::Config;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_license::license_manager::LicenseManager;
-use bigbytes_common_license::license_manager::OssLicenseManager;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_embedded::MetaEmbedded;
-use bigbytes_query::clusters::ClusterDiscovery;
-use bigbytes_query::GlobalServices;
+use bigbytesdb_common_config::Config;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_license::license_manager::LicenseManager;
+use bigbytesdb_common_license::license_manager::OssLicenseManager;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_embedded::MetaEmbedded;
+use bigbytesdb_query::clusters::ClusterDiscovery;
+use bigbytesdb_query::GlobalServices;
 use pyo3::prelude::*;
 use utils::RUNTIME;
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn bigbytes(_py: Python, m: &PyModule) -> PyResult<()> {
-    let data_path = env::var("BIGBYTES_DATA_PATH").unwrap_or(".bigbytes/".to_string());
+fn bigbytesdb(_py: Python, m: &PyModule) -> PyResult<()> {
+    let data_path = env::var("BIGBYTESDB_DATA_PATH").unwrap_or(".bigbytesdb/".to_string());
     let path = Path::new(&data_path);
 
     env::set_var("META_EMBEDDED_DIR", path.join("_meta"));

@@ -21,10 +21,10 @@ runs:
       run: |
         case ${{ inputs.category }} in
           default)
-            publish_name="bigbytes-${{ inputs.version }}-${{ inputs.target }}"
+            publish_name="bigbytesdb-${{ inputs.version }}-${{ inputs.target }}"
             ;;
           hdfs|udf|testsuite)
-            publish_name="bigbytes-${{ inputs.category }}-${{ inputs.version }}-${{ inputs.target }}"
+            publish_name="bigbytesdb-${{ inputs.category }}-${{ inputs.version }}-${{ inputs.target }}"
             ;;
           *)
             echo "Unknown release category {{ inputs.category }}"
@@ -46,11 +46,11 @@ runs:
       shell: bash
       if: inputs.category == 'default'
       run: |
-        aws s3 cp ${{ steps.name.outputs.name }}.tar.gz s3://repo/bigbytes/${{ inputs.version }}/${{ steps.name.outputs.name }}.tar.gz --no-progress
+        aws s3 cp ${{ steps.name.outputs.name }}.tar.gz s3://repo/bigbytesdb/${{ inputs.version }}/${{ steps.name.outputs.name }}.tar.gz --no-progress
         if [ -f ${{ steps.name.outputs.name }}-dbg.tar.gz ]; then
-          aws s3 cp ${{ steps.name.outputs.name }}-dbg.tar.gz s3://repo/bigbytes/${{ inputs.version }}/${{ steps.name.outputs.name }}-dbg.tar.gz --no-progress
+          aws s3 cp ${{ steps.name.outputs.name }}-dbg.tar.gz s3://repo/bigbytesdb/${{ inputs.version }}/${{ steps.name.outputs.name }}-dbg.tar.gz --no-progress
         fi
-        gh api /repos/getbigbytes/bigbytes/tags > tags.json
-        aws s3 cp ./tags.json s3://repo/bigbytes/tags.json
-        gh api /repos/getbigbytes/bigbytes/releases > releases.json
-        aws s3 cp ./releases.json s3://repo/bigbytes/releases.json
+        gh api /repos/getbigbytes/bigbytesdb/tags > tags.json
+        aws s3 cp ./tags.json s3://repo/bigbytesdb/tags.json
+        gh api /repos/getbigbytes/bigbytesdb/releases > releases.json
+        aws s3 cp ./releases.json s3://repo/bigbytesdb/releases.json

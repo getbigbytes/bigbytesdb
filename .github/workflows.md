@@ -1,8 +1,8 @@
-# Bigbytes Workflow
+# Bigbytesdb Workflow
 
 ## Release
 
-Bigbytes make new releases via workflow [Release](./workflows/release.yml).
+Bigbytesdb make new releases via workflow [Release](./workflows/release.yml).
 
 There are three ways to trigger a new release:
 

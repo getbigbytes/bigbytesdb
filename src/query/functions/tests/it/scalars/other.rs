@@ -14,10 +14,10 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::Float64Type;
-use bigbytes_common_expression::types::UInt16Type;
-use bigbytes_common_expression::types::UInt8Type;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::Float64Type;
+use bigbytesdb_common_expression::types::UInt16Type;
+use bigbytesdb_common_expression::types::UInt8Type;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;

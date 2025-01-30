@@ -14,13 +14,13 @@
 
 #![allow(clippy::uninlined_format_args)]
 
-pub use bigbytes_common_storages_fuse as fuse;
-pub use bigbytes_storages_common_index as index;
+pub use bigbytesdb_common_storages_fuse as fuse;
+pub use bigbytesdb_storages_common_index as index;
 mod storage_factory;
 
-pub use bigbytes_common_catalog::table::NavigationPoint;
-pub use bigbytes_common_catalog::table::Table;
-pub use bigbytes_common_catalog::table::TableStatistics;
+pub use bigbytesdb_common_catalog::table::NavigationPoint;
+pub use bigbytesdb_common_catalog::table::Table;
+pub use bigbytesdb_common_catalog::table::TableStatistics;
 pub use storage_factory::StorageCreator;
 pub use storage_factory::StorageDescription;
 pub use storage_factory::StorageFactory;

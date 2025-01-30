@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020-2021 The Bigbytes Authors.
+# Copyright 2020-2021 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -16,5 +16,5 @@ if [[ $(uname -a) =~ Darwin ]]; then
 	export JEMALLOC_SYS_WITH_MALLOC_CONF=oversize_threshold:0,dirty_decay_ms:5000,muzzy_decay_ms:5000
 fi
 
-cargo build --bin=bigbytes-query --bin=bigbytes-meta --bin=bigbytes-metactl --bin=bigbytes-sqllogictests --bin=bigbytes-sqlsmith
+cargo build --bin=bigbytesdb-query --bin=bigbytesdb-meta --bin=bigbytesdb-metactl --bin=bigbytesdb-sqllogictests --bin=bigbytesdb-sqlsmith
 echo "All done..."

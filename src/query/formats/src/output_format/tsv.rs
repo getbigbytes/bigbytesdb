@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::principal::TsvFileFormatParams;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::principal::TsvFileFormatParams;
 
 use crate::field_encoder::helpers::write_tsv_escaped_string;
 use crate::field_encoder::FieldEncoderCSV;

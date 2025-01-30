@@ -20,7 +20,7 @@ use std::str::FromStr;
 use chrono::DateTime;
 use chrono::Utc;
 use cron::Schedule;
-use bigbytes_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::SeqV;
 
 use crate::background::BackgroundJobIdIdent;
 use crate::background::BackgroundJobIdent;

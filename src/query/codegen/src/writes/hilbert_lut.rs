@@ -16,7 +16,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 
-use bigbytes_common_expression::hilbert_compact_state_list;
+use bigbytesdb_common_expression::hilbert_compact_state_list;
 
 pub fn codegen_hilbert_lut() {
     let dest = Path::new("src/query/expression/src/hilbert");

@@ -1,4 +1,4 @@
-# Bigbytes Common
+# Bigbytesdb Common
 
 - [`auth`](./auth/), a simple wrapper for authentication layer.
 - [`base`](./base/) contains runtime, pool, allocator and rangemap.

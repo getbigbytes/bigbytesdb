@@ -15,32 +15,32 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::plan::PartInfoType;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_catalog::table::CompactionLimits;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_common_sql::executor::physical_plans::CommitSink;
-use bigbytes_common_sql::executor::physical_plans::CompactSource;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_storages_fuse::io::SegmentsIO;
-use bigbytes_common_storages_fuse::operations::BlockCompactMutator;
-use bigbytes_common_storages_fuse::operations::CompactBlockPartInfo;
-use bigbytes_common_storages_fuse::operations::CompactOptions;
-use bigbytes_common_storages_fuse::statistics::reducers::merge_statistics_mut;
-use bigbytes_query::pipelines::executor::ExecutorSettings;
-use bigbytes_query::pipelines::executor::PipelineCompleteExecutor;
-use bigbytes_query::schedulers::build_query_pipeline_without_render_result_set;
-use bigbytes_query::sessions::QueryContext;
-use bigbytes_query::sessions::TableContext;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::plan::PartInfoType;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_catalog::table::CompactionLimits;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_common_sql::executor::physical_plans::CommitSink;
+use bigbytesdb_common_sql::executor::physical_plans::CompactSource;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_storages_fuse::io::SegmentsIO;
+use bigbytesdb_common_storages_fuse::operations::BlockCompactMutator;
+use bigbytesdb_common_storages_fuse::operations::CompactBlockPartInfo;
+use bigbytesdb_common_storages_fuse::operations::CompactOptions;
+use bigbytesdb_common_storages_fuse::statistics::reducers::merge_statistics_mut;
+use bigbytesdb_query::pipelines::executor::ExecutorSettings;
+use bigbytesdb_query::pipelines::executor::PipelineCompleteExecutor;
+use bigbytesdb_query::schedulers::build_query_pipeline_without_render_result_set;
+use bigbytesdb_query::sessions::QueryContext;
+use bigbytesdb_query::sessions::TableContext;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 use opendal::Operator;
 use rand::thread_rng;
 use rand::Rng;
@@ -114,7 +114,7 @@ async fn test_compact() -> Result<()> {
 
 async fn do_compact(ctx: Arc<QueryContext>, table: Arc<dyn Table>) -> Result<bool> {
     let settings = ctx.get_settings();
-    let mut pipeline = bigbytes_common_pipeline_core::Pipeline::create();
+    let mut pipeline = bigbytesdb_common_pipeline_core::Pipeline::create();
     let res = table
         .compact_blocks(ctx.clone(), CompactionLimits::default())
         .await?;

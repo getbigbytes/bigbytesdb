@@ -17,11 +17,11 @@ use std::fmt::Display;
 use std::io::Cursor;
 use std::ops::Range;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_io::cursor_ext::BufferReadDateTimeExt;
-use bigbytes_common_io::cursor_ext::DateTimeResType;
-use bigbytes_common_io::cursor_ext::ReadBytesExt;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_io::cursor_ext::BufferReadDateTimeExt;
+use bigbytesdb_common_io::cursor_ext::DateTimeResType;
+use bigbytesdb_common_io::cursor_ext::ReadBytesExt;
 use jiff::fmt::strtime;
 use jiff::tz::TimeZone;
 use jiff::Zoned;
@@ -275,7 +275,7 @@ pub fn microseconds_to_days(micros: i64) -> i32 {
 pub fn string_to_timestamp(
     ts_str: impl AsRef<[u8]>,
     tz: &TimeZone,
-) -> bigbytes_common_exception::Result<Zoned> {
+) -> bigbytesdb_common_exception::Result<Zoned> {
     let mut reader = Cursor::new(std::str::from_utf8(ts_str.as_ref()).unwrap().as_bytes());
     match reader.read_timestamp_text(tz) {
         Ok(dt) => match dt {

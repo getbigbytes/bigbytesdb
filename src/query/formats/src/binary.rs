@@ -14,9 +14,9 @@
 
 use base64::engine::general_purpose;
 use base64::Engine as _;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::BinaryFormat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::BinaryFormat;
 
 fn encode_binary_hex(bytes: &[u8]) -> Vec<u8> {
     hex::encode_upper(bytes).into_bytes()

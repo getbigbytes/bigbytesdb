@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::CopyIntoLocationOptions;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_catalog::plan::StageTableInfo;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::infer_table_schema;
-use bigbytes_common_meta_app::principal::StageInfo;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_pipeline_core::ExecutionInfo;
-use bigbytes_common_sql::executor::physical_plans::CopyIntoLocation;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_storage::StageFilesInfo;
+use bigbytesdb_common_ast::ast::CopyIntoLocationOptions;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_catalog::plan::StageTableInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::infer_table_schema;
+use bigbytesdb_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_pipeline_core::ExecutionInfo;
+use bigbytesdb_common_sql::executor::physical_plans::CopyIntoLocation;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_storage::StageFilesInfo;
 use log::debug;
 use log::info;
 

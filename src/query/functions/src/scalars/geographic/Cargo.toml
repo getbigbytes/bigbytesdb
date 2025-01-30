@@ -1,12 +1,12 @@
 [package]
-name = "bigbytes-functions-scalar-geo"
+name = "bigbytesdb-functions-scalar-geo"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-io = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
 geo = { workspace = true }
 geohash = { workspace = true }
 geozero = { workspace = true }

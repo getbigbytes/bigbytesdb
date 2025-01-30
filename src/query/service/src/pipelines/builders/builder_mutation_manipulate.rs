@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_pipeline_core::Pipe;
-use bigbytes_common_sql::binder::MutationStrategy;
-use bigbytes_common_sql::executor::physical_plans::MutationManipulate;
-use bigbytes_common_storages_fuse::operations::MatchedSplitProcessor;
-use bigbytes_common_storages_fuse::operations::MergeIntoNotMatchedProcessor;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_pipeline_core::Pipe;
+use bigbytesdb_common_sql::binder::MutationStrategy;
+use bigbytesdb_common_sql::executor::physical_plans::MutationManipulate;
+use bigbytesdb_common_storages_fuse::operations::MatchedSplitProcessor;
+use bigbytesdb_common_storages_fuse::operations::MergeIntoNotMatchedProcessor;
 
 use crate::pipelines::PipelineBuilder;
 

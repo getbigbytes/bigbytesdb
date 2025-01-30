@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::AlterNotificationOptions;
-use bigbytes_common_ast::ast::AlterNotificationStmt;
-use bigbytes_common_ast::ast::CreateNotificationStmt;
-use bigbytes_common_ast::ast::DescribeNotificationStmt;
-use bigbytes_common_ast::ast::DropNotificationStmt;
-use bigbytes_common_ast::ast::NotificationWebhookOptions;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::AlterNotificationOptions;
+use bigbytesdb_common_ast::ast::AlterNotificationStmt;
+use bigbytesdb_common_ast::ast::CreateNotificationStmt;
+use bigbytesdb_common_ast::ast::DescribeNotificationStmt;
+use bigbytesdb_common_ast::ast::DropNotificationStmt;
+use bigbytesdb_common_ast::ast::NotificationWebhookOptions;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::plans::AlterNotificationPlan;
 use crate::plans::CreateNotificationPlan;

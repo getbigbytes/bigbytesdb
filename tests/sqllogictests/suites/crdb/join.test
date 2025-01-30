@@ -185,7 +185,7 @@ drop table if exists empty
 statement ok
 CREATE TABLE empty (x INT)
 
-# bug(#7149) fix by https://github.com/getbigbytes/bigbytes/pull/7150
+# bug(#7149) fix by https://github.com/getbigbytes/bigbytesdb/pull/7150
 statement ok
 SELECT * FROM onecolumn AS a(x) CROSS JOIN empty AS b(y)
 

@@ -18,15 +18,15 @@ use std::time::Instant;
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::Planner;
-use bigbytes_query::interpreters::InterpreterFactory;
-use bigbytes_query::sessions::QueryEntry;
-use bigbytes_query::sessions::QueueData;
-use bigbytes_query::sessions::QueueManager;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_query::interpreters::InterpreterFactory;
+use bigbytesdb_query::sessions::QueryEntry;
+use bigbytesdb_query::sessions::QueueData;
+use bigbytesdb_query::sessions::QueueManager;
+use bigbytesdb_query::test_kits::TestFixture;
 use log::error;
 
 #[derive(Debug)]
@@ -70,7 +70,7 @@ async fn test_passed_acquire() -> Result<()> {
         join_handles.push({
             let queue = queue.clone();
             let barrier = barrier.clone();
-            bigbytes_common_base::runtime::spawn(async move {
+            bigbytesdb_common_base::runtime::spawn(async move {
                 barrier.wait().await;
                 let _guard = queue
                     .acquire(TestData::<true>(format!("TestData{}", index)))
@@ -109,7 +109,7 @@ async fn test_serial_acquire() -> Result<()> {
         join_handles.push({
             let queue = queue.clone();
             let barrier = barrier.clone();
-            bigbytes_common_base::runtime::spawn(async move {
+            bigbytesdb_common_base::runtime::spawn(async move {
                 barrier.wait().await;
                 let _guard = queue
                     .acquire(TestData(format!("TestData{}", index)))
@@ -148,7 +148,7 @@ async fn test_concurrent_acquire() -> Result<()> {
         join_handles.push({
             let queue = queue.clone();
             let barrier = barrier.clone();
-            bigbytes_common_base::runtime::spawn(async move {
+            bigbytesdb_common_base::runtime::spawn(async move {
                 barrier.wait().await;
                 let _guard = queue
                     .acquire(TestData(format!("TestData{}", index)))
@@ -189,7 +189,7 @@ async fn test_list_acquire() -> Result<()> {
         join_handles.push({
             let queue = queue.clone();
             let barrier = barrier.clone();
-            bigbytes_common_base::runtime::spawn(async move {
+            bigbytesdb_common_base::runtime::spawn(async move {
                 barrier.wait().await;
                 let _guard = queue
                     .acquire(TestData(format!("TestData{}", index)))

@@ -1,14 +1,14 @@
 # Usage:
-# bigbytes-meta -c bigbytes-meta-node-3.toml
+# bigbytesdb-meta -c bigbytesdb-meta-node-3.toml
 
-log_dir                 = "./.bigbytes/new_logs3"
+log_dir                 = "./.bigbytesdb/new_logs3"
 admin_api_address       = "0.0.0.0:28301"
 grpc_api_address        = "0.0.0.0:39191"
 grpc_api_advertise_host = "127.0.0.1"
 
 [raft_config]
 id            = 6
-raft_dir      = "./.bigbytes/new_meta3"
+raft_dir      = "./.bigbytesdb/new_meta3"
 raft_api_port = 29303
 
 # milli seconds

@@ -12,22 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::ArrayType;
-use bigbytes_common_expression::types::Buffer;
-use bigbytes_common_expression::types::Float32Type;
-use bigbytes_common_expression::types::Float64Type;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::vectorize_with_builder_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_common_openai::OpenAI;
-use bigbytes_common_vector::cosine_distance;
-use bigbytes_common_vector::cosine_distance_64;
-use bigbytes_common_vector::l2_distance;
-use bigbytes_common_vector::l2_distance_64;
+use bigbytesdb_common_expression::types::ArrayType;
+use bigbytesdb_common_expression::types::Buffer;
+use bigbytesdb_common_expression::types::Float32Type;
+use bigbytesdb_common_expression::types::Float64Type;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::vectorize_with_builder_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_common_openai::OpenAI;
+use bigbytesdb_common_vector::cosine_distance;
+use bigbytesdb_common_vector::cosine_distance_64;
+use bigbytesdb_common_vector::l2_distance;
+use bigbytesdb_common_vector::l2_distance_64;
 
 pub fn register(registry: &mut FunctionRegistry) {
     // cosine_distance

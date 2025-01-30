@@ -14,12 +14,12 @@
 
 use std::io::Cursor;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_expression::types::IntervalType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_expression::types::IntervalType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::compression::integer::decompress_integer;
 use crate::error::Result;

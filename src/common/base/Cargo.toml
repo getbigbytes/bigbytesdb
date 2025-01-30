@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-base"
+name = "bigbytesdb-common-base"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -21,7 +21,7 @@ memory-profiling = [
 ]
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
@@ -73,7 +73,7 @@ rand = { workspace = true }
 serde_test = { workspace = true }
 
 [build-dependencies]
-bigbytes-common-building = { workspace = true }
+bigbytesdb-common-building = { workspace = true }
 
 [lints]
 workspace = true

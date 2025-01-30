@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_column::types::months_days_micros;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::types::months_days_micros;
 use ethnum::i256;
 
 use super::row_converter::null_sentinel;

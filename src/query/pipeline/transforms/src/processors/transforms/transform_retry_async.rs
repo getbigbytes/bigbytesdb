@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
 use log::info;
 
 use super::AsyncTransform;
 
 pub trait AsyncRetry: AsyncTransform {
-    fn retry_on(&self, err: &bigbytes_common_exception::ErrorCode) -> bool;
+    fn retry_on(&self, err: &bigbytesdb_common_exception::ErrorCode) -> bool;
     // record some log when retrying
     fn retry_hook(&self);
     fn retry_strategy(&self) -> RetryStrategy;

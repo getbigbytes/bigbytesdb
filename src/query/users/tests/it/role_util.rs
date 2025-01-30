@@ -14,17 +14,17 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_users::role_util::find_all_related_roles;
-use bigbytes_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_users::role_util::find_all_related_roles;
+use bigbytesdb_common_users::BUILTIN_ROLE_ACCOUNT_ADMIN;
 
 #[test]
 fn test_find_all_related_roles() {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {

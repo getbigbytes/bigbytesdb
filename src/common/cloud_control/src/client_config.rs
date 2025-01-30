@@ -15,9 +15,9 @@
 use std::fmt::Debug;
 use std::time::Duration;
 
-use bigbytes_common_base::headers::HEADER_QUERY_ID;
-use bigbytes_common_base::headers::HEADER_TENANT;
-use bigbytes_common_base::headers::HEADER_USER;
+use bigbytesdb_common_base::headers::HEADER_QUERY_ID;
+use bigbytesdb_common_base::headers::HEADER_TENANT;
+use bigbytesdb_common_base::headers::HEADER_USER;
 use tonic::Request;
 
 use crate::cloud_api::CLOUD_REQUEST_TIMEOUT_SEC;

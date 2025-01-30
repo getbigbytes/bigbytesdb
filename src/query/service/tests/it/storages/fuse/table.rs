@@ -14,14 +14,14 @@
 
 use std::default::Default;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
-use bigbytes_query::storages::fuse::FuseTable;
-use bigbytes_query::stream::ReadDataBlockStream;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
+use bigbytesdb_query::storages::fuse::FuseTable;
+use bigbytesdb_query::stream::ReadDataBlockStream;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
 use futures::TryStreamExt;
 
 #[tokio::test(flavor = "multi_thread")]
@@ -79,7 +79,7 @@ async fn test_fuse_table_normal_case() -> Result<()> {
             "| 4        | (4, 6)   |",
             "+----------+----------+",
         ];
-        bigbytes_common_expression::block_debug::assert_blocks_sorted_eq(
+        bigbytesdb_common_expression::block_debug::assert_blocks_sorted_eq(
             expected,
             blocks.as_slice(),
         );
@@ -128,7 +128,7 @@ async fn test_fuse_table_normal_case() -> Result<()> {
             "| 6        | (6, 9)   |",
             "+----------+----------+",
         ];
-        bigbytes_common_expression::block_debug::assert_blocks_sorted_eq(
+        bigbytesdb_common_expression::block_debug::assert_blocks_sorted_eq(
             expected,
             blocks.as_slice(),
         );

@@ -14,17 +14,17 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::Filters;
-use bigbytes_common_catalog::plan::Partitions;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_common_catalog::plan::Filters;
+use bigbytesdb_common_catalog::plan::Partitions;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
 
 use crate::binder::MutationType;
 use crate::executor::cast_expr_to_non_null_boolean;

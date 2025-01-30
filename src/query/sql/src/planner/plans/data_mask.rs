@@ -15,17 +15,17 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_ast::ast::DataMaskPolicy;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_meta_app::data_mask::CreateDatamaskReq;
-use bigbytes_common_meta_app::data_mask::DataMaskNameIdent;
-use bigbytes_common_meta_app::data_mask::DatamaskMeta;
-use bigbytes_common_meta_app::data_mask::DropDatamaskReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::DataMaskPolicy;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_meta_app::data_mask::CreateDatamaskReq;
+use bigbytesdb_common_meta_app::data_mask::DataMaskNameIdent;
+use bigbytesdb_common_meta_app::data_mask::DatamaskMeta;
+use bigbytesdb_common_meta_app::data_mask::DropDatamaskReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct CreateDatamaskPolicyPlan {

@@ -26,7 +26,7 @@ use async_compression::codec::ZstdEncoder;
 use async_compression::util::PartialBuffer;
 use async_compression::Level;
 use brotli::enc::backward_references::BrotliEncoderParams;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 
 use crate::CompressAlgorithm;
 
@@ -137,7 +137,7 @@ impl CompressCodec {
     pub fn compress_all(
         &mut self,
         to_compress: &[u8],
-    ) -> bigbytes_common_exception::Result<Vec<u8>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let mut compress_bufs = vec![];
         let mut input = PartialBuffer::new(to_compress);
         let buf_size = to_compress.len().min(4096);
@@ -185,7 +185,7 @@ mod tests {
     use crate::DecompressDecoder;
 
     #[tokio::test]
-    async fn test_decompress_bytes_zlib() -> bigbytes_common_exception::Result<()> {
+    async fn test_decompress_bytes_zlib() -> bigbytesdb_common_exception::Result<()> {
         let _ = env_logger::try_init();
 
         let mut rng = ThreadRng::default();

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::OrderByExpr;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::OrderByExpr;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_exception::Result;
 
 use crate::optimizer::SExpr;
 use crate::planner::binder::BindContext;

@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::runtime::Thread;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::runtime::Thread;
+use bigbytesdb_common_exception::Result;
 use log::info;
 
 use crate::pipelines::executor::QueriesPipelineExecutor;

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 fn main() {
-    bigbytes_codegen::writes::codegen_arithmetic_type();
-    bigbytes_codegen::writes::codegen_register();
-    bigbytes_codegen::writes::codegen_hilbert_lut();
+    bigbytesdb_codegen::writes::codegen_arithmetic_type();
+    bigbytesdb_codegen::writes::codegen_register();
+    bigbytesdb_codegen::writes::codegen_hilbert_lut();
 }

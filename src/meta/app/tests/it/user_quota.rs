@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::exception::Result;
-use bigbytes_common_meta_app::principal::UserQuota;
+use bigbytesdb_common_exception::exception::Result;
+use bigbytesdb_common_meta_app::principal::UserQuota;
 
 #[test]
 fn test_user_quota() -> Result<()> {

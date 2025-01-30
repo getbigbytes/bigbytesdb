@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::PlanProfile;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::PlanProfile;
 
 use crate::servers::admin::v1::query_profiling::get_profile_from_cache;
 use crate::sessions::SessionManager;

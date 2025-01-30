@@ -16,15 +16,15 @@ use std::sync::Arc;
 
 use chrono::Duration;
 use chrono::Utc;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::io::MetaWriter;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::io::MetaWriter;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use uuid::Uuid;
 
 use crate::storages::fuse::operations::mutation::compact_segment;

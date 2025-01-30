@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
-use bigbytes_common_sql::executor::physical_plans::CommitSink as PhysicalCommitSink;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_storages_fuse::operations::CommitSink;
-use bigbytes_common_storages_fuse::operations::MutationGenerator;
-use bigbytes_common_storages_fuse::operations::TableMutationAggregator;
-use bigbytes_common_storages_fuse::operations::TransformMergeCommitMeta;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_storages_common_table_meta::readers::snapshot_reader::TableSnapshotAccessor;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_sql::executor::physical_plans::CommitSink as PhysicalCommitSink;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_storages_fuse::operations::CommitSink;
+use bigbytesdb_common_storages_fuse::operations::MutationGenerator;
+use bigbytesdb_common_storages_fuse::operations::TableMutationAggregator;
+use bigbytesdb_common_storages_fuse::operations::TransformMergeCommitMeta;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_storages_common_table_meta::readers::snapshot_reader::TableSnapshotAccessor;
 
 use crate::pipelines::PipelineBuilder;
 

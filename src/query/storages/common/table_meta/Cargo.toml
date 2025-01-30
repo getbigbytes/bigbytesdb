@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-table-meta"
+name = "bigbytesdb-storages-common-table-meta"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,13 +11,13 @@ dev = ["snap"]
 
 [dependencies]
 
-bigbytes-common-base = { workspace = true }
-bigbytes-common-datavalues = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-io = { workspace = true }
-bigbytes-common-native = { workspace = true }
-bigbytes-common-storage = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-datavalues = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-io = { workspace = true }
+bigbytesdb-common-native = { workspace = true }
+bigbytesdb-common-storage = { workspace = true }
 
 bincode_v1 = { workspace = true }
 chrono = { workspace = true }

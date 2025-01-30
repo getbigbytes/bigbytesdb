@@ -15,8 +15,8 @@
 use std::thread::Builder;
 use std::thread::JoinHandle;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::runtime::ThreadTracker;
 

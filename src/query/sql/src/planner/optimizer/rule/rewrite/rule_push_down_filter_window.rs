@@ -76,7 +76,7 @@ impl Rule for RulePushDownFilterWindow {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let Filter { predicates } = s_expr.plan().clone().try_into()?;
         let window_expr = s_expr.child(0)?;
         let window: Window = window_expr.plan().clone().try_into()?;

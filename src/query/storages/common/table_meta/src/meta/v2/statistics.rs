@@ -16,13 +16,13 @@ use std::collections::HashMap;
 use std::fmt;
 use std::marker::PhantomData;
 
-use bigbytes_common_expression::converts::datavalues::from_scalar;
-use bigbytes_common_expression::converts::meta::IndexScalar;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_expression::converts::datavalues::from_scalar;
+use bigbytesdb_common_expression::converts::meta::IndexScalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 use log::info;
 use serde::de::Error;
 

@@ -24,33 +24,33 @@ use std::time::Duration;
 use std::time::Instant;
 
 use arrow_flight::flight_service_client::FlightServiceClient;
-use bigbytes_common_base::base::tokio::sync::Mutex;
-use bigbytes_common_base::base::tokio::sync::Notify;
-use bigbytes_common_base::base::tokio::task::JoinHandle;
-use bigbytes_common_base::base::tokio::time::sleep as tokio_async_sleep;
-use bigbytes_common_base::base::DummySignalStream;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::base::SignalStream;
-use bigbytes_common_base::base::SignalType;
-use bigbytes_common_cache::Cache;
-use bigbytes_common_cache::LruCache;
-use bigbytes_common_cache::MemSized;
-pub use bigbytes_common_catalog::cluster_info::Cluster;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_config::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::ConnectionFactory;
-use bigbytes_common_management::WarehouseApi;
-use bigbytes_common_management::WarehouseMgr;
-use bigbytes_common_meta_store::MetaStore;
-use bigbytes_common_meta_store::MetaStoreProvider;
-use bigbytes_common_meta_types::NodeInfo;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_common_meta_types::SeqValue;
-use bigbytes_common_metrics::cluster::*;
-use bigbytes_enterprise_resources_management::ResourcesManagement;
+use bigbytesdb_common_base::base::tokio::sync::Mutex;
+use bigbytesdb_common_base::base::tokio::sync::Notify;
+use bigbytesdb_common_base::base::tokio::task::JoinHandle;
+use bigbytesdb_common_base::base::tokio::time::sleep as tokio_async_sleep;
+use bigbytesdb_common_base::base::DummySignalStream;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::base::SignalStream;
+use bigbytesdb_common_base::base::SignalType;
+use bigbytesdb_common_cache::Cache;
+use bigbytesdb_common_cache::LruCache;
+use bigbytesdb_common_cache::MemSized;
+pub use bigbytesdb_common_catalog::cluster_info::Cluster;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_config::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::ConnectionFactory;
+use bigbytesdb_common_management::WarehouseApi;
+use bigbytesdb_common_management::WarehouseMgr;
+use bigbytesdb_common_meta_store::MetaStore;
+use bigbytesdb_common_meta_store::MetaStoreProvider;
+use bigbytesdb_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_common_meta_types::SeqValue;
+use bigbytesdb_common_metrics::cluster::*;
+use bigbytesdb_enterprise_resources_management::ResourcesManagement;
 use futures::future::select;
 use futures::future::Either;
 use futures::Future;
@@ -532,7 +532,7 @@ impl ClusterDiscovery {
             http_address,
             address,
             discovery_address,
-            BIGBYTES_COMMIT_VERSION.to_string(),
+            BIGBYTESDB_COMMIT_VERSION.to_string(),
         );
 
         let resources_management = GlobalInstance::get::<Arc<dyn ResourcesManagement>>();
@@ -637,7 +637,7 @@ impl ClusterHeartbeat {
     }
 
     pub fn start(&mut self, node_info: NodeInfo, seq: u64) {
-        self.shutdown_handler = Some(bigbytes_common_base::runtime::spawn(
+        self.shutdown_handler = Some(bigbytesdb_common_base::runtime::spawn(
             self.heartbeat_loop(node_info, seq),
         ));
     }

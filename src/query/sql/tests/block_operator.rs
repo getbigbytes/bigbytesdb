@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::type_check::check;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::evaluator::apply_cse;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::optimizer::ColumnSet;
+use bigbytesdb_common_expression::type_check::check;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::evaluator::apply_cse;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::optimizer::ColumnSet;
 use itertools::Itertools;
 
 #[test]

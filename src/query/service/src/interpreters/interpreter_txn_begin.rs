@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_storages_common_session::TxnManagerRef;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_storages_common_session::TxnManagerRef;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

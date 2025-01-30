@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::serialize::read_decimal;
-use bigbytes_common_expression::serialize::read_decimal_with_size;
-use bigbytes_common_expression::type_check::common_super_type;
-use bigbytes_common_expression::types::decimal::Decimal;
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::NumberDataType;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::serialize::read_decimal;
+use bigbytesdb_common_expression::serialize::read_decimal_with_size;
+use bigbytesdb_common_expression::type_check::common_super_type;
+use bigbytesdb_common_expression::types::decimal::Decimal;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::NumberDataType;
 use ethnum::i256;
 use num_bigint::BigInt;
 use pretty_assertions::assert_eq;

@@ -6,7 +6,7 @@ row_group_size = 20
 names = [1, 3, 2, 4]  # small, large, small, large
 for i in range(4):
     num_row = row_group_size * (i + 1)
-    # to test https://github.com/getbigbytes/bigbytes/pull/11271
+    # to test https://github.com/getbigbytes/bigbytesdb/pull/11271
     # we need multi pages in a column chunk for list type
     col_arr = [[1], [1, 2]] * num_row
     col_int = [0, 1] * num_row

@@ -15,15 +15,15 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::UserApi;
-use bigbytes_common_meta_app::principal::UserGrantSet;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::principal::UserQuota;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_sql::plans::CreateUserPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::UserApi;
+use bigbytesdb_common_meta_app::principal::UserGrantSet;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::principal::UserQuota;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_sql::plans::CreateUserPlan;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;

@@ -15,9 +15,9 @@
 use std::collections::HashMap;
 use std::fmt::Write;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use itertools::Itertools;
 
 use crate::cast_scalar;
@@ -80,7 +80,7 @@ pub fn check<Index: ColumnIndex>(
                 .map(|arg| check(arg, fn_registry))
                 .try_collect()?;
 
-            // https://github.com/getbigbytes/bigbytes/issues/11541
+            // https://github.com/getbigbytes/bigbytesdb/issues/11541
             // c:int16 = 12456 will be resolve as `to_int32(c) == to_int32(12456)`
             // This may hurt the bloom filter, we should try cast to literal as the datatype of column
             if name == "eq" && args_expr.len() == 2 {

@@ -25,7 +25,7 @@ impl LeastVisibleTimeIdent {
 }
 
 mod kvapi_impl {
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::least_visible_time_ident::LeastVisibleTimeIdent;
     use crate::schema::LeastVisibleTime;
@@ -50,7 +50,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::LeastVisibleTimeIdent;
     use crate::tenant::Tenant;

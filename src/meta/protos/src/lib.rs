@@ -18,8 +18,8 @@
 
 /// ProtoBuf generated files.
 pub mod pb {
-    // bigbytes_proto is proto package name.
-    tonic::include_proto!("bigbytes_proto");
+    // bigbytesdb_proto is proto package name.
+    tonic::include_proto!("bigbytesdb_proto");
 }
 
 pub use prost;

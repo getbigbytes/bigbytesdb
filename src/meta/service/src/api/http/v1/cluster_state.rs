@@ -21,7 +21,7 @@ use poem::web::Json;
 
 use crate::meta_service::MetaNode;
 
-/// list all nodes in current bigbytes-meta cluster.
+/// list all nodes in current bigbytesdb-meta cluster.
 ///
 /// request: None
 /// return: return a list of cluster node information

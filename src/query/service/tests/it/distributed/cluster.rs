@@ -14,13 +14,13 @@
 
 use std::thread;
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_query::servers::flight::FlightService;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_query::servers::flight::FlightService;
+use bigbytesdb_query::test_kits::*;
 use futures_util::TryStreamExt;
 use tokio::runtime::Builder as TokioRuntimeBuilder;
 
@@ -86,7 +86,7 @@ fn test_simple_cluster() -> Result<()> {
                                 "| 'node5'  | '0.0.0.0' | 6065     |",
                                 "+----------+-----------+----------+",
                             ];
-                            bigbytes_common_expression::block_debug::assert_blocks_sorted_eq(
+                            bigbytesdb_common_expression::block_debug::assert_blocks_sorted_eq(
                                 expected,
                                 blocks.as_slice(),
                             );

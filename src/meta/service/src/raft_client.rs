@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_types::protobuf::raft_service_client::RaftServiceClient;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::GrpcConfig;
-use bigbytes_common_metrics::count;
+use bigbytesdb_common_meta_types::protobuf::raft_service_client::RaftServiceClient;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::GrpcConfig;
+use bigbytesdb_common_metrics::count;
 use log::debug;
 use tonic::transport::channel::Channel;
 

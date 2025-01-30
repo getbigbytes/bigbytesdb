@@ -14,18 +14,18 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateIndexReply;
-use bigbytes_common_meta_app::schema::CreateIndexReq;
-use bigbytes_common_meta_app::schema::DropIndexReq;
-use bigbytes_common_meta_app::schema::GetIndexReply;
-use bigbytes_common_meta_app::schema::GetIndexReq;
-use bigbytes_common_meta_app::schema::UpdateIndexReply;
-use bigbytes_common_meta_app::schema::UpdateIndexReq;
-use bigbytes_enterprise_aggregating_index::AggregatingIndexHandler;
-use bigbytes_enterprise_aggregating_index::AggregatingIndexHandlerWrapper;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateIndexReply;
+use bigbytesdb_common_meta_app::schema::CreateIndexReq;
+use bigbytesdb_common_meta_app::schema::DropIndexReq;
+use bigbytesdb_common_meta_app::schema::GetIndexReply;
+use bigbytesdb_common_meta_app::schema::GetIndexReq;
+use bigbytesdb_common_meta_app::schema::UpdateIndexReply;
+use bigbytesdb_common_meta_app::schema::UpdateIndexReq;
+use bigbytesdb_enterprise_aggregating_index::AggregatingIndexHandler;
+use bigbytesdb_enterprise_aggregating_index::AggregatingIndexHandlerWrapper;
 
 pub struct RealAggregatingIndexHandler {}
 

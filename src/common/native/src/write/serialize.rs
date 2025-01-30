@@ -14,14 +14,14 @@
 
 use std::io::Write;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_column::types::i256;
-use bigbytes_common_expression::types::DecimalColumn;
-use bigbytes_common_expression::types::GeographyColumn;
-use bigbytes_common_expression::types::NumberColumn;
-use bigbytes_common_expression::with_decimal_mapped_type;
-use bigbytes_common_expression::with_number_mapped_type;
-use bigbytes_common_expression::Column;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_column::types::i256;
+use bigbytesdb_common_expression::types::DecimalColumn;
+use bigbytesdb_common_expression::types::GeographyColumn;
+use bigbytesdb_common_expression::types::NumberColumn;
+use bigbytesdb_common_expression::with_decimal_mapped_type;
+use bigbytesdb_common_expression::with_number_mapped_type;
+use bigbytesdb_common_expression::Column;
 
 use super::boolean::write_bitmap;
 use super::WriteOptions;

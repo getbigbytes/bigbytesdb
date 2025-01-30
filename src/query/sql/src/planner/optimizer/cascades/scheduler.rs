@@ -15,7 +15,7 @@
 use std::collections::VecDeque;
 use std::time::Duration;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 use log::info;
 
 use super::tasks::Task;

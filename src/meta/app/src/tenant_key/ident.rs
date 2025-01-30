@@ -186,10 +186,10 @@ where
 mod kvapi_key_impl {
     use std::fmt::Debug;
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::KeyCodec;
-    use bigbytes_common_meta_kvapi::kvapi::KeyError;
-    use bigbytes_common_meta_types::NonEmptyString;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::KeyCodec;
+    use bigbytesdb_common_meta_kvapi::kvapi::KeyError;
+    use bigbytesdb_common_meta_types::NonEmptyString;
 
     use crate::tenant::Tenant;
     use crate::tenant_key::ident::TIdent;
@@ -252,8 +252,8 @@ mod kvapi_key_impl {
 #[cfg(test)]
 mod tests {
 
-    use bigbytes_common_meta_kvapi::kvapi;
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::tenant::Tenant;
     use crate::tenant_key::ident::TIdent;

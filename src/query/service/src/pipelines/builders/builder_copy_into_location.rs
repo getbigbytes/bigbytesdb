@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::executor::physical_plans::CopyIntoLocation;
-use bigbytes_common_storages_stage::StageTable;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::executor::physical_plans::CopyIntoLocation;
+use bigbytesdb_common_storages_stage::StageTable;
 
 use crate::pipelines::PipelineBuilder;
 

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::KillTarget;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_ast::ast::KillTarget;
+use bigbytesdb_common_exception::Result;
 
 use crate::planner::binder::BindContext;
 use crate::planner::binder::Binder;

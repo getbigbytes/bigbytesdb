@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::eval_function;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_sql::executor::cast_expr_to_non_null_boolean;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::eval_function;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_sql::executor::cast_expr_to_non_null_boolean;
 
 pub struct SplitByExprMutator {
     expr: Option<Expr>,

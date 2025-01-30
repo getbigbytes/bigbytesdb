@@ -16,10 +16,10 @@ use std::time::Duration;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::background::ManualTriggerParams;
-use bigbytes_common_meta_app::schema::TableStatistics;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::background::ManualTriggerParams;
+use bigbytesdb_common_meta_app::schema::TableStatistics;
+use bigbytesdb_common_protos::pb;
 use num::FromPrimitive;
 
 use crate::reader_check_msg;

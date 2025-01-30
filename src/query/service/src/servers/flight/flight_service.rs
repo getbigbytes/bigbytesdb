@@ -17,11 +17,11 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 
 use arrow_flight::flight_service_server::FlightServiceServer;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::sync::Notify;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::sync::Notify;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use log::info;
 use tonic::transport::server::TcpIncoming;
 use tonic::transport::Identity;
@@ -65,7 +65,7 @@ impl FlightService {
         let flight_api_service = BigbytesQueryFlightService::create();
         let builder = Server::builder();
         let mut builder = if self.config.tls_rpc_server_enabled() {
-            info!("bigbytes query tls rpc enabled");
+            info!("bigbytesdb query tls rpc enabled");
             builder
                 .tls_config(Self::server_tls_config(&self.config).await.map_err(|e| {
                     ErrorCode::TLSConfigurationFailure(format!(
@@ -89,7 +89,7 @@ impl FlightService {
             )
             .serve_with_incoming_shutdown(incoming, self.shutdown_notify());
 
-        bigbytes_common_base::runtime::spawn(server);
+        bigbytesdb_common_base::runtime::spawn(server);
         Ok(())
     }
 }

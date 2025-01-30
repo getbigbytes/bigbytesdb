@@ -15,13 +15,13 @@
 use std::collections::BTreeMap;
 use std::fmt::Formatter;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_storage::parquet_rs::build_parquet_schema_tree;
-use bigbytes_common_storage::parquet_rs::traverse_parquet_schema_tree;
-use bigbytes_common_storage::ColumnNode;
-use bigbytes_common_storage::ColumnNodes;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_storage::parquet_rs::build_parquet_schema_tree;
+use bigbytesdb_common_storage::parquet_rs::traverse_parquet_schema_tree;
+use bigbytesdb_common_storage::ColumnNode;
+use bigbytesdb_common_storage::ColumnNodes;
 use parquet::arrow::ProjectionMask;
 use parquet::schema::types::SchemaDescriptor;
 

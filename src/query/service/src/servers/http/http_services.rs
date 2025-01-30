@@ -15,12 +15,12 @@
 use std::net::SocketAddr;
 use std::time::Duration;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_http::HttpError;
-use bigbytes_common_http::HttpShutdownHandler;
-use bigbytes_common_meta_types::anyerror::AnyError;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_http::HttpError;
+use bigbytesdb_common_http::HttpShutdownHandler;
+use bigbytesdb_common_meta_types::anyerror::AnyError;
 use http::StatusCode;
 use log::info;
 use poem::get;

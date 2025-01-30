@@ -18,27 +18,27 @@ use std::collections::HashSet;
 use std::string::String;
 use std::sync::Arc;
 
-use bigbytes_common_column::bitmap::Bitmap;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::date::date_to_string;
-use bigbytes_common_expression::types::timestamp::timestamp_to_string;
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::types::StringColumn;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::with_integer_mapped_type;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_column::bitmap::Bitmap;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::date::date_to_string;
+use bigbytesdb_common_expression::types::timestamp::timestamp_to_string;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::types::StringColumn;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::with_integer_mapped_type;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_expression::Value;
 use jiff::tz::TimeZone;
 use redis::aio::ConnectionManager;
 use redis::AsyncCommands;
@@ -565,7 +565,7 @@ impl TransformAsyncFunction {
                             },
                         };
                         let client = Client::open(connection_info)?;
-                        let conn = bigbytes_common_base::runtime::block_on(
+                        let conn = bigbytesdb_common_base::runtime::block_on(
                             ConnectionManager::new(client),
                         )?;
                         let operator = Arc::new(DictionaryOperator::Redis(conn));
@@ -577,7 +577,7 @@ impl TransformAsyncFunction {
                             operators.insert(i, operator.clone());
                             continue;
                         }
-                        let mysql_pool = bigbytes_common_base::runtime::block_on(
+                        let mysql_pool = bigbytesdb_common_base::runtime::block_on(
                             sqlx::MySqlPool::connect(&sql_source.connection_url),
                         )?;
                         let operator = Arc::new(DictionaryOperator::Mysql(mysql_pool));

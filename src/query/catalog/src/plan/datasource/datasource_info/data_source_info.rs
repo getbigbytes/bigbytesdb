@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 
 use crate::catalog::CATALOG_DEFAULT;
 use crate::plan::datasource::datasource_info::orc::OrcTableInfo;

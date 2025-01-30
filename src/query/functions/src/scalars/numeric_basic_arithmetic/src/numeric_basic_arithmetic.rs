@@ -12,23 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::arithmetics_type::ResultTypeOfBinary;
-use bigbytes_common_expression::arithmetics_type::ResultTypeOfUnary;
-use bigbytes_common_expression::types::NullableType;
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::SimpleDomain;
-use bigbytes_common_expression::types::ALL_FLOAT_TYPES;
-use bigbytes_common_expression::types::ALL_INTEGER_TYPES;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::vectorize_2_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::with_float_mapped_type;
-use bigbytes_common_expression::with_integer_mapped_type;
-use bigbytes_common_expression::EvalContext;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::arithmetics_type::ResultTypeOfBinary;
+use bigbytesdb_common_expression::arithmetics_type::ResultTypeOfUnary;
+use bigbytesdb_common_expression::types::NullableType;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::SimpleDomain;
+use bigbytesdb_common_expression::types::ALL_FLOAT_TYPES;
+use bigbytesdb_common_expression::types::ALL_INTEGER_TYPES;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::vectorize_2_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::with_float_mapped_type;
+use bigbytesdb_common_expression::with_integer_mapped_type;
+use bigbytesdb_common_expression::EvalContext;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
 use num_traits::AsPrimitive;
 
 use crate::arithmetic_modulo::vectorize_modulo;

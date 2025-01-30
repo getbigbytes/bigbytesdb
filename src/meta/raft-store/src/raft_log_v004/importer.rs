@@ -14,7 +14,7 @@
 
 use std::io;
 
-use bigbytes_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::LogId;
 use raft_log::api::raft_log_writer::RaftLogWriter;
 
 use crate::key_spaces::RaftStoreEntry;

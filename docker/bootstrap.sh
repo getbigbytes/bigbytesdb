@@ -2,14 +2,14 @@
 
 PROCESSES=()
 
-mkdir -p /var/log/bigbytes
-mkdir -p /var/lib/bigbytes/meta
-mkdir -p /var/lib/bigbytes/query
+mkdir -p /var/log/bigbytesdb
+mkdir -p /var/lib/bigbytesdb/meta
+mkdir -p /var/lib/bigbytesdb/query
 
-bigbytes-meta \
-    --log-file-dir /var/log/bigbytes \
+bigbytesdb-meta \
+    --log-file-dir /var/log/bigbytesdb \
     --log-stderr-level WARN \
-    --raft-dir /var/lib/bigbytes/meta \
+    --raft-dir /var/lib/bigbytesdb/meta \
     --single &>/tmp/std-meta.log &
 PROCESSES+=($!)
 # wait for meta to be ready
@@ -62,7 +62,7 @@ function setup_minio {
 
 function setup_query_storage {
     QUERY_STORAGE_TYPE=${QUERY_STORAGE_TYPE:-"fs"}
-    AWS_S3_BUCKET=${AWS_S3_BUCKET:-"bigbytes"}
+    AWS_S3_BUCKET=${AWS_S3_BUCKET:-"bigbytesdb"}
     if [[ -n $MINIO_ENABLED ]]; then
         # force to use s3 storage when minio is enabled
         QUERY_STORAGE_TYPE="s3"
@@ -73,12 +73,12 @@ function setup_query_storage {
     fi
     case $QUERY_STORAGE_TYPE in
     "fs")
-        mkdir -p /var/lib/bigbytes/query
+        mkdir -p /var/lib/bigbytesdb/query
         cat <<EOF >>"$QUERY_CONFIG_FILE"
 [storage]
 type = "fs"
 [storage.fs]
-data_path = "/var/lib/bigbytes/query"
+data_path = "/var/lib/bigbytesdb/query"
 EOF
         ;;
     "s3")
@@ -101,14 +101,14 @@ EOF
 }
 
 if [ -z "$QUERY_CONFIG_FILE" ]; then
-    QUERY_CONFIG_FILE="/etc/bigbytes/query.toml"
+    QUERY_CONFIG_FILE="/etc/bigbytesdb/query.toml"
     echo "==> QUERY_CONFIG_FILE is not set, using default: $QUERY_CONFIG_FILE"
-    cp /etc/bigbytes/query_config_spec.toml "$QUERY_CONFIG_FILE"
+    cp /etc/bigbytesdb/query_config_spec.toml "$QUERY_CONFIG_FILE"
     setup_query_default_user
     setup_query_storage
 fi
 
-bigbytes-query -c "$QUERY_CONFIG_FILE" &>/tmp/std-query.log &
+bigbytesdb-query -c "$QUERY_CONFIG_FILE" &>/tmp/std-query.log &
 PROCESSES+=($!)
 # wait for query to be ready
 sleep 1

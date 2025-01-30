@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_meta_app::schema::DropTableIndexReq;
-use bigbytes_common_sql::plans::DropTableIndexPlan;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_enterprise_inverted_index::get_inverted_index_handler;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_meta_app::schema::DropTableIndexReq;
+use bigbytesdb_common_sql::plans::DropTableIndexPlan;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_enterprise_inverted_index::get_inverted_index_handler;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

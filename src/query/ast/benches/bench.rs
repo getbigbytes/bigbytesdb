@@ -17,10 +17,10 @@ extern crate criterion;
 
 use criterion::black_box;
 use criterion::Criterion;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::parse_sql;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::parse_sql;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
 
 fn bench(c: &mut Criterion) {
     let mut group = c.benchmark_group("bench_parser");

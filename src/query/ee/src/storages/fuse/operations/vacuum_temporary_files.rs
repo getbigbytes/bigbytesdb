@@ -19,10 +19,10 @@ use std::time::Instant;
 use std::time::SystemTime;
 use std::time::UNIX_EPOCH;
 
-use bigbytes_common_catalog::table_context::AbortChecker;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
+use bigbytesdb_common_catalog::table_context::AbortChecker;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
 use futures_util::TryStreamExt;
 use log::info;
 use opendal::Buffer;

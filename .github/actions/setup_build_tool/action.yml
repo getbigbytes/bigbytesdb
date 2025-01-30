@@ -34,7 +34,7 @@ runs:
         export TARGET=${{ inputs.target }}
         export CARGO_INCREMENTAL=0
         export CARGO_TERM_COLOR=always
-        export BYPASS_ENV_VARS=${{ inputs.bypass_env_vars }},CARGO_INCREMENTAL,CARGO_TERM_COLOR,BUILD_PROFILE,JEMALLOC_SYS_WITH_LG_PAGE,BIGBYTES_RELEASE_VERSION
+        export BYPASS_ENV_VARS=${{ inputs.bypass_env_vars }},CARGO_INCREMENTAL,CARGO_TERM_COLOR,BUILD_PROFILE,JEMALLOC_SYS_WITH_LG_PAGE,BIGBYTESDB_RELEASE_VERSION
         EOF
 
         RUNNER_PROVIDER="${RUNNER_PROVIDER:-github}"
@@ -44,7 +44,7 @@ runs:
             cat <<EOF >>$BIN_LOCAL/build-tool
         export ENABLE_SCCACHE=true
         export SCCACHE_IDLE_TIMEOUT=0
-        export SCCACHE_BUCKET=bigbytes-ci
+        export SCCACHE_BUCKET=bigbytesdb-ci
         export SCCACHE_REGION=us-east-2
         export SCCACHE_S3_KEY_PREFIX="cache/sccache/"
         export SCCACHE_S3_USE_SSL="true"
@@ -59,7 +59,7 @@ runs:
         export ENABLE_SCCACHE=true
         export SCCACHE_IDLE_TIMEOUT=0
         export SCCACHE_GCS_RW_MODE=READ_WRITE
-        export SCCACHE_GCS_BUCKET=bigbytes-ci
+        export SCCACHE_GCS_BUCKET=bigbytesdb-ci
         export SCCACHE_GCS_KEY_PREFIX="cache/sccache/"
         export SCCACHE_ERROR_LOG=/workspace/target/sccache.log
         export SCCACHE_LOG=info
@@ -106,7 +106,7 @@ runs:
     #   env:
     #     AWS_REGION: us-east-2
     #   with:
-    #     bucket: "bigbytes-ci"
+    #     bucket: "bigbytesdb-ci"
     #     root: "cache/cargo"
     #     path: |
     #       ~/.cargo/registry/cache

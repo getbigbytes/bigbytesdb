@@ -44,7 +44,7 @@ impl StageFileIdent {
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use super::StageFileIdent;
     use crate::principal::StageFile;
@@ -68,7 +68,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use crate::principal::stage_file_ident::StageFileIdent;
     use crate::principal::StageIdent;

@@ -28,7 +28,7 @@ static GLOBAL_HICKORY_RESOLVER: LazyLock<Arc<HickoryResolver>> =
 /// Please create your own http client if you want dedicated http connection pool.
 pub static GLOBAL_HTTP_CLIENT: LazyLock<HttpClient> = LazyLock::new(HttpClient::new);
 
-/// HttpClient that used by bigbytes.
+/// HttpClient that used by bigbytesdb.
 pub struct HttpClient {
     client: reqwest::Client,
 }
@@ -57,21 +57,21 @@ impl HttpClient {
 
         // Pool max idle per host controls connection pool size.
         // Default to no limit, set to `0` for disable it.
-        let pool_max_idle_per_host = env::var("_BIGBYTES_INTERNAL_POOL_MAX_IDLE_PER_HOST")
+        let pool_max_idle_per_host = env::var("_BIGBYTESDB_INTERNAL_POOL_MAX_IDLE_PER_HOST")
             .ok()
             .and_then(|v| v.parse::<usize>().ok())
             .unwrap_or(usize::MAX);
         builder = builder.pool_max_idle_per_host(pool_max_idle_per_host);
 
         // Connect timeout default to 30s.
-        let connect_timeout = env::var("_BIGBYTES_INTERNAL_CONNECT_TIMEOUT")
+        let connect_timeout = env::var("_BIGBYTESDB_INTERNAL_CONNECT_TIMEOUT")
             .ok()
             .and_then(|v| v.parse::<u64>().ok())
             .unwrap_or(30);
         builder = builder.connect_timeout(Duration::from_secs(connect_timeout));
 
         // Enable TCP keepalive if set.
-        if let Ok(v) = env::var("_BIGBYTES_INTERNAL_TCP_KEEPALIVE") {
+        if let Ok(v) = env::var("_BIGBYTESDB_INTERNAL_TCP_KEEPALIVE") {
             if let Ok(v) = v.parse::<u64>() {
                 builder = builder.tcp_keepalive(Duration::from_secs(v));
             }

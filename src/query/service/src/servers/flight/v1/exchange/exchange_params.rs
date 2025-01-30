@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRef;
 
 use crate::servers::flight::v1::exchange::ExchangeInjector;
 use crate::servers::flight::v1::scatter::FlightScatter;

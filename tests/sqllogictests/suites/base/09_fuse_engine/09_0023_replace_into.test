@@ -331,7 +331,7 @@ statement ok
 drop stage test_stage
 
 ###############################################################
-# issue https://github.com/getbigbytes/bigbytes/issues/10572 #
+# issue https://github.com/getbigbytes/bigbytesdb/issues/10572 #
 ###############################################################
 
 # with 5 segments and max_threads set to 3, `replace into` leads to

@@ -15,10 +15,10 @@
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_sql::planner::query_executor::QueryExecutor;
-use bigbytes_common_sql::Planner;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_sql::planner::query_executor::QueryExecutor;
+use bigbytesdb_common_sql::Planner;
 use futures_util::TryStreamExt;
 
 use crate::interpreters::InterpreterFactory;

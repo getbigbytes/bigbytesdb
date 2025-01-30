@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_sql::executor::physical_plans::HashJoin;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_storages_fuse::operations::need_reserve_block_info;
+use bigbytesdb_common_sql::executor::physical_plans::HashJoin;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_storages_fuse::operations::need_reserve_block_info;
 
 use crate::pipelines::PipelineBuilder;
 
@@ -23,9 +23,9 @@ impl PipelineBuilder {
         // for merge into target table as build side.
         match &*join.build {
             PhysicalPlan::TableScan(scan) => match scan.table_index {
-                None | Some(bigbytes_common_sql::DUMMY_TABLE_INDEX) => (false, false),
+                None | Some(bigbytesdb_common_sql::DUMMY_TABLE_INDEX) => (false, false),
                 Some(table_index) => match need_reserve_block_info(self.ctx.clone(), table_index) {
-                    // due to issue https://github.com/getbigbytes/bigbytes/issues/15643,
+                    // due to issue https://github.com/getbigbytes/bigbytesdb/issues/15643,
                     // target build optimization of merge-into is disabled
 
                     //(true, is_distributed) => (true, is_distributed),

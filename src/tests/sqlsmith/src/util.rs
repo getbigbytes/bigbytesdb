@@ -16,13 +16,13 @@ use std::fs::read_to_string;
 use std::path::Path;
 use std::path::PathBuf;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 // The fuzz test type
 #[derive(Default)]
 enum TestType {
     #[default]
-    Bigbytes,
+    Bigbytesdb,
     Duckdb,
     Sqlite,
 }
@@ -34,7 +34,7 @@ pub(crate) fn read_sql_from_test_dirs(fuzz_path: &str) -> Result<Vec<String>> {
     } else if fuzz_path.contains("duckdb") {
         TestType::Duckdb
     } else {
-        TestType::Bigbytes
+        TestType::Bigbytesdb
     };
 
     let path = Path::new(fuzz_path);
@@ -46,7 +46,7 @@ pub(crate) fn read_sql_from_test_dirs(fuzz_path: &str) -> Result<Vec<String>> {
         let content = read_to_string(path)?;
         let lines: Vec<&str> = content.lines().collect();
         match test_type {
-            TestType::Bigbytes | TestType::Duckdb => {
+            TestType::Bigbytesdb | TestType::Duckdb => {
                 read_sqllogict_test_sqls(lines, &mut sqls);
             }
             TestType::Sqlite => {
@@ -69,7 +69,7 @@ fn collect_paths(path: &Path, paths: &mut Vec<PathBuf>) -> Result<()> {
     Ok(())
 }
 
-// Read and parse Sqllogic test files, include Bigbytes and Duckdb.
+// Read and parse Sqllogic test files, include Bigbytesdb and Duckdb.
 fn read_sqllogict_test_sqls(lines: Vec<&str>, sqls: &mut Vec<String>) {
     let mut in_sql = false;
     let mut current_sql = String::new();

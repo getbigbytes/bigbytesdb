@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::Filters;
+use bigbytesdb_common_catalog::plan::Filters;
 use educe::Educe;
 
 use crate::optimizer::SExpr;
@@ -40,7 +40,7 @@ impl Operator for Recluster {
     }
 }
 
-pub fn set_update_stream_columns(s_expr: &SExpr) -> bigbytes_common_exception::Result<SExpr> {
+pub fn set_update_stream_columns(s_expr: &SExpr) -> bigbytesdb_common_exception::Result<SExpr> {
     match s_expr.plan() {
         RelOperator::Scan(scan) if scan.table_index == 0 => {
             let mut scan = scan.clone();

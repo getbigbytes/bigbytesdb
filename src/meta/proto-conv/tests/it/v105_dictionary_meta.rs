@@ -16,10 +16,10 @@ use std::sync::Arc;
 
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_expression as ce;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_meta_app::schema as mt;
-use bigbytes_common_meta_types::anyerror::func_name;
+use bigbytesdb_common_expression as ce;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_meta_app::schema as mt;
+use bigbytesdb_common_meta_types::anyerror::func_name;
 use maplit::btreemap;
 
 use crate::common;

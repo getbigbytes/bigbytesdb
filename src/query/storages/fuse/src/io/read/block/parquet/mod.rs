@@ -17,20 +17,20 @@ use std::collections::HashMap;
 use arrow_array::ArrayRef;
 use arrow_array::RecordBatch;
 use arrow_array::StructArray;
-use bigbytes_common_catalog::plan::Projection;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_expression::Value;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CacheManager;
-use bigbytes_storages_common_cache::TableDataCacheKey;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
-use bigbytes_storages_common_table_meta::meta::Compression;
+use bigbytesdb_common_catalog::plan::Projection;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CacheManager;
+use bigbytesdb_storages_common_cache::TableDataCacheKey;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::Compression;
 
 mod adapter;
 mod deserialize;
@@ -49,7 +49,7 @@ impl BlockReader {
         column_chunks: HashMap<ColumnId, DataItem>,
         compression: &Compression,
         block_path: &str,
-    ) -> bigbytes_common_exception::Result<DataBlock> {
+    ) -> bigbytesdb_common_exception::Result<DataBlock> {
         if column_chunks.is_empty() {
             return self.build_default_values_block(num_rows);
         }

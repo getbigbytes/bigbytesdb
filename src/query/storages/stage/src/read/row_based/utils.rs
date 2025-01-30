@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_storage::FileParseError;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_storage::FileParseError;
 
 pub fn truncate_column_data(s: String) -> String {
     if s.len() > 100 {

@@ -19,28 +19,28 @@ use std::time::Instant;
 
 use backon::ExponentialBuilder;
 use backon::Retryable;
-use bigbytes_common_base::runtime::profile::Profile;
-use bigbytes_common_base::runtime::profile::ProfileStatisticsName;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::udf_client::error_kind;
-use bigbytes_common_expression::udf_client::UDFFlightClient;
-use bigbytes_common_expression::variant_transform::contains_variant;
-use bigbytes_common_expression::variant_transform::transform_variant;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_metrics::external_server::record_connect_external_duration;
-use bigbytes_common_metrics::external_server::record_error_external;
-use bigbytes_common_metrics::external_server::record_request_external_batch_rows;
-use bigbytes_common_metrics::external_server::record_request_external_duration;
-use bigbytes_common_metrics::external_server::record_retry_external;
-use bigbytes_common_metrics::external_server::record_running_requests_external_finish;
-use bigbytes_common_metrics::external_server::record_running_requests_external_start;
-use bigbytes_common_pipeline_transforms::processors::AsyncTransform;
-use bigbytes_common_sql::executor::physical_plans::UdfFunctionDesc;
+use bigbytesdb_common_base::runtime::profile::Profile;
+use bigbytesdb_common_base::runtime::profile::ProfileStatisticsName;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::udf_client::error_kind;
+use bigbytesdb_common_expression::udf_client::UDFFlightClient;
+use bigbytesdb_common_expression::variant_transform::contains_variant;
+use bigbytesdb_common_expression::variant_transform::transform_variant;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_metrics::external_server::record_connect_external_duration;
+use bigbytesdb_common_metrics::external_server::record_error_external;
+use bigbytesdb_common_metrics::external_server::record_request_external_batch_rows;
+use bigbytesdb_common_metrics::external_server::record_request_external_duration;
+use bigbytesdb_common_metrics::external_server::record_retry_external;
+use bigbytesdb_common_metrics::external_server::record_running_requests_external_finish;
+use bigbytesdb_common_metrics::external_server::record_running_requests_external_start;
+use bigbytesdb_common_pipeline_transforms::processors::AsyncTransform;
+use bigbytesdb_common_sql::executor::physical_plans::UdfFunctionDesc;
 use tokio::sync::Semaphore;
 use tonic::transport::Endpoint;
 
@@ -223,7 +223,7 @@ impl TransformUdfServer {
     }
 }
 
-fn retry_on(err: &bigbytes_common_exception::ErrorCode) -> bool {
+fn retry_on(err: &bigbytesdb_common_exception::ErrorCode) -> bool {
     if err.code() == ErrorCode::U_D_F_DATA_ERROR {
         let message = err.message();
         // this means the server can't handle the request in 60s
@@ -252,7 +252,7 @@ impl AsyncTransform for TransformUdfServer {
             let tasks: Vec<_> = batch_blocks
                 .into_iter()
                 .map(|mini_batch| {
-                    bigbytes_common_base::runtime::spawn({
+                    bigbytesdb_common_base::runtime::spawn({
                         let ctx = self.ctx.clone();
                         let endpoint = endpoint.clone();
                         let connect_timeout = self.connect_timeout;

@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::principal::NullAs;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
-use bigbytes_storages_common_stage::project_columnar;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::principal::NullAs;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_storages_common_stage::project_columnar;
 
 use crate::hashable_schema::HashableSchema;
 

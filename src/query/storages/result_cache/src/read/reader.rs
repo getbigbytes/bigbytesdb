@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_meta_store::MetaStore;
-use bigbytes_common_storage::DataOperator;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_meta_store::MetaStore;
+use bigbytesdb_common_storage::DataOperator;
 use opendal::Operator;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReader;
 

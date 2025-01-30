@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::version::BIGBYTES_COMMIT_VERSION;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_tracing::set_panic_hook;
-use bigbytes_query::clusters::ClusterDiscovery;
-use bigbytes_query::GlobalServices;
+use bigbytesdb_common_base::version::BIGBYTESDB_COMMIT_VERSION;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_tracing::set_panic_hook;
+use bigbytesdb_query::clusters::ClusterDiscovery;
+use bigbytesdb_query::GlobalServices;
 use log::info;
 
 use crate::test_kits::mock_services::MockServices;
@@ -26,14 +26,14 @@ pub struct TestFixture;
 
 impl TestFixture {
     pub async fn setup(config: &InnerConfig, public_key: String) -> Result<()> {
-        let binary_version = BIGBYTES_COMMIT_VERSION.clone();
+        let binary_version = BIGBYTESDB_COMMIT_VERSION.clone();
         set_panic_hook(binary_version);
         std::env::set_var("UNIT_TEST", "TRUE");
 
         #[cfg(debug_assertions)]
         {
             let thread_name = std::thread::current().name().unwrap().to_string();
-            bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+            bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
         }
 
         GlobalServices::init_with(config, false).await?;
@@ -45,7 +45,7 @@ impl TestFixture {
                 .register_to_metastore(config)
                 .await?;
             info!(
-                "Bigbytes query has been registered:{:?} to metasrv:{:?}.",
+                "Bigbytesdb query has been registered:{:?} to metasrv:{:?}.",
                 config.query.cluster_id, config.meta.endpoints
             );
         }

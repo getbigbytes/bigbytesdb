@@ -17,13 +17,13 @@ use std::collections::hash_map::DefaultHasher;
 use std::hash::Hash;
 use std::hash::Hasher;
 
-use bigbytes_common_catalog::plan::PartInfo;
-use bigbytes_common_catalog::plan::PartInfoPtr;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_storages_common_pruner::BlockMetaIndex;
-use bigbytes_storages_common_table_meta::meta::ClusterStatistics;
-use bigbytes_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_common_catalog::plan::PartInfo;
+use bigbytesdb_common_catalog::plan::PartInfoPtr;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_storages_common_pruner::BlockMetaIndex;
+use bigbytesdb_storages_common_table_meta::meta::ClusterStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
 
 use crate::operations::mutation::SegmentIndex;
 

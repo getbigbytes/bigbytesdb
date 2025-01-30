@@ -12,9 +12,9 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::test_kits::*;
 
 #[tokio::test(flavor = "multi_thread")]
 async fn test_deletion_mutator_multiple_empty_segments() -> Result<()> {

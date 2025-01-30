@@ -14,13 +14,13 @@
 
 use std::fmt::Debug;
 
-use bigbytes_common_catalog::partition_columns::str_to_scalar;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableField;
-use bigbytes_storages_common_pruner::partition_prunner::FetchPartitionScalars;
+use bigbytesdb_common_catalog::partition_columns::str_to_scalar;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_storages_common_pruner::partition_prunner::FetchPartitionScalars;
 use volo_thrift::MaybeException;
 
 use crate::hive_table::HIVE_DEFAULT_PARTITION;

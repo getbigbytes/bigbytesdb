@@ -37,7 +37,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::MarkedDeletedTableIndexIdIdent;
     use crate::schema::marked_deleted_table_index_id::MarkedDeletedTableIndexId;

@@ -15,11 +15,11 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::InvertedIndexInfo;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::F32;
-use bigbytes_storages_common_io::ReadSettings;
+use bigbytesdb_common_catalog::plan::InvertedIndexInfo;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_storages_common_io::ReadSettings;
 use opendal::Operator;
 use tantivy::query::Query;
 use tantivy::query::QueryClone;

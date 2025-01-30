@@ -24,20 +24,20 @@ use std::time::Duration;
 use std::time::Instant;
 
 use clap::Parser;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::runtime;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_client::ClientHandle;
-use bigbytes_common_meta_client::MetaGrpcClient;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_tracing::init_logging;
-use bigbytes_common_tracing::FileConfig;
-use bigbytes_common_tracing::StderrConfig;
-use bigbytes_meta::version::METASRV_COMMIT_VERSION;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::runtime;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_client::ClientHandle;
+use bigbytesdb_common_meta_client::MetaGrpcClient;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_tracing::init_logging;
+use bigbytesdb_common_tracing::FileConfig;
+use bigbytesdb_common_tracing::StderrConfig;
+use bigbytesdb_meta::version::METASRV_COMMIT_VERSION;
 use rand::rngs::StdRng;
 use rand::Rng;
 use rand::SeedableRng;
@@ -77,14 +77,14 @@ struct Config {
 async fn main() -> Result<()> {
     let config = Config::parse();
 
-    let log_config = bigbytes_common_tracing::Config {
+    let log_config = bigbytesdb_common_tracing::Config {
         file: FileConfig {
             on: true,
             level: config.log_level.clone(),
-            dir: "./.bigbytes/logs".to_string(),
+            dir: "./.bigbytesdb/logs".to_string(),
             format: "text".to_string(),
             limit: 48,
-            prefix_filter: "bigbytes_".to_string(),
+            prefix_filter: "bigbytesdb_".to_string(),
         },
         stderr: StderrConfig {
             on: true,
@@ -94,7 +94,7 @@ async fn main() -> Result<()> {
         ..Default::default()
     };
 
-    let _guards = init_logging("bigbytes-metaverifier", &log_config, BTreeMap::new());
+    let _guards = init_logging("bigbytesdb-metaverifier", &log_config, BTreeMap::new());
 
     println!("config: {:?}", config);
     if config.grpc_api_address.is_empty() {

@@ -15,13 +15,13 @@
 use std::fmt::Debug;
 use std::fmt::Formatter;
 
-use bigbytes_common_ast::ast::CopyIntoLocationOptions;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::principal::StageInfo;
+use bigbytesdb_common_ast::ast::CopyIntoLocationOptions;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::principal::StageInfo;
 
 use crate::plans::Plan;
 

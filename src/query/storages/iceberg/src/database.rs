@@ -17,16 +17,16 @@
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use bigbytes_common_catalog::database::Database;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::DatabaseId;
-use bigbytes_common_meta_app::schema::DatabaseInfo;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_catalog::database::Database;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::DatabaseId;
+use bigbytesdb_common_meta_app::schema::DatabaseInfo;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
 
 use crate::table::IcebergTable;
 use crate::IcebergCatalog;

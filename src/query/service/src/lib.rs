@@ -62,6 +62,6 @@ pub mod test_kits;
 mod builtin;
 mod global_services;
 
-pub use bigbytes_common_sql as sql;
-pub use bigbytes_common_storages_factory as storages;
+pub use bigbytesdb_common_sql as sql;
+pub use bigbytesdb_common_storages_factory as storages;
 pub use global_services::GlobalServices;

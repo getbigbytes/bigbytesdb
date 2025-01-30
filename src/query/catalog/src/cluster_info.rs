@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_types::NodeInfo;
+use bigbytesdb_common_meta_types::NodeInfo;
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
 pub struct Cluster {
@@ -39,7 +39,7 @@ impl Cluster {
     /// From @Xuanwo
     ///
     /// Ideally, we should implement a cluster trait to replace `ClusterHelper`
-    /// defined in `bigbytes-query`.
+    /// defined in `bigbytesdb-query`.
     pub fn is_empty(&self) -> bool {
         self.nodes.len() <= 1
     }

@@ -90,7 +90,7 @@ pub fn pretty_print_trace(spans: &[&SpanRecord]) {
         let mut buf = String::new();
         write_tree(&mut buf, &tree, "".to_string(), true, true).unwrap();
 
-        info!(target: "bigbytes::log::structlog", "{buf}");
+        info!(target: "bigbytesdb::log::structlog", "{buf}");
     }
 }
 

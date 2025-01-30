@@ -1,13 +1,13 @@
-# Bigbytes Long Run Tests
+# Bigbytesdb Long Run Tests
 
 ## Introduction
-Bigbytes long run tests would test the data correctness and performance of Bigbytes under concurrency and heavy load.
+Bigbytesdb long run tests would test the data correctness and performance of Bigbytesdb under concurrency and heavy load.
 For example:
 Test on concurrent large scale data ingestion, table maintainence(optimization, recluster and vacuum) and query.
 
 ## How to use it?
 ### Prerequisite
-1. Prepare a bigbytes cluster, either on local or on [cloud](https://app.bigbytes.com).
+1. Prepare a bigbytesdb cluster, either on local or on [cloud](https://app.bigbytesdb.com).
 2. Install [bendsql](https://github.com/getbigbytes/bendsql).
 3. Install python3
 
@@ -15,7 +15,7 @@ Test on concurrent large scale data ingestion, table maintainence(optimization, 
 
 The test would execute a serials of SQL and validation commands, and check the result.
 it would first execute before test scripts (`_before.sh`), then execute concurrent test scripts repeatively, and finally execute after test scripts(`_after.sh`).
-All event logs would be stored in a table on bigbytes, which can be used for further analysis.
+All event logs would be stored in a table on bigbytesdb, which can be used for further analysis.
 
 
 ```lua
@@ -52,30 +52,30 @@ All event logs would be stored in a table on bigbytes, which can be used for fur
 To run a specific long run test case, you can use the following command:
 
 ```bash
-WAREHOUSE_DSN=<target bigbytes warehouse dsn> python3 longrun.py -d <scripts directory> -i <concurrent test iteration number>
+WAREHOUSE_DSN=<target bigbytesdb warehouse dsn> python3 longrun.py -d <scripts directory> -i <concurrent test iteration number>
 ```
 
-For example, to run the `example` long run test case on your local bigbytes cluster, you can use the following command:
+For example, to run the `example` long run test case on your local bigbytesdb cluster, you can use the following command:
 
 ```bash
-WAREHOUSE_DSN=bigbytes://root:@localhost:8000/?sslmode=disable python3 longrun.py -d ./example -i 3
+WAREHOUSE_DSN=bigbytesdb://root:@localhost:8000/?sslmode=disable python3 longrun.py -d ./example -i 3
 ```
 
-The above command would run the `example` long run test case, which is located in `./example` directory, on your local bigbytes cluster, and repeat the concurrent test scripts 3 times.
+The above command would run the `example` long run test case, which is located in `./example` directory, on your local bigbytesdb cluster, and repeat the concurrent test scripts 3 times.
 
 #### Parameters:
 
 Environment variables may be used in long run test:
 | Name | Description | Default Value |
 | --- | --- | --- |
-| WAREHOUSE_DSN | The Bigbytes warehouse DSN | bigbytes://root:@localhost:8000/?sslmode=disable |
+| WAREHOUSE_DSN | The Bigbytesdb warehouse DSN | bigbytesdb://root:@localhost:8000/?sslmode=disable |
 
 Command line parameters:
 | Name | Description | Default Value | Required |
 | --- | --- | --- | --- |
 | -d, --directory | The directory of long run test scripts | | Yes |
 | -i, --iteration | The iteration number of concurrent test scripts |  | Yes |
-| --logger | The target table on bigbytes to store the test event logs | events | No |
+| --logger | The target table on bigbytesdb to store the test event logs | events | No |
 
 ### How to write tests?
 1. Create a directory for your test case, for example `example`.

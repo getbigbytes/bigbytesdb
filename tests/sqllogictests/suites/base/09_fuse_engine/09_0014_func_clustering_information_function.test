@@ -88,7 +88,7 @@ select * exclude(timestamp) from clustering_information('default','t09_0014_1', 
 statement ok
 drop table t09_0014_1 all
 
-##issue https://github.com/getbigbytes/bigbytes/issues/16763
+##issue https://github.com/getbigbytes/bigbytesdb/issues/16763
 statement ok
 create table t09_0014_2(c varchar not null) cluster by(substring(c FROM 1 FOR 4))
 

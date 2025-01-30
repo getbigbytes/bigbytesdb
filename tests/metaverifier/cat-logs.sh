@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir_path="/.bigbytes/logs"
+dir_path="/.bigbytesdb/logs"
 
 for file in "$dir_path"/*; do
     if [ -f "$file" ]; then

@@ -111,7 +111,7 @@ echo "CREATE TABLE IF NOT EXISTS ${db}.lineitem
 #download data
 mkdir -p $data_dir
 if [ ! -d ${data_dir}/tpch.tar.gz ]; then
-    curl -s -o ${data_dir}/tpch.tar.gz https://ci.bigbytes.com/dataset/stateful/tpch.tar.gz
+    curl -s -o ${data_dir}/tpch.tar.gz https://ci.bigbytesdb.com/dataset/stateful/tpch.tar.gz
 fi
 
 tar -zxf ${data_dir}/tpch.tar.gz -C $data_dir

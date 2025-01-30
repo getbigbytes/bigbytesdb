@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_query::catalogs::DatabaseCatalog;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_query::catalogs::DatabaseCatalog;
 
 pub async fn create_catalog() -> Result<DatabaseCatalog> {
-    let conf = bigbytes_query::test_kits::ConfigBuilder::create().config();
+    let conf = bigbytesdb_query::test_kits::ConfigBuilder::create().config();
     DatabaseCatalog::try_create_with_config(conf).await
 }

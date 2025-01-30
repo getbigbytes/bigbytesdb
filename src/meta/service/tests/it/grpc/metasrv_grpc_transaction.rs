@@ -14,7 +14,7 @@
 
 //! Test special cases of grpc API: transaction().
 
-use bigbytes_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::TxnRequest;
 use test_harness::test;
 
 use crate::testing::meta_service_test_harness;

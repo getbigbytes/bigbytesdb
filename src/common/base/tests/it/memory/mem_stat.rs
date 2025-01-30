@@ -14,8 +14,8 @@
 
 use std::time::SystemTime;
 
-use bigbytes_common_base::runtime::MemStat;
-use bigbytes_common_base::runtime::ThreadTracker;
+use bigbytesdb_common_base::runtime::MemStat;
+use bigbytesdb_common_base::runtime::ThreadTracker;
 
 #[test]
 fn test_mem_tracker_with_primitive_type() {

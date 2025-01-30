@@ -39,7 +39,7 @@ use std::fmt::Debug;
 use std::iter::TrustedLen;
 use std::ops::Range;
 
-pub use bigbytes_common_io::deserialize_bitmap;
+pub use bigbytesdb_common_io::deserialize_bitmap;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Serialize;

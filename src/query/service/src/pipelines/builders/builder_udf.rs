@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
-use bigbytes_common_sql::executor::physical_plans::Udf;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_sql::executor::physical_plans::Udf;
 
 use crate::pipelines::processors::transforms::TransformUdfScript;
 use crate::pipelines::processors::transforms::TransformUdfServer;

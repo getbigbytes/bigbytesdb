@@ -14,32 +14,32 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::Expr as AExpr;
-use bigbytes_common_ast::parser::parse_comma_separated_exprs;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_catalog::catalog::CATALOG_DEFAULT;
-use bigbytes_common_catalog::plan::Filters;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::infer_table_schema;
-use bigbytes_common_expression::type_check::check_cast;
-use bigbytes_common_expression::type_check::check_function;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_ast::ast::Expr as AExpr;
+use bigbytesdb_common_ast::parser::parse_comma_separated_exprs;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_catalog::catalog::CATALOG_DEFAULT;
+use bigbytesdb_common_catalog::plan::Filters;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::infer_table_schema;
+use bigbytesdb_common_expression::type_check::check_cast;
+use bigbytesdb_common_expression::type_check::check_function;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::schema::TableInfo;
 use derive_visitor::DriveMut;
 use parking_lot::RwLock;
 
@@ -545,7 +545,7 @@ impl Table for DummyTable {
         self
     }
 
-    fn get_table_info(&self) -> &bigbytes_common_meta_app::schema::TableInfo {
+    fn get_table_info(&self) -> &bigbytesdb_common_meta_app::schema::TableInfo {
         &self.info
     }
 }
@@ -580,8 +580,8 @@ pub fn field_default_value(ctx: Arc<dyn TableContext>, field: &TableField) -> Re
             let result = evaluator.run(&expr)?;
 
             match result {
-                bigbytes_common_expression::Value::Scalar(s) => Ok(s),
-                bigbytes_common_expression::Value::Column(c) if c.len() == 1 => {
+                bigbytesdb_common_expression::Value::Scalar(s) => Ok(s),
+                bigbytesdb_common_expression::Value::Column(c) if c.len() == 1 => {
                     let value = unsafe { c.index_unchecked(0) };
                     Ok(value.to_owned())
                 }

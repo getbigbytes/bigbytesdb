@@ -18,9 +18,9 @@ use std::io::Read;
 use std::io::Write;
 use std::marker::PhantomData;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::prelude::BinaryRead;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::prelude::BinaryRead;
 use serde::de::DeserializeOwned;
 use serde::Deserialize;
 use serde::Serialize;

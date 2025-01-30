@@ -14,19 +14,19 @@
 
 use std::fmt::Display;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ToErrorCode;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::seq_value::SeqValue;
-use bigbytes_common_meta_types::InvalidReply;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::MetaNetworkError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_proto_conv::FromToProto;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ToErrorCode;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::seq_value::SeqValue;
+use bigbytesdb_common_meta_types::InvalidReply;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::MetaNetworkError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_proto_conv::FromToProto;
 
 use crate::serde::Quota;
 
@@ -78,7 +78,7 @@ pub async fn check_and_upgrade_to_pb<T>(
 where
     T: FromToProto + serde::de::DeserializeOwned + 'static,
 {
-    let deserialize_result = bigbytes_common_meta_api::deserialize_struct(&seq_value.data);
+    let deserialize_result = bigbytesdb_common_meta_api::deserialize_struct(&seq_value.data);
 
     let err = match deserialize_result {
         Ok(data) => return Ok(SeqV::new(seq_value.seq, data)),
@@ -99,7 +99,7 @@ where
     quota.decrement();
 
     // If we reached here, it means JSON deserialization was successful but we need to serialize to protobuf format.
-    let value = bigbytes_common_meta_api::serialize_struct(&data)?;
+    let value = bigbytesdb_common_meta_api::serialize_struct(&data)?;
 
     let res = kv_api
         .upsert_kv(UpsertKV::new(

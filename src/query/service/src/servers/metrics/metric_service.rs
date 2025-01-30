@@ -15,10 +15,10 @@
 use std::net::SocketAddr;
 use std::time::Duration;
 
-use bigbytes_common_base::runtime::metrics::GLOBAL_METRICS_REGISTRY;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_http::HttpError;
-use bigbytes_common_http::HttpShutdownHandler;
+use bigbytesdb_common_base::runtime::metrics::GLOBAL_METRICS_REGISTRY;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_http::HttpError;
+use bigbytesdb_common_http::HttpShutdownHandler;
 use poem::IntoResponse;
 
 use crate::servers::Server;

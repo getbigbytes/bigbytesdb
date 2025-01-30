@@ -17,7 +17,7 @@ do
 	echo "remove @$STAGE;" | $BENDSQL_CLIENT_CONNECT
 	echo "truncate table iti;" | $BENDSQL_CLIENT_CONNECT
 
-	curl -s -u root: -XPUT -H "x-bigbytes-stage-name:${STAGE}" -F "upload=@${TESTS_DATA_DIR}/csv/sample.csv" "http://localhost:${QUERY_HTTP_HANDLER_PORT}/v1/upload_to_stage" | jq -r '.state'
+	curl -s -u root: -XPUT -H "x-bigbytesdb-stage-name:${STAGE}" -F "upload=@${TESTS_DATA_DIR}/csv/sample.csv" "http://localhost:${QUERY_HTTP_HANDLER_PORT}/v1/upload_to_stage" | jq -r '.state'
 	echo "list @$STAGE" | $BENDSQL_CLIENT_CONNECT | awk '{print $1}' | sort
 	echo "-- testing copy;"
   echo "copy into iti from @$STAGE FILE_FORMAT = (type = CSV skip_header = 1) force=true;" | $BENDSQL_CLIENT_CONNECT

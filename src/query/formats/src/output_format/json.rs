@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::date_helper::DateConverter;
-use bigbytes_common_expression::types::interval::interval_to_string;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::ScalarRef;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_io::deserialize_bitmap;
-use bigbytes_common_io::prelude::FormatSettings;
+use bigbytesdb_common_expression::date_helper::DateConverter;
+use bigbytesdb_common_expression::types::interval::interval_to_string;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::ScalarRef;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_io::deserialize_bitmap;
+use bigbytesdb_common_io::prelude::FormatSettings;
 use geozero::wkb::Ewkb;
 use geozero::ToJson;
 use jiff::fmt::strtime;
@@ -54,7 +54,7 @@ impl JSONOutputFormat {
         }
     }
 
-    fn format_schema(&self) -> bigbytes_common_exception::Result<Vec<u8>> {
+    fn format_schema(&self) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let fields = self.schema.fields();
         if fields.is_empty() {
             return Ok(b"\"meta\":[]".to_vec());
@@ -165,7 +165,7 @@ impl OutputFormat for JSONOutputFormat {
     fn serialize_block(
         &mut self,
         data_block: &DataBlock,
-    ) -> bigbytes_common_exception::Result<Vec<u8>> {
+    ) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let mut res = if self.first_block {
             self.first_block = false;
             let mut buf = b"{".to_vec();
@@ -213,7 +213,7 @@ impl OutputFormat for JSONOutputFormat {
         Ok(res)
     }
 
-    fn finalize(&mut self) -> bigbytes_common_exception::Result<Vec<u8>> {
+    fn finalize(&mut self) -> bigbytesdb_common_exception::Result<Vec<u8>> {
         let mut buf = b"".to_vec();
         if self.first_row {
             buf.push(b'{');

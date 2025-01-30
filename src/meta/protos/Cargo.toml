@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-protos"
+name = "bigbytesdb-common-protos"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }

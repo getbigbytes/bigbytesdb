@@ -19,9 +19,9 @@ use std::ops::ShlAssign;
 use std::ops::Shr;
 use std::ops::ShrAssign;
 
-use bigbytes_common_column::types::NativeType;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::types::F64;
+use bigbytesdb_common_column::types::NativeType;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::types::F64;
 use num::Float;
 
 use crate::util::AsBytes;

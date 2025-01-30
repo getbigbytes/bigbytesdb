@@ -20,21 +20,21 @@ use chrono::NaiveDateTime;
 use chrono::NaiveTime;
 use chrono::TimeZone;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
-use bigbytes_common_meta_app::storage::StorageCosConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageGcsConfig;
-use bigbytes_common_meta_app::storage::StorageObsConfig;
-use bigbytes_common_meta_app::storage::StorageOssConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageS3Config;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
-use bigbytes_common_proto_conv::FromToProto;
-use bigbytes_common_proto_conv::Incompatible;
-use bigbytes_common_proto_conv::VER;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_meta_app::storage::StorageCosConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageGcsConfig;
+use bigbytesdb_common_meta_app::storage::StorageObsConfig;
+use bigbytesdb_common_meta_app::storage::StorageOssConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageS3Config;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_common_proto_conv::FromToProto;
+use bigbytesdb_common_proto_conv::Incompatible;
+use bigbytesdb_common_proto_conv::VER;
+use bigbytesdb_common_protos::pb;
 use enumflags2::make_bitflags;
 use pretty_assertions::assert_eq;
 
@@ -110,8 +110,8 @@ pub(crate) fn test_fs_stage_info() -> mt::principal::StageInfo {
 
         number_of_files: 100,
         creator: Some(UserIdentity {
-            username: "bigbytes".to_string(),
-            hostname: "bigbytes.rs".to_string(),
+            username: "bigbytesdb".to_string(),
+            hostname: "bigbytesdb.rs".to_string(),
         }),
         created_on: Utc::now(),
     }

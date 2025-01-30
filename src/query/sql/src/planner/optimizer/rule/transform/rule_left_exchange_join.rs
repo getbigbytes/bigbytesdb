@@ -16,7 +16,7 @@ use std::ops::Deref;
 use std::sync::Arc;
 use std::vec;
 
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::Result;
 
 use super::util::get_join_predicates;
 use crate::binder::JoinPredicate;

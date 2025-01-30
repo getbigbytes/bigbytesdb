@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::DateType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::TimestampType;
-use bigbytes_common_expression::types::MAX_DECIMAL128_PRECISION;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
+use bigbytesdb_common_expression::types::DateType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::TimestampType;
+use bigbytesdb_common_expression::types::MAX_DECIMAL128_PRECISION;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
 
 use super::array::*;
 use super::PageIterator;
@@ -163,7 +163,7 @@ where
             init.push(InitNested::Primitive(is_nullable));
             DynIter::new(DecimalNestedIter::<
                 _,
-                bigbytes_common_column::types::i256,
+                bigbytesdb_common_column::types::i256,
                 ethnum::i256,
             >::new(
                 readers.pop().unwrap(), data_type.clone(), t.size(), init

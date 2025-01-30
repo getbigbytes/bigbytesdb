@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::SetType;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::UnsetPlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::SetType;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::UnsetPlan;
+use bigbytesdb_common_users::UserApiProvider;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

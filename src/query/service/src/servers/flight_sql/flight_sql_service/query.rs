@@ -27,16 +27,16 @@ use arrow_ipc::MessageHeader;
 use arrow_ipc::MetadataVersion;
 use arrow_schema::Schema as ArrowSchema;
 use bytes::Bytes;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_sql::get_query_kind;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::PlanExtras;
-use bigbytes_common_sql::Planner;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_sql::get_query_kind;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::PlanExtras;
+use bigbytesdb_common_sql::Planner;
+use bigbytesdb_common_storages_fuse::TableContext;
 use futures::Stream;
 use futures::StreamExt;
 use prost::bytes;
@@ -181,7 +181,7 @@ impl FlightSqlServiceImpl {
             .await;
 
         let s1 = sender.clone();
-        bigbytes_common_base::runtime::spawn(async move {
+        bigbytesdb_common_base::runtime::spawn(async move {
             let mut data_stream = data_stream;
 
             while let Some(block) = data_stream.next().await {
@@ -207,7 +207,7 @@ impl FlightSqlServiceImpl {
         });
 
         if is_native_client {
-            bigbytes_common_base::runtime::spawn(async move {
+            bigbytesdb_common_base::runtime::spawn(async move {
                 let total_scan_value = context.get_total_scan_value();
                 let mut current_scan_value = context.get_scan_progress_value();
 

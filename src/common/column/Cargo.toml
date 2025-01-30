@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-column"
+name = "bigbytesdb-common-column"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -22,8 +22,8 @@ column-default = [
 
 [dependencies]
 borsh = { workspace = true, features = ["derive"] }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 
 arrow-buffer = { workspace = true }
 arrow-data = { workspace = true }

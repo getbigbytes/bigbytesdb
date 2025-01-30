@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_storage::Datum;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
 
 // #[derive(Debug, Clone)]
 #[derive(serde::Serialize, serde::Deserialize, Clone, Debug, Default)]

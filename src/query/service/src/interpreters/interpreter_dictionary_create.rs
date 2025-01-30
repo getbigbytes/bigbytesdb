@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_ast::ast::CreateOption;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
-use bigbytes_common_meta_app::schema::CreateDictionaryReq;
-use bigbytes_common_meta_app::schema::DictionaryIdentity;
-use bigbytes_common_meta_app::schema::UpdateDictionaryReq;
-use bigbytes_common_sql::plans::CreateDictionaryPlan;
+use bigbytesdb_common_ast::ast::CreateOption;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateDictionaryReq;
+use bigbytesdb_common_meta_app::schema::DictionaryIdentity;
+use bigbytesdb_common_meta_app::schema::UpdateDictionaryReq;
+use bigbytesdb_common_sql::plans::CreateDictionaryPlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

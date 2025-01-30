@@ -16,10 +16,10 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use bytes::Bytes;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_storages_common_cache::SizedColumnArray;
-use bigbytes_storages_common_io::MergeIOReadResult;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_storages_common_cache::SizedColumnArray;
+use bigbytesdb_storages_common_io::MergeIOReadResult;
 use enum_as_inner::EnumAsInner;
 
 type CachedColumnData = Vec<(ColumnId, Arc<Bytes>)>;

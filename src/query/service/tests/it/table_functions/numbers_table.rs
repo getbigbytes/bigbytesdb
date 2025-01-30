@@ -12,18 +12,18 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
-use bigbytes_query::sessions::TableContext;
-use bigbytes_query::stream::ReadDataBlockStream;
-use bigbytes_query::table_functions::generate_numbers_parts;
-use bigbytes_query::table_functions::NumbersPartInfo;
-use bigbytes_query::table_functions::NumbersTable;
-use bigbytes_query::test_kits::TestFixture;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_sql::executor::table_read_plan::ToReadDataSourcePlan;
+use bigbytesdb_query::sessions::TableContext;
+use bigbytesdb_query::stream::ReadDataBlockStream;
+use bigbytesdb_query::table_functions::generate_numbers_parts;
+use bigbytesdb_query::table_functions::NumbersPartInfo;
+use bigbytesdb_query::table_functions::NumbersTable;
+use bigbytesdb_query::test_kits::TestFixture;
 use futures::TryStreamExt;
 use pretty_assertions::assert_eq;
 
@@ -70,7 +70,7 @@ async fn test_number_table() -> Result<()> {
         "| 7        |",
         "+----------+",
     ];
-    bigbytes_common_expression::block_debug::assert_blocks_sorted_eq(expected, result.as_slice());
+    bigbytesdb_common_expression::block_debug::assert_blocks_sorted_eq(expected, result.as_slice());
 
     Ok(())
 }

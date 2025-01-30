@@ -68,7 +68,7 @@ impl Rule for RulePushDownLimitOuterJoin {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let limit: Limit = s_expr.plan().clone().try_into()?;
         if limit.limit.is_some() {
             let child = s_expr.child(0)?;

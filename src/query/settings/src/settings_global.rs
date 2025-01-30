@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::UserSetting;
-use bigbytes_common_meta_app::principal::UserSettingValue;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::UserSetting;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
 use log::warn;
 
 use crate::settings::ChangeValue;
@@ -88,7 +88,7 @@ impl Settings {
             self.apply_local_config("max_storage_io_requests", val.to_string())?;
         }
 
-        if let Some(val) = query_config.bigbytes_enterprise_license.clone() {
+        if let Some(val) = query_config.bigbytesdb_enterprise_license.clone() {
             self.apply_local_config("enterprise_license", val)?;
         }
         Ok(())

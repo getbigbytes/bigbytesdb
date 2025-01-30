@@ -19,9 +19,9 @@ mod internal_seq;
 
 mod marked_impl;
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::seq_value::SeqValue;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::seq_value::SeqValue;
 pub(crate) use internal_seq::InternalSeq;
 
 use crate::state_machine::ExpireValue;
@@ -251,7 +251,7 @@ impl From<Marked<String>> for Option<ExpireValue> {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_types::seq_value::KVMeta;
+    use bigbytesdb_common_meta_types::seq_value::KVMeta;
 
     use super::Marked;
 

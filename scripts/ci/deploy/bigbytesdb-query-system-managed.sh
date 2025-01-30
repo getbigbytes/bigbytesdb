@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2022 The Bigbytes Authors.
+# Copyright 2022 The Bigbytesdb Authors.
 # SPDX-License-Identifier: Apache-2.0.
 
 set -e
@@ -15,7 +15,7 @@ elif [ $# -eq 2 ]; then
 	num=$1
 	node_group=$2
 else
-	echo "Usage: $0 <number> - Start number of bigbytes-query with system-managed mode"
+	echo "Usage: $0 <number> - Start number of bigbytesdb-query with system-managed mode"
 	exit 1
 fi
 
@@ -28,13 +28,13 @@ fi
 # `query` tries to remove its liveness record from meta before shutting down.
 # If meta is stopped, `query` will receive an error that hangs graceful
 # shutdown.
-killall bigbytes-query || true
+killall bigbytesdb-query || true
 sleep 3
 
-killall bigbytes-meta || true
+killall bigbytesdb-meta || true
 sleep 3
 
-for bin in bigbytes-query bigbytes-meta; do
+for bin in bigbytesdb-query bigbytesdb-meta; do
 	if test -n "$(pgrep $bin)"; then
 		echo "The $bin is not killed. force killing."
 		killall -9 $bin || true
@@ -46,21 +46,21 @@ sleep 1
 
 echo 'Start Meta service HA cluster(3 nodes)...'
 
-mkdir -p ./.bigbytes/
+mkdir -p ./.bigbytesdb/
 
-nohup ./target/${BUILD_PROFILE}/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-1.toml >./.bigbytes/meta-1.out 2>&1 &
+nohup ./target/${BUILD_PROFILE}/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-1.toml >./.bigbytesdb/meta-1.out 2>&1 &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 9191
 
 # wait for cluster formation to complete.
 sleep 1
 
-nohup ./target/${BUILD_PROFILE}/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-2.toml >./.bigbytes/meta-2.out 2>&1 &
+nohup ./target/${BUILD_PROFILE}/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-2.toml >./.bigbytesdb/meta-2.out 2>&1 &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 28202
 
 # wait for cluster formation to complete.
 sleep 1
 
-nohup ./target/${BUILD_PROFILE}/bigbytes-meta -c scripts/ci/deploy/config/bigbytes-meta-node-3.toml >./.bigbytes/meta-3.out 2>&1 &
+nohup ./target/${BUILD_PROFILE}/bigbytesdb-meta -c scripts/ci/deploy/config/bigbytesdb-meta-node-3.toml >./.bigbytesdb/meta-3.out 2>&1 &
 python3 scripts/ci/wait_tcp.py --timeout 30 --port 28302
 
 # wait for cluster formation to complete.
@@ -83,12 +83,12 @@ find_available_port() {
 	exit 1
 }
 
-start_bigbytes_query() {
+start_bigbytesdb_query() {
 	local http_port=$1
 	local mysql_port=$2
 	local log_dir=$3
 	local node_group=$4
-	system_managed_config="./scripts/ci/deploy/config/bigbytes-query-node-system-managed.toml"
+	system_managed_config="./scripts/ci/deploy/config/bigbytesdb-query-node-system-managed.toml"
 
 	temp_file=$(mktemp)
 
@@ -105,10 +105,10 @@ start_bigbytes_query() {
 			"$system_managed_config" >"$temp_file"
 
 		if [ $? -eq 0 ]; then
-			echo "Start bigbytes-query on port $http_port..."
-			nohup target/${BUILD_PROFILE}/bigbytes-query -c $temp_file --internal-enable-sandbox-tenant &
+			echo "Start bigbytesdb-query on port $http_port..."
+			nohup target/${BUILD_PROFILE}/bigbytesdb-query -c $temp_file --internal-enable-sandbox-tenant &
 
-			echo "Waiting on bigbytes-query 10 seconds..."
+			echo "Waiting on bigbytesdb-query 10 seconds..."
 			python3 scripts/ci/wait_tcp.py --timeout 30 --port $http_port
 		else
 			echo "Error occurred during port replacement."
@@ -122,12 +122,12 @@ start_bigbytes_query() {
 }
 
 if ! lsof -i :8000 >/dev/null 2>&1; then
-	start_bigbytes_query 8000 3307 "logs_1" $node_group
+	start_bigbytesdb_query 8000 3307 "logs_1" $node_group
 	num=$((num - 1))
 fi
 
 for ((i = 0; i < $num; i++)); do
 	http_port=$(find_available_port)
 	mysql_port=$(find_available_port)
-	start_bigbytes_query $http_port $mysql_port "logs_$http_port" $node_group
+	start_bigbytesdb_query $http_port $mysql_port "logs_$http_port" $node_group
 done

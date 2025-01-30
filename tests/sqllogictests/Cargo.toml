@@ -1,17 +1,17 @@
 [package]
-authors = ["Bigbytes Authors <opensource@getbigbytes.com>"]
+authors = ["Bigbytesdb Authors <opensource@getbigbytes.com>"]
 categories = ["command-line-utilities", "development-tools::build-utils"]
-description = "Bigbytes-Sqllogictests is a testing tool to verify the correctness of Bigbytes."
+description = "Bigbytesdb-Sqllogictests is a testing tool to verify the correctness of Bigbytesdb."
 edition = "2021"
 keywords = ["sqllogictest"]
 license = "Apache-2.0"
-name = "bigbytes-sqllogictests"
+name = "bigbytesdb-sqllogictests"
 readme = "README.md"
-repository = "https://github.com/getbigbytes/bigbytes/"
+repository = "https://github.com/getbigbytes/bigbytesdb/"
 version = "0.1.0"
 
 [[bin]]
-name = "bigbytes-sqllogictests"
+name = "bigbytesdb-sqllogictests"
 
 [dependencies]
 async-recursion = { workspace = true }
@@ -19,7 +19,7 @@ async-trait = { workspace = true }
 bollard = { workspace = true }
 clap = { workspace = true }
 cookie = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 env_logger = { workspace = true }
 futures-util = { workspace = true }
 mysql_async = { workspace = true }

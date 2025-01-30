@@ -1,45 +1,45 @@
 # Query
-/src/common/arrow/         @getbigbytes/bigbytes-query-reviewer
-/src/common/hashtable/     @getbigbytes/bigbytes-query-reviewer
-/src/common/io/            @getbigbytes/bigbytes-query-reviewer
-/src/query/datablocks/     @getbigbytes/bigbytes-query-reviewer
-/src/query/datavalues/     @getbigbytes/bigbytes-query-reviewer
-/src/query/functions/      @getbigbytes/bigbytes-query-reviewer
-/src/query/management/     @getbigbytes/bigbytes-query-reviewer
-/src/query/streams/        @getbigbytes/bigbytes-query-reviewer
+/src/common/arrow/         @getbigbytes/bigbytesdb-query-reviewer
+/src/common/hashtable/     @getbigbytes/bigbytesdb-query-reviewer
+/src/common/io/            @getbigbytes/bigbytesdb-query-reviewer
+/src/query/datablocks/     @getbigbytes/bigbytesdb-query-reviewer
+/src/query/datavalues/     @getbigbytes/bigbytesdb-query-reviewer
+/src/query/functions/      @getbigbytes/bigbytesdb-query-reviewer
+/src/query/management/     @getbigbytes/bigbytesdb-query-reviewer
+/src/query/streams/        @getbigbytes/bigbytesdb-query-reviewer
 
 # Executor
-/src/common/base/                  @getbigbytes/bigbytes-executor-reviewer
-/src/common/exception/             @getbigbytes/bigbytes-executor-reviewer
-/src/query/planners/               @getbigbytes/bigbytes-executor-reviewer
-/src/query/service/src/clusters/   @getbigbytes/bigbytes-executor-reviewer
-/src/query/service/src/pipelines/  @getbigbytes/bigbytes-executor-reviewer
-/src/query/service/src/api/rpc/    @getbigbytes/bigbytes-executor-reviewer
+/src/common/base/                  @getbigbytes/bigbytesdb-executor-reviewer
+/src/common/exception/             @getbigbytes/bigbytesdb-executor-reviewer
+/src/query/planners/               @getbigbytes/bigbytesdb-executor-reviewer
+/src/query/service/src/clusters/   @getbigbytes/bigbytesdb-executor-reviewer
+/src/query/service/src/pipelines/  @getbigbytes/bigbytesdb-executor-reviewer
+/src/query/service/src/api/rpc/    @getbigbytes/bigbytesdb-executor-reviewer
 
 # Planner
-/src/query/ast/                       @getbigbytes/bigbytes-planner-reviewer
-/src/query/service/src/optimizers/    @getbigbytes/bigbytes-planner-reviewer
+/src/query/ast/                       @getbigbytes/bigbytesdb-planner-reviewer
+/src/query/service/src/optimizers/    @getbigbytes/bigbytesdb-planner-reviewer
 
 # MetaSrv
-/src/common/grpc/         @getbigbytes/bigbytes-meta-reviewer
-/src/meta/                @getbigbytes/bigbytes-meta-reviewer
+/src/common/grpc/         @getbigbytes/bigbytesdb-meta-reviewer
+/src/meta/                @getbigbytes/bigbytesdb-meta-reviewer
 /src/meta/protos/proto    @drmingdrmer
 
 # Storage
-/src/common/cache/                 @getbigbytes/bigbytes-storage-reviewer
-/src/common/contexts/              @getbigbytes/bigbytes-storage-reviewer
-/src/common/storage/               @getbigbytes/bigbytes-storage-reviewer
-/src/query/catalog/                @getbigbytes/bigbytes-storage-reviewer
-/src/query/storages/               @getbigbytes/bigbytes-storage-reviewer
-/src/query/service/src/catalogs/   @getbigbytes/bigbytes-storage-reviewer
-/src/query/service/src/storages/   @getbigbytes/bigbytes-storage-reviewer
+/src/common/cache/                 @getbigbytes/bigbytesdb-storage-reviewer
+/src/common/contexts/              @getbigbytes/bigbytesdb-storage-reviewer
+/src/common/storage/               @getbigbytes/bigbytesdb-storage-reviewer
+/src/query/catalog/                @getbigbytes/bigbytesdb-storage-reviewer
+/src/query/storages/               @getbigbytes/bigbytesdb-storage-reviewer
+/src/query/service/src/catalogs/   @getbigbytes/bigbytesdb-storage-reviewer
+/src/query/service/src/storages/   @getbigbytes/bigbytesdb-storage-reviewer
 
 
 # API and handler
-/src/common/http/                  @getbigbytes/bigbytes-api-reviewer
-/src/query/service/src/servers/    @getbigbytes/bigbytes-api-reviewer
+/src/common/http/                  @getbigbytes/bigbytesdb-api-reviewer
+/src/query/service/src/servers/    @getbigbytes/bigbytesdb-api-reviewer
 
 # Tool
-/docker/               @getbigbytes/bigbytes-tool-reviewer
-/scripts/              @getbigbytes/bigbytes-tool-reviewer
-/.github/              @getbigbytes/bigbytes-tool-reviewer
+/docker/               @getbigbytes/bigbytesdb-tool-reviewer
+/scripts/              @getbigbytes/bigbytesdb-tool-reviewer
+/.github/              @getbigbytes/bigbytesdb-tool-reviewer

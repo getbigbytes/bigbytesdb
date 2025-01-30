@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-storages-common-pruner"
+name = "bigbytesdb-storages-common-pruner"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,11 +11,11 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-functions = { workspace = true }
-bigbytes-storages-common-index = { workspace = true }
-bigbytes-storages-common-table-meta = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-functions = { workspace = true }
+bigbytesdb-storages-common-index = { workspace = true }
+bigbytesdb-storages-common-table-meta = { workspace = true }
 log = { workspace = true }
 serde = { workspace = true }
 typetag = { workspace = true }

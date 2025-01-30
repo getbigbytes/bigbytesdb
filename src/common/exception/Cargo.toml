@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-exception"
+name = "bigbytesdb-common-exception"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -11,7 +11,7 @@ doctest = false
 test = true
 
 [dependencies]
-bigbytes-common-ast = { workspace = true }
+bigbytesdb-common-ast = { workspace = true }
 
 anyhow = { workspace = true }
 arrow-flight = { workspace = true }

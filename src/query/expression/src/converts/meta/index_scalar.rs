@@ -15,9 +15,9 @@
 // DO NOT EDIT.
 // This crate keeps some Index codes for compatibility, it's locked by bincode of meta's v3 version
 
-use bigbytes_common_column::types::months_days_micros;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_column::types::months_days_micros;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Serialize;

@@ -17,8 +17,8 @@ use std::fmt::Formatter;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LambdaUDF {

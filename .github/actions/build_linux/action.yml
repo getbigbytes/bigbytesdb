@@ -30,7 +30,7 @@ runs:
       uses: ./.github/actions/setup_build_tool
       with:
         target: ${{ inputs.target }}
-        bypass_env_vars: RUSTFLAGS,RUST_LOG,BIGBYTES_ENTERPRISE_LICENSE_PUBLIC_KEY
+        bypass_env_vars: RUSTFLAGS,RUST_LOG,BIGBYTESDB_ENTERPRISE_LICENSE_PUBLIC_KEY
 
     - name: Cross setup
       if: startsWith(inputs.target, 'aarch64-')
@@ -71,10 +71,10 @@ runs:
         artifacts="meta,metactl,metabench,query,sqllogictests"
         binaries=""
         for artifact in ${artifacts//,/ }; do
-          binaries="${binaries} --bin bigbytes-$artifact"
+          binaries="${binaries} --bin bigbytesdb-$artifact"
         done
         cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --features ${{ inputs.features }} --profile ${{ env.BUILD_PROFILE }} ${binaries}
-        ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-*
+        ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-*
 
     - name: Build Release for specific artifacts
       if: inputs.artifacts != 'all'
@@ -82,30 +82,30 @@ runs:
       run: |
         artifacts="${{ inputs.artifacts }}"
         for artifact in ${artifacts//,/ }; do
-          echo "==> building bigbytes-$artifact ..."
-          cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --features ${{ inputs.features }} --profile ${{ env.BUILD_PROFILE }} --bin bigbytes-$artifact
-          ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-$artifact
+          echo "==> building bigbytesdb-$artifact ..."
+          cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --features ${{ inputs.features }} --profile ${{ env.BUILD_PROFILE }} --bin bigbytesdb-$artifact
+          ls -lh ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-$artifact
         done
 
     - name: Check Binary Info
       shell: bash
       run: |
-        readelf -p .comment ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query || true
-        ldd ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query || true
+        readelf -p .comment ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query || true
+        ldd ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query || true
 
     - name: Spilt Binary Symbols
       shell: bash
       run: |
-        objcopy --only-keep-debug ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query.debug
-        chmod 0644 ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query.debug
-        strip --strip-debug --remove-section=.comment --remove-section=.note ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-query
-        pushd ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }} && objcopy --add-gnu-debuglink bigbytes-query.debug bigbytes-query && popd
+        objcopy --only-keep-debug ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query.debug
+        chmod 0644 ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query.debug
+        strip --strip-debug --remove-section=.comment --remove-section=.note ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-query
+        pushd ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }} && objcopy --add-gnu-debuglink bigbytesdb-query.debug bigbytesdb-query && popd
 
     # - name: Compress Binaries with UPX
     #   if: env.BUILD_PROFILE == 'debug'
     #   uses: crazy-max/ghaction-upx@v2
     #   with:
-    #     files: ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-*
+    #     files: ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-*
 
     - name: Upload artifact
       if: inputs.upload == 'true'

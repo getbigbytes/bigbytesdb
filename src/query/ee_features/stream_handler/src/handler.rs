@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::CreateTableReply;
-use bigbytes_common_meta_app::schema::DropTableReply;
-use bigbytes_common_sql::plans::CreateStreamPlan;
-use bigbytes_common_sql::plans::DropStreamPlan;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::CreateTableReply;
+use bigbytesdb_common_meta_app::schema::DropTableReply;
+use bigbytesdb_common_sql::plans::CreateStreamPlan;
+use bigbytesdb_common_sql::plans::DropStreamPlan;
 
 #[async_trait::async_trait]
 pub trait StreamHandler: Sync + Send {

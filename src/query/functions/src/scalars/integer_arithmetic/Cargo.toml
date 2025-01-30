@@ -1,11 +1,11 @@
 [package]
-name = "bigbytes-functions-scalar-integer-basic-arithmetic"
+name = "bigbytesdb-functions-scalar-integer-basic-arithmetic"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bigbytes-common-expression = { workspace = true }
-bigbytes-functions-scalar-numeric-basic-arithmetic = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-functions-scalar-numeric-basic-arithmetic = { workspace = true }
 match-template = { workspace = true }
 num-traits = { workspace = true }
 

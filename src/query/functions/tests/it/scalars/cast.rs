@@ -14,9 +14,9 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 use itertools::Itertools;
 use roaring::RoaringTreemap;

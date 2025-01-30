@@ -15,14 +15,14 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::HashMethodKind;
-use bigbytes_common_sql::plans::JoinType;
-use bigbytes_common_storage::DataOperator;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::HashMethodKind;
+use bigbytesdb_common_sql::plans::JoinType;
+use bigbytesdb_common_storage::DataOperator;
+use bigbytesdb_common_storages_fuse::TableContext;
 
 use crate::pipelines::processors::transforms::hash_join::spill_common::get_hashes;
 use crate::pipelines::processors::HashJoinState;

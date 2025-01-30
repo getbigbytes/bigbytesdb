@@ -14,15 +14,15 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::DatabaseType;
-use bigbytes_common_meta_app::schema::UpdateTableMetaReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_sql::plans::ModifyTableCommentPlan;
-use bigbytes_common_storages_stream::stream_table::STREAM_ENGINE;
-use bigbytes_common_storages_view::view_table::VIEW_ENGINE;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::DatabaseType;
+use bigbytesdb_common_meta_app::schema::UpdateTableMetaReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_sql::plans::ModifyTableCommentPlan;
+use bigbytesdb_common_storages_stream::stream_table::STREAM_ENGINE;
+use bigbytesdb_common_storages_view::view_table::VIEW_ENGINE;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

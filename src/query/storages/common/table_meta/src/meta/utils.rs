@@ -21,8 +21,8 @@ use chrono::Datelike;
 use chrono::TimeZone;
 use chrono::Timelike;
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::table::table_storage_prefix;
 use crate::table::OPT_KEY_DATABASE_ID;
@@ -91,7 +91,7 @@ pub fn trim_vacuum2_object_prefix(key: &str) -> &str {
 //   bucket/root/115/122/_b/g0191114d30fd78b89fae8e5c88327725_v2.parquet
 //   bucket/root/115/122/_b/0191114d30fd78b89fae8e5c88327725_v2.parquet
 // The function should return: 0191114d30fd78b89fae8e5c88327725
-pub fn try_extract_uuid_str_from_path(path: &str) -> bigbytes_common_exception::Result<&str> {
+pub fn try_extract_uuid_str_from_path(path: &str) -> bigbytesdb_common_exception::Result<&str> {
     if let Some(file_stem) = Path::new(path).file_stem() {
         let file_name = file_stem
             .to_str()
@@ -110,7 +110,7 @@ pub fn try_extract_uuid_str_from_path(path: &str) -> bigbytes_common_exception::
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_base::base::uuid::Uuid;
+    use bigbytesdb_common_base::base::uuid::Uuid;
 
     use super::*;
 

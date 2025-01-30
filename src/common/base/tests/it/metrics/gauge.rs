@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::runtime::metrics::Gauge;
+use bigbytesdb_common_base::runtime::metrics::Gauge;
 
 #[test]
 fn test_clone_gauge_metric() {

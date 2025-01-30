@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::group_hash_columns;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::InputColumns;
-use bigbytes_common_pipeline_core::processors::Exchange;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::group_hash_columns;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::InputColumns;
+use bigbytesdb_common_pipeline_core::processors::Exchange;
 
 use super::WindowPartitionMeta;
 

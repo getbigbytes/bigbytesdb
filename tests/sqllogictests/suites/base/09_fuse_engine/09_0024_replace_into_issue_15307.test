@@ -7,7 +7,7 @@ CREATE DATABASE issue_15307
 statement ok
 USE issue_15307
 
-# https://github.com/getbigbytes/bigbytes/issues/15307
+# https://github.com/getbigbytes/bigbytesdb/issues/15307
 
 statement ok
 create or replace table t( c1 bool);

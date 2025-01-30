@@ -21,10 +21,10 @@ mydb = mysql.connector.connect(
 
 
 def get_license():
-    return os.getenv("QUERY_BIGBYTES_ENTERPRISE_LICENSE")
+    return os.getenv("QUERY_BIGBYTESDB_ENTERPRISE_LICENSE")
 
 
-# TODO: https://github.com/getbigbytes/bigbytes/pull/15088
+# TODO: https://github.com/getbigbytes/bigbytesdb/pull/15088
 # if __name__ == "__main__":
 # with NativeClient(name="client1>") as client1:
 #     client1.expect(prompt)

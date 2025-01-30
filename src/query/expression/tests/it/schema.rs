@@ -14,14 +14,14 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::create_test_complex_schema;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::create_test_complex_schema;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
 use pretty_assertions::assert_eq;
 
 #[test]
@@ -243,32 +243,32 @@ fn test_field_leaf_default_values() -> Result<()> {
     let schema = TableSchema::new(fields);
 
     let default_values = vec![
-        Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::UInt64(1)),
+        Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::UInt64(1)),
         Scalar::Tuple(vec![
             Scalar::Tuple(vec![
                 Scalar::Boolean(true),
                 Scalar::String("ab".to_string()),
             ]),
-            Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::Int64(2)),
+            Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::Int64(2)),
         ]),
-        Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::UInt64(10)),
+        Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::UInt64(10)),
     ];
 
     let leaf_default_values = schema.field_leaf_default_values(&default_values);
     let expected_leaf_default_values: Vec<(ColumnId, Scalar)> = vec![
         (
             0,
-            Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::UInt64(1)),
+            Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::UInt64(1)),
         ),
         (1, Scalar::Boolean(true)),
         (2, Scalar::String("ab".to_string())),
         (
             3,
-            Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::Int64(2)),
+            Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::Int64(2)),
         ),
         (
             4,
-            Scalar::Number(bigbytes_common_expression::types::number::NumberScalar::UInt64(10)),
+            Scalar::Number(bigbytesdb_common_expression::types::number::NumberScalar::UInt64(10)),
         ),
     ];
     expected_leaf_default_values
@@ -642,10 +642,10 @@ fn test_leaf_columns_of() -> Result<()> {
 
 #[test]
 fn test_geography_as_arrow() {
-    use bigbytes_common_expression::types::binary::BinaryColumnBuilder;
-    use bigbytes_common_expression::types::geography::GeographyColumn;
-    use bigbytes_common_expression::Column;
-    use bigbytes_common_io::wkb::make_point;
+    use bigbytesdb_common_expression::types::binary::BinaryColumnBuilder;
+    use bigbytesdb_common_expression::types::geography::GeographyColumn;
+    use bigbytesdb_common_expression::Column;
+    use bigbytesdb_common_io::wkb::make_point;
 
     let mut builder = BinaryColumnBuilder::with_capacity(3, 0);
     builder.put_slice(&make_point(1.0, 2.0));

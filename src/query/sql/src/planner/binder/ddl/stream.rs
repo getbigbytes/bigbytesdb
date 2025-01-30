@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::CreateStreamStmt;
-use bigbytes_common_ast::ast::DescribeStreamStmt;
-use bigbytes_common_ast::ast::DropStreamStmt;
-use bigbytes_common_ast::ast::ShowLimit;
-use bigbytes_common_ast::ast::ShowStreamsStmt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_ast::ast::CreateStreamStmt;
+use bigbytesdb_common_ast::ast::DescribeStreamStmt;
+use bigbytesdb_common_ast::ast::DropStreamStmt;
+use bigbytesdb_common_ast::ast::ShowLimit;
+use bigbytesdb_common_ast::ast::ShowStreamsStmt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
 use log::debug;
 
 use crate::binder::Binder;

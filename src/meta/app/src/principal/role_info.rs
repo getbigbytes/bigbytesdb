@@ -18,7 +18,7 @@ use std::fmt::Formatter;
 use anyerror::AnyError;
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
+use bigbytesdb_common_exception::ErrorCode;
 use serde::Deserialize;
 use serde::Serialize;
 

@@ -14,8 +14,8 @@
 
 use std::sync::LazyLock;
 
-pub static BIGBYTES_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
-    let build_semver = option_env!("BIGBYTES_GIT_SEMVER");
+pub static BIGBYTESDB_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
+    let build_semver = option_env!("BIGBYTESDB_GIT_SEMVER");
     let git_sha = option_env!("VERGEN_GIT_SHA");
     let rustc_semver = option_env!("VERGEN_RUSTC_SEMVER");
     let timestamp = option_env!("VERGEN_BUILD_TIMESTAMP");

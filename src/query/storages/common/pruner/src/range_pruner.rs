@@ -15,15 +15,15 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_storages_common_index::RangeIndex;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
-use bigbytes_storages_common_table_meta::meta::StatisticsOfColumns;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_storages_common_index::RangeIndex;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::StatisticsOfColumns;
 use log::warn;
 
 pub trait RangePruner {

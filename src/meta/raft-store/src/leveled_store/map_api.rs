@@ -22,7 +22,7 @@ use std::fmt::Write;
 use std::io;
 use std::ops::RangeBounds;
 
-use bigbytes_common_meta_types::seq_value::KVMeta;
+use bigbytesdb_common_meta_types::seq_value::KVMeta;
 use futures::stream::StreamExt;
 use futures_util::stream::BoxStream;
 use stream_more::KMerge;

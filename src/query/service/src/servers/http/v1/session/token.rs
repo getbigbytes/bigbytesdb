@@ -15,9 +15,9 @@
 use std::time::Duration;
 
 use base64::prelude::*;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::user_token::TokenType;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::user_token::TokenType;
 use rand::rngs::OsRng;
 use rand::RngCore;
 use serde::Deserialize;
@@ -65,7 +65,7 @@ impl SessionClaim {
             expire_at_in_secs: (unix_ts() + ttl).as_secs(),
         }
     }
-    pub fn is_bigbytes_token(token: &str) -> bool {
+    pub fn is_bigbytesdb_token(token: &str) -> bool {
         token.starts_with(TOKEN_PREFIX)
     }
 

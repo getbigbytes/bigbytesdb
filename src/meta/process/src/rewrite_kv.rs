@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_app::schema::TableId;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_kvapi::kvapi::Key;
-use bigbytes_common_proto_conv::FromToProto;
-use bigbytes_common_protos::pb;
+use bigbytesdb_common_meta_app::schema::TableId;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_kvapi::kvapi::Key;
+use bigbytesdb_common_proto_conv::FromToProto;
+use bigbytesdb_common_protos::pb;
 use prost::Message;
 
 /// Convert old version TableMeta protobuf message to new version.

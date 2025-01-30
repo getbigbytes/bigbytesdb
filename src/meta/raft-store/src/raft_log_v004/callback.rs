@@ -15,7 +15,7 @@
 use std::io;
 use std::sync::mpsc::SyncSender;
 
-use bigbytes_common_meta_types::raft_types;
+use bigbytesdb_common_meta_types::raft_types;
 use log::info;
 use log::warn;
 use tokio::sync::oneshot;

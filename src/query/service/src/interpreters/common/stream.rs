@@ -15,24 +15,24 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_meta_app::schema::UpdateTableMetaReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_storages_factory::Table;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_common_storages_fuse::TableContext;
-use bigbytes_common_storages_stream::stream_table::StreamTable;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_DATABASE_NAME;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_SOURCE_DATABASE_ID;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TABLE_NAME;
-use bigbytes_storages_common_table_meta::table::OPT_KEY_TABLE_VER;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateTableMetaReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_storages_factory::Table;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_common_storages_fuse::TableContext;
+use bigbytesdb_common_storages_stream::stream_table::StreamTable;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_ID;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_DATABASE_NAME;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SNAPSHOT_LOCATION;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_SOURCE_DATABASE_ID;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TABLE_NAME;
+use bigbytesdb_storages_common_table_meta::table::OPT_KEY_TABLE_VER;
 
 use crate::sessions::QueryContext;
 

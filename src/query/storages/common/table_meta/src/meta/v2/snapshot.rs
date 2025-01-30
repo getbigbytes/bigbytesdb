@@ -14,8 +14,8 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression::converts::datavalues::from_schema;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_expression::converts::datavalues::from_schema;
+use bigbytesdb_common_expression::TableSchema;
 use serde::Deserialize;
 use serde::Serialize;
 

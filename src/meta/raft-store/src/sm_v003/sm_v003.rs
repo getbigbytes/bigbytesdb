@@ -16,12 +16,12 @@ use std::collections::Bound;
 use std::fmt::Debug;
 use std::io;
 
-use bigbytes_common_meta_types::protobuf::WatchResponse;
-use bigbytes_common_meta_types::raft_types::Entry;
-use bigbytes_common_meta_types::raft_types::StorageError;
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_common_meta_types::sys_data::SysData;
-use bigbytes_common_meta_types::AppliedState;
+use bigbytesdb_common_meta_types::protobuf::WatchResponse;
+use bigbytesdb_common_meta_types::raft_types::Entry;
+use bigbytesdb_common_meta_types::raft_types::StorageError;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::AppliedState;
 use log::info;
 use openraft::RaftLogId;
 use tokio::sync::mpsc;
@@ -103,7 +103,7 @@ impl SMV003 {
         // when importing data with metactl:
         // The snapshot is empty but contains Nodes data that are manually added.
         //
-        // See: `bigbytes_metactl::import`
+        // See: `bigbytesdb_metactl::import`
         let my_last_applied = *self.sys_data_ref().last_applied_ref();
         #[allow(clippy::collapsible_if)]
         if my_last_applied.is_some() {

@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::GlobalUniqName;
-use bigbytes_common_config::BuiltInConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_config::UDFConfig;
-use bigbytes_common_config::UserAuthConfig;
-use bigbytes_common_config::UserConfig;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_base::base::GlobalUniqName;
+use bigbytesdb_common_config::BuiltInConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_config::UDFConfig;
+use bigbytesdb_common_config::UserAuthConfig;
+use bigbytesdb_common_config::UserConfig;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 use tempfile::TempDir;
 
 pub struct ConfigBuilder {
@@ -31,7 +31,7 @@ impl ConfigBuilder {
     pub fn create() -> ConfigBuilder {
         let mut conf = InnerConfig::default();
         conf.query.tenant_id = Tenant::new_literal("test");
-        conf.log = bigbytes_common_tracing::Config::new_testing();
+        conf.log = bigbytesdb_common_tracing::Config::new_testing();
         conf.query.cluster_id = String::from("test_cluster");
 
         // add builtin users for test
@@ -50,7 +50,7 @@ impl ConfigBuilder {
     RETURNS STRING
     LANGUAGE python
 HANDLER = 'ping'
-ADDRESS = 'https://bigbytes.com';"
+ADDRESS = 'https://bigbytesdb.com';"
                 .to_string(),
         }];
         conf.query.builtin = BuiltInConfig { users, udfs };

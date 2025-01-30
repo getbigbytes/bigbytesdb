@@ -15,26 +15,26 @@
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use bigbytes_common_base::base::escape_for_key;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_management::*;
-use bigbytes_common_meta_app::principal::AuthInfo;
-use bigbytes_common_meta_app::principal::PasswordHashMethod;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_kvapi::kvapi;
-use bigbytes_common_meta_kvapi::kvapi::GetKVReply;
-use bigbytes_common_meta_kvapi::kvapi::KVStream;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReply;
-use bigbytes_common_meta_kvapi::kvapi::MGetKVReply;
-use bigbytes_common_meta_kvapi::kvapi::UpsertKVReply;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_meta_types::MetaError;
-use bigbytes_common_meta_types::Operation;
-use bigbytes_common_meta_types::TxnReply;
-use bigbytes_common_meta_types::TxnRequest;
-use bigbytes_common_meta_types::UpsertKV;
+use bigbytesdb_common_base::base::escape_for_key;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_management::*;
+use bigbytesdb_common_meta_app::principal::AuthInfo;
+use bigbytesdb_common_meta_app::principal::PasswordHashMethod;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_kvapi::kvapi;
+use bigbytesdb_common_meta_kvapi::kvapi::GetKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::KVStream;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::MGetKVReply;
+use bigbytesdb_common_meta_kvapi::kvapi::UpsertKVReply;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_meta_types::MetaError;
+use bigbytesdb_common_meta_types::Operation;
+use bigbytesdb_common_meta_types::TxnReply;
+use bigbytesdb_common_meta_types::TxnRequest;
+use bigbytesdb_common_meta_types::UpsertKV;
 use mockall::predicate::*;
 use mockall::*;
 
@@ -81,15 +81,15 @@ fn default_test_auth_info() -> AuthInfo {
 }
 
 mod add {
-    use bigbytes_common_meta_app::principal::UserInfo;
-    use bigbytes_common_meta_app::schema::CreateOption;
-    use bigbytes_common_meta_app::tenant::Tenant;
-    use bigbytes_common_meta_types::Operation;
+    use bigbytesdb_common_meta_app::principal::UserInfo;
+    use bigbytesdb_common_meta_app::schema::CreateOption;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_types::Operation;
 
     use super::*;
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_add_user() -> bigbytes_common_exception::Result<()> {
+    async fn test_add_user() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test_user";
         let test_hostname = "localhost";
         let user_info = UserInfo::new(test_user_name, test_hostname, default_test_auth_info());
@@ -160,13 +160,13 @@ mod add {
 }
 
 mod get {
-    use bigbytes_common_meta_app::principal::UserInfo;
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_app::principal::UserInfo;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use super::*;
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_user_seq_match() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_user_seq_match() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -192,7 +192,7 @@ mod get {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_user_do_not_care_seq() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_user_do_not_care_seq() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -217,7 +217,7 @@ mod get {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_user_not_exist() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_user_not_exist() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -245,7 +245,7 @@ mod get {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_user_not_exist_seq_mismatch() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_user_not_exist_seq_mismatch() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -273,7 +273,7 @@ mod get {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_user_invalid_user_info_encoding() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_user_invalid_user_info_encoding() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "test";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -303,15 +303,15 @@ mod get {
 }
 
 mod get_users {
-    use bigbytes_common_meta_app::principal::UserInfo;
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_app::principal::UserInfo;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use super::*;
 
     type FakeKeys = Vec<(String, SeqV<Vec<u8>>)>;
     type UserInfos = Vec<SeqV<UserInfo>>;
 
-    fn prepare() -> bigbytes_common_exception::Result<(FakeKeys, UserInfos)> {
+    fn prepare() -> bigbytesdb_common_exception::Result<(FakeKeys, UserInfos)> {
         let mut names = vec![];
         let mut hostnames = vec![];
         let mut keys = vec![];
@@ -341,7 +341,7 @@ mod get_users {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_users_normal() -> bigbytes_common_exception::Result<()> {
+    async fn test_get_users_normal() -> bigbytesdb_common_exception::Result<()> {
         let (res, user_infos) = prepare()?;
         let mut kv = MockKV::new();
         {
@@ -361,7 +361,7 @@ mod get_users {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_get_all_users_invalid_user_info_encoding() -> bigbytes_common_exception::Result<()>
+    async fn test_get_all_users_invalid_user_info_encoding() -> bigbytesdb_common_exception::Result<()>
     {
         let (mut res, _user_infos) = prepare()?;
         res.insert(
@@ -394,12 +394,12 @@ mod get_users {
 }
 
 mod drop {
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use super::*;
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_drop_user_normal_case() -> bigbytes_common_exception::Result<()> {
+    async fn test_drop_user_normal_case() -> bigbytesdb_common_exception::Result<()> {
         let mut kv = MockKV::new();
         let test_user = "test";
         let test_hostname = "localhost";
@@ -425,7 +425,7 @@ mod drop {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_drop_user_unknown() -> bigbytes_common_exception::Result<()> {
+    async fn test_drop_user_unknown() -> bigbytesdb_common_exception::Result<()> {
         let mut kv = MockKV::new();
         let test_user = "test";
         let test_hostname = "localhost";
@@ -451,9 +451,9 @@ mod drop {
 }
 
 mod update {
-    use bigbytes_common_meta_app::principal::AuthInfo;
-    use bigbytes_common_meta_app::principal::UserInfo;
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_app::principal::AuthInfo;
+    use bigbytesdb_common_meta_app::principal::UserInfo;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use super::*;
 
@@ -470,16 +470,16 @@ mod update {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_update_user_normal_update_full() -> bigbytes_common_exception::Result<()> {
+    async fn test_update_user_normal_update_full() -> bigbytesdb_common_exception::Result<()> {
         test_update_user_normal(true).await
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_update_user_normal_update_partial() -> bigbytes_common_exception::Result<()> {
+    async fn test_update_user_normal_update_partial() -> bigbytesdb_common_exception::Result<()> {
         test_update_user_normal(false).await
     }
 
-    async fn test_update_user_normal(full: bool) -> bigbytes_common_exception::Result<()> {
+    async fn test_update_user_normal(full: bool) -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "name";
         let test_hostname = "localhost";
 
@@ -531,7 +531,7 @@ mod update {
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
     async fn test_update_user_with_conflict_when_writing_back(
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "name";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -560,7 +560,7 @@ mod update {
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_update_user_with_complete() -> bigbytes_common_exception::Result<()> {
+    async fn test_update_user_with_complete() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "name";
         let test_hostname = "localhost";
         let test_key = format!(
@@ -600,16 +600,16 @@ mod update {
 }
 
 mod set_user_privileges {
-    use bigbytes_common_meta_app::principal::GrantObject;
-    use bigbytes_common_meta_app::principal::UserInfo;
-    use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-    use bigbytes_common_meta_app::principal::UserPrivilegeType;
-    use bigbytes_common_meta_app::tenant::Tenant;
+    use bigbytesdb_common_meta_app::principal::GrantObject;
+    use bigbytesdb_common_meta_app::principal::UserInfo;
+    use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+    use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
+    use bigbytesdb_common_meta_app::tenant::Tenant;
 
     use super::*;
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
-    async fn test_grant_user_privileges() -> bigbytes_common_exception::Result<()> {
+    async fn test_grant_user_privileges() -> bigbytesdb_common_exception::Result<()> {
         let test_user_name = "name";
         let test_hostname = "localhost";
         let test_key = format!(

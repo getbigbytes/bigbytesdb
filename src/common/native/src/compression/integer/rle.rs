@@ -17,8 +17,8 @@ use std::io::Write;
 
 use byteorder::LittleEndian;
 use byteorder::ReadBytesExt;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_expression::types::Bitmap;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_expression::types::Bitmap;
 
 use super::compress_sample_ratio;
 use super::IntegerCompression;

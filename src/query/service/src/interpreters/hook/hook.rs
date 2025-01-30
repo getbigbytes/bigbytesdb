@@ -15,10 +15,10 @@
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_pipeline_core::Pipeline;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_pipeline_core::Pipeline;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
 use log::info;
 use log::warn;
 

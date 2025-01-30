@@ -15,24 +15,24 @@
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
-use bigbytes_common_meta_app::schema::CreateDatabaseReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::schema::CreateTableReq;
-use bigbytes_common_meta_app::schema::DatabaseMeta;
-use bigbytes_common_meta_app::schema::DropDatabaseReq;
-use bigbytes_common_meta_app::schema::DropTableByIdReq;
-use bigbytes_common_meta_app::schema::RenameDatabaseReq;
-use bigbytes_common_meta_app::schema::TableMeta;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_query::catalogs::Catalog;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_common_meta_app::schema::database_name_ident::DatabaseNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateDatabaseReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::schema::CreateTableReq;
+use bigbytesdb_common_meta_app::schema::DatabaseMeta;
+use bigbytesdb_common_meta_app::schema::DropDatabaseReq;
+use bigbytesdb_common_meta_app::schema::DropTableByIdReq;
+use bigbytesdb_common_meta_app::schema::RenameDatabaseReq;
+use bigbytesdb_common_meta_app::schema::TableMeta;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_query::catalogs::Catalog;
 
 use crate::tests::create_catalog;
 

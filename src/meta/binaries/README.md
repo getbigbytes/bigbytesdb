@@ -1,7 +1,7 @@
-# Bigbytes Binaries
+# Bigbytesdb Binaries
 
-Contains all bigbytes binaries:
+Contains all bigbytesdb binaries:
 
-- [`meta`](./meta/) -> `bigbytes-meta`, the meta service binary of Bigbytes.
-- [`metabench`](./metabench/) -> `bigbytes-metabench`, run meta benchmark.
-- [`metactl`](./metactl/) -> `bigbytes-metactl`, dump data in json from a sled db.
+- [`meta`](./meta/) -> `bigbytesdb-meta`, the meta service binary of Bigbytesdb.
+- [`metabench`](./metabench/) -> `bigbytesdb-metabench`, run meta benchmark.
+- [`metactl`](./metactl/) -> `bigbytesdb-metactl`, dump data in json from a sled db.

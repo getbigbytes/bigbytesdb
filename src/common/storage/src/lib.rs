@@ -15,8 +15,8 @@
 
 //! `common_storage` will provide storage related types and functions.
 //!
-//! Bigbytes Query will have three kinds of storage operators, visit
-//! [RFC: Cache](https://docs.bigbytes.com/guides/community/rfcs/cache) for
+//! Bigbytesdb Query will have three kinds of storage operators, visit
+//! [RFC: Cache](https://docs.bigbytesdb.com/guides/community/rfcs/cache) for
 //! more detailed information.
 //!
 //! - data operator: All data will be persisted until users delete them.

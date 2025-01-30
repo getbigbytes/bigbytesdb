@@ -16,7 +16,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::sync::LazyLock;
 
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataBlock;
 use parking_lot::RwLock;
 /// Shared store to support memory tables.
 ///

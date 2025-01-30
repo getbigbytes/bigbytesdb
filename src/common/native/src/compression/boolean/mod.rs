@@ -15,8 +15,8 @@
 mod one_value;
 mod rle;
 
-use bigbytes_common_column::bitmap::MutableBitmap;
-use bigbytes_common_expression::types::Bitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_expression::types::Bitmap;
 use rand::thread_rng;
 use rand::Rng;
 

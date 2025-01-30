@@ -16,8 +16,8 @@ use std::io::Cursor;
 
 use borsh::BorshDeserialize;
 use borsh::BorshSerialize;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::prelude::*;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::prelude::*;
 
 #[derive(BorshSerialize, BorshDeserialize, PartialEq, Debug)]
 struct TestStruct {

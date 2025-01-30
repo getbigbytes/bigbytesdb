@@ -16,15 +16,15 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::sync::LazyLock;
 
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::utils::FromData;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::utils::FromData;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::TableSchemaRefExt;
 use regex::Regex;
 
 use crate::servers::federated_helper::FederatedHelper;
@@ -191,8 +191,8 @@ impl MySQLFederated {
             (Regex::new("(?i)^(SET sql_mode(.*))").unwrap(), None),
             (Regex::new("(?i)^(SET SQL_SELECT_LIMIT(.*))").unwrap(), None),
             (Regex::new("(?i)^(SET @@(.*))").unwrap(), None),
-            // Now bigbytes not support charset and collation
-            // https://github.com/getbigbytes/bigbytes/issues/5853
+            // Now bigbytesdb not support charset and collation
+            // https://github.com/getbigbytes/bigbytesdb/issues/5853
             (Regex::new("(?i)^(SHOW COLLATION)").unwrap(), None),
             (Regex::new("(?i)^(SHOW CHARSET)").unwrap(), None),
             (
@@ -250,7 +250,7 @@ impl MySQLFederated {
     }
 
     // Check the query is a federated or driver setup command.
-    // Here we fake some values for the command which Bigbytes not supported.
+    // Here we fake some values for the command which Bigbytesdb not supported.
     pub fn check(&self, query: &str) -> Option<(DataSchemaRef, DataBlock)> {
         // First to check the select @@variables.
         let select_variable = self

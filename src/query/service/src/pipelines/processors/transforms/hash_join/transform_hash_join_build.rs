@@ -18,11 +18,11 @@ use std::sync::Arc;
 
 use byte_unit::Byte;
 use byte_unit::ByteUnit;
-use bigbytes_common_base::runtime::GLOBAL_MEM_STAT;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_sql::plans::JoinType;
+use bigbytesdb_common_base::runtime::GLOBAL_MEM_STAT;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_sql::plans::JoinType;
 use log::info;
 
 use crate::pipelines::processors::transforms::hash_join::HashJoinBuildState;

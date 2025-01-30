@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CachedObject;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::TableSnapshotStatistics;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CachedObject;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshotStatistics;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use opendal::Operator;
 
 #[async_trait::async_trait]
@@ -98,10 +98,10 @@ impl Marshal for TableSnapshotStatistics {
 #[cfg(test)]
 mod tests {
 
-    use bigbytes_common_base::runtime::catch_unwind;
-    use bigbytes_common_expression::TableSchema;
-    use bigbytes_storages_common_table_meta::meta::SnapshotId;
-    use bigbytes_storages_common_table_meta::meta::Statistics;
+    use bigbytesdb_common_base::runtime::catch_unwind;
+    use bigbytesdb_common_expression::TableSchema;
+    use bigbytesdb_storages_common_table_meta::meta::SnapshotId;
+    use bigbytesdb_storages_common_table_meta::meta::Statistics;
 
     use super::*;
 

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::parser::expr::parse_float;
-use bigbytes_common_ast::parser::expr::parse_uint;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::parser::expr::parse_float;
+use bigbytesdb_common_ast::parser::expr::parse_uint;
 use ethnum::i256;
 
 #[test]

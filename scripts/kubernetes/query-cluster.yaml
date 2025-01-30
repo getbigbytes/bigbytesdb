@@ -10,11 +10,11 @@ data:
 kind: Secret
 metadata:
   annotations:
-    meta_address: meta-service.bigbytes-system.svc.cluster.local:9191
+    meta_address: meta-service.bigbytesdb-system.svc.cluster.local:9191
   labels:
     QUERY_CLUSTER_ID: hello-world
     QUERY_TENANT_ID: tenant1
-    app: bigbytes-query
+    app: bigbytesdb-query
     cluster: hello-world
     tenant: tenant1
   name: query-secrets
@@ -25,14 +25,14 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    meta_address: meta-service.bigbytes-system.svc.cluster.local:9191
+    meta_address: meta-service.bigbytesdb-system.svc.cluster.local:9191
     prometheus.io/path: /metrics
     prometheus.io/port: "7070"
     prometheus.io/scrape: "true"
   labels:
     QUERY_CLUSTER_ID: hello-world
     QUERY_TENANT_ID: tenant1
-    app: bigbytes-query
+    app: bigbytesdb-query
     cluster: hello-world
     tenant: tenant1
   name: query-service
@@ -60,7 +60,7 @@ spec:
   selector:
     QUERY_CLUSTER_ID: hello-world
     QUERY_TENANT_ID: tenant1
-    app: bigbytes-query
+    app: bigbytesdb-query
     cluster: hello-world
     tenant: tenant1
 ---
@@ -68,14 +68,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    meta_address: meta-service.bigbytes-system.svc.cluster.local:9191
+    meta_address: meta-service.bigbytesdb-system.svc.cluster.local:9191
     prometheus.io/path: /metrics
     prometheus.io/port: "10010"
     prometheus.io/scrape: "true"
   labels:
     QUERY_CLUSTER_ID: hello-world
     QUERY_TENANT_ID: tenant1
-    app: bigbytes-query
+    app: bigbytesdb-query
     cluster: hello-world
     tenant: tenant1
   name: query
@@ -86,20 +86,20 @@ spec:
     matchLabels:
       QUERY_CLUSTER_ID: hello-world
       QUERY_TENANT_ID: tenant1
-      app: bigbytes-query
+      app: bigbytesdb-query
       cluster: hello-world
       tenant: tenant1
   template:
     metadata:
       annotations:
-        meta_address: meta-service.bigbytes-system.svc.cluster.local:9191
+        meta_address: meta-service.bigbytesdb-system.svc.cluster.local:9191
         prometheus.io/path: /metrics
         prometheus.io/port: "10010"
         prometheus.io/scrape: "true"
       labels:
         QUERY_CLUSTER_ID: hello-world
         QUERY_TENANT_ID: tenant1
-        app: bigbytes-query
+        app: bigbytesdb-query
         cluster: hello-world
         tenant: tenant1
     spec:
@@ -108,7 +108,7 @@ spec:
           emptyDir: {}
       containers:
         - command:
-            - /bigbytes-query
+            - /bigbytesdb-query
           volumeMounts:
             - name: logs
               mountPath: "/log"
@@ -164,7 +164,7 @@ spec:
           envFrom:
             - secretRef:
                 name: query-secrets
-          image: getbigbytes/bigbytes-query:latest
+          image: getbigbytes/bigbytesdb-query:latest
           name: query
           ports:
             - name: http

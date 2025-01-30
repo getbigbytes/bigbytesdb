@@ -14,9 +14,9 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_base::base::uuid::Uuid;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::ColumnId;
+use bigbytesdb_common_base::base::uuid::Uuid;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::ColumnId;
 
 use crate::meta::ColumnStatistics;
 

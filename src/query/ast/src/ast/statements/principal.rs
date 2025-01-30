@@ -142,7 +142,7 @@ pub enum UserPrivilegeType {
     DropUser,
     // Privilege to Create/Drop DataMask.
     CreateDataMask,
-    // Privilege to Own a bigbytes object such as database/table.
+    // Privilege to Own a bigbytesdb object such as database/table.
     Ownership,
     // Privilege to Read stage
     Read,

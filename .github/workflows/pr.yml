@@ -73,7 +73,7 @@ jobs:
         with:
           script: |
             const body = context.payload.pull_request.body;
-            const regex = /I hereby agree to the terms of the CLA available at: https:\/\/docs.bigbytes.com\/dev\/policies\/cla\//;
+            const regex = /I hereby agree to the terms of the CLA available at: https:\/\/docs.bigbytesdb.com\/dev\/policies\/cla\//;
             if (!regex.test(body)) {
               core.setFailed('CLA is not signed');
               core.setOutput('cla', 'not-signed');
@@ -94,10 +94,10 @@ jobs:
           token: ${{ github.token }}
           identifier: "pr-assistant-cla"
           body: |
-            Pull request description must contain [CLA](https://docs.bigbytes.com/dev/policies/cla/) like the following:
+            Pull request description must contain [CLA](https://docs.bigbytesdb.com/dev/policies/cla/) like the following:
 
             ```
-            I hereby agree to the terms of the CLA available at: https://docs.bigbytes.com/dev/policies/cla/
+            I hereby agree to the terms of the CLA available at: https://docs.bigbytesdb.com/dev/policies/cla/
 
             ## Summary
 

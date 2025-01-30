@@ -47,8 +47,8 @@ runs:
         echo "==> building libs ..."
         cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --profile ${{ env.BUILD_PROFILE }} --lib
         for artifact in ${artifacts//,/ }; do
-          echo "==> building bigbytes-$artifact ..."
-          cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --profile ${{ env.BUILD_PROFILE }} --bin bigbytes-$artifact
+          echo "==> building bigbytesdb-$artifact ..."
+          cargo -Zgitoxide=fetch -Zgit=shallow-index,shallow-deps build --target ${{ inputs.target }} --profile ${{ env.BUILD_PROFILE }} --bin bigbytesdb-$artifact
         done
 
     - name: Upload artifact

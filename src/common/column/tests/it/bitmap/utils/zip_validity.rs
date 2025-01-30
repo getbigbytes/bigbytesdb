@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::utils::BitmapIter;
-use bigbytes_common_column::bitmap::utils::ZipValidity;
-use bigbytes_common_column::bitmap::Bitmap;
+use bigbytesdb_common_column::bitmap::utils::BitmapIter;
+use bigbytesdb_common_column::bitmap::utils::ZipValidity;
+use bigbytesdb_common_column::bitmap::Bitmap;
 
 #[test]
 fn basic() {

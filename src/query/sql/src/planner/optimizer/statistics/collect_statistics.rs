@@ -15,12 +15,12 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::types::F64;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::types::F64;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::Scalar;
 
 use crate::optimizer::SExpr;
 use crate::plans::ConstantExpr;

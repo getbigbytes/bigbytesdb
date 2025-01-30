@@ -19,28 +19,28 @@ use std::io::Write;
 
 use bumpalo::Bump;
 use comfy_table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::get_states_layout;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::types::AnyType;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::AggrState;
-use bigbytes_common_expression::BlockEntry;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::ColumnBuilder;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Evaluator;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
-use bigbytes_common_functions::aggregates::AggregateFunctionFactory;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::get_states_layout;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::types::AnyType;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::AggrState;
+use bigbytesdb_common_expression::BlockEntry;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::ColumnBuilder;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Evaluator;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
+use bigbytesdb_common_functions::aggregates::AggregateFunctionFactory;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 use itertools::Itertools;
 
 use super::scalars::parser;
 
-pub trait AggregationSimulator = Fn(&str, Vec<Scalar>, &[Column], usize) -> bigbytes_common_exception::Result<(Column, DataType)>
+pub trait AggregationSimulator = Fn(&str, Vec<Scalar>, &[Column], usize) -> bigbytesdb_common_exception::Result<(Column, DataType)>
     + Copy;
 
 /// run ast which is agg expr
@@ -75,9 +75,9 @@ pub fn run_agg_ast(
         .collect::<Vec<_>>();
 
     // For test only, we just support agg function call here
-    let result: bigbytes_common_exception::Result<(Column, DataType)> = try {
+    let result: bigbytesdb_common_exception::Result<(Column, DataType)> = try {
         match raw_expr {
-            bigbytes_common_expression::RawExpr::FunctionCall {
+            bigbytesdb_common_expression::RawExpr::FunctionCall {
                 name, params, args, ..
             } => {
                 let args: Vec<(Value<AnyType>, DataType)> = args
@@ -186,7 +186,7 @@ pub fn simulate_two_groups_group_by(
     params: Vec<Scalar>,
     columns: &[Column],
     rows: usize,
-) -> bigbytes_common_exception::Result<(Column, DataType)> {
+) -> bigbytesdb_common_exception::Result<(Column, DataType)> {
     let factory = AggregateFunctionFactory::instance();
     let arguments: Vec<DataType> = columns.iter().map(|c| c.data_type()).collect();
 

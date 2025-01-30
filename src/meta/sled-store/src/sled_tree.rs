@@ -15,7 +15,7 @@
 use std::fmt::Display;
 use std::marker::PhantomData;
 
-use bigbytes_common_meta_stoerr::MetaStorageError;
+use bigbytesdb_common_meta_stoerr::MetaStorageError;
 use fastrace::func_name;
 use log::debug;
 use sled::IVec;

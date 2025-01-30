@@ -22,7 +22,7 @@ use std::collections::VecDeque;
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_base::base::tokio::sync::Notify;
+use bigbytesdb_common_base::base::tokio::sync::Notify;
 
 struct SizedChannelInner<T> {
     max_size: usize,

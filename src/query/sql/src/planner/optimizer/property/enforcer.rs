@@ -14,11 +14,11 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::common_super_type;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::common_super_type;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::binder::wrap_cast;
 use crate::optimizer::property::Distribution;

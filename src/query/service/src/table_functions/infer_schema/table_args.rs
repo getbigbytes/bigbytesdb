@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::table_args::TableArgs;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::StageFilesInfo;
-use bigbytes_common_storages_fuse::table_functions::string_value;
+use bigbytesdb_common_catalog::table_args::TableArgs;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::StageFilesInfo;
+use bigbytesdb_common_storages_fuse::table_functions::string_value;
 
 #[derive(Clone)]
 pub(crate) struct InferSchemaArgsParsed {

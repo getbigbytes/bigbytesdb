@@ -15,10 +15,10 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::plans::KillPlan;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::plans::KillPlan;
 
 use crate::clusters::ClusterHelper;
 use crate::clusters::FlightParams;
@@ -137,7 +137,7 @@ impl Interpreter for KillInterpreter {
         // `kill query mysql_connection_id` to server.
         // the type of connection_id is u32, if parse success get session by connection_id,
         // otherwise use the session_id.
-        // More info Link to: https://github.com/getbigbytes/bigbytes/discussions/5405.
+        // More info Link to: https://github.com/getbigbytes/bigbytesdb/discussions/5405.
         match id.parse::<u32>() {
             Ok(mysql_conn_id) => match self.ctx.get_id_by_mysql_conn_id(&Some(mysql_conn_id)) {
                 Some(get) => self.execute_kill(&get).await,

@@ -12,23 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_grpc::RpcClientConf;
-use bigbytes_common_meta_app::principal::UserDefinedFunction;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_grpc::RpcClientConf;
+use bigbytesdb_common_meta_app::principal::UserDefinedFunction;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_users::UserApiProvider;
 use pretty_assertions::assert_eq;
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
 async fn test_user_lambda_udf() -> Result<()> {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {
@@ -104,7 +104,7 @@ async fn test_user_lambda_udf() -> Result<()> {
 async fn test_user_udf_server() -> Result<()> {
     // Init.
     let thread_name = std::thread::current().name().unwrap().to_string();
-    bigbytes_common_base::base::GlobalInstance::init_testing(&thread_name);
+    bigbytesdb_common_base::base::GlobalInstance::init_testing(&thread_name);
 
     // Init with default.
     {

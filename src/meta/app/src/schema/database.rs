@@ -20,7 +20,7 @@ use std::ops::Deref;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
 
 use super::CreateOption;
 use crate::schema::database_id::DatabaseId;
@@ -126,7 +126,7 @@ impl DatabaseInfo {
 
     /// Create a new database info without id or meta seq.
     ///
-    /// Usually such an instance is used for an external database, whose metadata is not stored in bigbytes meta-service.
+    /// Usually such an instance is used for an external database, whose metadata is not stored in bigbytesdb meta-service.
     pub fn without_id_seq(name_ident: DatabaseNameIdent, meta: DatabaseMeta) -> Self {
         Self {
             database_id: DatabaseId::new(0),
@@ -325,7 +325,7 @@ impl ListDatabaseReq {
 }
 
 mod kvapi_key_impl {
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::database_name_ident::DatabaseNameIdentRaw;
     use crate::schema::DatabaseId;

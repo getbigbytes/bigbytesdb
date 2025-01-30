@@ -1,6 +1,6 @@
 [package]
-name = "bigbytes-meta-binaries"
-description = "bigbytes-meta command line tools"
+name = "bigbytesdb-meta-binaries"
+description = "bigbytesdb-meta command line tools"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -10,15 +10,15 @@ edition = { workspace = true }
 [features]
 default = ["jemalloc"]
 memory-profiling = [
-    "bigbytes-meta/memory-profiling",
-    "bigbytes-common-base/memory-profiling",
+    "bigbytesdb-meta/memory-profiling",
+    "bigbytesdb-common-base/memory-profiling",
 ]
-jemalloc = ["bigbytes-common-base/jemalloc"]
+jemalloc = ["bigbytesdb-common-base/jemalloc"]
 io-uring = [
-    "bigbytes-meta/io-uring",
-    "bigbytes-common-meta-store/io-uring",
-    "bigbytes-common-meta-sled-store/io-uring",
-    "bigbytes-common-meta-raft-store/io-uring",
+    "bigbytesdb-meta/io-uring",
+    "bigbytesdb-common-meta-store/io-uring",
+    "bigbytesdb-common-meta-sled-store/io-uring",
+    "bigbytesdb-common-meta-raft-store/io-uring",
 ]
 
 [dependencies]
@@ -26,19 +26,19 @@ anyerror = { workspace = true }
 anyhow = { workspace = true }
 chrono = { workspace = true }
 clap = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-grpc = { workspace = true }
-bigbytes-common-meta-api = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-client = { workspace = true }
-bigbytes-common-meta-kvapi = { workspace = true }
-bigbytes-common-meta-raft-store = { workspace = true }
-bigbytes-common-meta-sled-store = { workspace = true }
-bigbytes-common-meta-store = { workspace = true }
-bigbytes-common-meta-types = { workspace = true }
-bigbytes-common-tracing = { workspace = true }
-bigbytes-meta = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-grpc = { workspace = true }
+bigbytesdb-common-meta-api = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-client = { workspace = true }
+bigbytesdb-common-meta-kvapi = { workspace = true }
+bigbytesdb-common-meta-raft-store = { workspace = true }
+bigbytesdb-common-meta-sled-store = { workspace = true }
+bigbytesdb-common-meta-store = { workspace = true }
+bigbytesdb-common-meta-types = { workspace = true }
+bigbytesdb-common-tracing = { workspace = true }
+bigbytesdb-meta = { workspace = true }
 fastrace = { workspace = true }
 futures = { workspace = true }
 log = { workspace = true }
@@ -52,31 +52,31 @@ tokio-stream = { workspace = true }
 url = { workspace = true }
 
 [[bin]]
-name = "bigbytes-meta"
+name = "bigbytesdb-meta"
 path = "meta/ee_main.rs"
 doctest = false
 test = false
 
 [[bin]]
-name = "bigbytes-meta-oss"
+name = "bigbytesdb-meta-oss"
 path = "meta/oss_main.rs"
 doctest = false
 test = false
 
 [[bin]]
-name = "bigbytes-metabench"
+name = "bigbytesdb-metabench"
 path = "metabench/main.rs"
 doctest = false
 test = false
 
 [[bin]]
-name = "bigbytes-metactl"
+name = "bigbytesdb-metactl"
 path = "metactl/main.rs"
 doctest = false
 test = false
 
 [[bin]]
-name = "bigbytes-metaverifier"
+name = "bigbytesdb-metaverifier"
 path = "metaverifier/main.rs"
 doctest = false
 test = false

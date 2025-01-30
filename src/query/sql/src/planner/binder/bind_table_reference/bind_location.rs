@@ -14,15 +14,15 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_ast::ast::Connection;
-use bigbytes_common_ast::ast::FileLocation;
-use bigbytes_common_ast::ast::SelectStageOptions;
-use bigbytes_common_ast::ast::TableAlias;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::FileFormatParams;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
-use bigbytes_common_storage::StageFilesInfo;
+use bigbytesdb_common_ast::ast::Connection;
+use bigbytesdb_common_ast::ast::FileLocation;
+use bigbytesdb_common_ast::ast::SelectStageOptions;
+use bigbytesdb_common_ast::ast::TableAlias;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::FileFormatParams;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_common_storage::StageFilesInfo;
 
 use crate::binder::copy_into_table::resolve_file_location;
 use crate::binder::Binder;
@@ -38,7 +38,7 @@ impl Binder {
         options: &SelectStageOptions,
         alias: &Option<TableAlias>,
     ) -> Result<(SExpr, BindContext)> {
-        bigbytes_common_base::runtime::block_on(async move {
+        bigbytesdb_common_base::runtime::block_on(async move {
             let location = match location {
                 FileLocation::Uri(uri) => FileLocation::Uri(UriLocation {
                     connection: Connection::new(options.connection.clone()),
@@ -53,7 +53,7 @@ impl Binder {
             if let Some(f) = &options.file_format {
                 stage_info.file_format_params = match StageFileFormatType::from_str(f) {
                     Ok(t) => FileFormatParams::default_by_type(t)?,
-                    _ => bigbytes_common_base::runtime::block_on(self.ctx.get_file_format(f))?,
+                    _ => bigbytesdb_common_base::runtime::block_on(self.ctx.get_file_format(f))?,
                 }
             }
             let pattern = match &options.pattern {

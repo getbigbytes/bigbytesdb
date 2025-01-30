@@ -14,8 +14,8 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 use serde::Deserialize;
 use serde::Serialize;
 

@@ -41,10 +41,10 @@ runs:
       run: |
         case ${{ inputs.source }} in
           pr)
-            yq -i '.system = "Bigbytes(PR#${{ inputs.source_id }})"' result.json
+            yq -i '.system = "Bigbytesdb(PR#${{ inputs.source_id }})"' result.json
             ;;
           release)
-            yq -i '.system = "Bigbytes(Release@${{ inputs.source_id }})"' result.json
+            yq -i '.system = "Bigbytesdb(Release@${{ inputs.source_id }})"' result.json
             ;;
           *)
             echo "Unsupported benchmark source: ${{ inputs.source }}"

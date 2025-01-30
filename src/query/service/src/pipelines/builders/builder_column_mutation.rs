@@ -14,17 +14,17 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_pipeline_transforms::processors::TransformPipelineHelper;
-use bigbytes_common_sql::evaluator::BlockOperator;
-use bigbytes_common_sql::evaluator::CompoundBlockOperator;
-use bigbytes_common_sql::executor::physical_plans::ColumnMutation;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_storages_fuse::operations::TransformSerializeBlock;
-use bigbytes_common_storages_fuse::FuseTable;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_pipeline_transforms::processors::TransformPipelineHelper;
+use bigbytesdb_common_sql::evaluator::BlockOperator;
+use bigbytesdb_common_sql::evaluator::CompoundBlockOperator;
+use bigbytesdb_common_sql::executor::physical_plans::ColumnMutation;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_storages_fuse::operations::TransformSerializeBlock;
+use bigbytesdb_common_storages_fuse::FuseTable;
 
 use crate::pipelines::PipelineBuilder;
 

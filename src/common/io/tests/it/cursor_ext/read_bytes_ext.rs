@@ -14,7 +14,7 @@
 
 use std::io::Cursor;
 
-use bigbytes_common_io::cursor_ext::*;
+use bigbytesdb_common_io::cursor_ext::*;
 
 #[test]
 fn test_read_ext() {

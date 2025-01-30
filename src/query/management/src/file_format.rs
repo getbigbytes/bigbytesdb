@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_meta_api::crud::CrudMgr;
-use bigbytes_common_meta_app::principal::user_defined_file_format_ident;
+use bigbytesdb_common_meta_api::crud::CrudMgr;
+use bigbytesdb_common_meta_app::principal::user_defined_file_format_ident;
 
 pub type FileFormatMgr = CrudMgr<user_defined_file_format_ident::Resource>;

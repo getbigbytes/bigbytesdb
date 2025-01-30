@@ -16,11 +16,11 @@ use std::collections::HashMap;
 use std::future::Future;
 use std::sync::Arc;
 
-use bigbytes_common_base::runtime::catch_unwind;
-use bigbytes_common_base::runtime::CatchUnwindFuture;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_exception::ResultExt;
+use bigbytesdb_common_base::runtime::catch_unwind;
+use bigbytesdb_common_base::runtime::CatchUnwindFuture;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_exception::ResultExt;
 use futures_util::future::BoxFuture;
 use serde::Deserialize;
 use serde::Serialize;

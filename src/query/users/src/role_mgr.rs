@@ -14,16 +14,16 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_management::RoleApi;
-use bigbytes_common_meta_app::principal::GrantObject;
-use bigbytes_common_meta_app::principal::OwnershipInfo;
-use bigbytes_common_meta_app::principal::OwnershipObject;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::MatchSeq;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_management::RoleApi;
+use bigbytesdb_common_meta_app::principal::GrantObject;
+use bigbytesdb_common_meta_app::principal::OwnershipInfo;
+use bigbytesdb_common_meta_app::principal::OwnershipObject;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::MatchSeq;
 
 use crate::role_util::find_all_related_roles;
 use crate::UserApiProvider;
@@ -69,7 +69,7 @@ impl UserApiProvider {
     // 1. ACCOUNT_ADMIN, which has the equivalent privileges of `GRANT ALL ON *.* TO ROLE account_admin`,
     //    it also contains all roles. ACCOUNT_ADMIN can access the data objects which owned by any role.
     // 2. Because the previous deserialization using from_bits caused forward compatibility issues after adding new privilege type
-    //    Until we can confirm all product use https://github.com/getbigbytes/bigbytes/releases/tag/v1.2.321-nightly or later,
+    //    Until we can confirm all product use https://github.com/getbigbytes/bigbytesdb/releases/tag/v1.2.321-nightly or later,
     //    We can add account_admin into meta.
     fn builtin_roles(&self) -> HashMap<String, RoleInfo> {
         let mut account_admin = RoleInfo::new(BUILTIN_ROLE_ACCOUNT_ADMIN);

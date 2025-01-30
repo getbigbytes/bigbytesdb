@@ -19,18 +19,18 @@ use std::sync::atomic::Ordering;
 use std::sync::Arc;
 use std::sync::Weak;
 
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_meta_app::principal::RoleInfo;
-use bigbytes_common_meta_app::principal::UserInfo;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_settings::Settings;
-use bigbytes_storages_common_session::SessionState;
-use bigbytes_storages_common_session::TempTblMgr;
-use bigbytes_storages_common_session::TempTblMgrRef;
-use bigbytes_storages_common_session::TxnManager;
-use bigbytes_storages_common_session::TxnManagerRef;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_meta_app::principal::RoleInfo;
+use bigbytesdb_common_meta_app::principal::UserInfo;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_settings::Settings;
+use bigbytesdb_storages_common_session::SessionState;
+use bigbytesdb_storages_common_session::TempTblMgr;
+use bigbytesdb_storages_common_session::TempTblMgrRef;
+use bigbytesdb_storages_common_session::TxnManager;
+use bigbytesdb_storages_common_session::TxnManagerRef;
 use parking_lot::Mutex;
 use parking_lot::RwLock;
 
@@ -43,9 +43,9 @@ pub struct SessionContext {
     current_catalog: RwLock<String>,
     current_database: RwLock<String>,
 
-    /// The current tenant can be determined by bigbytes-query's config file, or by X-BIGBYTES-TENANT
+    /// The current tenant can be determined by bigbytesdb-query's config file, or by X-BIGBYTESDB-TENANT
     /// if it's in management mode.
-    /// If bigbytes-query is not in management mode, the current tenant can **NOT** be modified at runtime.
+    /// If bigbytesdb-query is not in management mode, the current tenant can **NOT** be modified at runtime.
     current_tenant: Option<Tenant>,
 
     /// The current user is determined by the authentication phase on each connection. It will not be

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_hashtable::hash_join_fast_string_hash;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_hashtable::hash_join_fast_string_hash;
 
 use crate::types::binary::BinaryColumnIter;
 use crate::types::BinaryColumn;

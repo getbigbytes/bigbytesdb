@@ -14,11 +14,11 @@
 
 use std::ops::Not;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::Bitmap;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::Bitmap;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataBlock;
 
 pub struct MutationSplitMutator {
     pub split_idx: u32,
@@ -36,7 +36,7 @@ impl MutationSplitMutator {
 
         // get row_id do check duplicate and get filter
         let filter: Bitmap = match &split_column.value {
-            bigbytes_common_expression::Value::Scalar(scalar) => {
+            bigbytesdb_common_expression::Value::Scalar(scalar) => {
                 // fast judge
                 if scalar.is_null() {
                     return Ok((DataBlock::empty(), block.clone()));
@@ -44,8 +44,8 @@ impl MutationSplitMutator {
                     return Ok((block.clone(), DataBlock::empty()));
                 }
             }
-            bigbytes_common_expression::Value::Column(column) => match column {
-                bigbytes_common_expression::Column::Nullable(nullable_column) => {
+            bigbytesdb_common_expression::Value::Column(column) => match column {
+                bigbytesdb_common_expression::Column::Nullable(nullable_column) => {
                     nullable_column.validity.clone()
                 }
                 _ => {

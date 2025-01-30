@@ -13,8 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::binview::BinaryViewColumnBuilder;
-use bigbytes_common_column::buffer::Buffer;
+use bigbytesdb_common_column::binview::BinaryViewColumnBuilder;
+use bigbytesdb_common_column::buffer::Buffer;
 
 mod immutable;
 
@@ -31,13 +31,13 @@ fn new_basic() {
 #[test]
 fn extend_from_repeats() {
     let mut b = BinaryViewColumnBuilder::<str>::new();
-    b.extend_constant(4, "bigbytes");
+    b.extend_constant(4, "bigbytesdb");
 
     let a = b.clone();
     b.extend_trusted_len_values(a.iter());
 
     assert_eq!(
         b.freeze(),
-        BinaryViewColumnBuilder::<str>::from_values_iter(vec!["bigbytes"; 8].into_iter()).freeze()
+        BinaryViewColumnBuilder::<str>::from_values_iter(vec!["bigbytesdb"; 8].into_iter()).freeze()
     )
 }

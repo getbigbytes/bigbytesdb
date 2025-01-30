@@ -14,10 +14,10 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::types::number::*;
-use bigbytes_common_expression::types::BooleanType;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::FromData;
+use bigbytesdb_common_expression::types::number::*;
+use bigbytesdb_common_expression::types::BooleanType;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::FromData;
 use goldenfile::Mint;
 
 use super::run_ast;
@@ -425,7 +425,7 @@ fn test_bin(file: &mut impl Write) {
         ("b", Int16Type::from_data(vec![2i16, 4, 6])),
         ("c", UInt32Type::from_data(vec![10u32, 20, 30])),
         ("d", Float64Type::from_data(vec![10f64, -20f64, 30f64])),
-        ("e", StringType::from_data(vec!["abc", "def", "bigbytes"])),
+        ("e", StringType::from_data(vec!["abc", "def", "bigbytesdb"])),
     ];
     run_ast(file, "bin(a)", columns);
     run_ast(file, "bin(a2)", columns);
@@ -445,7 +445,7 @@ fn test_oct(file: &mut impl Write) {
         ("b", Int16Type::from_data(vec![2i16, 4, 6])),
         ("c", UInt32Type::from_data(vec![10u32, 20, 30])),
         ("d", Float64Type::from_data(vec![10f64, -20f64, 30f64])),
-        ("e", StringType::from_data(vec!["abc", "def", "bigbytes"])),
+        ("e", StringType::from_data(vec!["abc", "def", "bigbytesdb"])),
     ];
     run_ast(file, "oct(a)", columns);
     run_ast(file, "oct(a2)", columns);
@@ -465,7 +465,7 @@ fn test_hex(file: &mut impl Write) {
         ("b", Int16Type::from_data(vec![2i16, 4, 6])),
         ("c", UInt32Type::from_data(vec![10u32, 20, 30])),
         ("d", Float64Type::from_data(vec![10f64, -20f64, 30f64])),
-        ("e", StringType::from_data(vec!["abc", "def", "bigbytes"])),
+        ("e", StringType::from_data(vec!["abc", "def", "bigbytesdb"])),
     ];
     run_ast(file, "hex(a)", columns);
     run_ast(file, "hex(a2)", columns);

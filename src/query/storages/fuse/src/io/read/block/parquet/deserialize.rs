@@ -16,9 +16,9 @@ use std::collections::HashMap;
 
 use arrow_array::RecordBatch;
 use arrow_schema::Schema;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::TableSchema;
-use bigbytes_storages_common_table_meta::meta::Compression;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::TableSchema;
+use bigbytesdb_storages_common_table_meta::meta::Compression;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReader;
 use parquet::arrow::arrow_to_parquet_schema;
 use parquet::arrow::parquet_to_arrow_field_levels;
@@ -34,7 +34,7 @@ pub fn column_chunks_to_record_batch(
     num_rows: usize,
     column_chunks: &HashMap<ColumnId, DataItem>,
     compression: &Compression,
-) -> bigbytes_common_exception::Result<RecordBatch> {
+) -> bigbytesdb_common_exception::Result<RecordBatch> {
     let arrow_schema = Schema::from(original_schema);
     let parquet_schema = arrow_to_parquet_schema(&arrow_schema)?;
     let column_id_to_dfs_id = original_schema

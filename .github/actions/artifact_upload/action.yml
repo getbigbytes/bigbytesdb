@@ -35,7 +35,7 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.BUILD_PROFILE }}-${{ inputs.sha }}-${{ inputs.target }}-${{ inputs.category }}
-        path: ${{ steps.info.outputs.path }}/bigbytes-*
+        path: ${{ steps.info.outputs.path }}/bigbytesdb-*
 
     - name: Upload artifacts to s3
       if: env.RUNNER_PROVIDER == 'aws'
@@ -43,12 +43,12 @@ runs:
       run: |
         echo "### artifacts 🚀" >> $GITHUB_STEP_SUMMARY
         aws s3 sync ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/ \
-          s3://bigbytes-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/ \
-          --exclude "*" --include "bigbytes-*" --no-progress
+          s3://bigbytesdb-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/ \
+          --exclude "*" --include "bigbytesdb-*" --no-progress
         artifacts="meta,query,query.debug"
         for artifact in ${artifacts//,/ }; do
-          if [[ -f ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-${artifact} ]]; then
-            url=$(aws s3 presign s3://bigbytes-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytes-${artifact} --expires-in 21600)
+          if [[ -f ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-${artifact} ]]; then
+            url=$(aws s3 presign s3://bigbytesdb-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/bigbytesdb-${artifact} --expires-in 21600)
             echo "- [${artifact}](${url})" >> $GITHUB_STEP_SUMMARY
           fi
         done
@@ -58,5 +58,5 @@ runs:
       shell: bash
       run: |
         gcloud config set storage/parallel_composite_upload_enabled False
-        gcloud storage cp --quiet --recursive ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytes-* \
-          gs://bigbytes-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/
+        gcloud storage cp --quiet --recursive ./target/${{ inputs.target }}/${{ env.BUILD_PROFILE }}/bigbytesdb-* \
+          gs://bigbytesdb-ci/${{ env.BUILD_PROFILE }}/${{ inputs.sha }}/${{ inputs.target }}/${{ inputs.category }}/

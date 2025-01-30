@@ -14,14 +14,14 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::Feature::VirtualColumn;
-use bigbytes_common_license::license_manager::LicenseManagerSwitch;
-use bigbytes_common_meta_app::schema::UpdateVirtualColumnReq;
-use bigbytes_common_meta_app::schema::VirtualColumnIdent;
-use bigbytes_common_sql::plans::AlterVirtualColumnPlan;
-use bigbytes_enterprise_virtual_column::get_virtual_column_handler;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::Feature::VirtualColumn;
+use bigbytesdb_common_license::license_manager::LicenseManagerSwitch;
+use bigbytesdb_common_meta_app::schema::UpdateVirtualColumnReq;
+use bigbytesdb_common_meta_app::schema::VirtualColumnIdent;
+use bigbytesdb_common_sql::plans::AlterVirtualColumnPlan;
+use bigbytesdb_enterprise_virtual_column::get_virtual_column_handler;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

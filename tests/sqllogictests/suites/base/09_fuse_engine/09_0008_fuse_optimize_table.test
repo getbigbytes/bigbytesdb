@@ -307,7 +307,7 @@ select segment_count, block_count from fuse_snapshot('db_09_0008', 't4') limit 1
 
 
 
-# for issue which addressed in PR #10620 (https://github.com/getbigbytes/bigbytes/pull/10620)
+# for issue which addressed in PR #10620 (https://github.com/getbigbytes/bigbytesdb/pull/10620)
 statement ok
 create table t5(c int not null)  block_per_segment=3 row_per_block=3
 
@@ -379,7 +379,7 @@ select segment_count, block_count from fuse_snapshot('db_09_0008', 't6') limit 2
 
 
 
-# for issue which addressed in PR #10743 (https://github.com/getbigbytes/bigbytes/pull/10743)
+# for issue which addressed in PR #10743 (https://github.com/getbigbytes/bigbytesdb/pull/10743)
 statement ok
 create table t7(c int not null) block_per_segment=3 row_per_block=3
 

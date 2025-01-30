@@ -22,15 +22,15 @@ use std::time::Instant;
 
 use chrono::SecondsFormat;
 use dashmap::DashMap;
-use bigbytes_common_base::base::tokio::time::sleep;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_base::runtime::GlobalIORuntime;
-use bigbytes_common_base::runtime::TrySpawn;
-use bigbytes_common_base::JoinHandle;
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_storages_common_session::TxnManagerRef;
+use bigbytesdb_common_base::base::tokio::time::sleep;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_base::runtime::GlobalIORuntime;
+use bigbytesdb_common_base::runtime::TrySpawn;
+use bigbytesdb_common_base::JoinHandle;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_storages_common_session::TxnManagerRef;
 use parking_lot::Mutex;
 
 use super::HttpQueryContext;

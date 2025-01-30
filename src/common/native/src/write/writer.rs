@@ -14,8 +14,8 @@
 
 use std::io::Write;
 
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableSchema;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableSchema;
 
 use super::common::write_eof;
 use super::common::WriteOptions;

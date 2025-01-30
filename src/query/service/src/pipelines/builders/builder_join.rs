@@ -14,13 +14,13 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_base::base::tokio::sync::Barrier;
-use bigbytes_common_exception::Result;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_common_pipeline_sinks::Sinker;
-use bigbytes_common_sql::executor::physical_plans::HashJoin;
-use bigbytes_common_sql::executor::physical_plans::RangeJoin;
-use bigbytes_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_base::base::tokio::sync::Barrier;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_common_pipeline_sinks::Sinker;
+use bigbytesdb_common_sql::executor::physical_plans::HashJoin;
+use bigbytesdb_common_sql::executor::physical_plans::RangeJoin;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
 
 use crate::pipelines::processors::transforms::range_join::RangeJoinState;
 use crate::pipelines::processors::transforms::range_join::TransformRangeJoinLeft;

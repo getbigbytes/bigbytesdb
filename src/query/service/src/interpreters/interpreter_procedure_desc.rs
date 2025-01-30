@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::StringType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_meta_app::principal::GetProcedureReq;
-use bigbytes_common_sql::plans::DescProcedurePlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::StringType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_meta_app::principal::GetProcedureReq;
+use bigbytesdb_common_sql::plans::DescProcedurePlan;
+use bigbytesdb_common_users::UserApiProvider;
 use itertools::Itertools;
 
 use crate::interpreters::Interpreter;

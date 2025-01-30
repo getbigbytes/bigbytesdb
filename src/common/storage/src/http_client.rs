@@ -17,8 +17,8 @@ use std::future;
 use std::mem;
 use std::str::FromStr;
 
-use bigbytes_common_base::http_client::GLOBAL_HTTP_CLIENT;
-use bigbytes_common_metrics::storage::metrics_inc_storage_http_requests_count;
+use bigbytesdb_common_base::http_client::GLOBAL_HTTP_CLIENT;
+use bigbytesdb_common_metrics::storage::metrics_inc_storage_http_requests_count;
 use futures::TryStreamExt;
 use http::Request;
 use http::Response;

@@ -1,6 +1,6 @@
-# Bigbytes Meta
+# Bigbytesdb Meta
 
-Bigbytes Meta is a transactional metadata service.
+Bigbytesdb Meta is a transactional metadata service.
 
 - [`api`](./api/), the user level api interface exposed based on the KVApi implementation.
 - [`app`](./app/), defines meta data types used by meta-client application.
@@ -9,7 +9,7 @@ Bigbytes Meta is a transactional metadata service.
 - [`protos`](./protos/) defines the protobuf messages a meta client talks to a meta server.
 - [`proto-conv`](./proto-conv/) defines how to convert metadata types in rust from and to protobuf messages.
 - [`raft-store`](./raft-store/), the storage layer implementation of openraft, including the state machine.
-- [`service`](./service/) -> `bigbytes-meta`, the meta service library of Bigbytes.
+- [`service`](./service/) -> `bigbytesdb-meta`, the meta service library of Bigbytesdb.
 - [`sled-store`](./sled-store/) wrapped sled-related operational interfaces.
 - [`store`](./store/), impl with either a local embedded meta store, or a grpc-client of meta service.
 - [`types`](./types/): defines the rust types for metadata.
@@ -18,9 +18,9 @@ Bigbytes Meta is a transactional metadata service.
 
 ## How to add new meta data types to store in meta-service
 
-Bigbytes meta-service stores raw bytes and does not understand what the bytes are.
+Bigbytesdb meta-service stores raw bytes and does not understand what the bytes are.
 
-Bigbytes-query use rust types in its runtime, these types such as `TableMeta`
+Bigbytesdb-query use rust types in its runtime, these types such as `TableMeta`
 must be serialized to be stored in meta-service.
 
 The serialization is implemented with `protobuf` and a protobuf message provides
@@ -73,7 +73,7 @@ To add a new feature(add new type or update an type), the developer should do:
 
 
 
-## Compatibility with Bigbytes Query
+## Compatibility with Bigbytesdb Query
 
 The following is an illustration of the latest query-meta compatibility:
 
@@ -95,7 +95,7 @@ History versions that are not included in the above chart:
 - Query `[0.8.80, 0.9.41)` is compatible with Meta `[0.8.35, 0.9.42)`.
 
 
-## Compatibility between bigbytes-meta
+## Compatibility between bigbytesdb-meta
 
 | Meta version        | Backward compatible with |
 |:--------------------|:-------------------------|
@@ -113,7 +113,7 @@ History versions that are not included in the above chart:
 
 - `1.2.212` 2023-11-16 Feature: raft API: `install_snapshot_v1()`. Compatible with old versions.
   Rolling upgrade is supported.
-  In this version, bigbytes-meta raft-server introduced a new API `install_snapshot_v1()`.
+  In this version, bigbytesdb-meta raft-server introduced a new API `install_snapshot_v1()`.
   The raft-client will try to use either this new API or the original `install_snapshot()`.
 
 - `1.2.479` 2024-05-21 Remove: `install_snapshot()`(v0) from client and server.
@@ -130,11 +130,11 @@ History versions that are not included in the above chart:
   which is compatible with `V002`. The oldest compatible version is `1.2.288`(`1.2.212~1.2.287` are removed).
 
 
-## Compatibility of bigbytes-meta on-disk data
+## Compatibility of bigbytesdb-meta on-disk data
 
-The on-disk data of Bigbytes-meta evolves over time while maintaining backward compatibility.
+The on-disk data of Bigbytesdb-meta evolves over time while maintaining backward compatibility.
 
-| DataVersion | Bigbytes-version | Min Compatible with |
+| DataVersion | Bigbytesdb-version | Min Compatible with |
 |:------------|:-----------------|:--------------------|
 | V004        | 1.2.655          | V002                |
 | V003        | 1.2.547          | V002                |
@@ -143,32 +143,32 @@ The on-disk data of Bigbytes-meta evolves over time while maintaining backward c
 
 ### Identifying the versions
 
-Upon startup, Bigbytes-meta will display the on-disk data version:
+Upon startup, Bigbytesdb-meta will display the on-disk data version:
 
-For example, running `bigbytes-meta --single` produces:
+For example, running `bigbytesdb-meta --single` produces:
 
 ```
-Bigbytes Metasrv
+Bigbytesdb Metasrv
 
 Version: v1.1.33-nightly-...
 Working DataVersion: V0
 
 On Disk Data:
-    Dir: ./.bigbytes/meta
+    Dir: ./.bigbytesdb/meta
     Version: version=V0, upgrading=None
 ```
 
-- `Working DataVersion` denotes the version Bigbytes-meta operates on.
+- `Working DataVersion` denotes the version Bigbytesdb-meta operates on.
 - `On Disk Data -- DataVersion` denotes the version of the on-disk data.
 
 The Working DataVersion must be greater than or equal to the on-disk DataVersion; otherwise, it will panic.
 
-The on-disk DataVersion must be compatible with the current Bigbytes-meta version.
-If not, the system will prompt the user to downgrade Bigbytes-meta and quit with a panic.
+The on-disk DataVersion must be compatible with the current Bigbytesdb-meta version.
+If not, the system will prompt the user to downgrade Bigbytesdb-meta and quit with a panic.
 
 ### Automatic upgrade
 
-When `bigbytes-meta` starting up, the on-disk is upgraded if it is compatible with the working DataVersion.
+When `bigbytesdb-meta` starting up, the on-disk is upgraded if it is compatible with the working DataVersion.
 The upgrade progress will be printed to `stderr` and to log file at INFO level, e.g.:
 
 ```text
@@ -182,15 +182,15 @@ Finished upgrading: version: V001, upgrading: None
 Write header: version: V001, upgrading: None
 ```
 
-If `bigbytes-meta` crashes before upgrading finishes,
+If `bigbytesdb-meta` crashes before upgrading finishes,
 it will clear partially upgraded data and resume the upgrade when it starts up again.
 
 ### Backup data compatibility
 
-- The exported backup data **can only be imported** with the same version of `bigbytes-metactl`.
+- The exported backup data **can only be imported** with the same version of `bigbytesdb-metactl`.
 
 - The first line of the backup is the version, e.g.:
   `["header",{"DataHeader":{"key":"header","value":{"version":"V100","upgrading":null}}}]`
 
 - **NO automatic upgrade** will be done when importing.
-  Automatic upgrade will only be done when `bigbytes-meta` is brought up.
+  Automatic upgrade will only be done when `bigbytesdb-meta` is brought up.

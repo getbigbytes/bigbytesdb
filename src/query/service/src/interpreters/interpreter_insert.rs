@@ -14,25 +14,25 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::lock::LockTableOption;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::UInt64Type;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::SendableDataBlockStream;
-use bigbytes_common_pipeline_sources::AsyncSourcer;
-use bigbytes_common_sql::executor::physical_plans::DistributedInsertSelect;
-use bigbytes_common_sql::executor::physical_plans::MutationKind;
-use bigbytes_common_sql::executor::PhysicalPlan;
-use bigbytes_common_sql::executor::PhysicalPlanBuilder;
-use bigbytes_common_sql::plans::Insert;
-use bigbytes_common_sql::plans::InsertInputSource;
-use bigbytes_common_sql::plans::InsertValue;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::NameResolutionContext;
+use bigbytesdb_common_catalog::lock::LockTableOption;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::UInt64Type;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::SendableDataBlockStream;
+use bigbytesdb_common_pipeline_sources::AsyncSourcer;
+use bigbytesdb_common_sql::executor::physical_plans::DistributedInsertSelect;
+use bigbytesdb_common_sql::executor::physical_plans::MutationKind;
+use bigbytesdb_common_sql::executor::PhysicalPlan;
+use bigbytesdb_common_sql::executor::PhysicalPlanBuilder;
+use bigbytesdb_common_sql::plans::Insert;
+use bigbytesdb_common_sql::plans::InsertInputSource;
+use bigbytesdb_common_sql::plans::InsertValue;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::NameResolutionContext;
 use log::info;
 
 use crate::interpreters::common::check_deduplicate_label;

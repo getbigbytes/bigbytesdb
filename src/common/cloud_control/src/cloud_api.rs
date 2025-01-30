@@ -15,9 +15,9 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
 
 use crate::notification_client::NotificationClient;
 use crate::task_client::TaskClient;

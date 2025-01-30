@@ -18,16 +18,16 @@ use std::pin::Pin;
 use std::sync::Arc;
 use std::time::Instant;
 
-use bigbytes_common_base::base::tokio::sync::OwnedSemaphorePermit;
-use bigbytes_common_catalog::plan::block_id_in_segment;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::BLOCK_NAME_COL_NAME;
-use bigbytes_common_metrics::storage::*;
-use bigbytes_storages_common_pruner::BlockMetaIndex;
-use bigbytes_storages_common_pruner::VirtualBlockMetaIndex;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_common_base::base::tokio::sync::OwnedSemaphorePermit;
+use bigbytesdb_common_catalog::plan::block_id_in_segment;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::BLOCK_NAME_COL_NAME;
+use bigbytesdb_common_metrics::storage::*;
+use bigbytesdb_storages_common_pruner::BlockMetaIndex;
+use bigbytesdb_storages_common_pruner::VirtualBlockMetaIndex;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
 use futures_util::future;
 
 use super::SegmentLocation;

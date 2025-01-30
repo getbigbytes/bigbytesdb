@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_column::bitmap::MutableBitmap;
+use bigbytesdb_common_column::bitmap::MutableBitmap;
 
 use crate::arrow::bitmap_into_mut;
 use crate::types::BooleanType;

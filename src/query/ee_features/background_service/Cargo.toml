@@ -1,6 +1,6 @@
 [package]
-name = "bigbytes-enterprise-background-service"
-description = "background service to run automatic optimization for bigbytes cluster"
+name = "bigbytesdb-enterprise-background-service"
+description = "background service to run automatic optimization for bigbytesdb cluster"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -14,10 +14,10 @@ test = true
 [dependencies]
 async-backtrace = { workspace = true }
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-expression = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-expression = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
 serde = { workspace = true }
 
 [build-dependencies]

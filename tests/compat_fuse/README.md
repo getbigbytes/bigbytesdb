@@ -1,7 +1,7 @@
 # Fuse table compatability test
 
-This script tests whether a newer version bigbytes-query can read fuse table data written
-by a older version bigbytes-query.
+This script tests whether a newer version bigbytesdb-query can read fuse table data written
+by a older version bigbytesdb-query.
 
 ## Usage
 
@@ -11,16 +11,16 @@ tests/compat_fuse/test_compat_fuse_forward.sh <old_ver>
 ```
 
 E.g. `tests/compat_fuse/test-compat_fuse.sh 0.7.151` tests if the fuse-table written
-by **bigbytes-query-0.7.151** can be read by **current** version bigbytes-query.
+by **bigbytesdb-query-0.7.151** can be read by **current** version bigbytesdb-query.
 
 `tests/compat_fuse/test-fuse-forward-compat.sh 1.2.307` tests if the fuse-table written
-by **current** can be read by **bigbytes-query-0.7.151** version bigbytes-query.
+by **current** can be read by **bigbytesdb-query-0.7.151** version bigbytesdb-query.
 
 ## Prerequisites
 
-- Current version of bigbytes-query and bigbytes-meta must reside in `./bins`:
-    - `./bins/current/bigbytes-query`
-    - `./bins/current/bigbytes-meta`
+- Current version of bigbytesdb-query and bigbytesdb-meta must reside in `./bins`:
+    - `./bins/current/bigbytesdb-query`
+    - `./bins/current/bigbytesdb-meta`
 
     Since building a binary takes several minutes,
     this step is usually done by the calling process, e.g., the CI script.

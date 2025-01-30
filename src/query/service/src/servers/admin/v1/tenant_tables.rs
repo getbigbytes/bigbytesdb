@@ -14,12 +14,12 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::table::DistributionLevel;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::table::DistributionLevel;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 use fastrace::func_name;
 use poem::web::Json;
 use poem::web::Path;

@@ -15,17 +15,17 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use bigbytes_common_catalog::plan::Projection;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::Expr;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_meta_app::principal::NullAs;
-use bigbytes_common_meta_app::principal::StageFileFormatType;
-use bigbytes_common_storage::parquet_rs::infer_schema_with_extension;
-use bigbytes_storages_common_stage::project_columnar;
+use bigbytesdb_common_catalog::plan::Projection;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::Expr;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_meta_app::principal::NullAs;
+use bigbytesdb_common_meta_app::principal::StageFileFormatType;
+use bigbytesdb_common_storage::parquet_rs::infer_schema_with_extension;
+use bigbytesdb_storages_common_stage::project_columnar;
 use opendal::Operator;
 use parquet::file::metadata::FileMetaData;
 

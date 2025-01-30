@@ -15,14 +15,14 @@
 use std::collections::HashMap;
 use std::collections::HashSet;
 
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::type_check::common_super_type;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::type_check::common_super_type;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
 
 use crate::optimizer::rule::constant::check_float_range;
 use crate::optimizer::rule::constant::check_int_range;

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::DateType;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::TimestampType;
-use bigbytes_common_expression::types::MAX_DECIMAL128_PRECISION;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_expression::types::DateType;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::TimestampType;
+use bigbytesdb_common_expression::types::MAX_DECIMAL128_PRECISION;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use super::array::*;
 use super::NativeReadBuf;
@@ -73,7 +73,7 @@ pub fn read_nested_column<R: NativeReadBuf>(
         ),
         Decimal(decimal) if decimal.precision() > MAX_DECIMAL128_PRECISION => {
             init.push(InitNested::Primitive(is_nullable));
-            read_nested_decimal::<bigbytes_common_column::types::i256, ethnum::i256, _>(
+            read_nested_decimal::<bigbytesdb_common_column::types::i256, ethnum::i256, _>(
                 &mut readers.pop().unwrap(),
                 data_type.clone(),
                 decimal.size(),

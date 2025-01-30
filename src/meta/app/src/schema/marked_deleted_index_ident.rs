@@ -22,7 +22,7 @@ use super::marked_deleted_index_id::MarkedDeletedIndexId;
 
 mod kvapi_impl {
 
-    use bigbytes_common_meta_kvapi::kvapi;
+    use bigbytesdb_common_meta_kvapi::kvapi;
 
     use crate::schema::marked_deleted_index_ident::MarkedDeletedIndexIdIdent;
     use crate::schema::MarkedDeletedIndexMeta;
@@ -48,7 +48,7 @@ mod kvapi_impl {
 
 #[cfg(test)]
 mod tests {
-    use bigbytes_common_meta_kvapi::kvapi::Key;
+    use bigbytesdb_common_meta_kvapi::kvapi::Key;
 
     use super::MarkedDeletedIndexIdIdent;
     use crate::schema::marked_deleted_index_ident::MarkedDeletedIndexId;

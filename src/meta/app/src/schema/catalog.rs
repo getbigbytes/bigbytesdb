@@ -33,12 +33,12 @@ pub enum CatalogType {
     Iceberg = 3,
 }
 
-impl From<bigbytes_common_ast::ast::CatalogType> for CatalogType {
-    fn from(catalog_type: bigbytes_common_ast::ast::CatalogType) -> Self {
+impl From<bigbytesdb_common_ast::ast::CatalogType> for CatalogType {
+    fn from(catalog_type: bigbytesdb_common_ast::ast::CatalogType) -> Self {
         match catalog_type {
-            bigbytes_common_ast::ast::CatalogType::Default => CatalogType::Default,
-            bigbytes_common_ast::ast::CatalogType::Hive => CatalogType::Hive,
-            bigbytes_common_ast::ast::CatalogType::Iceberg => CatalogType::Iceberg,
+            bigbytesdb_common_ast::ast::CatalogType::Default => CatalogType::Default,
+            bigbytesdb_common_ast::ast::CatalogType::Hive => CatalogType::Hive,
+            bigbytesdb_common_ast::ast::CatalogType::Iceberg => CatalogType::Iceberg,
         }
     }
 }

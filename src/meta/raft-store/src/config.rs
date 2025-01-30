@@ -16,16 +16,16 @@ use std::net::Ipv4Addr;
 use std::path::Path;
 use std::sync::LazyLock;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_grpc::DNSResolver;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::MetaStartupError;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_grpc::DNSResolver;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::MetaStartupError;
 
 use crate::ondisk::DATA_VERSION;
 use crate::raft_log_v004;
 
-pub static BIGBYTES_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
+pub static BIGBYTESDB_COMMIT_VERSION: LazyLock<String> = LazyLock::new(|| {
     let build_semver = option_env!("VERGEN_BUILD_SEMVER");
     let git_sha = option_env!("VERGEN_GIT_SHA");
     let rustc_semver = option_env!("VERGEN_RUSTC_SEMVER");
@@ -120,7 +120,7 @@ pub struct RaftConfig {
     /// The value is one or more addresses of a node in the cluster, to which this node sends a `join` request.
     pub join: Vec<String>,
 
-    /// Do not run bigbytes-meta, but just remove a node from its cluster.
+    /// Do not run bigbytesdb-meta, but just remove a node from its cluster.
     ///
     /// The value is one or more addresses of a node in the cluster, to which this node sends a `leave` request.
     pub leave_via: Vec<String>,
@@ -160,7 +160,7 @@ impl Default for RaftConfig {
             raft_listen_host: "127.0.0.1".to_string(),
             raft_advertise_host: get_default_raft_advertise_host(),
             raft_api_port: 28004,
-            raft_dir: "./.bigbytes/meta".to_string(),
+            raft_dir: "./.bigbytesdb/meta".to_string(),
             no_sync: false,
 
             log_cache_max_items: 1_000_000,

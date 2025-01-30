@@ -10,7 +10,7 @@ pwd
 BUILD_PROFILE="${BUILD_PROFILE:-debug}"
 
 usage() {
-    echo " === test bigbytes-meta cluster: join and leave"
+    echo " === test bigbytesdb-meta cluster: join and leave"
     echo " === Expect ./target/${BUILD_PROFILE} contains the binaries"
     echo " === Usage: $0"
 }
@@ -37,33 +37,33 @@ kill_proc() {
 
 # Test specified version of query and meta
 run_test() {
-    local metasrv="./target/${BUILD_PROFILE}/bigbytes-meta"
+    local metasrv="./target/${BUILD_PROFILE}/bigbytesdb-meta"
 
     echo " === metasrv version:"
     "$metasrv" --cmd ver
 
-    kill_proc bigbytes-meta
+    kill_proc bigbytesdb-meta
 
     echo " === Clean old meta dir"
-    rm -rf .bigbytes/meta* || echo " === no meta* dir to rm"
+    rm -rf .bigbytesdb/meta* || echo " === no meta* dir to rm"
 
     rm nohup.out || echo "no nohup.out"
 
     export RUST_BACKTRACE=1
 
-    echo ' === Start bigbytes-meta 1...'
+    echo ' === Start bigbytesdb-meta 1...'
 
-    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytes-meta-node-1.toml --log-level=DEBUG &
+    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytesdb-meta-node-1.toml --log-level=DEBUG &
     python3 scripts/ci/wait_tcp.py --timeout 30 --port 9191
 
-    echo ' === Start bigbytes-meta 2...'
+    echo ' === Start bigbytesdb-meta 2...'
 
-    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytes-meta-node-2.toml --log-level=DEBUG &
+    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytesdb-meta-node-2.toml --log-level=DEBUG &
     python3 scripts/ci/wait_tcp.py --timeout 30 --port 28202
 
-    echo ' === Start bigbytes-meta 3...'
+    echo ' === Start bigbytesdb-meta 3...'
 
-    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytes-meta-node-3.toml --log-level=DEBUG &
+    nohup "$metasrv" -c scripts/ci/deploy/config/bigbytesdb-meta-node-3.toml --log-level=DEBUG &
     python3 scripts/ci/wait_tcp.py --timeout 30 --port 28302
 
     sleep 5
@@ -90,6 +90,6 @@ run_test() {
 
 chmod +x ./target/${BUILD_PROFILE}/*
 
-echo " === current metasrv ver: $(./target/${BUILD_PROFILE}/bigbytes-meta --single --cmd ver | tr '\n' ' ')"
+echo " === current metasrv ver: $(./target/${BUILD_PROFILE}/bigbytesdb-meta --single --cmd ver | tr '\n' ' ')"
 
 run_test

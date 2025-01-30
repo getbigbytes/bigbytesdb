@@ -18,10 +18,10 @@ use std::sync::Arc;
 use std::sync::LazyLock;
 use std::time::Duration;
 
-use bigbytes_common_base::runtime::metrics::register_counter_family;
-use bigbytes_common_base::runtime::metrics::register_histogram_family;
-use bigbytes_common_base::runtime::metrics::FamilyCounter;
-use bigbytes_common_base::runtime::metrics::FamilyHistogram;
+use bigbytesdb_common_base::runtime::metrics::register_counter_family;
+use bigbytesdb_common_base::runtime::metrics::register_histogram_family;
+use bigbytesdb_common_base::runtime::metrics::FamilyCounter;
+use bigbytesdb_common_base::runtime::metrics::FamilyHistogram;
 use opendal::layers::observe;
 use opendal::raw::Access;
 use opendal::raw::Layer;

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::BlockThresholds;
-use bigbytes_common_expression::FieldIndex;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_storages_common_table_meta::meta::BlockSlotDescription;
-use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytesdb_common_expression::BlockThresholds;
+use bigbytesdb_common_expression::FieldIndex;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_storages_common_table_meta::meta::BlockSlotDescription;
+use bigbytesdb_storages_common_table_meta::meta::Location;
 
 use crate::executor::physical_plans::common::OnConflictField;
 use crate::executor::PhysicalPlan;

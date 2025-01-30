@@ -16,16 +16,16 @@ use std::sync::Arc;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_base::base::GlobalInstance;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table_context::AbortChecker;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storages_fuse::FuseTable;
-use bigbytes_enterprise_vacuum_handler::vacuum_handler::VacuumDropTablesResult;
-use bigbytes_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
-use bigbytes_enterprise_vacuum_handler::VacuumHandler;
-use bigbytes_enterprise_vacuum_handler::VacuumHandlerWrapper;
+use bigbytesdb_common_base::base::GlobalInstance;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table_context::AbortChecker;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storages_fuse::FuseTable;
+use bigbytesdb_enterprise_vacuum_handler::vacuum_handler::VacuumDropTablesResult;
+use bigbytesdb_enterprise_vacuum_handler::vacuum_handler::VacuumTempOptions;
+use bigbytesdb_enterprise_vacuum_handler::VacuumHandler;
+use bigbytesdb_enterprise_vacuum_handler::VacuumHandlerWrapper;
 
 use crate::storages::fuse::do_vacuum;
 use crate::storages::fuse::operations::vacuum_temporary_files::do_vacuum_temporary_files;

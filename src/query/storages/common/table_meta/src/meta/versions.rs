@@ -14,8 +14,8 @@
 
 use std::marker::PhantomData;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_expression::DataBlock;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_expression::DataBlock;
 
 use super::v2;
 use crate::meta::v0;

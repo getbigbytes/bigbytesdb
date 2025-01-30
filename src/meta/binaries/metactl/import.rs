@@ -25,31 +25,31 @@ use std::str::FromStr;
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use bigbytes_common_meta_raft_store::config::RaftConfig;
-use bigbytes_common_meta_raft_store::key_spaces::RaftStoreEntry;
-use bigbytes_common_meta_raft_store::key_spaces::SMEntry;
-use bigbytes_common_meta_raft_store::ondisk::DataVersion;
-use bigbytes_common_meta_raft_store::raft_log_v004;
-use bigbytes_common_meta_raft_store::sm_v003::adapter::SnapshotUpgradeV002ToV003;
-use bigbytes_common_meta_raft_store::sm_v003::write_entry::WriteEntry;
-use bigbytes_common_meta_raft_store::sm_v003::SnapshotStoreV003;
-use bigbytes_common_meta_raft_store::state_machine::MetaSnapshotId;
-use bigbytes_common_meta_sled_store::init_get_sled_db;
-use bigbytes_common_meta_sled_store::openraft::storage::RaftLogStorageExt;
-use bigbytes_common_meta_sled_store::openraft::RaftSnapshotBuilder;
-use bigbytes_common_meta_types::raft_types::CommittedLeaderId;
-use bigbytes_common_meta_types::raft_types::Entry;
-use bigbytes_common_meta_types::raft_types::EntryPayload;
-use bigbytes_common_meta_types::raft_types::LogId;
-use bigbytes_common_meta_types::raft_types::Membership;
-use bigbytes_common_meta_types::raft_types::NodeId;
-use bigbytes_common_meta_types::raft_types::StoredMembership;
-use bigbytes_common_meta_types::sys_data::SysData;
-use bigbytes_common_meta_types::Cmd;
-use bigbytes_common_meta_types::Endpoint;
-use bigbytes_common_meta_types::LogEntry;
-use bigbytes_common_meta_types::Node;
-use bigbytes_meta::store::RaftStore;
+use bigbytesdb_common_meta_raft_store::config::RaftConfig;
+use bigbytesdb_common_meta_raft_store::key_spaces::RaftStoreEntry;
+use bigbytesdb_common_meta_raft_store::key_spaces::SMEntry;
+use bigbytesdb_common_meta_raft_store::ondisk::DataVersion;
+use bigbytesdb_common_meta_raft_store::raft_log_v004;
+use bigbytesdb_common_meta_raft_store::sm_v003::adapter::SnapshotUpgradeV002ToV003;
+use bigbytesdb_common_meta_raft_store::sm_v003::write_entry::WriteEntry;
+use bigbytesdb_common_meta_raft_store::sm_v003::SnapshotStoreV003;
+use bigbytesdb_common_meta_raft_store::state_machine::MetaSnapshotId;
+use bigbytesdb_common_meta_sled_store::init_get_sled_db;
+use bigbytesdb_common_meta_sled_store::openraft::storage::RaftLogStorageExt;
+use bigbytesdb_common_meta_sled_store::openraft::RaftSnapshotBuilder;
+use bigbytesdb_common_meta_types::raft_types::CommittedLeaderId;
+use bigbytesdb_common_meta_types::raft_types::Entry;
+use bigbytesdb_common_meta_types::raft_types::EntryPayload;
+use bigbytesdb_common_meta_types::raft_types::LogId;
+use bigbytesdb_common_meta_types::raft_types::Membership;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_types::raft_types::StoredMembership;
+use bigbytesdb_common_meta_types::sys_data::SysData;
+use bigbytesdb_common_meta_types::Cmd;
+use bigbytesdb_common_meta_types::Endpoint;
+use bigbytesdb_common_meta_types::LogEntry;
+use bigbytesdb_common_meta_types::Node;
+use bigbytesdb_meta::store::RaftStore;
 use raft_log::api::raft_log_writer::RaftLogWriter;
 use url::Url;
 
@@ -95,13 +95,13 @@ async fn import_lines<B: BufRead + 'static>(
         DataVersion::V0 => {
             return Err(anyhow::anyhow!(
                 "importing from V0 is not supported since 2024-03-01,
-                 please use an older version bigbytes-metactl to import from V0"
+                 please use an older version bigbytesdb-metactl to import from V0"
             ));
         }
         DataVersion::V001 => {
             return Err(anyhow::anyhow!(
                 "importing from V001 is not supported since 2024-06-12,
-                 please use an older version bigbytes-metactl to import from V001"
+                 please use an older version bigbytesdb-metactl to import from V001"
             ));
         }
         DataVersion::V002 => import_v002(raft_config, it).await?,
@@ -245,7 +245,7 @@ async fn import_from_stdin_or_file(args: &ImportArgs) -> anyhow::Result<Option<L
 /// Build `Node` for cluster with new addresses configured.
 ///
 /// Raw config is: `<NodeId>=<raft-api-host>:<raft-api-port>[,...]`, e.g. `1=localhost:29103` or `1=localhost:29103,0.0.0.0:19191`
-/// The second part is obsolete grpc api address and will be just ignored. Bigbytes-meta loads Grpc address from config file when starting up.
+/// The second part is obsolete grpc api address and will be just ignored. Bigbytesdb-meta loads Grpc address from config file when starting up.
 fn build_nodes(initial_cluster: Vec<String>, id: u64) -> anyhow::Result<BTreeMap<NodeId, Node>> {
     eprintln!("Initialize Cluster: id={}, {:?}", id, initial_cluster);
 

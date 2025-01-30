@@ -14,8 +14,8 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_config::BIGBYTES_SEMVER;
-use bigbytes_common_storages_fuse::TableContext;
+use bigbytesdb_common_config::BIGBYTESDB_SEMVER;
+use bigbytesdb_common_storages_fuse::TableContext;
 use jwt_simple::prelude::Deserialize;
 use jwt_simple::prelude::Serialize;
 use poem::error::Result as PoemResult;
@@ -56,7 +56,7 @@ pub struct LoginResponse {
 async fn check_login(
     ctx: &HttpQueryContext,
     req: &LoginRequest,
-) -> bigbytes_common_exception::Result<()> {
+) -> bigbytesdb_common_exception::Result<()> {
     let session = &ctx.session;
     let table_ctx = session.create_query_context().await?;
     if let Some(database) = &req.database {
@@ -98,7 +98,7 @@ pub async fn login_handler(
         .as_ref()
         .expect("login_handler expect session id in ctx")
         .clone();
-    let version = BIGBYTES_SEMVER.to_string();
+    let version = BIGBYTESDB_SEMVER.to_string();
     check_login(ctx, &req)
         .await
         .map_err(HttpErrorCode::bad_request)?;

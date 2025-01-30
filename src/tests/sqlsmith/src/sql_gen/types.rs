@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::DecimalDataType;
-use bigbytes_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::DecimalDataType;
+use bigbytesdb_common_expression::types::NumberDataType;
 use rand::Rng;
 
 use crate::sql_gen::SqlGenerator;

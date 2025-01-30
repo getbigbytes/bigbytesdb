@@ -14,8 +14,8 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_meta_sled_store::openraft::async_runtime::watch::WatchReceiver;
-use bigbytes_common_meta_types::raft_types::NodeId;
+use bigbytesdb_common_meta_sled_store::openraft::async_runtime::watch::WatchReceiver;
+use bigbytesdb_common_meta_types::raft_types::NodeId;
 use http::StatusCode;
 use log::info;
 use log::warn;

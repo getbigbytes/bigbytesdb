@@ -14,11 +14,11 @@
 
 use std::str::FromStr;
 
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_io::GeometryDataType;
-use bigbytes_common_meta_app::principal::UserSettingValue;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_io::GeometryDataType;
+use bigbytesdb_common_meta_app::principal::UserSettingValue;
 
 use crate::settings::Settings;
 use crate::settings_default::DefaultSettings;

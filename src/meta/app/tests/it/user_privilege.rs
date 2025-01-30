@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::exception::Result;
-use bigbytes_common_meta_app::principal::UserPrivilegeSet;
-use bigbytes_common_meta_app::principal::UserPrivilegeType;
+use bigbytesdb_common_exception::exception::Result;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeSet;
+use bigbytesdb_common_meta_app::principal::UserPrivilegeType;
 
 #[test]
 fn test_user_privilege() -> Result<()> {

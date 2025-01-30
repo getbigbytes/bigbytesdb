@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_expression::DataSchemaRefExt;
-use bigbytes_common_meta_app::principal::CreateProcedureReq;
-use bigbytes_common_meta_app::principal::DropProcedureReq;
-use bigbytes_common_meta_app::principal::GetProcedureReq;
-use bigbytes_common_meta_app::principal::ProcedureMeta;
-use bigbytes_common_meta_app::principal::ProcedureNameIdent;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_expression::DataSchemaRefExt;
+use bigbytesdb_common_meta_app::principal::CreateProcedureReq;
+use bigbytesdb_common_meta_app::principal::DropProcedureReq;
+use bigbytesdb_common_meta_app::principal::GetProcedureReq;
+use bigbytesdb_common_meta_app::principal::ProcedureMeta;
+use bigbytesdb_common_meta_app::principal::ProcedureNameIdent;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_meta_app::tenant::Tenant;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct ExecuteImmediatePlan {

@@ -15,8 +15,8 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use bigbytes_common_base::runtime::drop_guard;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::runtime::drop_guard;
+use bigbytesdb_common_exception::Result;
 
 pub use self::apply_rule::ApplyRuleTask;
 pub use self::explore_expr::ExploreExprTask;

@@ -17,17 +17,17 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use bigbytes_common_meta_client::ClientHandle;
-use bigbytes_common_meta_client::Streamed;
-use bigbytes_common_meta_kvapi::kvapi::KVApi;
-use bigbytes_common_meta_kvapi::kvapi::ListKVReq;
-use bigbytes_common_meta_kvapi::kvapi::MGetKVReq;
-use bigbytes_common_meta_types::protobuf as pb;
-use bigbytes_common_meta_types::protobuf::KvMeta;
-use bigbytes_common_meta_types::seq_value::SeqV;
-use bigbytes_common_meta_types::MetaSpec;
-use bigbytes_common_meta_types::UpsertKV;
-use bigbytes_common_meta_types::With;
+use bigbytesdb_common_meta_client::ClientHandle;
+use bigbytesdb_common_meta_client::Streamed;
+use bigbytesdb_common_meta_kvapi::kvapi::KVApi;
+use bigbytesdb_common_meta_kvapi::kvapi::ListKVReq;
+use bigbytesdb_common_meta_kvapi::kvapi::MGetKVReq;
+use bigbytesdb_common_meta_types::protobuf as pb;
+use bigbytesdb_common_meta_types::protobuf::KvMeta;
+use bigbytesdb_common_meta_types::seq_value::SeqV;
+use bigbytesdb_common_meta_types::MetaSpec;
+use bigbytesdb_common_meta_types::UpsertKV;
+use bigbytesdb_common_meta_types::With;
 use futures::stream::StreamExt;
 use futures::TryStreamExt;
 use log::info;

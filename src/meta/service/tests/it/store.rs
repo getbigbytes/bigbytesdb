@@ -14,28 +14,28 @@
 
 use std::io;
 
-use bigbytes_common_meta_raft_store::leveled_store::db_exporter::DBExporter;
-use bigbytes_common_meta_raft_store::state_machine::testing::snapshot_logs;
-use bigbytes_common_meta_sled_store::openraft::entry::RaftEntry;
-use bigbytes_common_meta_sled_store::openraft::storage::RaftLogReaderExt;
-use bigbytes_common_meta_sled_store::openraft::storage::RaftLogStorage;
-use bigbytes_common_meta_sled_store::openraft::storage::RaftLogStorageExt;
-use bigbytes_common_meta_sled_store::openraft::storage::RaftStateMachine;
-use bigbytes_common_meta_sled_store::openraft::testing::log::StoreBuilder;
-use bigbytes_common_meta_sled_store::openraft::testing::log_id;
-use bigbytes_common_meta_sled_store::openraft::RaftLogReader;
-use bigbytes_common_meta_sled_store::openraft::RaftSnapshotBuilder;
-use bigbytes_common_meta_types::raft_types::new_log_id;
-use bigbytes_common_meta_types::raft_types::Entry;
-use bigbytes_common_meta_types::raft_types::Membership;
-use bigbytes_common_meta_types::raft_types::StorageError;
-use bigbytes_common_meta_types::raft_types::StoredMembership;
-use bigbytes_common_meta_types::raft_types::TypeConfig;
-use bigbytes_common_meta_types::raft_types::Vote;
-use bigbytes_common_meta_types::snapshot_db::DB;
-use bigbytes_meta::meta_service::meta_node::LogStore;
-use bigbytes_meta::meta_service::meta_node::SMStore;
-use bigbytes_meta::store::RaftStore;
+use bigbytesdb_common_meta_raft_store::leveled_store::db_exporter::DBExporter;
+use bigbytesdb_common_meta_raft_store::state_machine::testing::snapshot_logs;
+use bigbytesdb_common_meta_sled_store::openraft::entry::RaftEntry;
+use bigbytesdb_common_meta_sled_store::openraft::storage::RaftLogReaderExt;
+use bigbytesdb_common_meta_sled_store::openraft::storage::RaftLogStorage;
+use bigbytesdb_common_meta_sled_store::openraft::storage::RaftLogStorageExt;
+use bigbytesdb_common_meta_sled_store::openraft::storage::RaftStateMachine;
+use bigbytesdb_common_meta_sled_store::openraft::testing::log::StoreBuilder;
+use bigbytesdb_common_meta_sled_store::openraft::testing::log_id;
+use bigbytesdb_common_meta_sled_store::openraft::RaftLogReader;
+use bigbytesdb_common_meta_sled_store::openraft::RaftSnapshotBuilder;
+use bigbytesdb_common_meta_types::raft_types::new_log_id;
+use bigbytesdb_common_meta_types::raft_types::Entry;
+use bigbytesdb_common_meta_types::raft_types::Membership;
+use bigbytesdb_common_meta_types::raft_types::StorageError;
+use bigbytesdb_common_meta_types::raft_types::StoredMembership;
+use bigbytesdb_common_meta_types::raft_types::TypeConfig;
+use bigbytesdb_common_meta_types::raft_types::Vote;
+use bigbytesdb_common_meta_types::snapshot_db::DB;
+use bigbytesdb_meta::meta_service::meta_node::LogStore;
+use bigbytesdb_meta::meta_service::meta_node::SMStore;
+use bigbytesdb_meta::store::RaftStore;
 use futures::TryStreamExt;
 use log::debug;
 use log::info;
@@ -61,7 +61,7 @@ impl StoreBuilder<TypeConfig, LogStore, SMStore, MetaSrvTestContext> for MetaSto
 #[test(harness = meta_service_test_harness)]
 #[fastrace::trace]
 async fn test_impl_raft_storage() -> anyhow::Result<()> {
-    bigbytes_common_meta_sled_store::openraft::testing::log::Suite::test_all(MetaStoreBuilder {})
+    bigbytesdb_common_meta_sled_store::openraft::testing::log::Suite::test_all(MetaStoreBuilder {})
         .await?;
 
     Ok(())

@@ -15,9 +15,9 @@
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use bigbytes_common_ast::Span;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
 
 use crate::binder::ColumnBindingBuilder;
 use crate::binder::JoinPredicate;

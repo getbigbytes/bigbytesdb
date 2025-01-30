@@ -14,8 +14,8 @@
 
 use std::collections::HashMap;
 
-use bigbytes_common_storage::Datum;
-use bigbytes_common_storage::Histogram;
+use bigbytesdb_common_storage::Datum;
+use bigbytesdb_common_storage::Histogram;
 
 use crate::IndexType;
 

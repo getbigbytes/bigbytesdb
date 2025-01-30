@@ -14,9 +14,9 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::FieldIndex;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::FieldIndex;
 
 use crate::plan::Projection;
 use crate::plan::PushDownInfo;

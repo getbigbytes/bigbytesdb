@@ -1,4 +1,4 @@
-I hereby agree to the terms of the CLA available at: https://docs.bigbytes.com/dev/policies/cla/
+I hereby agree to the terms of the CLA available at: https://docs.bigbytesdb.com/dev/policies/cla/
 
 ## Summary
 

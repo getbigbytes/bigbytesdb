@@ -18,23 +18,23 @@ use std::time::Instant;
 
 use async_trait::async_trait;
 use backoff::backoff::Backoff;
-use bigbytes_common_catalog::catalog::Catalog;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_meta_app::schema::UpdateMultiTableMetaReq;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_meta_app::schema::UpdateTableMetaReq;
-use bigbytes_common_meta_app::schema::UpdateTempTableReq;
-use bigbytes_common_meta_types::MatchSeq;
-use bigbytes_common_pipeline_sinks::AsyncSink;
-use bigbytes_storages_common_session::TxnManagerRef;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_catalog::catalog::Catalog;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_meta_app::schema::UpdateMultiTableMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateTableMetaReq;
+use bigbytesdb_common_meta_app::schema::UpdateTempTableReq;
+use bigbytesdb_common_meta_types::MatchSeq;
+use bigbytesdb_common_pipeline_sinks::AsyncSink;
+use bigbytesdb_storages_common_session::TxnManagerRef;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use log::debug;
 use log::error;
 use log::info;
@@ -179,7 +179,7 @@ impl AsyncSink for CommitMultiTableInsert {
                         duration.as_millis(),
                         retries,
                     );
-                    bigbytes_common_base::base::tokio::time::sleep(duration).await;
+                    bigbytesdb_common_base::base::tokio::time::sleep(duration).await;
                     for (tid, seq, meta) in update_failed_tbls {
                         let table = self.tables.get_mut(&tid).unwrap();
                         *table = table

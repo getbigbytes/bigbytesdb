@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::is_internal_column;
-use bigbytes_common_expression::TableSchemaRef;
-use bigbytes_common_expression::SEARCH_MATCHED_COL_NAME;
-use bigbytes_common_expression::SEARCH_SCORE_COL_NAME;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::is_internal_column;
+use bigbytesdb_common_expression::TableSchemaRef;
+use bigbytesdb_common_expression::SEARCH_MATCHED_COL_NAME;
+use bigbytesdb_common_expression::SEARCH_SCORE_COL_NAME;
 
 use crate::optimizer::extract::Matcher;
 use crate::optimizer::rule::Rule;

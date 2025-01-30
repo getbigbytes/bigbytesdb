@@ -19,89 +19,89 @@ use std::str::FromStr;
 use std::sync::Arc;
 use std::vec;
 
-use bigbytes_common_ast::ast::BinaryOperator;
-use bigbytes_common_ast::ast::ColumnID;
-use bigbytes_common_ast::ast::ColumnRef;
-use bigbytes_common_ast::ast::Expr;
-use bigbytes_common_ast::ast::FileLocation;
-use bigbytes_common_ast::ast::FunctionCall as ASTFunctionCall;
-use bigbytes_common_ast::ast::Identifier;
-use bigbytes_common_ast::ast::IntervalKind as ASTIntervalKind;
-use bigbytes_common_ast::ast::Lambda;
-use bigbytes_common_ast::ast::Literal;
-use bigbytes_common_ast::ast::MapAccessor;
-use bigbytes_common_ast::ast::Query;
-use bigbytes_common_ast::ast::SelectTarget;
-use bigbytes_common_ast::ast::SetExpr;
-use bigbytes_common_ast::ast::SubqueryModifier;
-use bigbytes_common_ast::ast::TrimWhere;
-use bigbytes_common_ast::ast::TypeName;
-use bigbytes_common_ast::ast::UnaryOperator;
-use bigbytes_common_ast::ast::UriLocation;
-use bigbytes_common_ast::ast::Weekday as ASTWeekday;
-use bigbytes_common_ast::ast::Window;
-use bigbytes_common_ast::ast::WindowFrame;
-use bigbytes_common_ast::ast::WindowFrameBound;
-use bigbytes_common_ast::ast::WindowFrameUnits;
-use bigbytes_common_ast::parser::parse_expr;
-use bigbytes_common_ast::parser::tokenize_sql;
-use bigbytes_common_ast::parser::Dialect;
-use bigbytes_common_ast::Span;
-use bigbytes_common_catalog::catalog::CatalogManager;
-use bigbytes_common_catalog::plan::InternalColumn;
-use bigbytes_common_catalog::plan::InternalColumnType;
-use bigbytes_common_catalog::plan::InvertedIndexInfo;
-use bigbytes_common_catalog::plan::InvertedIndexOption;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_compress::CompressAlgorithm;
-use bigbytes_common_compress::DecompressDecoder;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::display::display_tuple_field_name;
-use bigbytes_common_expression::infer_schema_type;
-use bigbytes_common_expression::shrink_scalar;
-use bigbytes_common_expression::type_check;
-use bigbytes_common_expression::type_check::check_number;
-use bigbytes_common_expression::types::decimal::DecimalDataType;
-use bigbytes_common_expression::types::decimal::DecimalScalar;
-use bigbytes_common_expression::types::decimal::DecimalSize;
-use bigbytes_common_expression::types::decimal::MAX_DECIMAL128_PRECISION;
-use bigbytes_common_expression::types::decimal::MAX_DECIMAL256_PRECISION;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::types::F32;
-use bigbytes_common_expression::ColumnIndex;
-use bigbytes_common_expression::ConstantFolder;
-use bigbytes_common_expression::DataField;
-use bigbytes_common_expression::DataSchema;
-use bigbytes_common_expression::Expr as EExpr;
-use bigbytes_common_expression::FunctionContext;
-use bigbytes_common_expression::FunctionKind;
-use bigbytes_common_expression::RawExpr;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::SEARCH_MATCHED_COL_NAME;
-use bigbytes_common_expression::SEARCH_SCORE_COL_NAME;
-use bigbytes_common_functions::aggregates::AggregateFunctionFactory;
-use bigbytes_common_functions::is_builtin_function;
-use bigbytes_common_functions::ASYNC_FUNCTIONS;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_functions::GENERAL_LAMBDA_FUNCTIONS;
-use bigbytes_common_functions::GENERAL_SEARCH_FUNCTIONS;
-use bigbytes_common_functions::GENERAL_WINDOW_FUNCTIONS;
-use bigbytes_common_functions::RANK_WINDOW_FUNCTIONS;
-use bigbytes_common_meta_app::principal::LambdaUDF;
-use bigbytes_common_meta_app::principal::UDAFScript;
-use bigbytes_common_meta_app::principal::UDFDefinition;
-use bigbytes_common_meta_app::principal::UDFScript;
-use bigbytes_common_meta_app::principal::UDFServer;
-use bigbytes_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
-use bigbytes_common_meta_app::schema::DictionaryIdentity;
-use bigbytes_common_meta_app::schema::GetSequenceReq;
-use bigbytes_common_meta_app::schema::SequenceIdent;
-use bigbytes_common_storage::init_stage_operator;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::BinaryOperator;
+use bigbytesdb_common_ast::ast::ColumnID;
+use bigbytesdb_common_ast::ast::ColumnRef;
+use bigbytesdb_common_ast::ast::Expr;
+use bigbytesdb_common_ast::ast::FileLocation;
+use bigbytesdb_common_ast::ast::FunctionCall as ASTFunctionCall;
+use bigbytesdb_common_ast::ast::Identifier;
+use bigbytesdb_common_ast::ast::IntervalKind as ASTIntervalKind;
+use bigbytesdb_common_ast::ast::Lambda;
+use bigbytesdb_common_ast::ast::Literal;
+use bigbytesdb_common_ast::ast::MapAccessor;
+use bigbytesdb_common_ast::ast::Query;
+use bigbytesdb_common_ast::ast::SelectTarget;
+use bigbytesdb_common_ast::ast::SetExpr;
+use bigbytesdb_common_ast::ast::SubqueryModifier;
+use bigbytesdb_common_ast::ast::TrimWhere;
+use bigbytesdb_common_ast::ast::TypeName;
+use bigbytesdb_common_ast::ast::UnaryOperator;
+use bigbytesdb_common_ast::ast::UriLocation;
+use bigbytesdb_common_ast::ast::Weekday as ASTWeekday;
+use bigbytesdb_common_ast::ast::Window;
+use bigbytesdb_common_ast::ast::WindowFrame;
+use bigbytesdb_common_ast::ast::WindowFrameBound;
+use bigbytesdb_common_ast::ast::WindowFrameUnits;
+use bigbytesdb_common_ast::parser::parse_expr;
+use bigbytesdb_common_ast::parser::tokenize_sql;
+use bigbytesdb_common_ast::parser::Dialect;
+use bigbytesdb_common_ast::Span;
+use bigbytesdb_common_catalog::catalog::CatalogManager;
+use bigbytesdb_common_catalog::plan::InternalColumn;
+use bigbytesdb_common_catalog::plan::InternalColumnType;
+use bigbytesdb_common_catalog::plan::InvertedIndexInfo;
+use bigbytesdb_common_catalog::plan::InvertedIndexOption;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_compress::CompressAlgorithm;
+use bigbytesdb_common_compress::DecompressDecoder;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::display::display_tuple_field_name;
+use bigbytesdb_common_expression::infer_schema_type;
+use bigbytesdb_common_expression::shrink_scalar;
+use bigbytesdb_common_expression::type_check;
+use bigbytesdb_common_expression::type_check::check_number;
+use bigbytesdb_common_expression::types::decimal::DecimalDataType;
+use bigbytesdb_common_expression::types::decimal::DecimalScalar;
+use bigbytesdb_common_expression::types::decimal::DecimalSize;
+use bigbytesdb_common_expression::types::decimal::MAX_DECIMAL128_PRECISION;
+use bigbytesdb_common_expression::types::decimal::MAX_DECIMAL256_PRECISION;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::types::F32;
+use bigbytesdb_common_expression::ColumnIndex;
+use bigbytesdb_common_expression::ConstantFolder;
+use bigbytesdb_common_expression::DataField;
+use bigbytesdb_common_expression::DataSchema;
+use bigbytesdb_common_expression::Expr as EExpr;
+use bigbytesdb_common_expression::FunctionContext;
+use bigbytesdb_common_expression::FunctionKind;
+use bigbytesdb_common_expression::RawExpr;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::SEARCH_MATCHED_COL_NAME;
+use bigbytesdb_common_expression::SEARCH_SCORE_COL_NAME;
+use bigbytesdb_common_functions::aggregates::AggregateFunctionFactory;
+use bigbytesdb_common_functions::is_builtin_function;
+use bigbytesdb_common_functions::ASYNC_FUNCTIONS;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_functions::GENERAL_LAMBDA_FUNCTIONS;
+use bigbytesdb_common_functions::GENERAL_SEARCH_FUNCTIONS;
+use bigbytesdb_common_functions::GENERAL_WINDOW_FUNCTIONS;
+use bigbytesdb_common_functions::RANK_WINDOW_FUNCTIONS;
+use bigbytesdb_common_meta_app::principal::LambdaUDF;
+use bigbytesdb_common_meta_app::principal::UDAFScript;
+use bigbytesdb_common_meta_app::principal::UDFDefinition;
+use bigbytesdb_common_meta_app::principal::UDFScript;
+use bigbytesdb_common_meta_app::principal::UDFServer;
+use bigbytesdb_common_meta_app::schema::dictionary_name_ident::DictionaryNameIdent;
+use bigbytesdb_common_meta_app::schema::DictionaryIdentity;
+use bigbytesdb_common_meta_app::schema::GetSequenceReq;
+use bigbytesdb_common_meta_app::schema::SequenceIdent;
+use bigbytesdb_common_storage::init_stage_operator;
+use bigbytesdb_common_users::UserApiProvider;
 use derive_visitor::Drive;
 use derive_visitor::Visitor;
 use itertools::Itertools;
@@ -1241,7 +1241,7 @@ impl<'a> TypeChecker<'a> {
     fn resolve_literal(
         &self,
         span: Span,
-        literal: &bigbytes_common_ast::ast::Literal,
+        literal: &bigbytesdb_common_ast::ast::Literal,
     ) -> Result<Box<(ScalarExpr, DataType)>> {
         let box (value, data_type) = self.resolve_literal_scalar(literal)?;
 
@@ -3630,7 +3630,7 @@ impl<'a> TypeChecker<'a> {
     /// Resolve literal values.
     pub fn resolve_literal_scalar(
         &self,
-        literal: &bigbytes_common_ast::ast::Literal,
+        literal: &bigbytesdb_common_ast::ast::Literal,
     ) -> Result<Box<(Scalar, DataType)>> {
         let value = match literal {
             Literal::UInt64(value) => Scalar::Number(NumberScalar::UInt64(*value)),
@@ -3741,7 +3741,7 @@ impl<'a> TypeChecker<'a> {
             return Ok(None);
         }
 
-        let udf = bigbytes_common_base::runtime::block_on({
+        let udf = bigbytesdb_common_base::runtime::block_on({
             UserApiProvider::instance().get_udf(&self.ctx.get_tenant(), udf_name)
         })?;
 
@@ -3901,7 +3901,7 @@ impl<'a> TypeChecker<'a> {
             }
         }
 
-        let code_blob = bigbytes_common_base::runtime::block_on(self.resolve_udf_with_stage(code))?
+        let code_blob = bigbytesdb_common_base::runtime::block_on(self.resolve_udf_with_stage(code))?
             .into_boxed_slice();
         let udf_type = UDFType::Script(UDFScriptCode {
             language,
@@ -3946,7 +3946,7 @@ impl<'a> TypeChecker<'a> {
             runtime_version,
         } = udf_definition;
         let language = language.parse()?;
-        let code_blob = bigbytes_common_base::runtime::block_on(self.resolve_udf_with_stage(code))?
+        let code_blob = bigbytesdb_common_base::runtime::block_on(self.resolve_udf_with_stage(code))?
             .into_boxed_slice();
         let udf_type = UDFType::Script(UDFScriptCode {
             language,
@@ -4116,7 +4116,7 @@ impl<'a> TypeChecker<'a> {
             ident: SequenceIdent::new(self.ctx.get_tenant(), sequence_name.clone()),
         };
 
-        bigbytes_common_base::runtime::block_on(catalog.get_sequence(req))?;
+        bigbytesdb_common_base::runtime::block_on(catalog.get_sequence(req))?;
 
         let display_name = format!("{}({})", func_name, sequence_name);
         let return_type = DataType::Number(NumberDataType::UInt64);
@@ -4184,7 +4184,7 @@ impl<'a> TypeChecker<'a> {
             )
             .set_span(dict_name_arg.span()));
         };
-        let db = bigbytes_common_base::runtime::block_on(
+        let db = bigbytesdb_common_base::runtime::block_on(
             catalog.get_database(&tenant, db_name.as_str()),
         )?;
         let db_id = db.get_db_info().database_id.db_id;
@@ -4192,7 +4192,7 @@ impl<'a> TypeChecker<'a> {
             tenant.clone(),
             DictionaryIdentity::new(db_id, dict_name.clone()),
         );
-        let reply = bigbytes_common_base::runtime::block_on(catalog.get_dictionary(req))?;
+        let reply = bigbytesdb_common_base::runtime::block_on(catalog.get_dictionary(req))?;
         let dictionary = if let Some(r) = reply {
             r.dictionary_meta
         } else {
@@ -5159,13 +5159,13 @@ impl<'a> TypeChecker<'a> {
 }
 
 pub fn resolve_type_name_by_str(name: &str, not_null: bool) -> Result<TableDataType> {
-    let sql_tokens = bigbytes_common_ast::parser::tokenize_sql(name)?;
-    let ast = bigbytes_common_ast::parser::run_parser(
+    let sql_tokens = bigbytesdb_common_ast::parser::tokenize_sql(name)?;
+    let ast = bigbytesdb_common_ast::parser::run_parser(
         &sql_tokens,
-        bigbytes_common_ast::parser::Dialect::default(),
-        bigbytes_common_ast::parser::ParseMode::Default,
+        bigbytesdb_common_ast::parser::Dialect::default(),
+        bigbytesdb_common_ast::parser::ParseMode::Default,
         false,
-        bigbytes_common_ast::parser::expr::type_name,
+        bigbytesdb_common_ast::parser::expr::type_name,
     )?;
     resolve_type_name(&ast, not_null)
 }

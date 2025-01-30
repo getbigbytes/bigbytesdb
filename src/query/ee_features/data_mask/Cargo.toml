@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-enterprise-data-mask-feature"
+name = "bigbytesdb-enterprise-data-mask-feature"
 description = "data mask"
 version = { workspace = true }
 authors = { workspace = true }
@@ -13,10 +13,10 @@ test = true
 
 [dependencies]
 async-trait = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
-bigbytes-common-meta-app = { workspace = true }
-bigbytes-common-meta-store = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
+bigbytesdb-common-meta-app = { workspace = true }
+bigbytesdb-common-meta-store = { workspace = true }
 
 [build-dependencies]
 

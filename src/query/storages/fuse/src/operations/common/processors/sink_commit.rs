@@ -19,25 +19,25 @@ use std::time::Instant;
 
 use backoff::backoff::Backoff;
 use backoff::ExponentialBackoff;
-use bigbytes_common_catalog::table::Table;
-use bigbytes_common_catalog::table::TableExt;
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_meta_app::schema::TableInfo;
-use bigbytes_common_meta_app::schema::TruncateTableReq;
-use bigbytes_common_meta_app::schema::UpdateStreamMetaReq;
-use bigbytes_common_meta_app::schema::UpsertTableCopiedFileReq;
-use bigbytes_common_metrics::storage::*;
-use bigbytes_common_pipeline_core::processors::Event;
-use bigbytes_common_pipeline_core::processors::InputPort;
-use bigbytes_common_pipeline_core::processors::Processor;
-use bigbytes_common_pipeline_core::processors::ProcessorPtr;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SnapshotId;
-use bigbytes_storages_common_table_meta::meta::TableSnapshot;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_catalog::table::Table;
+use bigbytesdb_common_catalog::table::TableExt;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_meta_app::schema::TableInfo;
+use bigbytesdb_common_meta_app::schema::TruncateTableReq;
+use bigbytesdb_common_meta_app::schema::UpdateStreamMetaReq;
+use bigbytesdb_common_meta_app::schema::UpsertTableCopiedFileReq;
+use bigbytesdb_common_metrics::storage::*;
+use bigbytesdb_common_pipeline_core::processors::Event;
+use bigbytesdb_common_pipeline_core::processors::InputPort;
+use bigbytesdb_common_pipeline_core::processors::Processor;
+use bigbytesdb_common_pipeline_core::processors::ProcessorPtr;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SnapshotId;
+use bigbytesdb_storages_common_table_meta::meta::TableSnapshot;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use log::debug;
 use log::error;
 use log::info;
@@ -470,7 +470,7 @@ where F: SnapshotGenerator + Send + 'static
                                     name.as_str(),
                                     table_info.ident
                                 );
-                                bigbytes_common_base::base::tokio::time::sleep(d).await;
+                                bigbytesdb_common_base::base::tokio::time::sleep(d).await;
                                 self.retries += 1;
                                 self.state = State::RefreshTable;
                             }

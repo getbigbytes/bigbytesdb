@@ -1,5 +1,5 @@
 [package]
-name = "bigbytes-common-io"
+name = "bigbytesdb-common-io"
 version = { workspace = true }
 authors = { workspace = true }
 license = { workspace = true }
@@ -16,8 +16,8 @@ borsh = { workspace = true }
 bytes = { workspace = true }
 chrono = { workspace = true }
 chrono-tz = { workspace = true }
-bigbytes-common-base = { workspace = true }
-bigbytes-common-exception = { workspace = true }
+bigbytesdb-common-base = { workspace = true }
+bigbytesdb-common-exception = { workspace = true }
 enquote = { workspace = true }
 enumflags2 = { workspace = true }
 ethnum = { workspace = true }

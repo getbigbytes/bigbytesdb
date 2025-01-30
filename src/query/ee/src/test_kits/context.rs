@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_config::InnerConfig;
-use bigbytes_common_exception::Result;
-use bigbytes_common_license::license::LicenseInfo;
-use bigbytes_common_meta_app::storage::StorageFsConfig;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_query::test_kits::*;
+use bigbytesdb_common_config::InnerConfig;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_license::license::LicenseInfo;
+use bigbytesdb_common_meta_app::storage::StorageFsConfig;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_query::test_kits::*;
 use jwt_simple::algorithms::ECDSAP256KeyPairLike;
 use jwt_simple::prelude::Claims;
 use jwt_simple::prelude::Duration;
@@ -44,14 +44,14 @@ impl EESetup {
     pub fn new() -> Self {
         let key_pair = ES256KeyPair::generate();
         let claims = Claims::with_custom_claims(
-            build_custom_claims("trial".to_string(), "bigbytes".to_string()),
+            build_custom_claims("trial".to_string(), "bigbytesdb".to_string()),
             Duration::from_hours(2),
         );
         let token = key_pair.sign(claims).unwrap();
         let public_key = key_pair.public_key().to_pem().unwrap();
 
         let mut conf = ConfigBuilder::create().config();
-        conf.query.bigbytes_enterprise_license = Some(token);
+        conf.query.bigbytesdb_enterprise_license = Some(token);
         conf.storage.allow_insecure = true;
 
         let tmp_dir = TempDir::new().expect("create tmp dir failed");

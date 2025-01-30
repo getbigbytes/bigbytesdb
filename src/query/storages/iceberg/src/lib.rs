@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! This is the Iceberg catalog support for bigbytes.
+//! This is the Iceberg catalog support for bigbytesdb.
 //! Iceberg offered support for tables, that meaning the catalog and database data
 //! should be managed by ourselves.
 

@@ -12,5 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub use bigbytes_common_meta_raft_store::mem_meta::MemMeta;
-pub use bigbytes_common_meta_raft_store::mem_state_machine::MemStateMachine;
+pub use bigbytesdb_common_meta_raft_store::mem_meta::MemMeta;
+pub use bigbytesdb_common_meta_raft_store::mem_state_machine::MemStateMachine;

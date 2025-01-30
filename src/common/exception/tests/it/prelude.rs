@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_exception::*;
+use bigbytesdb_common_exception::*;
 
 #[test]
 fn test_prelude() -> anyhow::Result<()> {
     let x: std::result::Result<(), std::fmt::Error> = Err(std::fmt::Error {});
-    let y: bigbytes_common_exception::Result<()> =
+    let y: bigbytesdb_common_exception::Result<()> =
         x.map_err_to_code(ErrorCode::UnknownException, || 123);
 
     assert_eq!(

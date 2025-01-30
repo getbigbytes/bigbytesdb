@@ -14,8 +14,8 @@
 
 mod builder;
 
-use bigbytes_common_column::binview::BinaryViewColumn;
-use bigbytes_common_column::binview::Utf8ViewColumn;
+use bigbytesdb_common_column::binview::BinaryViewColumn;
+use bigbytesdb_common_column::binview::Utf8ViewColumn;
 
 #[test]
 fn basics_string_view() {
@@ -23,7 +23,7 @@ fn basics_string_view() {
         "hello",
         "",
         // larger than 12 bytes.
-        "Bigbytes Cloud is a Cost-Effective alternative to Snowflake.",
+        "Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake.",
     ];
 
     let array: Utf8ViewColumn = data.into_iter().collect();
@@ -32,11 +32,11 @@ fn basics_string_view() {
     assert_eq!(array.value(1), "");
     assert_eq!(
         array.value(2),
-        "Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        "Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
     assert_eq!(
         unsafe { array.value_unchecked(2) },
-        "Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        "Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
 
     let array2 = Utf8ViewColumn::new_unchecked(
@@ -53,7 +53,7 @@ fn basics_string_view() {
     assert_eq!(array.value(0), "");
     assert_eq!(
         array.value(1),
-        "Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        "Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
 }
 
@@ -63,7 +63,7 @@ fn basics_binary_view() {
         b"hello".to_vec(),
         b"".to_vec(),
         // larger than 12 bytes.
-        b"Bigbytes Cloud is a Cost-Effective alternative to Snowflake.".to_vec(),
+        b"Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake.".to_vec(),
     ];
 
     let array: BinaryViewColumn = data.into_iter().collect();
@@ -72,11 +72,11 @@ fn basics_binary_view() {
     assert_eq!(array.value(1), b"");
     assert_eq!(
         array.value(2),
-        b"Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        b"Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
     assert_eq!(
         unsafe { array.value_unchecked(2) },
-        b"Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        b"Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
 
     let array2 = BinaryViewColumn::new_unchecked(
@@ -93,7 +93,7 @@ fn basics_binary_view() {
     assert_eq!(array.value(0), b"");
     assert_eq!(
         array.value(1),
-        b"Bigbytes Cloud is a Cost-Effective alternative to Snowflake."
+        b"Bigbytesdb Cloud is a Cost-Effective alternative to Snowflake."
     );
 }
 
@@ -113,13 +113,13 @@ fn from_iter() {
 
 #[test]
 fn test_slice() {
-    let data = vec!["hello", "world", "bigbytes", "y", "z", "abc"];
+    let data = vec!["hello", "world", "bigbytesdb", "y", "z", "abc"];
 
     let array: Utf8ViewColumn = data.into_iter().collect();
 
     let a3 = array.sliced(2, 3);
     assert_eq!(a3.into_iter().collect::<Vec<_>>(), vec![
-        "bigbytes", "y", "z"
+        "bigbytesdb", "y", "z"
     ]);
 }
 

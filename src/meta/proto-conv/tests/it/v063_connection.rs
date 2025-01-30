@@ -14,7 +14,7 @@
 
 use std::collections::BTreeMap;
 
-use bigbytes_common_meta_app::principal::UserDefinedConnection;
+use bigbytesdb_common_meta_app::principal::UserDefinedConnection;
 use fastrace::func_name;
 
 use crate::common;

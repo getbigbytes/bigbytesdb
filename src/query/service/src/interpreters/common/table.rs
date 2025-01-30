@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::ComputedExpr;
-use bigbytes_common_expression::DataSchemaRef;
-use bigbytes_common_sql::parse_computed_expr;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::ComputedExpr;
+use bigbytesdb_common_expression::DataSchemaRef;
+use bigbytesdb_common_sql::parse_computed_expr;
 
 pub fn check_referenced_computed_columns(
     ctx: Arc<dyn TableContext>,

@@ -16,12 +16,12 @@ use std::convert::TryInto;
 use std::io::Cursor;
 use std::marker::PhantomData;
 
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_expression::types::Number;
-use bigbytes_common_expression::types::NumberType;
-use bigbytes_common_expression::types::ValueType;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::TableDataType;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_expression::types::Number;
+use bigbytesdb_common_expression::types::NumberType;
+use bigbytesdb_common_expression::types::ValueType;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::TableDataType;
 
 use crate::compression::double::decompress_double;
 use crate::compression::double::DoubleType;

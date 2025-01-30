@@ -15,20 +15,20 @@
 use std::sync::Arc;
 
 use chrono_tz::Tz;
-use bigbytes_common_ast::ast::SetType;
-use bigbytes_common_config::GlobalConfig;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::cast_scalar;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_functions::BUILTIN_FUNCTIONS;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_sql::plans::Plan;
-use bigbytes_common_sql::plans::SetPlan;
-use bigbytes_common_sql::plans::SetScalarsOrQuery;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_ast::ast::SetType;
+use bigbytesdb_common_config::GlobalConfig;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::cast_scalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_functions::BUILTIN_FUNCTIONS;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_sql::plans::Plan;
+use bigbytesdb_common_sql::plans::SetPlan;
+use bigbytesdb_common_sql::plans::SetScalarsOrQuery;
+use bigbytesdb_common_users::UserApiProvider;
 use fastrace::func_name;
 use futures::TryStreamExt;
 
@@ -95,7 +95,7 @@ impl SetInterpreter {
                     true
                 }
                 // TODO: if account_admin is built-in meta in future, we need process set sandbox_tenant in there.
-                // Like: https://github.com/getbigbytes/bigbytes/pull/14451/files#diff-a26c9dfc9c0a37f5efa19e2b16006732b9023f42ee47cbe37fe461fb46b9dfc0R82-R85
+                // Like: https://github.com/getbigbytes/bigbytesdb/pull/14451/files#diff-a26c9dfc9c0a37f5efa19e2b16006732b9023f42ee47cbe37fe461fb46b9dfc0R82-R85
                 "sandbox_tenant" => {
                     // only used in sqlogictest, it will create a sandbox tenant on every sqlogictest cases
                     // and switch to it by SET sandbox_tenant = xxx;

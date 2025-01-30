@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::RemoteExpr;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::RemoteExpr;
+use bigbytesdb_common_expression::Scalar;
 use iceberg::expr::Predicate;
 use iceberg::expr::Reference;
 use iceberg::spec::Datum;

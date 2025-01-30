@@ -14,24 +14,24 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_expression::passthrough_nullable;
-use bigbytes_common_expression::types::nullable::NullableColumn;
-use bigbytes_common_expression::types::number::Int64Type;
-use bigbytes_common_expression::types::number::NumberScalar;
-use bigbytes_common_expression::types::string::StringDomain;
-use bigbytes_common_expression::types::MutableBitmap;
-use bigbytes_common_expression::types::NumberColumn;
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::Column;
-use bigbytes_common_expression::Domain;
-use bigbytes_common_expression::EvalContext;
-use bigbytes_common_expression::Function;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionEval;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_common_expression::FunctionSignature;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::Value;
+use bigbytesdb_common_expression::passthrough_nullable;
+use bigbytesdb_common_expression::types::nullable::NullableColumn;
+use bigbytesdb_common_expression::types::number::Int64Type;
+use bigbytesdb_common_expression::types::number::NumberScalar;
+use bigbytesdb_common_expression::types::string::StringDomain;
+use bigbytesdb_common_expression::types::MutableBitmap;
+use bigbytesdb_common_expression::types::NumberColumn;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::Column;
+use bigbytesdb_common_expression::Domain;
+use bigbytesdb_common_expression::EvalContext;
+use bigbytesdb_common_expression::Function;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionEval;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_common_expression::FunctionSignature;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::Value;
 use string::StringColumnBuilder;
 
 pub fn register(registry: &mut FunctionRegistry) {
@@ -844,7 +844,7 @@ fn regexp_substr_fn(args: &[Value<AnyType>], ctx: &mut EvalContext) -> Value<Any
 }
 
 pub mod regexp {
-    use bigbytes_common_expression::types::string::StringColumnBuilder;
+    use bigbytesdb_common_expression::types::string::StringColumnBuilder;
     use regex::Regex;
     use regex::RegexBuilder;
 

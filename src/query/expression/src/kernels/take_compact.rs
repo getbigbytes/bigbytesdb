@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use binary::BinaryColumnBuilder;
-use bigbytes_common_base::vec_ext::VecExt;
-use bigbytes_common_column::buffer::Buffer;
-use bigbytes_common_exception::Result;
+use bigbytesdb_common_base::vec_ext::VecExt;
+use bigbytesdb_common_column::buffer::Buffer;
+use bigbytesdb_common_exception::Result;
 
 use crate::types::binary::BinaryColumn;
 use crate::types::nullable::NullableColumn;

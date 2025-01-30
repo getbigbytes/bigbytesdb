@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_meta::api::http::v1::metrics::metrics_handler;
-use bigbytes_meta::metrics::network_metrics;
-use bigbytes_meta::metrics::raft_metrics;
-use bigbytes_meta::metrics::server_metrics;
+use bigbytesdb_meta::api::http::v1::metrics::metrics_handler;
+use bigbytesdb_meta::metrics::network_metrics;
+use bigbytesdb_meta::metrics::raft_metrics;
+use bigbytesdb_meta::metrics::server_metrics;
 use http::Method;
 use http::StatusCode;
 use http::Uri;

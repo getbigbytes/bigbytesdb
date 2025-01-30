@@ -14,10 +14,10 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::schema::RenameTableReq;
-use bigbytes_common_meta_app::schema::TableNameIdent;
-use bigbytes_common_sql::plans::RenameTablePlan;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::schema::RenameTableReq;
+use bigbytesdb_common_meta_app::schema::TableNameIdent;
+use bigbytesdb_common_sql::plans::RenameTablePlan;
 
 use crate::interpreters::Interpreter;
 use crate::pipelines::PipelineBuildResult;

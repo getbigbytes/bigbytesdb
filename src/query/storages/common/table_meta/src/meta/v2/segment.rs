@@ -18,11 +18,11 @@ use std::sync::Arc;
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_expression::BlockMetaInfo;
-use bigbytes_common_expression::BlockMetaInfoDowncast;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_native::ColumnMeta as NativeColumnMeta;
+use bigbytesdb_common_expression::BlockMetaInfo;
+use bigbytesdb_common_expression::BlockMetaInfoDowncast;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_native::ColumnMeta as NativeColumnMeta;
 use enum_as_inner::EnumAsInner;
 use serde::Deserialize;
 use serde::Serialize;

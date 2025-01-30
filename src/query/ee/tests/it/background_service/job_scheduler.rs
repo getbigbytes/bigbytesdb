@@ -19,19 +19,19 @@ use std::time::Duration;
 use chrono::TimeZone;
 use chrono::Utc;
 use chrono_tz::Tz;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_base::base::tokio::sync::mpsc::Sender;
-use bigbytes_common_base::base::tokio::sync::Mutex;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::background::BackgroundJobIdent;
-use bigbytes_common_meta_app::background::BackgroundJobInfo;
-use bigbytes_common_meta_app::background::BackgroundJobParams;
-use bigbytes_common_meta_app::background::BackgroundJobStatus;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::tenant::Tenant;
-use bigbytes_common_meta_types::SeqV;
-use bigbytes_enterprise_query::background_service::Job;
-use bigbytes_enterprise_query::background_service::JobScheduler;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_base::base::tokio::sync::mpsc::Sender;
+use bigbytesdb_common_base::base::tokio::sync::Mutex;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::background::BackgroundJobIdent;
+use bigbytesdb_common_meta_app::background::BackgroundJobInfo;
+use bigbytesdb_common_meta_app::background::BackgroundJobParams;
+use bigbytesdb_common_meta_app::background::BackgroundJobStatus;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::tenant::Tenant;
+use bigbytesdb_common_meta_types::SeqV;
+use bigbytesdb_enterprise_query::background_service::Job;
+use bigbytesdb_enterprise_query::background_service::JobScheduler;
 
 #[derive(Clone)]
 struct TestJob {
@@ -121,7 +121,7 @@ async fn test_interval_job() -> Result<()> {
     };
     scheduler.add_job(job.clone()).await?;
     let suspend_tx = scheduler.suspend_tx.clone();
-    bigbytes_common_base::runtime::spawn(async move {
+    bigbytesdb_common_base::runtime::spawn(async move {
         tokio::time::sleep(Duration::from_millis(100)).await;
         let _ = suspend_tx.lock().await.send(()).await;
     });

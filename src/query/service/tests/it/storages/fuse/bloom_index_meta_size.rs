@@ -17,35 +17,35 @@ use std::collections::HashSet;
 use std::sync::Arc;
 
 use chrono::Utc;
-use bigbytes_common_base::base::tokio;
-use bigbytes_common_expression::types::Int32Type;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::ColumnId;
-use bigbytes_common_expression::DataBlock;
-use bigbytes_common_expression::FromData;
-use bigbytes_common_expression::Scalar;
-use bigbytes_common_expression::TableDataType;
-use bigbytes_common_expression::TableField;
-use bigbytes_common_expression::TableSchemaRefExt;
-use bigbytes_common_storages_fuse::io::TableMetaLocationGenerator;
-use bigbytes_common_storages_fuse::statistics::gen_columns_statistics;
-use bigbytes_common_storages_fuse::statistics::STATS_STRING_PREFIX_LEN;
-use bigbytes_common_storages_fuse::FuseStorageFormat;
-use bigbytes_query::test_kits::*;
-use bigbytes_storages_common_cache::CacheAccessor;
-use bigbytes_storages_common_cache::CacheValue;
-use bigbytes_storages_common_cache::InMemoryLruCache;
-use bigbytes_storages_common_table_meta::meta::BlockMeta;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
-use bigbytes_storages_common_table_meta::meta::ColumnStatistics;
-use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
-use bigbytes_storages_common_table_meta::meta::Compression;
-use bigbytes_storages_common_table_meta::meta::Location;
-use bigbytes_storages_common_table_meta::meta::SegmentInfo;
-use bigbytes_storages_common_table_meta::meta::SingleColumnMeta;
-use bigbytes_storages_common_table_meta::meta::Statistics;
-use bigbytes_storages_common_table_meta::meta::Versioned;
+use bigbytesdb_common_base::base::tokio;
+use bigbytesdb_common_expression::types::Int32Type;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::ColumnId;
+use bigbytesdb_common_expression::DataBlock;
+use bigbytesdb_common_expression::FromData;
+use bigbytesdb_common_expression::Scalar;
+use bigbytesdb_common_expression::TableDataType;
+use bigbytesdb_common_expression::TableField;
+use bigbytesdb_common_expression::TableSchemaRefExt;
+use bigbytesdb_common_storages_fuse::io::TableMetaLocationGenerator;
+use bigbytesdb_common_storages_fuse::statistics::gen_columns_statistics;
+use bigbytesdb_common_storages_fuse::statistics::STATS_STRING_PREFIX_LEN;
+use bigbytesdb_common_storages_fuse::FuseStorageFormat;
+use bigbytesdb_query::test_kits::*;
+use bigbytesdb_storages_common_cache::CacheAccessor;
+use bigbytesdb_storages_common_cache::CacheValue;
+use bigbytesdb_storages_common_cache::InMemoryLruCache;
+use bigbytesdb_storages_common_table_meta::meta::BlockMeta;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::ColumnStatistics;
+use bigbytesdb_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::Compression;
+use bigbytesdb_storages_common_table_meta::meta::Location;
+use bigbytesdb_storages_common_table_meta::meta::SegmentInfo;
+use bigbytesdb_storages_common_table_meta::meta::SingleColumnMeta;
+use bigbytesdb_storages_common_table_meta::meta::Statistics;
+use bigbytesdb_storages_common_table_meta::meta::Versioned;
 use opendal::Operator;
 use parquet::format::FileMetaData;
 use sysinfo::get_current_pid;
@@ -63,7 +63,7 @@ use uuid::Uuid;
 
 // #[tokio::test(flavor = "multi_thread")]
 // #[ignore]
-// async fn test_index_meta_cache_size_file_meta_data() -> bigbytes_common_exception::Result<()> {
+// async fn test_index_meta_cache_size_file_meta_data() -> bigbytesdb_common_exception::Result<()> {
 //     let thrift_file_meta = setup().await?;
 
 //     let cache_number = 300_000;
@@ -93,7 +93,7 @@ use uuid::Uuid;
 
 // #[tokio::test(flavor = "multi_thread")]
 // #[ignore]
-// async fn test_index_meta_cache_size_bloom_meta() -> bigbytes_common_exception::Result<()> {
+// async fn test_index_meta_cache_size_bloom_meta() -> bigbytesdb_common_exception::Result<()> {
 //     let thrift_file_meta = setup().await?;
 
 //     let cache_number = 300_000;
@@ -123,7 +123,7 @@ use uuid::Uuid;
 // cargo test --test it storages::fuse::bloom_index_meta_size::test_random_location_memory_size --no-fail-fast -- --ignored --exact -Z unstable-options --show-output
 #[tokio::test(flavor = "multi_thread")]
 #[ignore]
-async fn test_random_location_memory_size() -> bigbytes_common_exception::Result<()> {
+async fn test_random_location_memory_size() -> bigbytesdb_common_exception::Result<()> {
     // generate random location of Type Location
     let location_gen = TableMetaLocationGenerator::with_prefix("/root".to_string());
 
@@ -156,7 +156,7 @@ async fn test_random_location_memory_size() -> bigbytes_common_exception::Result
 // cargo test --test it storages::fuse::bloom_index_meta_size::test_segment_info_size --no-fail-fast -- --ignored --exact -Z unstable-options --show-output
 #[tokio::test(flavor = "multi_thread")]
 #[ignore]
-async fn test_segment_info_size() -> bigbytes_common_exception::Result<()> {
+async fn test_segment_info_size() -> bigbytesdb_common_exception::Result<()> {
     let cache_number = 3000;
     let num_block_per_seg = 1000;
 
@@ -201,7 +201,7 @@ async fn test_segment_info_size() -> bigbytes_common_exception::Result<()> {
 // cargo test --test it storages::fuse::bloom_index_meta_size::test_segment_raw_bytes_size --no-fail-fast -- --ignored --exact -Z unstable-options --show-output
 #[tokio::test(flavor = "multi_thread")]
 #[ignore]
-async fn test_segment_raw_bytes_size() -> bigbytes_common_exception::Result<()> {
+async fn test_segment_raw_bytes_size() -> bigbytesdb_common_exception::Result<()> {
     let cache_number = 3000;
     let num_block_per_seg = 1000;
 
@@ -241,7 +241,7 @@ async fn test_segment_raw_bytes_size() -> bigbytes_common_exception::Result<()> 
 // cargo test --test it storages::fuse::bloom_index_meta_size::test_segment_raw_repr_bytes_size --no-fail-fast -- --ignored --exact -Z unstable-options --show-output
 #[tokio::test(flavor = "multi_thread")]
 #[ignore]
-async fn test_segment_raw_repr_bytes_size() -> bigbytes_common_exception::Result<()> {
+async fn test_segment_raw_repr_bytes_size() -> bigbytesdb_common_exception::Result<()> {
     let cache_number = 3000;
     let num_block_per_seg = 1000;
 
@@ -280,7 +280,7 @@ async fn test_segment_raw_repr_bytes_size() -> bigbytes_common_exception::Result
 
 fn build_test_segment_info(
     num_blocks_per_seg: usize,
-) -> bigbytes_common_exception::Result<SegmentInfo> {
+) -> bigbytesdb_common_exception::Result<SegmentInfo> {
     let col_meta = ColumnMeta::Parquet(SingleColumnMeta {
         offset: 0,
         len: 0,
@@ -366,7 +366,7 @@ where T: Clone + Into<CacheValue<T>> {
 }
 
 #[allow(dead_code)]
-async fn setup() -> bigbytes_common_exception::Result<FileMetaData> {
+async fn setup() -> bigbytesdb_common_exception::Result<FileMetaData> {
     let fields = (0..23)
         .map(|_| TableField::new("id", TableDataType::Number(NumberDataType::Int32)))
         .collect::<Vec<_>>();

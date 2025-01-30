@@ -14,13 +14,13 @@
 
 // TODO: support other data types
 
-use bigbytes_common_base::base::OrderedFloat;
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_expression::types::DataType;
-use bigbytes_common_expression::types::NumberDataType;
-use bigbytes_common_expression::types::NumberScalar;
-use bigbytes_common_expression::Scalar;
+use bigbytesdb_common_base::base::OrderedFloat;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_expression::types::DataType;
+use bigbytesdb_common_expression::types::NumberDataType;
+use bigbytesdb_common_expression::types::NumberScalar;
+use bigbytesdb_common_expression::Scalar;
 
 pub fn str_to_scalar(value: &str, data_type: &DataType) -> Result<Scalar> {
     if value.is_empty() {

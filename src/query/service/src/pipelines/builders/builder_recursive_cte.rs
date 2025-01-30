@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_catalog::table_context::TableContext;
-use bigbytes_common_exception::Result;
-use bigbytes_common_sql::executor::physical_plans::RecursiveCteScan;
-use bigbytes_common_sql::executor::physical_plans::UnionAll;
+use bigbytesdb_common_catalog::table_context::TableContext;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_sql::executor::physical_plans::RecursiveCteScan;
+use bigbytesdb_common_sql::executor::physical_plans::UnionAll;
 
 use crate::pipelines::processors::transforms::TransformRecursiveCteScan;
 use crate::pipelines::processors::transforms::TransformRecursiveCteSource;

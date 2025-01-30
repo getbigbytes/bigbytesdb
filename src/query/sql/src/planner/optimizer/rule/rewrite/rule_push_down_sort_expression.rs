@@ -68,7 +68,7 @@ impl Rule for RulePushDownSortEvalScalar {
         &self,
         s_expr: &SExpr,
         state: &mut TransformResult,
-    ) -> bigbytes_common_exception::Result<()> {
+    ) -> bigbytesdb_common_exception::Result<()> {
         // If lazy materialization isn't enabled, we don't need push down the sort expression.
         if self.metadata.read().lazy_columns().is_empty() {
             return Ok(());

@@ -14,10 +14,10 @@
 
 use chrono::DateTime;
 use chrono::Utc;
-use bigbytes_common_meta_app as mt;
-use bigbytes_common_meta_app::principal::UserIdentity;
-use bigbytes_common_meta_app::storage::StorageParams;
-use bigbytes_common_meta_app::storage::StorageWebhdfsConfig;
+use bigbytesdb_common_meta_app as mt;
+use bigbytesdb_common_meta_app::principal::UserIdentity;
+use bigbytesdb_common_meta_app::storage::StorageParams;
+use bigbytesdb_common_meta_app::storage::StorageWebhdfsConfig;
 use fastrace::func_name;
 
 use crate::common;
@@ -33,7 +33,7 @@ use crate::common;
 //
 #[test]
 fn test_v118_webhdfs_add_user_name() -> anyhow::Result<()> {
-    // Encoded data of version 118 of bigbytes_common_meta_app::principal::user_stage::StageInfo:
+    // Encoded data of version 118 of bigbytesdb_common_meta_app::principal::user_stage::StageInfo:
     // It is generated with common::test_pb_from_to().
     let stage_info_v118 = vec![
         10, 22, 119, 101, 98, 104, 100, 102, 115, 58, 47, 47, 100, 105, 114, 47, 116, 111, 47, 102,
@@ -52,7 +52,7 @@ fn test_v118_webhdfs_add_user_name() -> anyhow::Result<()> {
         stage_params: mt::principal::StageParams {
             storage: StorageParams::Webhdfs(StorageWebhdfsConfig {
                 disable_list_batch: true,
-                user_name: "bigbytes_is_powerful".to_string(),
+                user_name: "bigbytesdb_is_powerful".to_string(),
                 ..Default::default()
             }),
         },
@@ -77,8 +77,8 @@ fn test_v118_webhdfs_add_user_name() -> anyhow::Result<()> {
         comment: "test".to_string(),
         number_of_files: 100,
         creator: Some(UserIdentity {
-            username: "bigbytes".to_string(),
-            hostname: "bigbytes.rs".to_string(),
+            username: "bigbytesdb".to_string(),
+            hostname: "bigbytesdb.rs".to_string(),
         }),
         created_on: DateTime::<Utc>::default(),
     };

@@ -17,7 +17,7 @@ mod txn_serde;
 
 #[test]
 fn test_bin_commit_version() -> anyhow::Result<()> {
-    let v = &bigbytes_common_meta_types::config::BIGBYTES_COMMIT_VERSION;
+    let v = &bigbytesdb_common_meta_types::config::BIGBYTESDB_COMMIT_VERSION;
     assert!(v.len() > 0);
     Ok(())
 }

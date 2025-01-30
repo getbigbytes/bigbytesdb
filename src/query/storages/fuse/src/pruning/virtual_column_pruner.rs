@@ -18,13 +18,13 @@ use std::collections::HashSet;
 use std::sync::Arc;
 
 use arrow_schema::Schema as ArrowSchema;
-use bigbytes_common_catalog::plan::PushDownInfo;
-use bigbytes_common_catalog::plan::VirtualColumnInfo;
-use bigbytes_common_exception::Result;
-use bigbytes_common_storage::parquet_rs::infer_schema_with_extension;
-use bigbytes_common_storage::parquet_rs::read_metadata_async;
-use bigbytes_storages_common_pruner::VirtualBlockMetaIndex;
-use bigbytes_storages_common_table_meta::meta::ColumnMeta;
+use bigbytesdb_common_catalog::plan::PushDownInfo;
+use bigbytesdb_common_catalog::plan::VirtualColumnInfo;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_storage::parquet_rs::infer_schema_with_extension;
+use bigbytesdb_common_storage::parquet_rs::read_metadata_async;
+use bigbytesdb_storages_common_pruner::VirtualBlockMetaIndex;
+use bigbytesdb_storages_common_table_meta::meta::ColumnMeta;
 use opendal::Operator;
 
 use crate::io::read::build_columns_meta;

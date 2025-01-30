@@ -20,7 +20,7 @@
 //! # Examples
 //!
 //! ```rust,ignore
-//! use bigbytes_common_cache::{Cache, LruCache};
+//! use bigbytesdb_common_cache::{Cache, LruCache};
 //!
 //! let mut cache = LruCache::new(2);
 //!
@@ -73,7 +73,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     /// let mut cache: LruCache<i32, &str> = LruCache::new(10);
     /// ```
     pub fn with_items_capacity(items_capacity: usize) -> Self {
@@ -102,7 +102,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -135,7 +135,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Example
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     /// let mut cache = LruCache::new(2);
     ///
     /// cache.put(1, "a");
@@ -159,7 +159,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Example
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     /// let mut cache = LruCache::new(2);
     ///
     /// cache.put(1, "a");
@@ -177,7 +177,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -207,7 +207,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -235,7 +235,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -259,7 +259,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(1);
     ///
@@ -289,7 +289,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> Cache<K, V> for LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     /// let mut cache: LruCache<i32, &str> = LruCache::new(2);
     /// assert_eq!(cache.capacity(), 2);
     /// ```
@@ -335,7 +335,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -360,7 +360,7 @@ impl<K: Eq + Hash + MemSized, V: MemSized> LruCache<K, V> {
     /// # Examples
     ///
     /// ```rust,ignore
-    /// use bigbytes_common_cache::{Cache, LruCache};
+    /// use bigbytesdb_common_cache::{Cache, LruCache};
     ///
     /// let mut cache = LruCache::new(2);
     ///
@@ -430,7 +430,7 @@ impl<'a, K: Eq + Hash + MemSized, V: MemSized> IntoIterator for &'a mut LruCache
 /// # Examples
 ///
 /// ```rust,ignore
-/// use bigbytes_common_cache::{Cache, LruCache};
+/// use bigbytesdb_common_cache::{Cache, LruCache};
 ///
 /// let mut cache = LruCache::new(2);
 ///

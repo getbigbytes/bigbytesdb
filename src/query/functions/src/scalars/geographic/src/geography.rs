@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use bigbytes_common_expression::types::*;
-use bigbytes_common_expression::vectorize_with_builder_1_arg;
-use bigbytes_common_expression::vectorize_with_builder_2_arg;
-use bigbytes_common_expression::FunctionDomain;
-use bigbytes_common_expression::FunctionRegistry;
-use bigbytes_common_io::geography::geography_from_ewkt;
-use bigbytes_common_io::wkb::make_point;
+use bigbytesdb_common_expression::types::*;
+use bigbytesdb_common_expression::vectorize_with_builder_1_arg;
+use bigbytesdb_common_expression::vectorize_with_builder_2_arg;
+use bigbytesdb_common_expression::FunctionDomain;
+use bigbytesdb_common_expression::FunctionRegistry;
+use bigbytesdb_common_io::geography::geography_from_ewkt;
+use bigbytesdb_common_io::wkb::make_point;
 
 pub fn register(registry: &mut FunctionRegistry) {
     // aliases

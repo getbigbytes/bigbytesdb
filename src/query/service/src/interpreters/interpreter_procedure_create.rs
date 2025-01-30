@@ -14,12 +14,12 @@
 
 use std::sync::Arc;
 
-use bigbytes_common_exception::ErrorCode;
-use bigbytes_common_exception::Result;
-use bigbytes_common_meta_app::principal::CreateProcedureReq;
-use bigbytes_common_meta_app::schema::CreateOption;
-use bigbytes_common_sql::plans::CreateProcedurePlan;
-use bigbytes_common_users::UserApiProvider;
+use bigbytesdb_common_exception::ErrorCode;
+use bigbytesdb_common_exception::Result;
+use bigbytesdb_common_meta_app::principal::CreateProcedureReq;
+use bigbytesdb_common_meta_app::schema::CreateOption;
+use bigbytesdb_common_sql::plans::CreateProcedurePlan;
+use bigbytesdb_common_users::UserApiProvider;
 use log::debug;
 
 use crate::interpreters::Interpreter;
