@@ -1,0 +1,64 @@
+[package]
+name = "bigbytes-binaries"
+description = "bigbytes command line tools"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[features]
+default = ["simd", "jemalloc"]
+memory-profiling = [
+    "bigbytes-query/memory-profiling",
+    "bigbytes-common-base/memory-profiling",
+]
+python-udf = ["bigbytes-query/python-udf"]
+simd = ["bigbytes-query/simd"]
+jemalloc = ["bigbytes-common-base/jemalloc", "bigbytes-query/jemalloc"]
+io-uring = [
+    "bigbytes-query/io-uring",
+]
+
+[dependencies]
+clap = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-license = { workspace = true }
+bigbytes-common-meta-client = { workspace = true }
+bigbytes-common-metrics = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-common-tracing = { workspace = true }
+bigbytes-enterprise-background-service = { workspace = true }
+bigbytes-enterprise-query = { workspace = true }
+bigbytes-query = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+limits-rs = { workspace = true }
+log = { workspace = true }
+opendal = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serfig = { workspace = true }
+tokio = { workspace = true }
+
+[[bin]]
+name = "bigbytes-query"
+path = "query/ee_main.rs"
+doctest = false
+test = false
+
+[[bin]]
+name = "bigbytes-query-oss"
+path = "query/oss_main.rs"
+doctest = false
+test = false
+
+[[bin]]
+name = "table-meta-inspector"
+path = "tool/table_meta_inspector.rs"
+doctest = false
+test = false
+
+[lints]
+workspace = true

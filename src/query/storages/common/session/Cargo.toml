@@ -1,0 +1,22 @@
+[package]
+name = "bigbytes-storages-common-session"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[dependencies]
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-meta-types = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-storages-common-blocks = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+
+parking_lot = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+uuid = { workspace = true }
+
+[lints]
+workspace = true

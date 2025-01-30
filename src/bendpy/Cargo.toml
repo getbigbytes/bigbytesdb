@@ -1,0 +1,38 @@
+[package]
+name = "bendpy"
+version = "0.0.0"
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[build-dependencies]
+pyo3-build-config = "0.18.3"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "bigbytes"
+crate-type = ["cdylib"]
+
+[dependencies]
+arrow = { workspace = true, features = ["pyarrow"] }
+arrow-schema = { workspace = true }
+ctor = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-license = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-meta-embedded = { workspace = true }
+bigbytes-common-users = { workspace = true }
+bigbytes-query = { workspace = true, features = [
+    "simd",
+    "disable_initial_exec_tls",
+], default-features = false }
+pyo3 = { version = "0.20", features = ["extension-module", "abi3", "abi3-py37"] }
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread", "sync"] }
+tokio-stream = { workspace = true }
+uuid = { workspace = true }
+
+[lints]
+workspace = true

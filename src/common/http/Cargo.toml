@@ -1,0 +1,32 @@
+[package]
+name = "bigbytes-common-http"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[features]
+memory-profiling = ["tempfile"]
+
+[dependencies]
+anyerror = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+futures = { workspace = true }
+http = { workspace = true }
+log = { workspace = true }
+poem = { workspace = true }
+serde = { workspace = true }
+tempfile = { workspace = true, optional = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }
+
+[lints]
+workspace = true

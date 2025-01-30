@@ -1,0 +1,56 @@
+query TT
+SHOW CREATE DATABASE `system`
+----
+system CREATE DATABASE `system` ENGINE=SYSTEM
+
+statement ok
+DROP DATABASE IF EXISTS `test`
+
+statement ok
+CREATE DATABASE `test`
+
+query TT
+SHOW CREATE DATABASE `test`
+----
+test CREATE DATABASE `test` ENGINE=DEFAULT
+
+statement ok
+DROP DATABASE `test`
+
+# statement error 1073
+# CREATE DATABASE `getbigbytes` ENGINE=github(token='xxx')
+
+# statement ok
+# SHOW CREATE DATABASE `getbigbytes`
+
+# statement ok
+# DROP DATABASE `getbigbytes`
+
+query TT
+SHOW CREATE SCHEMA `system`
+----
+system CREATE DATABASE `system` ENGINE=SYSTEM
+
+statement ok
+DROP SCHEMA IF EXISTS `test`
+
+statement ok
+CREATE SCHEMA `test`
+
+query TT
+SHOW CREATE SCHEMA `test`
+----
+test CREATE DATABASE `test` ENGINE=DEFAULT
+
+statement ok
+DROP SCHEMA `test`
+
+# statement error 1073
+# CREATE SCHEMA `getbigbytes` ENGINE=github(token='xxx')
+
+# statement ok
+# SHOW CREATE SCHEMA `getbigbytes`
+
+# statement ok
+# DROP SCHEMA `getbigbytes`
+

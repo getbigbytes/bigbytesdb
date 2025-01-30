@@ -1,0 +1,57 @@
+query T
+explain with t1 as materialized (select number as a from numbers(10)), t2 as (select a as b from t1) select t1.a from t1 join t2 on t1.a = t2.b;
+----
+HashJoin
+├── output columns: [t1.a (#0)]
+├── join type: INNER
+├── build keys: [t2.b (#1)]
+├── probe keys: [t1.a (#0)]
+├── filters: []
+├── estimated rows: 100.00
+├── TableScan(Build)
+│   ├── table: default.default.t1
+│   ├── output columns: [a (#1)]
+│   ├── read rows: 10
+│   ├── read size: < 1 KiB
+│   ├── partitions total: 0
+│   ├── partitions scanned: 0
+│   ├── push downs: [filters: [], limit: NONE]
+│   └── estimated rows: 10.00
+└── TableScan(Probe)
+    ├── table: default.default.t1
+    ├── output columns: [a (#0)]
+    ├── read rows: 10
+    ├── read size: < 1 KiB
+    ├── partitions total: 0
+    ├── partitions scanned: 0
+    ├── push downs: [filters: [], limit: NONE]
+    └── estimated rows: 10.00
+
+query T
+explain with t1 as materialized (select number as a from numbers(10)), t2 as materialized (select a as b from t1) select t1.a from t1 join t2 on t1.a = t2.b;
+----
+HashJoin
+├── output columns: [t1.a (#0)]
+├── join type: INNER
+├── build keys: [t2.b (#1)]
+├── probe keys: [t1.a (#0)]
+├── filters: []
+├── estimated rows: 100.00
+├── TableScan(Build)
+│   ├── table: default.default.t2
+│   ├── output columns: [b (#1)]
+│   ├── read rows: 10
+│   ├── read size: < 1 KiB
+│   ├── partitions total: 0
+│   ├── partitions scanned: 0
+│   ├── push downs: [filters: [], limit: NONE]
+│   └── estimated rows: 10.00
+└── TableScan(Probe)
+    ├── table: default.default.t1
+    ├── output columns: [a (#0)]
+    ├── read rows: 10
+    ├── read size: < 1 KiB
+    ├── partitions total: 0
+    ├── partitions scanned: 0
+    ├── push downs: [filters: [], limit: NONE]
+    └── estimated rows: 10.00

@@ -1,0 +1,36 @@
+[package]
+name = "bigbytes-common-proto-conv"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+chrono = { workspace = true }
+chrono-tz = { workspace = true, features = ["serde"] }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-io = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-meta-types = { workspace = true }
+bigbytes-common-protos = { workspace = true }
+enumflags2 = { workspace = true }
+fastrace = { workspace = true }
+num = { workspace = true }
+prost = { workspace = true }
+thiserror = { workspace = true }
+
+[build-dependencies]
+
+[dev-dependencies]
+anyhow = { workspace = true }
+convert_case = { workspace = true }
+maplit = { workspace = true }
+pretty_assertions = { workspace = true }
+
+[lints]
+workspace = true

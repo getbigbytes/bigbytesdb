@@ -1,0 +1,42 @@
+[package]
+name = "bigbytes-common-config"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+doctest = false
+test = true
+
+[features]
+default = []
+storage-hdfs = ["bigbytes-common-storage/storage-hdfs"]
+
+[package.metadata.cargo-machete]
+ignored = ["strum"]
+
+[dependencies]
+chrono-tz = { workspace = true }
+clap = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-grpc = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-common-tracing = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+serde_with = { workspace = true }
+serfig = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }
+
+[build-dependencies]
+bigbytes-common-building = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,25 @@
+[package]
+name = "bigbytes-enterprise-stream-handler"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+async-backtrace = { workspace = true }
+async-trait = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-sql = { workspace = true }
+
+[build-dependencies]
+
+[lints]
+workspace = true

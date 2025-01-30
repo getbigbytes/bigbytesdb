@@ -1,0 +1,9 @@
+bootstrap: true
+replicaCount: 3
+persistence:
+  size: 8Gi
+
+config:
+  logDir: /.bigbytes/logs
+  logPrefixFilter: ""
+  logLevel: "DEBUG"

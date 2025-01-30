@@ -1,0 +1,115 @@
+// Copyright 2024 Digitrans Inc
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#![allow(clippy::arc_with_non_send_sync)]
+#![allow(clippy::uninlined_format_args)]
+#![allow(clippy::ptr_arg)]
+#![allow(clippy::type_complexity)]
+#![allow(internal_features)]
+#![feature(core_intrinsics)]
+#![feature(box_patterns)]
+#![feature(type_ascription)]
+#![feature(try_blocks)]
+#![feature(downcast_unchecked)]
+#![feature(str_internals)]
+
+use aggregates::AggregateFunctionFactory;
+use ctor::ctor;
+use bigbytes_common_expression::FunctionRegistry;
+use unicase::Ascii;
+
+pub mod aggregates;
+mod cast_rules;
+pub mod scalars;
+pub mod srfs;
+
+pub fn is_builtin_function(name: &str) -> bool {
+    let name = Ascii::new(name);
+    BUILTIN_FUNCTIONS.contains(name.into_inner())
+        || AggregateFunctionFactory::instance().contains(name.into_inner())
+        || GENERAL_WINDOW_FUNCTIONS.contains(&name)
+        || GENERAL_LAMBDA_FUNCTIONS.contains(&name)
+        || GENERAL_SEARCH_FUNCTIONS.contains(&name)
+        || ASYNC_FUNCTIONS.contains(&name)
+}
+
+// The plan of search function, async function and udf contains some arguments defined in meta,
+// which may be modified by user at any time. Those functions are not not suitable for caching.
+pub fn is_cacheable_function(name: &str) -> bool {
+    let name = Ascii::new(name);
+    BUILTIN_FUNCTIONS.contains(name.into_inner())
+        || AggregateFunctionFactory::instance().contains(name.into_inner())
+        || GENERAL_WINDOW_FUNCTIONS.contains(&name)
+        || GENERAL_LAMBDA_FUNCTIONS.contains(&name)
+}
+
+#[ctor]
+pub static BUILTIN_FUNCTIONS: FunctionRegistry = builtin_functions();
+
+pub const ASYNC_FUNCTIONS: [Ascii<&str>; 2] = [Ascii::new("nextval"), Ascii::new("dict_get")];
+
+pub const GENERAL_WINDOW_FUNCTIONS: [Ascii<&str>; 13] = [
+    Ascii::new("row_number"),
+    Ascii::new("rank"),
+    Ascii::new("dense_rank"),
+    Ascii::new("percent_rank"),
+    Ascii::new("lag"),
+    Ascii::new("lead"),
+    Ascii::new("first_value"),
+    Ascii::new("first"),
+    Ascii::new("last_value"),
+    Ascii::new("last"),
+    Ascii::new("nth_value"),
+    Ascii::new("ntile"),
+    Ascii::new("cume_dist"),
+];
+
+pub const RANK_WINDOW_FUNCTIONS: [&str; 5] =
+    ["first_value", "first", "last_value", "last", "nth_value"];
+
+pub const GENERAL_LAMBDA_FUNCTIONS: [Ascii<&str>; 16] = [
+    Ascii::new("array_transform"),
+    Ascii::new("array_apply"),
+    Ascii::new("array_map"),
+    Ascii::new("array_filter"),
+    Ascii::new("array_reduce"),
+    Ascii::new("json_array_transform"),
+    Ascii::new("json_array_apply"),
+    Ascii::new("json_array_map"),
+    Ascii::new("json_array_filter"),
+    Ascii::new("json_array_reduce"),
+    Ascii::new("map_filter"),
+    Ascii::new("map_transform_keys"),
+    Ascii::new("map_transform_values"),
+    Ascii::new("json_map_filter"),
+    Ascii::new("json_map_transform_keys"),
+    Ascii::new("json_map_transform_values"),
+];
+
+pub const GENERAL_SEARCH_FUNCTIONS: [Ascii<&str>; 3] = [
+    Ascii::new("match"),
+    Ascii::new("query"),
+    Ascii::new("score"),
+];
+
+fn builtin_functions() -> FunctionRegistry {
+    let mut registry = FunctionRegistry::empty();
+
+    cast_rules::register(&mut registry);
+    scalars::register(&mut registry);
+    srfs::register(&mut registry);
+
+    registry.check_ambiguity();
+    registry
+}

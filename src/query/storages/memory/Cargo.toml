@@ -1,0 +1,32 @@
+[package]
+name = "bigbytes-common-storages-memory"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+async-backtrace = { workspace = true }
+async-trait = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-pipeline-core = { workspace = true }
+bigbytes-common-pipeline-sinks = { workspace = true }
+bigbytes-common-pipeline-sources = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-storages-common-blocks = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+parking_lot = { workspace = true }
+serde = { workspace = true }
+typetag = { workspace = true }
+
+[lints]
+workspace = true

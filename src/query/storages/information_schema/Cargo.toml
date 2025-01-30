@@ -1,0 +1,20 @@
+[package]
+name = "bigbytes-common-storages-information-schema"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-storages-view = { workspace = true }
+
+[lints]
+workspace = true

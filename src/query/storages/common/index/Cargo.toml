@@ -1,0 +1,49 @@
+[package]
+name = "bigbytes-storages-common-index"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[package.metadata.cargo-machete]
+ignored = ["xorfilter-rs", "match-template"]
+
+[dependencies]
+anyerror = { workspace = true }
+cbordata = { workspace = true }
+
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-functions = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+fastrace = { workspace = true }
+jsonb = { workspace = true }
+levenshtein_automata = { workspace = true }
+log = { workspace = true }
+match-template = { workspace = true }
+parquet = { workspace = true }
+roaring = { workspace = true }
+serde = { workspace = true }
+tantivy = { workspace = true }
+tantivy-common = { workspace = true }
+tantivy-fst = { workspace = true }
+thiserror = { workspace = true }
+xorfilter-rs = { workspace = true, features = ["cbordata"] }
+
+[dev-dependencies]
+criterion = { workspace = true }
+
+rand = { workspace = true }
+
+[[bench]]
+name = "build_from_block"
+harness = false
+
+[lints]
+workspace = true

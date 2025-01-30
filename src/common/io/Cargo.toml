@@ -1,0 +1,40 @@
+[package]
+name = "bigbytes-common-io"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+bincode = { workspace = true }
+borsh = { workspace = true }
+bytes = { workspace = true }
+chrono = { workspace = true }
+chrono-tz = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+enquote = { workspace = true }
+enumflags2 = { workspace = true }
+ethnum = { workspace = true }
+geo = { workspace = true }
+geozero = { workspace = true }
+hex = { workspace = true }
+jiff = { workspace = true }
+lexical-core = { workspace = true }
+micromarshal = { workspace = true }
+roaring = { workspace = true, features = ["serde"] }
+scroll = { workspace = true }
+serde = { workspace = true }
+wkt = { workspace = true }
+
+[dev-dependencies]
+aho-corasick = { workspace = true }
+rmp-serde = { workspace = true }
+
+[lints]
+workspace = true

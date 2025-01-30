@@ -1,0 +1,31 @@
+[package]
+name = "bigbytes-common-meta-embedded"
+description = "distributed meta data service"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[features]
+io-uring = ["bigbytes-common-meta-raft-store/io-uring"]
+
+[dependencies]
+async-trait = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-meta-api = { workspace = true }
+bigbytes-common-meta-kvapi = { workspace = true }
+bigbytes-common-meta-raft-store = { workspace = true }
+bigbytes-common-tracing = { workspace = true }
+fastrace = { workspace = true }
+
+[dev-dependencies]
+anyhow = { workspace = true }
+test-harness = { workspace = true }
+
+[lints]
+workspace = true

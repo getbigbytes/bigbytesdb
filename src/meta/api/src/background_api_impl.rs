@@ -1,0 +1,296 @@
+// Copyright 2024 Digitrans Inc
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+use std::time::Instant;
+
+use chrono::Utc;
+use bigbytes_common_meta_app::app_error::AppError;
+use bigbytes_common_meta_app::background::background_job_id_ident::BackgroundJobId;
+use bigbytes_common_meta_app::background::BackgroundJobIdIdent;
+use bigbytes_common_meta_app::background::BackgroundJobIdent;
+use bigbytes_common_meta_app::background::BackgroundJobInfo;
+use bigbytes_common_meta_app::background::BackgroundTaskIdent;
+use bigbytes_common_meta_app::background::BackgroundTaskInfo;
+use bigbytes_common_meta_app::background::CreateBackgroundJobReply;
+use bigbytes_common_meta_app::background::CreateBackgroundJobReq;
+use bigbytes_common_meta_app::background::DeleteBackgroundJobReply;
+use bigbytes_common_meta_app::background::DeleteBackgroundJobReq;
+use bigbytes_common_meta_app::background::GetBackgroundJobReply;
+use bigbytes_common_meta_app::background::GetBackgroundJobReq;
+use bigbytes_common_meta_app::background::GetBackgroundTaskReply;
+use bigbytes_common_meta_app::background::GetBackgroundTaskReq;
+use bigbytes_common_meta_app::background::ListBackgroundJobsReq;
+use bigbytes_common_meta_app::background::ListBackgroundTasksReq;
+use bigbytes_common_meta_app::background::UpdateBackgroundJobParamsReq;
+use bigbytes_common_meta_app::background::UpdateBackgroundJobReply;
+use bigbytes_common_meta_app::background::UpdateBackgroundJobStatusReq;
+use bigbytes_common_meta_app::background::UpdateBackgroundTaskReply;
+use bigbytes_common_meta_app::background::UpdateBackgroundTaskReq;
+use bigbytes_common_meta_app::id_generator::IdGenerator;
+use bigbytes_common_meta_app::KeyWithTenant;
+use bigbytes_common_meta_kvapi::kvapi;
+use bigbytes_common_meta_kvapi::kvapi::DirName;
+use bigbytes_common_meta_kvapi::kvapi::Key;
+use bigbytes_common_meta_types::seq_value::SeqValue;
+use bigbytes_common_meta_types::MatchSeq::Any;
+use bigbytes_common_meta_types::MetaError;
+use bigbytes_common_meta_types::MetaSpec;
+use bigbytes_common_meta_types::Operation;
+use bigbytes_common_meta_types::SeqV;
+use bigbytes_common_meta_types::TxnRequest;
+use bigbytes_common_meta_types::UpsertKV;
+use fastrace::func_name;
+use futures::TryStreamExt;
+use log::debug;
+
+use crate::background_api::BackgroundApi;
+use crate::fetch_id;
+use crate::kv_app_error::KVAppError;
+use crate::kv_pb_api::KVPbApi;
+use crate::kv_pb_api::UpsertPB;
+use crate::send_txn;
+use crate::serialize_struct;
+use crate::txn_backoff::txn_backoff;
+use crate::util::txn_op_put_pb;
+use crate::util::txn_replace_exact;
+
+/// BackgroundApi is implemented upon kvapi::KVApi.
+/// Thus every type that impl kvapi::KVApi impls BackgroundApi.
+#[tonic::async_trait]
+impl<KV: kvapi::KVApi<Error = MetaError>> BackgroundApi for KV {
+    #[fastrace::trace]
+    async fn create_background_job(
+        &self,
+        req: CreateBackgroundJobReq,
+    ) -> Result<CreateBackgroundJobReply, KVAppError> {
+        debug!(req :? =(&req); "BackgroundApi: {}", func_name!());
+
+        let name_key = &req.job_name;
+
+        let mut trials = txn_backoff(None, func_name!());
+        let id = loop {
+            trials.next().unwrap()?.await;
+
+            // Get db mask by name to ensure absence
+            let job_id = self.get_pb(name_key).await?;
+
+            debug!(res :? = job_id, name_key :? =(name_key); "get existing, when create_background_job");
+
+            if let Some(seq_id) = job_id {
+                return if req.if_not_exists {
+                    Ok(CreateBackgroundJobReply { id: *seq_id.data })
+                } else {
+                    Err(
+                        AppError::BackgroundJobAlreadyExists(name_key.exist_error(func_name!()))
+                            .into(),
+                    )
+                };
+            };
+
+            let id = fetch_id(self, IdGenerator::background_job_id()).await?;
+            let id = BackgroundJobId::new(id);
+            let id_key = BackgroundJobIdIdent::new_generic(name_key.tenant(), id);
+
+            debug!(id :? =(&id_key),name_key :? =(name_key); "{}", func_name!());
+
+            {
+                let mut txn = TxnRequest::default();
+
+                let meta: BackgroundJobInfo = req.job_info.clone();
+
+                txn_replace_exact(&mut txn, name_key, 0, &id)?; // name -> background_job_id
+                txn.if_then.push(txn_op_put_pb(&id_key, &meta, None)?); // id -> meta
+
+                let (succ, _responses) = send_txn(self, txn).await?;
+
+                debug!(name :? =(name_key),id :? =(&id_key),succ = succ;"{}", func_name!());
+
+                if succ {
+                    break id;
+                }
+            }
+        };
+
+        Ok(CreateBackgroundJobReply { id: *id })
+    }
+
+    // TODO(zhihanz): needs to drop both background job and related background tasks, also needs to gracefully shutdown running queries
+    #[fastrace::trace]
+    async fn drop_background_job(
+        &self,
+        _req: DeleteBackgroundJobReq,
+    ) -> Result<DeleteBackgroundJobReply, KVAppError> {
+        todo!()
+    }
+
+    #[fastrace::trace]
+    async fn update_background_job_status(
+        &self,
+        req: UpdateBackgroundJobStatusReq,
+    ) -> Result<UpdateBackgroundJobReply, KVAppError> {
+        let name = &req.job_name;
+
+        update_background_job(self, name, |info| {
+            if info.job_status.as_ref() == Some(&req.status) {
+                return false;
+            }
+            info.job_status = Some(req.status);
+            info.last_updated = Some(Utc::now());
+            true
+        })
+        .await
+    }
+
+    #[fastrace::trace]
+    async fn update_background_job_params(
+        &self,
+        req: UpdateBackgroundJobParamsReq,
+    ) -> Result<UpdateBackgroundJobReply, KVAppError> {
+        let name = &req.job_name;
+        update_background_job(self, name, |info| {
+            if info.job_params.as_ref() == Some(&req.params) {
+                return false;
+            }
+            info.job_params = Some(req.params);
+            info.last_updated = Some(Utc::now());
+            true
+        })
+        .await
+    }
+
+    #[fastrace::trace]
+    async fn get_background_job(
+        &self,
+        req: GetBackgroundJobReq,
+    ) -> Result<GetBackgroundJobReply, KVAppError> {
+        debug!(req :? =(&req); "BackgroundApi: {}", func_name!());
+
+        let name_key = &req.name;
+
+        let (seq_id, seq_job) = self
+            .get_id_and_value(name_key)
+            .await?
+            .ok_or_else(|| AppError::from(name_key.unknown_error("get_background_job")))?;
+
+        Ok(GetBackgroundJobReply::new(
+            seq_id.data.into_t_ident(name_key.tenant()),
+            seq_job,
+        ))
+    }
+
+    #[fastrace::trace]
+    async fn list_background_jobs(
+        &self,
+        req: ListBackgroundJobsReq,
+    ) -> Result<Vec<(String, SeqV<BackgroundJobInfo>)>, KVAppError> {
+        let ident = BackgroundJobIdent::new(&req.tenant, "dummy");
+
+        let strm = self.list_pb(&DirName::new(ident)).await?;
+        let name_and_ids = strm.try_collect::<Vec<_>>().await?;
+
+        let mut res = vec![];
+        for itm in name_and_ids {
+            let id_ident = itm.seqv.data.into_t_ident(&req.tenant);
+
+            let seq_info = self.get_pb(&id_ident).await?;
+
+            if let Some(sv) = seq_info {
+                res.push((itm.key.job_name().to_string(), sv));
+            }
+        }
+        Ok(res)
+    }
+
+    #[fastrace::trace]
+    async fn update_background_task(
+        &self,
+        req: UpdateBackgroundTaskReq,
+    ) -> Result<UpdateBackgroundTaskReply, KVAppError> {
+        debug!(req :? =(&req); "BackgroundApi: {}", func_name!());
+        let name_key = &req.task_name;
+        debug!(name_key :? =(name_key); "update_background_task");
+
+        let meta = req.task_info.clone();
+
+        let resp = self
+            .upsert_kv(UpsertKV::new(
+                name_key.to_string_key().as_str(),
+                Any,
+                Operation::Update(serialize_struct(&meta)?),
+                Some(MetaSpec::new_ttl(req.ttl)),
+            ))
+            .await?;
+        // confirm a successful update
+        assert!(resp.is_changed());
+        Ok(UpdateBackgroundTaskReply {
+            last_updated: Utc::now(),
+            expire_at: Instant::now() + req.ttl,
+        })
+    }
+
+    #[fastrace::trace]
+    async fn list_background_tasks(
+        &self,
+        req: ListBackgroundTasksReq,
+    ) -> Result<Vec<(BackgroundTaskIdent, SeqV<BackgroundTaskInfo>)>, KVAppError> {
+        let ident = BackgroundTaskIdent::new(&req.tenant, "dummy");
+        let dir = DirName::new(ident);
+        let res = self.list_pb_vec(&dir).await?;
+        Ok(res)
+    }
+
+    #[fastrace::trace]
+    async fn get_background_task(
+        &self,
+        req: GetBackgroundTaskReq,
+    ) -> Result<GetBackgroundTaskReply, KVAppError> {
+        debug!(
+            req :? =(&req);
+            "BackgroundTaskApi: {}",
+            func_name!()
+        );
+
+        let resp = self.get_pb(&req.name).await?;
+        Ok(GetBackgroundTaskReply {
+            task_info: resp.into_value(),
+        })
+    }
+}
+
+async fn update_background_job<F: FnOnce(&mut BackgroundJobInfo) -> bool>(
+    kv_api: &(impl kvapi::KVApi<Error = MetaError> + ?Sized),
+    name_ident: &BackgroundJobIdent,
+    mutation: F,
+) -> Result<UpdateBackgroundJobReply, KVAppError> {
+    debug!(req :? =(name_ident); "BackgroundApi: {}", func_name!());
+
+    let (seq_id, mut seq_meta) = kv_api
+        .get_id_and_value(name_ident)
+        .await?
+        .ok_or_else(|| AppError::from(name_ident.unknown_error("update_background_job")))?;
+
+    let id_ident = seq_id.data.into_t_ident(name_ident.tenant());
+
+    let should_update = mutation(&mut seq_meta.data);
+    if !should_update {
+        return Ok(UpdateBackgroundJobReply::new(id_ident.clone()));
+    }
+
+    let req = UpsertPB::update_exact(id_ident.clone(), seq_meta);
+    let resp = kv_api.upsert_pb(&req).await?;
+
+    assert!(resp.is_changed());
+
+    Ok(UpdateBackgroundJobReply { id_ident })
+}

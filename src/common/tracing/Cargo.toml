@@ -1,0 +1,35 @@
+[package]
+name = "bigbytes-common-tracing"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+backtrace = { workspace = true, features = ["std", "serialize-serde"] }
+chrono = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+defer = { workspace = true }
+fastrace = { workspace = true }
+fastrace-opentelemetry = { workspace = true }
+itertools = { workspace = true }
+libc = { workspace = true }
+log = { workspace = true }
+logforth = { workspace = true }
+opentelemetry = { workspace = true }
+opentelemetry-otlp = { workspace = true, features = ["reqwest-client"] }
+opentelemetry_sdk = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tonic = { workspace = true }
+
+[dev-dependencies]
+
+[lints]
+workspace = true

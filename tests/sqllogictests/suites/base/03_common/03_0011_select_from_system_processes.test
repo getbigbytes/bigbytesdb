@@ -1,0 +1,6 @@
+# https://github.com/getbigbytes/bigbytes/issues/8792
+# query TT
+# select command, database from system.processes
+
+# ----
+# Query default

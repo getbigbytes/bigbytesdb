@@ -1,0 +1,19 @@
+name: "Test Stateful Large Data"
+description: "Running stateful with large data"
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/setup_test
+
+    - name: Run Stateful Tests with Standalone mode
+      shell: bash
+      env:
+        TEST_ID: github-${{ github.run_id }}
+      run: |
+        ./scripts/ci/ci-run-stateful-tests-large-data-s3.sh
+
+    - name: Upload failure
+      if: failure()
+      uses: ./.github/actions/artifact_failure
+      with:
+        name: test-stateful-large-data

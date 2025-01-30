@@ -1,0 +1,49 @@
+[package]
+name = "bigbytes-common-users"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[features]
+io-uring = ["bigbytes-common-meta-store/io-uring"]
+
+[dependencies]
+async-backtrace = { workspace = true }
+base64 = { workspace = true }
+chrono = { workspace = true }
+cidr = { workspace = true }
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-grpc = { workspace = true }
+bigbytes-common-management = { workspace = true }
+bigbytes-common-meta-api = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-meta-kvapi = { workspace = true }
+bigbytes-common-meta-store = { workspace = true }
+bigbytes-common-meta-types = { workspace = true }
+enumflags2 = { workspace = true }
+itertools = { workspace = true }
+jwt-simple = { workspace = true }
+log = { workspace = true }
+p256 = { workspace = true }
+parking_lot = { workspace = true }
+passwords = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+bigbytes-common-expression = { workspace = true }
+pretty_assertions = { workspace = true }
+wiremock = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bigbytes-metaverifier
+    app.kubernetes.io/name: bigbytes-metaverifier
+  name: bigbytes-metaverifier
+  namespace: bigbytes
+spec:
+  containers:
+    - image: k3d-registry.localhost:5111/bigbytes-metaverifier:meta-chaos
+      imagePullPolicy: Always
+      name: bigbytes-metaverifier
+      resources: {}
+      env:
+        - name: CLIENT
+          value: "10"
+        - name: NUMBER
+          value: "15000"
+        - name: GRPC_ADDRESS
+          value: "test-bigbytes-meta-0.test-bigbytes-meta.bigbytes.svc.cluster.local:9191,test-bigbytes-meta-1.test-bigbytes-meta.bigbytes.svc.cluster.local:9191,test-bigbytes-meta-2.test-bigbytes-meta.bigbytes.svc.cluster.local:9191"
+      command: [ "/start-verifier.sh"]
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

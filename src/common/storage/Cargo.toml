@@ -1,0 +1,42 @@
+[package]
+name = "bigbytes-common-storage"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[features]
+storage-hdfs = ["bigbytes-common-meta-app/storage-hdfs"]
+
+[dependencies]
+anyhow = { workspace = true }
+arrow-schema = { workspace = true }
+async-backtrace = { workspace = true }
+chrono = { workspace = true }
+dashmap = { workspace = true, features = ["serde"] }
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-auth = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-metrics = { workspace = true }
+bigbytes-common-native = { workspace = true }
+bigbytes-enterprise-storage-encryption = { workspace = true }
+futures = { workspace = true }
+http = { workspace = true }
+log = { workspace = true }
+opendal = { workspace = true }
+parquet = { workspace = true }
+prometheus-client = { workspace = true }
+regex = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+url = { workspace = true }
+
+[dev-dependencies]
+
+[lints]
+workspace = true

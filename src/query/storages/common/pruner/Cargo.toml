@@ -1,0 +1,24 @@
+[package]
+name = "bigbytes-storages-common-pruner"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-functions = { workspace = true }
+bigbytes-storages-common-index = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+typetag = { workspace = true }
+
+[lints]
+workspace = true

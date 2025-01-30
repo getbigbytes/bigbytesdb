@@ -1,0 +1,18 @@
+name: "Test metactl"
+description: ""
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/setup_test
+      with:
+        artifacts: metactl,meta
+
+    - name: Test metactl
+      shell: bash
+      run: |
+        bash ./tests/metactl/test-metactl.sh
+
+    - name: Test metactl restore new cluster
+      shell: bash
+      run: |
+        bash ./tests/metactl/test-metactl-restore-new-cluster.sh

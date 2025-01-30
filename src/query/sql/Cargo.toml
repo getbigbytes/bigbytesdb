@@ -1,0 +1,81 @@
+[package]
+name = "bigbytes-common-sql"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[features]
+default = []
+storage-hdfs = ["bigbytes-common-config/storage-hdfs"]
+
+[dependencies]
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-compress = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-functions = { workspace = true }
+bigbytes-common-license = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-meta-types = { workspace = true }
+bigbytes-common-metrics = { workspace = true }
+bigbytes-common-pipeline-core = { workspace = true }
+bigbytes-common-pipeline-transforms = { workspace = true }
+bigbytes-common-settings = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-common-storages-result-cache = { workspace = true }
+bigbytes-common-storages-view = { workspace = true }
+bigbytes-common-users = { workspace = true }
+bigbytes-enterprise-data-mask-feature = { workspace = true }
+bigbytes-enterprise-hilbert-clustering = { workspace = true }
+bigbytes-storages-common-cache = { workspace = true }
+bigbytes-storages-common-io = { workspace = true }
+bigbytes-storages-common-session = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+
+ahash = { workspace = true, features = ["no-rng"] }
+anyhow = { workspace = true }
+async-backtrace = { workspace = true }
+async-recursion = { workspace = true }
+async-trait = { workspace = true }
+chrono = { workspace = true }
+chrono-tz = { workspace = true }
+cidr = { workspace = true }
+cron = { workspace = true }
+ctor = { workspace = true }
+dashmap = { workspace = true }
+derive-visitor = { workspace = true }
+educe = { workspace = true }
+enum-as-inner = { workspace = true }
+fastrace = { workspace = true }
+globiter = { workspace = true }
+indexmap = { workspace = true }
+itertools = { workspace = true }
+jsonb = { workspace = true }
+log = { workspace = true }
+num-derive = { workspace = true }
+num-traits = { workspace = true }
+opendal = { workspace = true }
+parking_lot = { workspace = true }
+prqlc = { workspace = true }
+rand = { workspace = true }
+recursive = { workspace = true }
+regex = { workspace = true }
+roaring = { workspace = true }
+serde = { workspace = true }
+sha2 = { workspace = true }
+simsearch = { workspace = true }
+tokio = { workspace = true }
+unicase = { workspace = true }
+url = { workspace = true }
+
+[lints]
+workspace = true

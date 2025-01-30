@@ -1,0 +1,39 @@
+[package]
+name = "bigbytes-common-storages-delta"
+version = { workspace = true }
+edition = "2021"
+authors = ["Bigbytes Authors <opensource@getbigbytes.com>"]
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-functions = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-pipeline-core = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-common-storages-parquet = { workspace = true }
+bigbytes-storages-common-pruner = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+
+arrow-schema = { workspace = true }
+async-backtrace = { workspace = true }
+async-trait = { workspace = true }
+deltalake = { workspace = true }
+fastrace = { workspace = true }
+object_store_opendal = { workspace = true }
+parquet = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+typetag = { workspace = true }
+url = { workspace = true }
+
+[lints]
+workspace = true
+
+[package.metadata.cargo-machete]
+ignored = ["match-template", "opendal"]

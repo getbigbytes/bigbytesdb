@@ -1,0 +1,25 @@
+# GitHub issue: https://github.com/getbigbytes/bigbytes/issues/14713
+
+statement ok
+DROP DATABASE IF EXISTS bigbytes0
+
+statement ok
+CREATE DATABASE bigbytes0
+
+statement ok
+USE bigbytes0
+
+statement ok
+CREATE TABLE t0(c0 INT, c1 FLOAT)
+
+query TTTTT
+DESC t0
+----
+c0 INT YES NULL (empty)
+c1 FLOAT YES NULL (empty)
+
+query TTTTT
+DESC TABLE t0
+----
+c0 INT YES NULL (empty)
+c1 FLOAT YES NULL (empty)

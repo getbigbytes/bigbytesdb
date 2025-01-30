@@ -1,0 +1,48 @@
+[package]
+name = "bigbytes-common-storages-parquet"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+arrow-array = { workspace = true }
+arrow-buffer = { workspace = true }
+arrow-schema = { workspace = true }
+async-backtrace = { workspace = true }
+async-trait = { workspace = true }
+bytes = { workspace = true }
+chrono = { workspace = true }
+
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-functions = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-metrics = { workspace = true }
+bigbytes-common-pipeline-core = { workspace = true }
+bigbytes-common-settings = { workspace = true }
+bigbytes-common-storage = { workspace = true }
+bigbytes-storages-common-cache = { workspace = true }
+bigbytes-storages-common-pruner = { workspace = true }
+bigbytes-storages-common-stage = { workspace = true }
+bigbytes-storages-common-table-meta = { workspace = true }
+ethnum = { workspace = true }
+futures = { workspace = true }
+log = { workspace = true }
+opendal = { workspace = true }
+parquet = { workspace = true }
+rand = { workspace = true }
+serde = { workspace = true }
+thrift = { workspace = true }
+typetag = { workspace = true }
+
+[lints]
+workspace = true

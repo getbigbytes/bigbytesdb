@@ -1,0 +1,28 @@
+[package]
+name = "bigbytes-common-meta-store"
+description = "MetaStore is impl with either a local embedded meta store, or a grpc-client of metasrv"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[features]
+io-uring = []
+
+[dependencies]
+async-trait = { workspace = true }
+bigbytes-common-grpc = { workspace = true }
+bigbytes-common-meta-client = { workspace = true }
+bigbytes-common-meta-embedded = { workspace = true }
+bigbytes-common-meta-kvapi = { workspace = true }
+bigbytes-common-meta-types = { workspace = true }
+log = { workspace = true }
+tokio-stream = { workspace = true }
+
+[lints]
+workspace = true

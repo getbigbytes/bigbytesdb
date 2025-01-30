@@ -1,0 +1,36 @@
+[package]
+name = "bigbytes-common-settings"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+async-backtrace = { workspace = true }
+chrono-tz = { workspace = true }
+dashmap = { workspace = true }
+bigbytes-common-ast = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-io = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-users = { workspace = true }
+itertools = { workspace = true }
+log = { workspace = true }
+num_cpus = { workspace = true }
+once_cell = { workspace = true }
+serde = { workspace = true }
+sys-info = { workspace = true }
+
+[dev-dependencies]
+bigbytes-common-base = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+
+[lints]
+workspace = true

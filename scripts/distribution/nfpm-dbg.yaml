@@ -1,0 +1,17 @@
+name: "${name}"
+arch: "${arch}"
+platform: "linux"
+version: "${version}"
+section: "database"
+priority: "extra"
+maintainer: "Bigbytes Authors <opensource@getbigbytes.com>"
+description: |
+  Bigbytes is a powerful cloud data warehouse. Built for elasticity and efficiency.
+  Free and open. Also available in the cloud: https://app.bigbytes.com
+vendor: "Digitrans Inc"
+homepage: "https://bigbytes.com"
+license: "Apache-2.0"
+contents:
+  # Binaries
+  - src: ${path}/bin/bigbytes-query.debug
+    dst: /usr/bin/bigbytes-query.debug

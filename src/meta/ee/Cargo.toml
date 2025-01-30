@@ -1,0 +1,20 @@
+[package]
+name = "bigbytes-enterprise-meta"
+description = "enterprise features for bigbytes-meta"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+
+[build-dependencies]
+bigbytes-common-building = { workspace = true }
+
+[lints]
+workspace = true

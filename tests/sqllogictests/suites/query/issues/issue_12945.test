@@ -1,0 +1,27 @@
+# GitHub issue: https://github.com/getbigbytes/bigbytes/issues/12945
+
+statement ok
+DROP DATABASE IF EXISTS bigbytes0
+
+statement ok
+CREATE DATABASE bigbytes0
+
+statement ok
+USE bigbytes0
+
+statement ok
+create table t_1(c0 bool not null);
+
+statement ok
+create table t_2(c0 bool not null);
+
+statement ok
+insert into t_1 values(0);
+
+query I
+select * from t_1 NATURAL FULL OUTER JOIN t_2 where t_1.c0;
+----
+
+
+statement ok
+DROP DATABASE bigbytes0

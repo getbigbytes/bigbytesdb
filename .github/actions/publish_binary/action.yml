@@ -1,0 +1,56 @@
+name: "Publish Binary"
+description: "Publish releases binaries"
+inputs:
+  version:
+    description: "Release version"
+    required: true
+  target:
+    description: "Release target"
+    required: true
+  category:
+    description: "Release default/hdfs/udf/testsuite"
+    required: false
+    default: default
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get publish name
+      id: name
+      shell: bash
+      run: |
+        case ${{ inputs.category }} in
+          default)
+            publish_name="bigbytes-${{ inputs.version }}-${{ inputs.target }}"
+            ;;
+          hdfs|udf|testsuite)
+            publish_name="bigbytes-${{ inputs.category }}-${{ inputs.version }}-${{ inputs.target }}"
+            ;;
+          *)
+            echo "Unknown release category {{ inputs.category }}"
+            exit 1
+            ;;
+        esac
+        echo "name=$publish_name" >> $GITHUB_OUTPUT
+
+    - name: Update release to github
+      shell: bash
+      # Reference: https://cli.github.com/manual/gh_release_upload
+      run: |
+        gh release upload ${{ inputs.version }} ${{ steps.name.outputs.name }}.tar.gz --clobber
+        if [ -f ${{ steps.name.outputs.name }}-dbg.tar.gz ]; then
+          gh release upload ${{ inputs.version }} ${{ steps.name.outputs.name }}-dbg.tar.gz --clobber
+        fi
+
+    - name: Sync normal release to R2
+      shell: bash
+      if: inputs.category == 'default'
+      run: |
+        aws s3 cp ${{ steps.name.outputs.name }}.tar.gz s3://repo/bigbytes/${{ inputs.version }}/${{ steps.name.outputs.name }}.tar.gz --no-progress
+        if [ -f ${{ steps.name.outputs.name }}-dbg.tar.gz ]; then
+          aws s3 cp ${{ steps.name.outputs.name }}-dbg.tar.gz s3://repo/bigbytes/${{ inputs.version }}/${{ steps.name.outputs.name }}-dbg.tar.gz --no-progress
+        fi
+        gh api /repos/getbigbytes/bigbytes/tags > tags.json
+        aws s3 cp ./tags.json s3://repo/bigbytes/tags.json
+        gh api /repos/getbigbytes/bigbytes/releases > releases.json
+        aws s3 cp ./releases.json s3://repo/bigbytes/releases.json

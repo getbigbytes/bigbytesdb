@@ -1,0 +1,26 @@
+[package]
+name = "bigbytes-common-hashtable"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+bigbytes-common-base = { workspace = true }
+bigbytes-common-column = { workspace = true }
+## Must disable feature "runtime-rng", it will make the hash results unstable in cluster
+ahash = { workspace = true, features = ["no-rng"] }
+bumpalo = { workspace = true }
+cfg-if = { workspace = true }
+ethnum = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+
+[lints]
+workspace = true

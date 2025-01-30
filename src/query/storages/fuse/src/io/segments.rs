@@ -1,0 +1,116 @@
+// Copyright 2024 Digitrans Inc
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+use std::sync::Arc;
+
+use bigbytes_common_base::runtime::execute_futures_in_parallel;
+use bigbytes_common_catalog::table_context::TableContext;
+use bigbytes_common_exception::ErrorCode;
+use bigbytes_common_exception::Result;
+use bigbytes_common_expression::TableSchemaRef;
+use bigbytes_storages_common_cache::LoadParams;
+use bigbytes_storages_common_table_meta::meta::CompactSegmentInfo;
+use bigbytes_storages_common_table_meta::meta::Location;
+use bigbytes_storages_common_table_meta::meta::SegmentInfo;
+use fastrace::func_path;
+use fastrace::prelude::*;
+use opendal::Operator;
+
+use crate::io::MetaReaders;
+
+#[derive(Clone)]
+pub struct SerializedSegment {
+    pub path: String,
+    pub segment: Arc<SegmentInfo>,
+}
+
+// Read segment related operations.
+pub struct SegmentsIO {
+    ctx: Arc<dyn TableContext>,
+    operator: Operator,
+    schema: TableSchemaRef,
+}
+
+impl SegmentsIO {
+    pub fn create(ctx: Arc<dyn TableContext>, operator: Operator, schema: TableSchemaRef) -> Self {
+        Self {
+            ctx,
+            operator,
+            schema,
+        }
+    }
+
+    // Read one segment file by location.
+    #[async_backtrace::framed]
+    pub async fn read_compact_segment(
+        dal: Operator,
+        segment_location: Location,
+        table_schema: TableSchemaRef,
+        put_cache: bool,
+    ) -> Result<Arc<CompactSegmentInfo>> {
+        let (path, ver) = segment_location;
+        let reader = MetaReaders::segment_info_reader(dal, table_schema);
+
+        // Keep in mind that segment_info_read must need a schema
+        let load_params = LoadParams {
+            location: path,
+            len_hint: None,
+            ver,
+            put_cache,
+        };
+
+        reader.read(&load_params).await
+    }
+
+    // Read all segments information from s3 in concurrently.
+    #[async_backtrace::framed]
+    #[fastrace::trace]
+    pub async fn read_segments<T>(
+        &self,
+        segment_locations: &[Location],
+        put_cache: bool,
+    ) -> Result<Vec<Result<T>>>
+    where
+        T: TryFrom<Arc<CompactSegmentInfo>> + Send + 'static,
+    {
+        // combine all the tasks.
+        let mut iter = segment_locations.iter();
+        let tasks = std::iter::from_fn(|| {
+            iter.next().map(|location| {
+                let dal = self.operator.clone();
+                let table_schema = self.schema.clone();
+                let segment_location = location.clone();
+                async move {
+                    let compact_segment =
+                        Self::read_compact_segment(dal, segment_location, table_schema, put_cache)
+                            .await?;
+                    compact_segment
+                        .try_into()
+                        .map_err(|_| ErrorCode::Internal("Failed to convert compact segment info"))
+                }
+                .in_span(Span::enter_with_local_parent(func_path!()))
+            })
+        });
+
+        let threads_nums = self.ctx.get_settings().get_max_threads()? as usize;
+        let permit_nums = threads_nums * 2;
+        execute_futures_in_parallel(
+            tasks,
+            threads_nums,
+            permit_nums,
+            "fuse-req-segments-worker".to_owned(),
+        )
+        .await
+    }
+}

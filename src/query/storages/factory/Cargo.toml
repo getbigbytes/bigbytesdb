@@ -1,0 +1,30 @@
+[package]
+name = "bigbytes-common-storages-factory"
+version = "0.1.0"
+edition = "2021"
+authors = ["Bigbytes Authors <opensource@getbigbytes.com>"]
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+test = true
+
+[dependencies]
+dashmap = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-config = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-meta-app = { workspace = true }
+bigbytes-common-storages-delta = { workspace = true }
+bigbytes-common-storages-fuse = { workspace = true }
+bigbytes-common-storages-iceberg = { workspace = true }
+bigbytes-common-storages-memory = { workspace = true }
+bigbytes-common-storages-null = { workspace = true }
+bigbytes-common-storages-random = { workspace = true }
+bigbytes-common-storages-stream = { workspace = true }
+bigbytes-common-storages-view = { workspace = true }
+bigbytes-storages-common-index = { workspace = true }
+
+[lints]
+workspace = true

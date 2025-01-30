@@ -1,0 +1,23 @@
+[package]
+name = "bigbytes-storages-common-io"
+version = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+publish = { workspace = true }
+edition = { workspace = true }
+
+[dependencies]
+async-backtrace = { workspace = true }
+bytes = { workspace = true }
+bigbytes-common-base = { workspace = true }
+bigbytes-common-catalog = { workspace = true }
+bigbytes-common-exception = { workspace = true }
+bigbytes-common-expression = { workspace = true }
+bigbytes-common-metrics = { workspace = true }
+fastrace = { workspace = true }
+futures = { workspace = true }
+log = { workspace = true }
+opendal = { workspace = true }
+
+[lints]
+workspace = true
